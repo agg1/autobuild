@@ -1,8 +1,4 @@
-#*/* nowerr.conf
-
-#app-admin/rsyslog rsyslog.conf
-
-#broken parallel build
+#sporadically broken parallel build
 app-admin/qtpass noparallel.conf
 net-ftp/vsftpd noparallel.conf
 net-libs/h323plus noparallel.conf
@@ -22,12 +18,3 @@ media-sound/mpc noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
 media-libs/gegl noparallel.conf
 media-video/avidemux noparallel.conf
-
-# -Ofast
-games-fps/darkplaces games.conf
-games-fps/dhewm3 games.conf
-games-fps/freespace-scp games.conf
-games-fps/openarena games.conf
-games-fps/quake3 games.conf
-games-fps/xonotic games.conf
-games-fps/yamagi-quake2 games.conf
