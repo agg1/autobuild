@@ -1,0 +1,59 @@
+#
+sys-fs/lvm2 -thin
+
+# undefined reference to `bindresvport'
+net-irc/irssi -socks5
+
+# The CAP installation appears to be missing or broken
+net-misc/asterisk -caps
+
+media-gfx/sane-backends -v4l
+media-libs/mediastreamer -v4l
+media-video/transcode -v4l
+# otherwise mediastreamer[v4l]
+net-voip/linphone -video
+
+# lintl, liconv
+net-dialup/mingetty -unicode
+# liconv
+net-misc/whois -iconv
+media-sound/mpc -iconv
+
+# compiler-rt-sanitizers obstack.h among other issues
+sys-devel/clang-runtime -sanitize
+
+# C99 complex arithmetics required, cpow
+app-text/texlive -xetex
+app-text/texlive-core -luajittex -xetex
+dev-texlive/texlive-basic -luajittex -xetex
+
+# timidity++ currently broken
+media-libs/sdl2-mixer -timidity
+media-libs/sdl-mixer -timidity
+dev-libs/DirectFB -timidity
+
+# blocked rebuild
+dev-libs/elfutils -nls
+dev-libs/libelf -nls
+# error: 'locale_t' was not declared in this scope
+dev-libs/boost -nls
+# undefined reference to `libintl_gettext'
+sys-apps/attr -nls
+app-portage/portage-utils -nls
+sys-apps/acl -nls
+sys-apps/net-tools -nls
+sys-process/procps -nls
+net-irc/znc -nls
+net-misc/whois -nls
+sys-fs/xfsdump -nls
+sys-fs/xfsprogs -nls
+sys-fs/e2fsprogs -nls
+media-sound/alsa-utils -nls
+app-admin/sysstat -nls
+app-text/dos2unix -nls
+net-dns/dnsmasq -nls
+sys-libs/libsmbios -nls
+sys-apps/man-db -nls
+sys-apps/man-pages -nls
+sys-fs/quota -nls
+dev-vcs/git -nls

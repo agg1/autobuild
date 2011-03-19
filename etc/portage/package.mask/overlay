@@ -14,6 +14,9 @@ gnome-base/gvfs
 # any version greater pulls in dbus
 >x11-misc/xdg-utils-1.1.1-r1
 
+#
+x11-drivers/nvidia-drivers
+
 # gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
 >media-gfx/gimp-2.9.0
 
@@ -85,7 +88,7 @@ gnome-base/gvfs
 >media-libs/freetype-2.9.1-r3
 
 # $mod+e split window broken with 4.14.x
->x11-wm/i3-4.13-r1
+#>x11-wm/i3-4.13-r1
 
 # die "${FUNCNAME}: conversion of incompatible shebang requested";
 >sys-block/fio-3.2
@@ -120,8 +123,18 @@ dev-libs/ocl-icd
 # error: 'CODEC_CAP_TRUNCATED' undeclared (first use in this function); did you mean 'AV_CODEC_CAP_TRUNCATED' 
 >=media-video/ffmpeg-4.0
 
+# No such file or directory: '/var/tmp/portage/dev-lang/python-3.6.6/work/Python-3.6.6/Modules/_ctypes/libffi'
+#>=dev-lang/python-3.6.6
+# /var/tmp/portage/dev-lang/python-2.7.15/work/x86_64-gentoo-linux-uclibc/python: symbol 'ffi_prep_cif': can't resolve symbol
+#=dev-lang/python-2.7.15
+>dev-libs/libffi-3.2.1-r2
+>virtual/libffi-3.0.13-r1
+
 #
 >app-office/libreoffice-6.1.3.2
+
+# requires ocaml which is broken -> /bin/sh: shared-libs-not-available: command not found
+dev-tex/hevea
 
 #
 >=games-fps/freespace-scp-3.7.0
@@ -138,4 +151,4 @@ virtual/jdk
 virtual/jre
 dev-java/icedtea-bin
 dev-lang/mono
-#dev-lang/ocaml
+dev-lang/ocaml

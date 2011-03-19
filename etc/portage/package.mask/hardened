@@ -1,7 +1,8 @@
 >=sys-devel/gcc-9.0.0
+>=sys-devel/binutils-2.31.0
 >=sys-kernel/linux-headers-4.19
 >=sys-kernel/gentoo-sources-4.19.0
->=sys-libs/glibc-2.28
+#>=sys-libs/glibc-2.28
 <sys-apps/coreutils-8.30
 sys-kernel/linux-firmware
 sys-apps/systemd
@@ -16,6 +17,7 @@ dev-libs/openssl
 dev-libs/nettle
 net-libs/gnutls
 app-crypt/gpa
+sys-apps/rng-tools
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.12.0
 >dev-util/catalyst-3.0.3

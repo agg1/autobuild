@@ -18,7 +18,7 @@ net-misc/openssh -bindist -X
 #net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
-sys-fs/cryptsetup -python -gcrypt openssl libressl
+sys-fs/cryptsetup -python -openssl gcrypt -nls
 
 # required by genkernel
 sys-apps/util-linux static-libs
@@ -62,7 +62,7 @@ dev-qt/qtgui -dbus -libinput
 dev-qt/qtwidgets -gtk
 
 # otherwise gnutls is required
-media-video/vlc -ssl
+media-video/vlc -ssl -v4l
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
 # ERROR: smbclient not found
@@ -88,6 +88,9 @@ x11-base/xorg-server xorg suid glamor xcsecurity
 
 # automount requires dbus
 x11-libs/libfm -automount -udisks
+
+# required by vmware
+x11-libs/libdrm libkms
 
 #
 net-wireless/aircrack-ng -airdrop-ng
@@ -150,7 +153,7 @@ net-misc/dhcpcd-ui -gtk gtk3
 sys-block/gparted btffs cryptsetup dmraid f2fs fat jfs mdadm ntfs udf xfs -kde
 
 # ntfsdecrypt requires gnutls
-sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
+sys-fs/ntfs3g -ntfsdecrypt ntfsprogs -external-fuse
 
 # circular dependency qtcore -> cmake -> qt
 dev-util/cmake -qt5
@@ -169,9 +172,6 @@ app-text/mupdf -openssl
 
 #
 www-client/netsurf duktape javascript gtk3
-
-# required by freeorion
-#dev-libs/boost python icu
 
 # error: 'GL_PROJECTION' was not declared
 media-video/avidemux -opengl -qt5

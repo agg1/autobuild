@@ -1,0 +1,25 @@
+#
+sys-libs/glibc
+
+# argp.h not found
+media-libs/libv4l
+
+# memfrob patch, not required anymore once git[cvs] pulls in cvsps-3.x
+>=dev-vcs/cvsps-2.2
+
+# build broken currently, linking issues with libiconv and internally
+sys-fs/fuse
+sys-fs/fuse-common
+
+# missing locale support yet
+sys-libs/timezone-data
+
+# requires missing gencat
+dev-libs/xalan-c
+
+# undefined reference to `fcvt'
+# undefined reference to `ecvt'
+sys-apps/xinet
+
+# broken linking against alsa, fPIC flag not applied although Makefile.in is patched
+media-sound/timidity++

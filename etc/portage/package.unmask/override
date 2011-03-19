@@ -31,3 +31,6 @@ net-libs/libosip
 
 # Masked for removal on 2018-11-24, bug #669650.
 dev-db/pgadmin3
+
+# required by ltrace
+dev-libs/elfutils
