@@ -134,6 +134,9 @@ media-gfx/fbida
 # gnutls
 net-ftp/filezilla
 
+# textenums.h no such file
+>=net-irc/hexchat-2.13.0
+
 # outdated, media-sound/mpv instead
 media-video/mplayer
 

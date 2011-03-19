@@ -34,3 +34,4 @@ net-fs/samba noparallel.conf
 www-apps/ikiwiki noparallel.conf
 sci-libs/scipy noparallel.conf
 app-text/texlive-core noparallel.conf
+#net-irc/hexchat noparallel.conf
