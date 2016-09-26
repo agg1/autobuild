@@ -1,0 +1,64 @@
+#!/bin/sh
+
+/etc/init.d/syslog-ng stop
+sysctl -w kernel.randomize_va_space=2
+sysctl -w vm.swappiness=0
+echo 0 > /proc/sys/vm/swappiness
+echo 3 > /proc/sys/vm/drop_caches
+mount -o remount,rw,hidepid=2 /proc
+
+# do things before locking firewall down
+#cp -pR /home/livecd/etc /
+mkdir -p /usr/portage/distfiles
+mount --bind  /home/distfiles/ /usr/portage/distfiles
+mkdir -p /usr/portage/packages
+mount --bind /home/packages /usr/portage/packages
+
+#mkdir -p /media/nfs/data ; chown gentoo:users /media/nfs/data
+#mkdir -p /media/nfs/public ; chown gentoo:users /media/nfs/public
+#mkdir -p /media/nfs/transfer ; chown gentoo:users /media/nfs/transfer
+##mount -t nfs -o mountproto=udp,rsize=32768,wsize=32768,nolock 172.16.2.34:/media/data /media/nfs/data
+#mount -t nfs -o mountproto=udp,rsize=32768,wsize=32768,nolock,soft 172.16.2.34:/media/data/public /media/nfs/public
+#mount -t nfs -o mountproto=udp,rsize=32768,wsize=32768,nolock,soft 172.16.2.34:/media/data/transfer /media/nfs/transfer
+
+ntpdate 172.16.2.1
+
+groupadd -g 7777 lanout
+groupadd -g 8888 wanout
+usermod -G wanout,lanout -a gentoo
+
+LANUSERS=""
+WANUSERS=""
+LANGROUPS="7777"
+WANGROUPS="250 8888"
+iptables -F
+iptables -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+for u in $WANUSERS ; do
+  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+  iptables -A OUTPUT -m owner --uid-owner $u -j ACCEPT
+done
+for u in $LANUSERS ; do
+  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j ACCEPT
+done
+for g in $WANGROUPS ; do
+  iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+  iptables -A OUTPUT -m owner --gid-owner $g -j ACCEPT
+done
+for g in $LANGROUPS ; do
+  iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 -j ACCEPT
+done
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#cd /home/gentoo/source/systrace ; make install
+#/etc/init.d/dbus stop
+#chmod 000 /usr/bin/dbus-*
+#hdparm  -y /dev/sda
+#hdparm  -y /dev/sdb
+
+#init q

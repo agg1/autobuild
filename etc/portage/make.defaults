@@ -1,0 +1,27 @@
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+GENTOO_MIRRORS="http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
+
+# We don't need to have pic on
+USE="hardened -pic -kdbus -branding -bindist -consolekit -policykit -pam -dbus -systemd -pulseaudio -gvfs -gnome-keyring"
+#-udev
+
+ARCH="amd64"
+#ACCEPT_KEYWORDS="${ARCH}"
+
+MULTILIB_ABIS="amd64"
+
+# Mirror profile/amd64/no-multilib/make.defaults
+USE_EXPAND_HIDDEN="ABI_X86"
+
+VIDEO_CARDS="i915 i965 r100 r200 r300 r600 qxl virtualbox nouveau glint intel mach64 mga nv r128 radeon savage tdfx trident vesa via vmware cirrus ast chips i128 i740 imstt s3virge tseng v4l vermilion"
+LINGUAS="af ar as ast az be bg bn bo br brx bs ca ca@valencia ca_XV cs csb cy da de dgo dz el en en_GB en_ZA eo es et eu fa fi fo fr fy ga gd gl gu gu_IN ha he hi hr hsb hu ia id is it ja ka kk km kn kn_IN ko kok ks ku lb lo lt lv mai mi mk ml mn mni mr ms mt my nb nds ne nl nn nr nso oc om or pa pa_IN pl pt pt_BR ro ru rw sa_IN sat sd se sh si sk sl sq sr ss st sv sw sw_TZ ta ta_IN te tg th tn tr ts tt ug uk uz ve ven vi wa xh zh_CN zh_HK zh_TW zu"
+INPUT_DEVICES="evdev keyboard mouse synaptics virtualbox mutouch vmmouse"
+
+#ACCEPT_LICENSE="-* @FREE"
+#pick developement versions??
+ACCEPT_KEYWORDS="~amd64"
+
+EMERGE_DEFAULT_OPTS="--jobs=16"

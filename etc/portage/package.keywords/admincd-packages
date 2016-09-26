@@ -1,0 +1,9 @@
+sys-apps/chname
+sys-block/lsiutil
+sys-block/megacli
+sys-block/megarc
+sys-fs/ext3grep
+net-analyzer/portbunny **
+net-wireless/airpwn **
+net-firewall/pftop **
+net-wireless/lorcon-old **
