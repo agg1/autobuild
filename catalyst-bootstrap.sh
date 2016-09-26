@@ -51,6 +51,8 @@ mkdir -p /var/tmp/catalyst/builds/hardened
 ln -sf /home/catalyst/portage/profiles/hardened/linux/musl/amd64/ /home/catalyst/etc/portage/make.profile
 
 cp /home/catalyst/etc/portage/make.defaults /usr/portage/profiles/hardened/linux/amd64/no-multilib/
+cd /usr/portage ; git commit -m "hardened no-multilib make.defaults" profiles/hardened/linux/amd64/no-multilib/make.defaults
+cd -
 
 #umount -f /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/kerncache
 #umount -f /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/usr/portage/packages

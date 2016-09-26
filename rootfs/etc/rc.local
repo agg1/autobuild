@@ -1,10 +1,10 @@
 #!/bin/sh
 
-/etc/init.d/syslog-ng stop
-sysctl -w kernel.randomize_va_space=2
-sysctl -w vm.swappiness=0
-echo 0 > /proc/sys/vm/swappiness
+#/etc/init.d/syslog-ng stop
+#sysctl -w vm.swappiness=0
+#echo 0 > /proc/sys/vm/swappiness
 #echo 3 > /proc/sys/vm/drop_caches
+sysctl -w kernel.randomize_va_space=2
 mount -o remount,rw,hidepid=2 /proc
 
 # do things before locking firewall down
