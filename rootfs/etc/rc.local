@@ -4,15 +4,15 @@
 sysctl -w kernel.randomize_va_space=2
 sysctl -w vm.swappiness=0
 echo 0 > /proc/sys/vm/swappiness
-echo 3 > /proc/sys/vm/drop_caches
+#echo 3 > /proc/sys/vm/drop_caches
 mount -o remount,rw,hidepid=2 /proc
 
 # do things before locking firewall down
 #cp -pR /home/livecd/etc /
 mkdir -p /usr/portage/distfiles
-mount --bind  /home/distfiles/ /usr/portage/distfiles
+mount --bind  /home/catalyst/distfiles/ /usr/portage/distfiles
 mkdir -p /usr/portage/packages
-mount --bind /home/packages /usr/portage/packages
+mount --bind /home/catalyst/packages /usr/portage/packages
 
 #mkdir -p /media/nfs/data ; chown gentoo:users /media/nfs/data
 #mkdir -p /media/nfs/public ; chown gentoo:users /media/nfs/public
