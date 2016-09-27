@@ -77,7 +77,6 @@ cp /home/catalyst/etc/portage/genkernel.conf /etc/portage/genkernel.conf
 mkdir -p ${CADIR}/seeds/desktop/${RELDA}
 mkdir -p ${CADIR}/seeds/init/${RELDA}
 mkdir -p ${CADIR}/seeds/minimal/${RELDA}
-mkdir -p ${CADIR}/packages/${RELDA}
 
 rm -rf /var/tmp/catalyst/tmp/hardened/
 rm -rf /var/tmp/catalyst/packages/hardened
@@ -126,9 +125,8 @@ catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-init.
 cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${CADIR}/seeds/minimal/${RELDA} && \
 cp -p ${BDDIR}/admincd-amd64-latest.iso* ${CADIR}/seeds/minimal/${RELDA} && \
 ln -sf ${CADIR}/seeds/minimal/${RELDA} ${CADIR}/seeds/minimal/latest
-cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${CADIR}/packages/${RELDA}
-cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage2-amd64-latest/* ${CADIR}/packages/${RELDA}
-ln -sf ${CADIR}/packages/${RELDA} ${CADIR}/packages/latest
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${CADIR}/packages/
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage2-amd64-latest/* ${CADIR}/packages/
 
 rm -rf /var/tmp/catalyst/tmp/hardened/
 rm -rf /var/tmp/catalyst/packages/hardened
@@ -145,9 +143,8 @@ catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec 
 cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${CADIR}/seeds/desktop/${RELDA} && \
 cp -p ${BDDIR}/admincd-amd64-latest.iso* ${CADIR}/seeds/desktop/${RELDA} && \
 ln -sf ${CADIR}/seeds/desktop/${RELDA} ${CADIR}/seeds/desktop/latest
-cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${CADIR}/packages/${RELDA}
-cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage2-amd64-latest/* ${CADIR}/packages/${RELDA}
-ln -sf ${CADIR}/packages/${RELDA} ${CADIR}/packages/latest
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${CADIR}/packages/
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage2-amd64-latest/* ${CADIR}/packages/
 
 rm -rf /var/tmp/catalyst/tmp/hardened/
 rm -rf /var/tmp/catalyst/packages/hardened
