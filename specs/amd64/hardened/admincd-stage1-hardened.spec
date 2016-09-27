@@ -84,6 +84,7 @@ livecd/use:
 #	static
 
 livecd/packages:
+#	app-accessibility/espeakup
 #    app-doc/doxygen
 	app-admin/bastille
 	app-admin/checksec

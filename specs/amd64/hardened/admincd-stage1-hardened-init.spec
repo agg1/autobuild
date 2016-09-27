@@ -84,6 +84,7 @@ livecd/use:
 livecd/packages:
 #    app-doc/doxygen
 	app-accessibility/brltty
+#	app-accessibility/espeakup
 	app-admin/hddtemp
 	app-admin/passook
 	app-admin/pwgen
@@ -145,6 +146,8 @@ livecd/packages:
 	dev-util/catalyst
 	dev-vcs/git
 	media-gfx/fbgrab
+	media-libs/alsa-oss
+	media-sound/alsa-utils
 	net-analyzer/gnu-netcat
 	net-analyzer/iptraf-ng
 	net-analyzer/netcat6
@@ -153,6 +156,7 @@ livecd/packages:
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
+#	net-dialup/globespan-adsl
 	net-analyzer/nmap
 	net-dialup/mingetty
 	net-dialup/minicom
@@ -187,6 +191,7 @@ livecd/packages:
 	net-wireless/rfkill
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
+	sys-apps/pcmciautils
 	sys-apps/portage
 #	sys-apps/apmd
 	sys-apps/arrayprobe
