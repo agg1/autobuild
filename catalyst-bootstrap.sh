@@ -48,11 +48,21 @@ export BDDIR="/var/tmp/catalyst/builds/hardened"
 
 mkdir -p /var/tmp/catalyst/builds/hardened
 #/home/source/portage/repo/gentoo/profiles/hardened/linux/amd64/no-multilib/
-ln -sf /home/catalyst/portage/profiles/hardened/linux/musl/amd64/ /home/catalyst/etc/portage/make.profile
+#ln -sf /home/catalyst/portage/profiles/hardened/linux/musl/amd64/ /home/catalyst/etc/portage/make.profile
 
 cp /home/catalyst/etc/portage/make.defaults /usr/portage/profiles/hardened/linux/amd64/no-multilib/
-cd /usr/portage ; git commit -m "hardened no-multilib make.defaults" profiles/hardened/linux/amd64/no-multilib/make.defaults
+cp /home/catalyst/dmraid-1.0.0_rc16-r3.ebuild /usr/portage/sys-fs/dmraid
+cd /usr/portage
+git config --global user.email "aggi@localhost"
+git config --global user.name "aggi"
+git commit -m "hardened no-multilib make.defaults" profiles/hardened/linux/amd64/no-multilib/make.defaults
+git commit -m "quickfix for non-parallel dmraid build" sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild
 cd -
+
+cp /home/catalyst/etc/portage/make.conf /etc/portage
+cp /home/catalyst/etc/portage/make.conf.catalyst /etc/portage
+cp /home/catalyst/etc/portage/kconfig /etc/portage/
+cp /home/catalyst/etc/portage/genkernel.conf /etc/portage/genkernel.conf
 
 #umount -f /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/kerncache
 #umount -f /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/usr/portage/packages
@@ -67,7 +77,13 @@ cd -
 mkdir -p ${CADIR}/seeds/desktop/${RELDA}
 mkdir -p ${CADIR}/seeds/init/${RELDA}
 mkdir -p ${CADIR}/seeds/minimal/${RELDA}
+mkdir -p ${CADIR}/packages/${RELDA}
 
+rm -rf /var/tmp/catalyst/tmp/hardened/
+rm -rf /var/tmp/catalyst/packages/hardened
+rm -rf /var/tmp/catalyst/kerncache/hardened
+
+emerge catalyst
 catalyst -v -c ${CCONF} -s $STAMP
 
 ### build seed tarball from official stage3 seed
@@ -81,7 +97,11 @@ catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spe
 cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${CADIR}/seeds/init/${RELDA} && \
 ln -sf ${CADIR}/seeds/init/${RELDA} ${CADIR}/seeds/init/latest
 
-### build seed tarball
+rm -rf /var/tmp/catalyst/tmp/hardened/
+rm -rf /var/tmp/catalyst/packages/hardened
+rm -rf /var/tmp/catalyst/kerncache/hardened
+
+### build seed tarball from custom seed
 cp ${CADIR}/seeds/init/latest/* ${BDDIR}
 rm -f ${CADIR}/seeds/init/latest
 sg wanout -c "catalyst -v -F -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP" && \
@@ -92,26 +112,46 @@ catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spe
 cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${CADIR}/seeds/init/${RELDA} && \
 ln -sf ${CADIR}/seeds/init/${RELDA} ${CADIR}/seeds/init/latest
 
+rm -rf /var/tmp/catalyst/tmp/hardened/
+rm -rf /var/tmp/catalyst/packages/hardened
+rm -rf /var/tmp/catalyst/kerncache/hardened
+
 ### build minimal livecd from new seed tarball
 cp ${CADIR}/seeds/init/latest/* ${BDDIR}
 rm -f ${CADIR}/seeds/minimal/latest
+rm -f ${CADIR}/packages/latest
 sg wanout -c "catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP" && \
 catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP && \
 catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP && \
 cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${CADIR}/seeds/minimal/${RELDA} && \
 cp -p ${BDDIR}/admincd-amd64-latest.iso* ${CADIR}/seeds/minimal/${RELDA} && \
 ln -sf ${CADIR}/seeds/minimal/${RELDA} ${CADIR}/seeds/minimal/latest
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${CADIR}/packages/${RELDA}
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage2-amd64-latest/* ${CADIR}/packages/${RELDA}
+ln -sf ${CADIR}/packages/${RELDA} ${CADIR}/packages/latest
+
+rm -rf /var/tmp/catalyst/tmp/hardened/
+rm -rf /var/tmp/catalyst/packages/hardened
+rm -rf /var/tmp/catalyst/kerncache/hardened
 
 ### build desktop livecd from minimal seed tarball
 #cp ${CADIR}/seeds/desktop/latest/* ${BDDIR}
 cp ${CADIR}/seeds/minimal/latest/* ${BDDIR}
 rm -f ${CADIR}/seeds/desktop/latest
+${CADIR}/packages/latest
 sg wanout -c "catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP" && \
 catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP && \
 catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP && \
 cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${CADIR}/seeds/desktop/${RELDA} && \
 cp -p ${BDDIR}/admincd-amd64-latest.iso* ${CADIR}/seeds/desktop/${RELDA} && \
 ln -sf ${CADIR}/seeds/desktop/${RELDA} ${CADIR}/seeds/desktop/latest
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${CADIR}/packages/${RELDA}
+cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage2-amd64-latest/* ${CADIR}/packages/${RELDA}
+ln -sf ${CADIR}/packages/${RELDA} ${CADIR}/packages/latest
+
+rm -rf /var/tmp/catalyst/tmp/hardened/
+rm -rf /var/tmp/catalyst/packages/hardened
+rm -rf /var/tmp/catalyst/kerncache/hardened
 
 ### hardened musl livecd
 #cp /home/catalyst/seeds/stage3-amd64-musl-hardened-20160904.tar.bz2 /var/tmp/catalyst/builds/hardened

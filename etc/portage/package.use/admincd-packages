@@ -12,7 +12,8 @@ x11-libs/gdk-pixbuf X
 net-wireless/lorcon python
 x11-libs/libxkbcommon X
 media-libs/libpng apng
-dev-lang/python sqlite
+#sqlite
+dev-lang/python xml
 x11-libs/pango X
 x11-libs/cairo X xcb opengl
 dev-cpp/cairomm X

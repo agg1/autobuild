@@ -6,6 +6,8 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage4-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
+cflags: -O3 -pipe -march=nehalem -mtune=nehalem
+cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
 
 #-udev
 livecd/use:
@@ -106,7 +108,7 @@ livecd/packages:
 	app-benchmarks/dbench
 	app-benchmarks/iozone
 	app-benchmarks/stress
-	app-benchmarks/tiobench
+#	app-benchmarks/tiobench
 	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/pinentry
@@ -140,6 +142,7 @@ livecd/packages:
 	dev-lang/python
 	dev-libs/openssl
 #	dev-libs/libressl
+	dev-util/catalyst
 	dev-vcs/git
 	media-gfx/fbgrab
 	net-analyzer/gnu-netcat
@@ -235,8 +238,8 @@ livecd/packages:
 	sys-block/tw_cli
 #	sys-boot/grub
 	sys-devel/bc
-    sys-devel/gcc-config
-    sys-devel/binutils-config
+	sys-devel/gcc-config
+	sys-devel/binutils-config
 #	sys-fs/eudev
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
@@ -256,11 +259,12 @@ livecd/packages:
 	sys-fs/ntfs3g
 	sys-fs/reiserfsprogs
 	sys-fs/xfsprogs
+        sys-kernel/genkernel
 	sys-libs/gpm
 	sys-libs/libsmbios
 #	sys-power/acpid
-	sys-power/pm-quirks
-	sys-power/pm-utils
+#	sys-power/pm-quirks
+#	sys-power/pm-utils
 	sys-process/htop
 	sys-process/lsof
 	sys-process/iotop

@@ -8,8 +8,8 @@ source_subpath: hardened/stage4-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
 #portage_overlay: /home/source/portage/proj/musl
 #chost: TARCH-gentoo-linux-musl
-#cflags: -O2 -pipe
-#cxxflags: -O2 -pipe
+cflags: -O3 -pipe -march=nehalem -mtune=nehalem
+cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
 
 #-udev
 livecd/use:
@@ -498,7 +498,7 @@ livecd/packages:
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
 	net-analyzer/masscan
-	net-analyzer/metasploit
+#	net-analyzer/metasploit
 #	net-analyzer/monitoring-plugins
 #	net-analyzer/nagios
 	net-analyzer/namebench
@@ -517,7 +517,7 @@ livecd/packages:
 	net-analyzer/openvas
 	net-analyzer/p0f
 	net-analyzer/packit
-	net-analyzer/portbunny
+#	net-analyzer/portbunny
 	net-analyzer/portsentry
 	net-analyzer/rrdtool
 #	net-analyzer/sarg
@@ -527,7 +527,7 @@ livecd/packages:
 	net-analyzer/snort
 	net-analyzer/ssldump
 	net-analyzer/sslscan
-	net-analyzer/sslsniff
+#	net-analyzer/sslsniff
 	net-analyzer/synscan
 	net-analyzer/tcpdump
 	net-analyzer/tcptraceroute
@@ -556,7 +556,7 @@ livecd/packages:
 	net-firewall/fwipsec
 	net-firewall/fwknop
 	net-firewall/ipsec-tools
-	net-firewall/ipset
+#	net-firewall/ipset
 #	net-firewall/ipt_netflow
 	net-firewall/iptables
 	net-firewall/itval
@@ -620,8 +620,8 @@ livecd/packages:
 	net-proxy/tsocks
 #	net-proxy/ziproxy
 #	net-voip/
-	net-wireless/aircrack-ng
-	net-wireless/airpwn
+#	net-wireless/aircrack-ng
+#	net-wireless/airpwn
 	net-wireless/airsnort
 	net-wireless/airtraf
 	net-wireless/b43-fwcutter
@@ -632,7 +632,7 @@ livecd/packages:
 	net-wireless/hostapd
 	net-wireless/iw
 #	net-wireless/kismet
-	net-wireless/lorcon
+#	net-wireless/lorcon
 	net-wireless/mdk
 	net-wireless/mfoc
 	net-wireless/pyrit
@@ -779,7 +779,7 @@ livecd/packages:
 #	www-apps/
 	www-client/firefox
 	www-client/links
-	www-client/w3mmee
+	www-client/w3m
 #	www-misc/
 #	www-plugins/
 	www-servers/apache

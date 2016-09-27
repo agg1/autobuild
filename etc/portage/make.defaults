@@ -3,6 +3,10 @@
 # $Id$
 
 GENTOO_MIRRORS="http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
+PORTAGE_CHECKSUM_FILTER="-* sha512"
+PORTAGE_COMPRESS=""
+#PORTAGE_COMPRESS_FLAGS=""
+#PORTAGE_COMPRESS_EXCLUDE_SUFFIXES=""
 
 # We don't need to have pic on
 USE="hardened -pic -kdbus -branding -bindist -consolekit -policykit -pam -dbus -systemd -pulseaudio -gvfs -gnome-keyring"

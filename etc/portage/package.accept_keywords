@@ -1,4 +1,4 @@
 #required by sys-apps/chname (argument)
-=sys-apps/chname-1.0-r2 ~amd64
+#=sys-apps/chname-1.0-r2 ~amd64
 # required by sys-fs/ext3grep (argument)
-=sys-fs/ext3grep-0.10.2 ~amd64
+#=sys-fs/ext3grep-0.10.2 ~amd64

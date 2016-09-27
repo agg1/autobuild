@@ -6,27 +6,29 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
+cflags: -O3 -pipe -march=nehalem -mtune=nehalem
+cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
 
 #-udev
 stage4/use:
 	-consolekit
 	-policykit
 	-pam
-    -systemd
+	-systemd
 	-kdbus
 	-dbus
-    -pulseaudio
-    -bindist
+	-pulseaudio
+	-bindist
 	-branding
 	-gvfs
-    bzip2
-    hardened
-    ipv6
-    keyscrub
+	bzip2
+	hardened
+	ipv6
+	keyscrub
 	loop-aes
 	extra-ciphers
 	lvm1
-    urandom
+	urandom
 
 stage4/packages:
 	sys-devel/bc
@@ -46,7 +48,7 @@ stage4/unmerge:
 	sys-libs/pam
 	sys-auth/pambase
 	sys-kernel/genkernel
-	sys-kernel/gentoo-sources
+#	sys-kernel/gentoo-sources
 
 stage4/empty:
 	/root/.ccache
