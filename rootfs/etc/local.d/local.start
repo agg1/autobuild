@@ -1,11 +1,26 @@
 #!/bin/sh
+iptables -F
+iptables -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
 
 #/etc/init.d/syslog-ng stop
 #sysctl -w vm.swappiness=0
-#echo 0 > /proc/sys/vm/swappiness
-#echo 3 > /proc/sys/vm/drop_caches
-sysctl -w kernel.randomize_va_space=2
-mount -o remount,rw,hidepid=2 /proc
+#sysctl -w kernel.randomize_va_space=2
+echo 524288 > /proc/sys/vm/min_free_kbytes
+echo 0 > /proc/sys/vm/swappiness
+echo 3 > /proc/sys/vm/drop_caches
+echo 2 > /proc/sys/kernel/randomize_va_space
+umount /mnt/cdrom || true
+umount /sys/fs/cgroup/openrc || true
+umount /sys/fs/cgroup || true
+umount /sys/fs/fuse/connections || true
+umount /dev/mqueue || true
+umount /dev/shm || true
+
+mount -o remount,hidepid=2 /proc/
+mount -t tmpfs -o size=1G tmpfs /usr/local/
 
 # do things before locking firewall down
 #cp -pR /home/livecd/etc /
@@ -26,16 +41,12 @@ ntpdate 172.16.2.1
 groupadd -g 7777 lanout
 groupadd -g 8888 wanout
 usermod -G wanout,lanout -a gentoo
+useradd -u 9999 fw01
 
 LANUSERS=""
 WANUSERS=""
 LANGROUPS="7777"
 WANGROUPS="250 8888"
-iptables -F
-iptables -X
-iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
@@ -56,9 +67,13 @@ done
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 #cd /home/gentoo/source/systrace ; make install
-#/etc/init.d/dbus stop
-#chmod 000 /usr/bin/dbus-*
 #hdparm  -y /dev/sda
 #hdparm  -y /dev/sdb
+
+
+cat /proc/cmdline | grep docache
+if [ $? -eq 1 ] ; then
+    [ -e /usr/bin/eject ] && eject /dev/sr0 || true
+fi
 
 #init q
