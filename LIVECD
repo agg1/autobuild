@@ -1,0 +1,207 @@
+# encrypt home drive
+cryptsetup --verify-passphrase --hash=sha512 --cipher=aes-xts-plain --key-size=512 luksFormat /dev/sdd
+cryptsetup luksOpen /dev/sdd home
+mkfs.ext4 -O metadata_csum /dev/mapper/home
+#fsck.ext -fy /dev/mapper/home
+#tune2fs -O metadata_csum /dev/mapper/home
+#dumpe2fs /dev/mapper/home
+
+mkdir -p /mnt/home
+mount /dev/mapper/home
+mkdir -p /mnt/home/gentoo
+chown gentoo:users /mnt/home/gentoo/
+
+chown -R portage:portage /home/livecd/distfiles/
+chown -R root:portage /etc/portage/package.use/
+chmod -R g+rwX /etc/portage/package.use/
+
+useradd -u 9999 -G games,audio,netout gamer
+useradd -u 1001 office
+
+groupadd -g 7777 lanout
+groupadd -g 8888 wanout
+
+usermod -G wanout -a gamer
+usermod -G wanout,lanout -a office
+usermod -G wanout,lanout -a gentoo
+
+#/etc/security/limits.conf
+#gamer   hard    priority        5
+
+passwd gentoo
+passwd gamer
+passwd office
+
+mkdir /home/livecd/etc
+cp -a /etc/group /home/livecd/etc
+cp -a /etc/shadow /home/livecd/etc
+cp -a /etc/sudoers /home/livecd/etc
+cp -a /etc/inittab /home/livecd/etc
+
+# after reboot
+cryptsetup luksOpen /dev/sdd home
+mount /dev/mapper/home /home
+sh /home/locksys.sh
+
+
+# ssh -vT git@github.com
+ssh-keygen -t ed25519
+ssh-keygen -t dsa
+ssh-keygen -t rsa
+
+#https://wiki.gentoo.org/wiki/Gentoo_git_workflow
+#https://wiki.gentoo.org/wiki/Layman
+#https://wiki.gentoo.org/wiki/Project:Portage/Sync
+#git clone git+ssh://git@git.gentoo.org/proj/portage.git
+#git clone https://anongit.gentoo.org/git/proj/portage.git
+#
+#git clone https://anongit.gentoo.org/git/proj/kde.git
+#git clone https://anongit.gentoo.org/repo/proj/gentoo.git
+
+# https://wiki.gentoo.org/wiki/Project:Portage/Sync
+#emaint sync -r kde gentoo
+#emaint sync -r gentoo
+#emaint sync -r kde
+#
+#https://wiki.gentoo.org/wiki/Upgrading_Gentoo
+#https://wiki.gentoo.org/wiki/Binary_package_guide
+
+emaint -A sync
+#emerge --sync
+#download source distfiles only
+#emerge -efD world
+#emerge --resume -p | genlop -p
+
+# SEE vi /etc/portage/package.mask/mask to hide packages, particularly broken ones
+#emerge -C xfsprogs
+#emerge -C xf86-video-virtualbox
+
+
+## KERNEL BUILD
+https://wiki.gentoo.org/wiki/Kernel/Upgrade
+#emerge --oneshot portage
+
+### build livecd inside chroot
+#
+
+https://wiki.gentoo.org/wiki/Gentoo_Without_systemd
+eudev
+-udev -systemd -pam -dbus -bash -polkit -consolekit -pulseaudio -avahi
+EMERGE_DEFAULT_OPTS=--with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8
+#--autounmask y --autounmask-write y --jobs=32 -kbvuUD --with-test-deps y --with-bdeps y
+
+emerge --ask --depclean kde-base/kdelibs $(qlist -IC 'kde-base/*') $(for name in $(qlist -IC | grep -v '^kde-base/') ; do ( qdepends -C $name | grep -q kdelibs ) && echo $name ; done)
+
+emerge --ask -C @kde-4.X @kdebase-4.X @kde-3.5
+
+#sudo -u portage emerge -f '=x11-libs/gtk+-1.2.10-r13'
+#netsurf
+
+emerge -C dbus
+emerge --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 -kbv @preserved-rebuild
+
+sg wanout -c 'emerge -uNf @world'
+emerge --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 -kbvuND @world
+emerge --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 -kbv @preserved-rebuild
+revdep-rebuild -v
+emerge --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 -kbvuND jail gentoolkit genlop mesa mesa-progs i3 i3status xlockmore xautolock xhost pciutils dev-libs/DirectFB openssl openssh opencl mplayer pwsafe wxpython evince dev-util/cloc myspell-de_1901 catalyst
+emerge --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 -kbv @preserved-rebuild
+revdep-rebuild -v
+#-p
+etc-update --automode -5
+cp -a /home/livecd/etc/sudoers /etc
+
+emerge --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 -kbv darkplaces xonotic quake3 quake4 doom3 doom3-roe
+#qbittorrent
+
+#valgrind
+
+e4crypt
+
+keyring maintenance? tpm?
+sync sources
+
+https://github.com/ganto/freeipa
+
+equery list "*"
+equery depends "=app-crypts/gnupg-1.4.21"
+equery depends
+equery belongs -e /etc/man.conf
+eanalyze
+emerge --info
+eselect profile list
+eselect kernel show
+eselect profile set 6 && eselect profile show
+emerge -v --depclean <atom> # -p
+emerge -av --depclean
+--usepkgonly
+euse -D 3dfx
+glsa-check
+keyctl show
+
+quse -D bindist
+-bindist
+
+#https://gentoo.org/support/use-flags/
+# world list
+#https://gentoo.org/support/use-flags/
+
+darkplaces
+xonotic
+
+# architecture flags for nehalem
+
+# fetch all
+emerge -F
+
+quickpkg  --include-config y --include-unmodified-config y "*/*"
+
+# 9999 ebuilds
+
+https://wiki.gentoo.org/wiki/Gentoolkit
+https://gitweb.gentoo.org/
+https://security.gentoo.org/
+https://wiki.gentoo.org/wiki/SELinux/Installation#Installing_a_SELinux_kernel
+https://wiki.gentoo.org/wiki/Catalyst#Specs
+https://wiki.archlinux.org/index.php/ext4#Using_ext4_per_directory_encryption
+https://wiki.gentoo.org/wiki/SELinux
+http://www.cyberciti.biz/tips/block-outgoing-network-access-for-a-single-user-from-my-server-using-iptables.html
+https://www.cvedetails.com
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/SELinux_Guide/rhlcommon-section-0104.html
+https://wiki.gentoo.org/wiki/Gentoo_Cheat_Sheet#Package_installation_and_removal
+#check mounted filesystems for errors taking crc32 into account???
+http://www.admin-magazin.de/Das-Heft/2009/03/Rechte-ueber-File-Capabilities-einschraenken
+#HIGHMEM64
+#gcc -dumpspecs | less
+replace glibc!!!
+#https://wiki.gentoo.org/wiki/Project:Hardened_uClibc
+#https://wiki.gentoo.org/wiki/Project:Hardened_musl
+#handbook
+libressl
+#https://www.jayway.com/2015/03/21/a-not-very-short-introduction-to-docker/
+#dijkstra
+
+#blueray backup
+
+#softether
+#metasploit
+#ipv6
+#docker
+#tinkyflash
+#replace glibc
+#disable multilib
+#firefox noflash, noscript, adblock
+#clone git repos
+#honeypot
+#proxies
+#ulimits
+#make.profile
+#vi portage/profiles/use.desc
+
+#app-eselect/eselect-mesa
+
+# livecd spec files
+#Recording app-text/hunspell in "world" favorites file...
+#
+### KEY LOCATION for package verification
+# distfile mirror
