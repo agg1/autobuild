@@ -28,3 +28,5 @@
 #guest   L0
 # this account has no limits
 #sysadm  -
+
+* M8192 N262144 U262144 S65536
