@@ -1,0 +1,32 @@
+--- /usr/share/catalyst/targets/stage1/stage1-preclean-chroot.sh	2016-10-02 02:51:53.592702063 +0000
++++ /usr/share/catalyst/targets/stage1/stage1-preclean-chroot.sh	2016-10-02 02:54:53.239709205 +0000
+@@ -1,5 +1,6 @@
+ #!/bin/bash
+ 
++export ROOT=/tmp/stage1root
+ export RUN_DEFAULT_FUNCS="no"
+ 
+ source /tmp/chroot-functions.sh
+@@ -8,7 +9,7 @@
+ show_debug
+ 
+ # Now, some finishing touches to initialize gcc-config....
+-unset ROOT
++#unset ROOT
+ 
+ setup_gcc
+ setup_binutils
+
+--- /usr/share/catalyst/targets/support/bootloader-setup.sh	2016-10-02 18:10:24.023893122 +0000
++++ /usr/share/catalyst/targets/support/bootloader-setup.sh	2016-10-02 18:17:45.694910682 +0000
+@@ -269,8 +269,8 @@
+ 			icfg=$1/isolinux/isolinux.cfg
+ 			kmsg=$1/isolinux/kernels.msg
+ 			echo "default ${first}" > ${icfg}
+-			echo "timeout 150" >> ${icfg}
+-			echo "ontimeout localhost" >> ${icfg}
++			echo "timeout 30" >> ${icfg}
++			echo "ontimeout gentoo" >> ${icfg}
+ 			echo "prompt 1" >> ${icfg}
+ 			echo "display boot.msg" >> ${icfg}
+ 			echo "F1 kernels.msg" >> ${icfg}
