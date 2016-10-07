@@ -5,6 +5,14 @@ sys-auth/polkit
 sys-libs/pam
 sys-auth/pambase
 sys-apps/dbus
-media-sound/pulseaudio
-gnome-base/gvfs
 app-accessibility/at-spi2-atk
+>=x11-libs/gtk+-3.0
+gnome-base/gvfs
+media-sound/pulseaudio
+x11-drivers/xf86-video-nouveau
+x11-drivers/xf86-video-trident
+x11-drivers/xf86-video-virtualbox
+x11-drivers/xf86-video-vmware
+x11-drivers/xf86-video-qxl
+# last known gcc to support hardened
+#>sys-devel/gcc-4.9.3

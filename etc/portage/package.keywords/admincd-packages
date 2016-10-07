@@ -7,3 +7,7 @@ net-analyzer/portbunny **
 net-wireless/airpwn **
 net-firewall/pftop **
 net-wireless/lorcon-old **
+
+# *  stable on any architecture
+# ~* testing on any architecture
+# ** always visible

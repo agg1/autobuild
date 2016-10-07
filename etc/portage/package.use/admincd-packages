@@ -1,6 +1,6 @@
 dev-vcs/git -gpg cvs subversion
-mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt
-www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened
+mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
+www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened gtk2
 mail-mta/ssmtp mta
 sys-kernel/genkernel cryptsetup
 sys-apps/smartmontools minimal
@@ -12,7 +12,6 @@ x11-libs/gdk-pixbuf X
 net-wireless/lorcon python
 x11-libs/libxkbcommon X
 media-libs/libpng apng
-#sqlite
 dev-lang/python xml
 x11-libs/pango X
 x11-libs/cairo X xcb opengl
@@ -27,6 +26,7 @@ net-libs/c-client chappa
 app-crypt/gcr gtk
 sys-process/lsof rpc
 app-emulation/libvirt-glib python
+app-emulation/libvirt -avahi -lxc
 media-libs/imlib2 X
 gnome-base/libgnomecanvas glade
 media-libs/mesa opencl
@@ -66,3 +66,4 @@ dev-ruby/rubygems ruby_targets_ruby23
 dev-ruby/json ruby_targets_ruby23
 dev-vcs/subversion perl -dso
 app-crypt/pinentry -gnome-keyring
+x11-apps/xsm -rsh
