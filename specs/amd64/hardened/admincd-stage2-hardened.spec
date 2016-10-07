@@ -15,8 +15,10 @@ livecd/iso: admincd-amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
-livecd/bootargs: dokeymap docache
-livecd/rcdel: keymaps|boot
+livecd/bootargs: dokeymap docache memory_corruption_check=1
+# ubsan_handle=OEAINVBSLF
+# ubsan_handle=ELNVBSLF
+livecd/rcdel: keymaps|boot netmount|boot
 #dhcpcd
 #livecd/rcadd:
 #livecd/root_overlay:
@@ -40,6 +42,7 @@ boot/kernel/gentoo/use:
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk3
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -69,9 +72,7 @@ boot/kernel/gentoo/use:
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
 	bzip2
-#	deprecated
 	fbcon
-#	fbcondecor
     hardened
 	ipv6
 	livecd
@@ -87,7 +88,6 @@ boot/kernel/gentoo/use:
 	nptl
 	nptlonly
 	png
-#	portaudio
 	readline
 	socks5
 	ssl
@@ -95,8 +95,9 @@ boot/kernel/gentoo/use:
 	unicode
 	urandom
 	usb
-#    doc
-#    latex
+    doc
+    latex
+    static-libs
 
 boot/kernel/gentoo/packages:
 	sys-kernel/linux-firmware
@@ -106,7 +107,11 @@ boot/kernel/gentoo/packages:
 #	sys-auth/pambase
 
 livecd/empty:
+    /home
 	/home/catalyst
+	/media
+	/media/backup
+	/media/stick
 #	/etc/cron.daily
 #	/etc/cron.hourly
 #	/etc/cron.monthly

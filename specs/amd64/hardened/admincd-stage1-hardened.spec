@@ -4,10 +4,10 @@ target: livecd-stage1
 rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
-source_subpath: hardened/stage4-amd64-latest.tar.bz2
+#source_subpath: hardened/stage4-amd64-latest.tar.bz2
+source_subpath: hardened/livecd-stage1-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
 #portage_overlay: /home/source/portage/proj/musl
-#chost: TARCH-gentoo-linux-musl
 cflags: -O3 -pipe -march=nehalem -mtune=nehalem
 cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
 
@@ -19,11 +19,13 @@ livecd/use:
 	-systemd
 	-kdbus
 	-dbus
-    -pulseaudio
-    -bindist
+	-pulseaudio
+	-bindist
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk3
+	glamor
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -53,10 +55,8 @@ livecd/use:
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
 	bzip2
-#	deprecated
 	fbcon
-#	fbcondecor
-    hardened
+	hardened
 	ipv6
 	livecd
 	loop-aes
@@ -71,7 +71,6 @@ livecd/use:
 	nptl
 	nptlonly
 	png
-#	portaudio
 	readline
 	socks5
 	ssl
@@ -79,14 +78,16 @@ livecd/use:
 	unicode
 	urandom
 	usb
-#    doc
-#    latex
-#	static
+	sqlite
+    doc
+    latex
+    static-libs
 
 livecd/packages:
+#	app-accessibility/brltty
 #	app-accessibility/espeakup
 #    app-doc/doxygen
-	app-admin/bastille
+#	app-admin/bastille
 	app-admin/checksec
 	app-admin/chroot_safe
 	app-admin/chrootuid
@@ -122,6 +123,8 @@ livecd/packages:
 	app-admin/pass
 	app-admin/passook
 	app-admin/passwordsafe
+	app-admin/paxtest
+	app-admin/perl-cleaner
 	app-admin/pprocm
 #	app-admin/procinfo
 	app-admin/procinfo-ng
@@ -137,12 +140,13 @@ livecd/packages:
 	app-admin/testdisk
 	app-admin/tmpwatch
 	app-admin/tripwire
-	app-admin/usbview
+#	app-admin/usbview
 	app-admin/vault
 	app-admin/verynice
 #	app-admin/webmin
 	app-admin/whowatch
 	app-admin/xtail
+	app-admin/python-updater
 #	app-antivirus/clamav
 #	app-antivirus/clamav-unofficial-sigs
 	app-arch/alien
@@ -164,10 +168,10 @@ livecd/packages:
 	app-benchmarks/bonnie++
 	app-benchmarks/dbench
 	app-benchmarks/httperf
-	app-benchmarks/i7z
+#	app-benchmarks/i7z
 	app-benchmarks/iozone
 	app-benchmarks/stress
-	app-benchmarks/tiobench
+#	app-benchmarks/tiobench
     app-cdr/bashburn
 	app-cdr/bin2iso
 	app-cdr/cdrdao
@@ -175,12 +179,13 @@ livecd/packages:
     app-cdr/cdrtools
     app-cdr/dvd+rw-tools
 	app-cdr/nrg2iso
-    app-cdr/xcdroast
+#    app-cdr/xcdroast
 	app-crypt/aescrypt
 	app-crypt/aespipe
 	app-crypt/bcrypt
 	app-crypt/bcwipe
 	app-crypt/gnupg
+	app-crypt/hashalot
 	app-crypt/pinentry
 	app-dicts/aspell-de
 	app-dicts/aspell-de-alt
@@ -202,7 +207,7 @@ livecd/packages:
 #	app-doc/cppman
 #	app-doc/devmanual
 #	app-doc/phrack-all
-	app-editors/bluefish
+#	app-editors/bluefish
 #	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
@@ -213,12 +218,14 @@ livecd/packages:
 #	app-emulation/xen-tools
 	app-emulation/qemu
 #	app-emulation/spice
-	app-emulation/virt-manager
+#	app-emulation/virt-manager
 #	app-emulation/wine
+#	app-eselect/eselect-ctags
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
+	app-eselect/eselect-vi
 	app-forensics/afl
 	app-forensics/aide
 #	app-forensics/air
@@ -278,8 +285,12 @@ livecd/packages:
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
+	dev-libs/gmp
+	dev-libs/libxml2
+	dev-libs/mpfr
 	dev-libs/openssl
 #	dev-libs/libressl
+	dev-python/pycrypto
 #	dev-util/anjuta
 	dev-util/ccache
 	dev-util/catalyst
@@ -288,6 +299,7 @@ livecd/packages:
 	dev-util/indent
 #	dev-util/kdbg
 	dev-util/ltrace
+	dev-util/pkgconfig
 	dev-util/strace
 	dev-util/valgrind
 #	dev-vcs/cvs
@@ -326,7 +338,7 @@ livecd/packages:
 #	mail-mta/sstmp
 	media-gfx/blender
 #	media-gfx/digikam
-	media-gfx/fbida
+#	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/fbgrab
 	media-gfx/gimp
@@ -339,6 +351,7 @@ livecd/packages:
 	media-libs/openal
 	media-libs/libsdl
 	media-libs/libsdl2
+	media-libs/libtxc_dxtn
 	media-libs/mesa
 	media-libs/sdl-gfx
 	media-libs/sdl-image
@@ -445,7 +458,7 @@ livecd/packages:
 	media-video/mplayer
 #	media-video/smplayer
 #	media-video/vlc
-	media-video/xine-ui
+#	media-video/xine-ui
 #	net-analyzer/alive
 	net-analyzer/amap
 	net-analyzer/angst
@@ -507,7 +520,7 @@ livecd/packages:
 #	net-analyzer/net-snmp
 #	net-analyzer/netcat
 #	net-analyzer/netcat6
-	net-analyzer/netwox
+#	net-analyzer/netwox
 	net-analyzer/ngrep
 	net-analyzer/nikto
 	net-analyzer/nipper
@@ -572,7 +585,7 @@ livecd/packages:
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 	net-fs/samba
-	net-fs/sshfs
+#	net-fs/sshfs
 	net-ftp/filezilla
 	net-ftp/ftp
 	net-ftp/ncftp
@@ -587,7 +600,9 @@ livecd/packages:
 	net-misc/curl
 	net-misc/dhcpcd
 	net-misc/iputils
+#	net-misc/mosh
 	net-misc/ndisc6
+#	net-misc/netkit-rsh
 	net-misc/ntp
 #	net-misc/openntpd
 	net-misc/openssh
@@ -647,6 +662,8 @@ livecd/packages:
 #	net-wireless/ipw2200-firmware
 #	net-wireless/zd1201-firmware
 #	net-wireless/zd1211-firmware
+#	perl-core/PodParser
+#	perl-core/Test-Harness
 #	sci-*/
 #	sys-apps/apmd
 	sys-apps/arrayprobe
@@ -657,6 +674,7 @@ livecd/packages:
 	sys-apps/chname
 	sys-apps/coreutils
 	sys-apps/dcfldd
+	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/dmidecode
 	sys-apps/dstat
@@ -669,6 +687,7 @@ livecd/packages:
 	sys-apps/gptfdisk
 #	sys-apps/gradm
 	sys-apps/grep
+	sys-apps/groff
 	sys-apps/hdparm
 	sys-apps/hwsetup
 	sys-apps/ipmitool
@@ -679,25 +698,28 @@ livecd/packages:
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
+	sys-apps/miscfiles
 	sys-apps/mlocate
 #	sys-apps/netplug
 	sys-apps/pciutils
 #	sys-apps/pcmciautils
 #	sys-apps/pcsc-lite
 #	sys-apps/pmount
+	sys-apps/portage
 	sys-apps/sdparm
 	sys-apps/sed
 	sys-apps/setserial
 	sys-apps/sg3_utils
 #	sys-apps/slocate
 	sys-apps/smartmontools
+	sys-apps/texinfo
 	sys-apps/usbutils
 	sys-apps/util-linux
 	sys-apps/which
 	sys-apps/x86info
-	sys-apps/portage
 	sys-block/aoetools
 	sys-block/disktype
+	sys-block/eject
 	sys-block/fio
 	sys-block/gparted
 #	sys-block/mpt-status
@@ -711,17 +733,28 @@ livecd/packages:
 	sys-boot/syslinux
 	sys-boot/winusb
 	sys-devel/autoconf
+	sys-devel/autoconf-wrapper
 	sys-devel/autogen
 	sys-devel/automake
+	sys-devel/automake-wrapper
 	sys-devel/bc
     sys-devel/binutils-config
+	sys-devel/bison
+#	sys-devel/gcc
+	sys-devel/gcc-config
+	sys-devel/flex
 #    sys-devel/clang
 #	sys-devel/distcc
+	sys-devel/gcc
     sys-devel/gcc-config
+	sys-devel/gettext
 	sys-devel/gdb
+	sys-devel/gnuconfig
 	sys-devel/libtool
+	sys-devel/m4
 #	sys-devel/llvm
 	sys-devel/make
+	sys-devel/patch
 #	sys-fabric/
 #	sys-firmware/
 #	sys-firmware/iwl3945-ucode
@@ -740,6 +773,7 @@ livecd/packages:
 	sys-fs/f2fs-tools
 	sys-fs/hfsutils
 	sys-fs/jfsutils
+#	sys-fs/loop-aes
 	sys-fs/lsscsi
 	sys-fs/lvm2
 	sys-fs/mac-fdisk
@@ -748,12 +782,18 @@ livecd/packages:
 	sys-fs/ntfs3g
 	sys-fs/quota
 	sys-fs/reiserfsprogs
+	sys-fs/sshfs
 	sys-fs/squashfs-tools
 	sys-fs/sysfsutils
 #	sys-fs/xfsprogs
+	sys-kernel/genkernel
 	sys-kernel/linux-docs
 	sys-kernel/linux-firmware
+	sys-kernel/linux-headers
+	sys-libs/db
+	sys-libs/gdbm
 	sys-libs/gpm
+	sys-libs/libkudzu
 	sys-libs/libsmbios
 #	sys-power/acpid
 #	sys-power/apcupsd
@@ -801,7 +841,7 @@ livecd/packages:
 	x11-apps/xclock
 	x11-apps/xconsole
 	x11-apps/xcursorgen
-	x11-apps/xdm
+#	x11-apps/xdm
 	x11-apps/xdriinfo
 	x11-apps/xev
 	x11-apps/xf86dga
@@ -839,15 +879,24 @@ livecd/packages:
 	x11-base/xorg-server
 	x11-base/xorg-x11
 #	x11-drivers/
+	x11-drivers/xf86-input-evdev
 	x11-drivers/xf86-input-synaptics
-	# remove at-spi-atk dependency to avoid pulling in dbus
+	x11-drivers/xf86-video-amdgpu
+	# remove at-spi-atk dependency to avoid pulling in dbus, seems gtk+ version 2 succeeds with -dbus while version 3 does not
 	x11-libs/gtk+
+	x11-misc/arandr
 	x11-misc/xautolock
 	x11-misc/xlockmore
 	x11-misc/i3status
+	x11-misc/openbox-menu
 #	x11-plugins/
-#	x11-proto/
+	x11-proto/dri3proto
+	x11-proto/inputproto
+	x11-proto/presentproto
+	x11-proto/resourceproto
+	x11-proto/xproto
 	x11-terms/xterm
 	x11-wm/i3
+	x11-wm/openbox
 #	xfce-base/
 #	xfce-extra/

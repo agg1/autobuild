@@ -4,7 +4,7 @@ target: livecd-stage1
 rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
-source_subpath: hardened/stage4-amd64-latest.tar.bz2
+source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
 cflags: -O3 -pipe -march=nehalem -mtune=nehalem
 cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
@@ -22,6 +22,8 @@ livecd/use:
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk3
+	-X
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -51,9 +53,7 @@ livecd/use:
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
 	bzip2
-#	deprecated
 	fbcon
-#	fbcondecor
     hardened
 	ipv6
 	livecd
@@ -69,7 +69,6 @@ livecd/use:
 	nptl
 	nptlonly
 	png
-#	portaudio
 	readline
 	socks5
 	ssl
@@ -77,17 +76,25 @@ livecd/use:
 	unicode
 	urandom
 	usb
-#    doc
-#    latex
+    doc
+    latex
+    static-libs
+#   static
+#	deprecated
+#	fbcondecor
+#	portaudio
 #	minimal
 
 livecd/packages:
 #    app-doc/doxygen
 	app-accessibility/brltty
 #	app-accessibility/espeakup
+	app-admin/eselect
 	app-admin/hddtemp
 	app-admin/passook
+	app-admin/perl-cleaner
 	app-admin/pwgen
+	app-admin/python-updater
 	app-admin/syslog-ng
 	app-admin/sysstat
 	app-admin/testdisk
@@ -112,6 +119,7 @@ livecd/packages:
 #	app-benchmarks/tiobench
 	app-crypt/bcwipe
 	app-crypt/gnupg
+	app-crypt/hashalot
 	app-crypt/pinentry
 #	app-editors/emacs
 	app-editors/hexcurse
@@ -121,6 +129,8 @@ livecd/packages:
 #	app-emacs/ebuild-mode
 #	app-emulation/cloud-init
 #	app-emulation/xen-tools
+#	app-eselect/eselect-ctags
+	app-eselect/eselect-vi
 	app-misc/ca-certificates
 	app-misc/colordiff
 #	app-misc/mc
@@ -141,9 +151,14 @@ livecd/packages:
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
+	dev-libs/gmp
+	dev-libs/libxml2
+	dev-libs/mpfr
 	dev-libs/openssl
 #	dev-libs/libressl
+	dev-python/pycrypto
 	dev-util/catalyst
+	dev-util/pkgconfig
 	dev-vcs/git
 	media-gfx/fbgrab
 	media-libs/alsa-oss
@@ -191,8 +206,8 @@ livecd/packages:
 	net-wireless/rfkill
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-	sys-apps/pcmciautils
-	sys-apps/portage
+#	perl-core/PodParser
+#	perl-core/Test-Harness
 #	sys-apps/apmd
 	sys-apps/arrayprobe
 	sys-apps/acl
@@ -202,6 +217,7 @@ livecd/packages:
 	sys-apps/chname
 	sys-apps/coreutils
 	sys-apps/dcfldd
+	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/dmidecode
 	sys-apps/dstat
@@ -213,6 +229,7 @@ livecd/packages:
 	sys-apps/gawk
 	sys-apps/gptfdisk
 	sys-apps/grep
+	sys-apps/groff
 	sys-apps/hdparm
 	sys-apps/hwsetup
 	sys-apps/ipmitool
@@ -223,18 +240,23 @@ livecd/packages:
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
+	sys-apps/miscfiles
 	sys-apps/mlocate
 	sys-apps/netplug
 	sys-apps/pciutils
+	sys-apps/pcmciautils
+	sys-apps/portage
 	sys-apps/sdparm
 	sys-apps/sed
 	sys-apps/setserial
 	sys-apps/sg3_utils
 	sys-apps/smartmontools
+	sys-apps/texinfo
 	sys-apps/usbutils
 	sys-apps/which
 	sys-apps/x86info
 	sys-block/aoetools
+	sys-block/eject
 	sys-block/fio
 	sys-block/mtx
 	sys-block/open-iscsi
@@ -242,9 +264,22 @@ livecd/packages:
 	sys-block/partimage
 	sys-block/tw_cli
 #	sys-boot/grub
+	sys-devel/autoconf
+	sys-devel/autoconf-wrapper
+	sys-devel/automake
+	sys-devel/automake-wrapper
 	sys-devel/bc
-	sys-devel/gcc-config
 	sys-devel/binutils-config
+	sys-devel/bison
+	sys-devel/flex
+#	sys-devel/gcc
+	sys-devel/gcc-config
+	sys-devel/gettext
+	sys-devel/gnuconfig
+	sys-devel/libtool
+	sys-devel/m4
+	sys-devel/make
+	sys-devel/patch
 #	sys-fs/eudev
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
@@ -256,6 +291,7 @@ livecd/packages:
 	sys-fs/extundelete
 	sys-fs/f2fs-tools
 	sys-fs/jfsutils
+#	sys-fs/loop-aes
 	sys-fs/lsscsi
 	sys-fs/lvm2
 	sys-fs/mac-fdisk
@@ -264,8 +300,12 @@ livecd/packages:
 	sys-fs/ntfs3g
 	sys-fs/reiserfsprogs
 	sys-fs/xfsprogs
-        sys-kernel/genkernel
+	sys-kernel/genkernel
+	sys-kernel/linux-headers
+	sys-libs/db
+	sys-libs/gdbm
 	sys-libs/gpm
+	sys-libs/libkudzu
 	sys-libs/libsmbios
 #	sys-power/acpid
 #	sys-power/pm-quirks

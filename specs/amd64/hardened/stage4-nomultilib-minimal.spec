@@ -48,7 +48,7 @@ stage4/unmerge:
 	sys-libs/pam
 	sys-auth/pambase
 	sys-kernel/genkernel
-#	sys-kernel/gentoo-sources
+	sys-kernel/gentoo-sources
 
 stage4/empty:
 	/root/.ccache
@@ -56,7 +56,7 @@ stage4/empty:
 	/usr/portage/distfiles
 	/usr/src
 	/var/cache/edb/dep
-#	/var/cache/genkernel
+	/var/cache/genkernel
 	/var/cache/portage/distfiles
 	/var/empty
 	/var/run
@@ -71,5 +71,5 @@ stage4/rm:
 	/root/.lesshst
 	/root/.ssh/known_hosts
 	/root/.viminfo
-	/usr/share/genkernel
+#	/usr/share/genkernel
 	/usr/lib64/python*/site-packages/gentoolkit/test/eclean/testdistfiles.tar.gz
