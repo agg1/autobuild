@@ -13,6 +13,7 @@ cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
 
 #-udev
 livecd/use:
+	-avahi
 	-consolekit
 	-policykit
 	-pam
@@ -25,6 +26,8 @@ livecd/use:
 	-gvfs
 	-gnome-keyring
 	-gtk3
+	-jit
+	-orc
 	glamor
 	alsa
 	alsa_pcm_plugins_adpcm
@@ -285,6 +288,7 @@ livecd/packages:
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
+	dev-libs/DirectFB
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
@@ -294,6 +298,7 @@ livecd/packages:
 #	dev-util/anjuta
 	dev-util/ccache
 	dev-util/catalyst
+	dev-util/cloc
 	dev-util/cmake
 	dev-util/codeblocks
 	dev-util/indent
@@ -597,6 +602,7 @@ livecd/packages:
 	net-irc/znc
 #	net-mail/dovecot
 	net-misc/bridge-utils
+#	net-misc/connman
 	net-misc/curl
 	net-misc/dhcpcd
 	net-misc/iputils
@@ -620,6 +626,7 @@ livecd/packages:
 	net-misc/vconfig
 	net-misc/vpnc
 	net-misc/wakeonlan
+	net-misc/wol
 	net-misc/wget
 	net-misc/whois
 	net-misc/youtube-dl
@@ -702,7 +709,7 @@ livecd/packages:
 	sys-apps/mlocate
 #	sys-apps/netplug
 	sys-apps/pciutils
-#	sys-apps/pcmciautils
+	sys-apps/pcmciautils
 #	sys-apps/pcsc-lite
 #	sys-apps/pmount
 	sys-apps/portage
@@ -719,7 +726,7 @@ livecd/packages:
 	sys-apps/x86info
 	sys-block/aoetools
 	sys-block/disktype
-	sys-block/eject
+#	sys-block/eject
 	sys-block/fio
 	sys-block/gparted
 #	sys-block/mpt-status
@@ -818,8 +825,10 @@ livecd/packages:
 	virtual/pkgconfig
 #	www-apache/
 #	www-apps/
+#	www-client/chromium
 	www-client/firefox
 	www-client/links
+	www-client/netsurf
 	www-client/w3m
 #	www-misc/
 #	www-plugins/
@@ -885,10 +894,11 @@ livecd/packages:
 	# remove at-spi-atk dependency to avoid pulling in dbus, seems gtk+ version 2 succeeds with -dbus while version 3 does not
 	x11-libs/gtk+
 	x11-misc/arandr
-	x11-misc/xautolock
-	x11-misc/xlockmore
 	x11-misc/i3status
 	x11-misc/openbox-menu
+	x11-misc/xautolock
+#	x11-misc/xlockmore
+	x11-misc/xtrlock
 #	x11-plugins/
 	x11-proto/dri3proto
 	x11-proto/inputproto
@@ -900,3 +910,4 @@ livecd/packages:
 	x11-wm/openbox
 #	xfce-base/
 #	xfce-extra/
+	sys-kernel/linux-firmware
