@@ -1,55 +1,48 @@
 #!/bin/sh
-iptables -F
-iptables -X
-iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
 
-#/etc/init.d/syslog-ng stop
+# adjust caching
 #sysctl -w vm.swappiness=0
 #sysctl -w kernel.randomize_va_space=2
 echo 524288 > /proc/sys/vm/min_free_kbytes
 echo 0 > /proc/sys/vm/swappiness
 echo 3 > /proc/sys/vm/drop_caches
 echo 2 > /proc/sys/kernel/randomize_va_space
-umount /mnt/cdrom || true
-umount /sys/fs/cgroup/openrc || true
-umount /sys/fs/cgroup || true
-umount /sys/fs/fuse/connections || true
-umount /dev/mqueue || true
-umount /dev/shm || true
+
+# enable core dumps
+sysctl -w kernel.core_uses_pid=1
+sysctl -w kernel.core_pattern="/tmp/core-%e-%s-%u-%g-%p-%t"
+sysctl -w fs.suid_dumpable=2
+
+umount /mnt/cdrom
+umount /sys/fs/cgroup/openrc
+umount /sys/fs/cgroup
+umount /sys/fs/fuse/connections
+umount /dev/mqueue
+umount /dev/shm
 
 mount -o remount,hidepid=2 /proc/
-mount -t tmpfs -o size=1G tmpfs /usr/local/
+chmod 755 /
 
-# do things before locking firewall down
-#cp -pR /home/livecd/etc /
-mkdir -p /usr/portage/distfiles
-mount --bind  /home/catalyst/distfiles/ /usr/portage/distfiles
-mkdir -p /usr/portage/packages
-mount --bind /home/catalyst/packages /usr/portage/packages
-
-#mkdir -p /media/nfs/data ; chown gentoo:users /media/nfs/data
-#mkdir -p /media/nfs/public ; chown gentoo:users /media/nfs/public
-#mkdir -p /media/nfs/transfer ; chown gentoo:users /media/nfs/transfer
-##mount -t nfs -o mountproto=udp,rsize=32768,wsize=32768,nolock 172.16.2.34:/media/data /media/nfs/data
-#mount -t nfs -o mountproto=udp,rsize=32768,wsize=32768,nolock,soft 172.16.2.34:/media/data/public /media/nfs/public
-#mount -t nfs -o mountproto=udp,rsize=32768,wsize=32768,nolock,soft 172.16.2.34:/media/data/transfer /media/nfs/transfer
-
-ntpdate 172.16.2.1
-
+# add default users groups and passwords
 groupadd -g 7777 lanout
 groupadd -g 8888 wanout
-usermod -G wanout,lanout -a gentoo
-useradd -u 9999 fw01
 
+echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
+
+# lock down network
 LANUSERS=""
 WANUSERS=""
 LANGROUPS="7777"
-WANGROUPS="250 8888"
+WANGROUPS="8888"
+iptables -F
+iptables -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT DROP
+iptables -A OUTPUT -p udp -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 --dport 9999 -j ACCEPT
 for u in $WANUSERS ; do
   iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
   iptables -A OUTPUT -m owner --uid-owner $u -j ACCEPT
@@ -64,16 +57,25 @@ done
 for g in $LANGROUPS ; do
   iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 -j ACCEPT
 done
+#iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-#cd /home/gentoo/source/systrace ; make install
-#hdparm  -y /dev/sda
-#hdparm  -y /dev/sdb
-
 
 cat /proc/cmdline | grep docache
 if [ $? -eq 1 ] ; then
-    [ -e /usr/bin/eject ] && eject /dev/sr0 || true
+	[ -e /usr/bin/eject ] && eject /dev/sr0 || true
 fi
 
-#init q
+if [ -e /etc/rc.local.d/cryptsetup.sh ]; then
+	/bin/sh /etc/rc.local.d/cryptsetup.sh
+fi
+
+#mount -t tmpfs -o size=1G tmpfs /usr/local/
+#STANDARD label mount points
+#e2label /dev/mapper/home HOME
+swapon -L SWAP 2>/dev/null
+mount /dev/disk/by-label/HOME /home 2>/dev/null
+mount /dev/disk/by-label/BACKUP /media/backup 2>/dev/null
+
+if [ -e /home/init.sh ]; then
+    /bin/sh /home/init.sh
+fi
