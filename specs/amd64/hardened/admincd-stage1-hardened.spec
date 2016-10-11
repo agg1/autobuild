@@ -280,10 +280,11 @@ livecd/packages:
 	app-shells/gentoo-bashcomp
 #	app-shells/zsh
 #	app-text/evince
+	app-text/dos2unix
+	app-text/mupdf
+	app-text/stardict
 #	app-text/tetex
 	app-text/tree
-	app-text/stardict
-	app-text/dos2unix
 	app-text/wgetpaste
 	app-vim/gentoo-syntax
 	dev-lang/perl

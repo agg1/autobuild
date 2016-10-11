@@ -71,5 +71,6 @@ www-client/netsurf fbcon_frontend_sdl
 x11-wm/openbox imlib
 net-libs/libdom xml
 dev-lang/php gd
+app-text/mupdf -static-libs
 games-fps/darkplaces sdl
 games-fps/xonotic

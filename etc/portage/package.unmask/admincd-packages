@@ -4,3 +4,4 @@ app-mobilephone/smssend
 net-analyzer/portbunny
 net-misc/tightvnc
 dev-libs/skyutils
+#app-text/xpdf
