@@ -11,6 +11,7 @@ cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
 
 #-udev
 livecd/use:
+	-avahi
 	-consolekit
 	-policykit
 	-pam
@@ -23,6 +24,8 @@ livecd/use:
 	-gvfs
 	-gnome-keyring
 	-gtk3
+	-jit
+	-orc
 	-X
 	alsa
 	alsa_pcm_plugins_adpcm
@@ -183,6 +186,8 @@ livecd/packages:
 	net-ftp/ftp
 	net-ftp/ncftp
 	net-irc/irssi
+	net-misc/bridge-utils
+#	net-misc/connman
 	net-misc/curl
 	net-misc/dhcpcd
 	net-misc/iputils
@@ -195,6 +200,7 @@ livecd/packages:
 	net-misc/telnet-bsd
 	net-misc/vconfig
 	net-misc/wakeonlan
+	net-misc/wol
 	net-misc/wget
 	net-misc/whois
 	net-proxy/dante
@@ -253,10 +259,11 @@ livecd/packages:
 	sys-apps/smartmontools
 	sys-apps/texinfo
 	sys-apps/usbutils
+	sys-apps/util-linux
 	sys-apps/which
 	sys-apps/x86info
 	sys-block/aoetools
-	sys-block/eject
+#	sys-block/eject
 	sys-block/fio
 	sys-block/mtx
 	sys-block/open-iscsi
@@ -316,3 +323,4 @@ livecd/packages:
 	sys-process/procps
 	sys-process/psmisc
 	www-client/links
+	sys-kernel/linux-firmware

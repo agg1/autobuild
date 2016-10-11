@@ -15,13 +15,13 @@ livecd/iso: admincd-amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
-livecd/bootargs: dokeymap docache memory_corruption_check=1
+livecd/bootargs: dokeymap docache memory_corruption_check=1 modprobe.blacklist=asix,mcs7830
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
-livecd/rcdel: keymaps|boot netmount|boot
+livecd/rcdel: keymaps|boot netmount|default
 #dhcpcd
 #livecd/rcadd:
-#livecd/root_overlay:
+livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
 boot/kernel: gentoo
@@ -31,6 +31,7 @@ boot/kernel/gentoo/config: /etc/portage/kconfig
 #-udev
 boot/kernel/gentoo/use:
 	-*
+	-avahi
 	-consolekit
 	-policykit
 	-pam
@@ -43,6 +44,8 @@ boot/kernel/gentoo/use:
 	-gvfs
 	-gnome-keyring
 	-gtk3
+	-jit
+	-orc
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -73,7 +76,7 @@ boot/kernel/gentoo/use:
 	alsa_pcm_plugins_softvol
 	bzip2
 	fbcon
-    hardened
+	hardened
 	ipv6
 	livecd
 	loop-aes
@@ -95,22 +98,23 @@ boot/kernel/gentoo/use:
 	unicode
 	urandom
 	usb
-    doc
-    latex
-    static-libs
+	doc
+	latex
+	static-libs
 
-boot/kernel/gentoo/packages:
-	sys-kernel/linux-firmware
+#boot/kernel/gentoo/packages:
+#	sys-kernel/linux-firmware
 
 #livecd/unmerge:
 #	sys-libs/pam
 #	sys-auth/pambase
 
 livecd/empty:
-    /home
 	/home/catalyst
 	/media
 	/media/backup
+	/media/catalyst
+	/media/cdrom
 	/media/stick
 #	/etc/cron.daily
 #	/etc/cron.hourly
@@ -190,6 +194,8 @@ livecd/rm:
 	/boot/System*
 	/boot/initr*
 	/boot/kernel*
+	/var/tmp/gentoo.config
+	/var/tmp/genkernel/initramfs*
 #	/etc/*-
 #	/etc/*.old
 #	/etc/default/audioctl

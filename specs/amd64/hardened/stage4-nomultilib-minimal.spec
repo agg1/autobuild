@@ -21,6 +21,8 @@ stage4/use:
 	-bindist
 	-branding
 	-gvfs
+	-jit
+	-orc
 	bzip2
 	hardened
 	ipv6
