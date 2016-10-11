@@ -29,4 +29,4 @@
 # this account has no limits
 #sysadm  -
 
-* M8192 N262144 U262144 S65536
+* M8192 N262144 U262144 S65536 C524288

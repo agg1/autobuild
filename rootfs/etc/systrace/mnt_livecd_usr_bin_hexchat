@@ -1,0 +1,271 @@
+Policy: /mnt/livecd/usr/bin/hexchat, Emulation: linux64
+	linux64-arch_prctl: permit
+	linux64-brk: permit
+	linux64-chmod: filename eq "$HOME/.config*" and mode eq "600" then permit
+	linux64-chmod: filename eq "$HOME/.local*" and mode eq "600" then permit
+	linux64-clone: permit
+	linux64-close: permit
+	linux64-connect: sockaddr eq "" then permit
+	linux64-bind: sockaddr eq "family(16)" then deny
+	linux64-connect: sockaddr eq "family(0)" then deny
+	linux64-connect: sockaddr match "inet-*:*" then permit
+	linux64-eventfd: permit
+	linux64-exit: permit
+	linux64-exit_group: permit
+	linux64-fadvise64: permit
+	linux64-fcntl: cmd eq "F_GETFL" then permit
+	linux64-fcntl: cmd eq "F_SETFD" then permit
+	linux64-fcntl: cmd eq "F_SETFL" then permit
+	linux64-fsread: filename eq "/" then permit
+	linux64-fsread: filename eq "/.hidden" then permit
+	linux64-fsread: filename eq "/bin" then permit
+	linux64-fsread: filename eq "/boot" then permit
+	linux64-fsread: filename eq "/etc" then permit
+	linux64-fsread: filename match "/etc/fonts*" then permit
+	linux64-fsread: filename match "/etc/ssl*" then permit
+	linux64-fsread: filename eq "/etc/fstab" then deny
+	linux64-fsread: filename eq "/etc/gai.conf" then permit
+	linux64-fsread: filename eq "/etc/gtk-2.0/gtkrc" then permit
+	linux64-fsread: filename eq "/etc/host.conf" then permit
+	linux64-fsread: filename eq "/etc/hosts" then permit
+	linux64-fsread: filename eq "/etc/ld.so.cache" then permit
+	linux64-fsread: filename eq "/etc/ld.so.preload" then permit
+	linux64-fsread: filename eq "/etc/localtime" then permit
+	linux64-fsread: filename eq "/etc/nsswitch.conf" then permit
+	linux64-fsread: filename eq "/etc/passwd" then permit
+	linux64-fsread: filename eq "/etc/resolv.conf" then permit
+	linux64-fsread: filename match "/etc/xdg*" then permit
+	linux64-fsread: filename eq "/" then permit
+	linux64-fsread: filename eq "/home" then permit
+	linux64-fsread: filename eq "$HOME" then permit
+	linux64-fsread: filename match "$HOME/.Xauthority*" then permit
+	linux64-fsread: filename match "$HOME/.Xdefaults*" then permit
+	linux64-fsread: filename match "$HOME/.cache*" then permit
+	linux64-fswrite: filename match "$HOME/.cache*" then permit
+	linux64-rename: filename match "$HOME/.cache*" then permit
+	linux64-fsread: filename match "$HOME/.config*" then permit
+	linux64-fswrite: filename match "$HOME/.config*" then permit
+	linux64-rename: filename match "$HOME/.config*" and filename[1] match "$HOME/.config*" then permit
+	linux64-fsread: filename match "$HOME/.cursors*" then permit
+	linux64-fsread: filename match "$HOME/.fonts*" then permit
+	linux64-fsread: filename match "$HOME/.gtk-bookmarks*" then permit
+	linux64-fsread: filename match "$HOME/.gtkrc-2.0*" then permit
+	linux64-fsread: filename match "$HOME/gtk*" then permit
+	linux64-fsread: filename match "$HOME/.hidden*" then permit
+	linux64-fsread: filename match "$HOME/.icons*" then permit
+	linux64-fsread: filename match "$HOME/.local/share*" then permit
+	linux64-fswrite: filename match "$HOME/.local/share*" then permit
+	linux64-rename: filename match "$HOME/.local/share*" then permit
+	linux64-chmod: filename match "$HOME/.local/share*" then permit
+	linux64-fsread: filename match "$HOME/.recently-used.xbel*" then permit
+	linux64-fsread: filename match "$HOME/.themes*" then permit
+	linux64-rename: filename match "/tmp*" and filename[1] match "$HOME/Downloads*" then permit
+	linux64-rename: filename match "/tmp*" and filename[1] match "$HOME/Desktop*" then permit
+	linux64-fsread: filename match "$HOME/Downloads*" then permit
+	linux64-fswrite: filename match "$HOME/Downloads*" then permit
+	linux64-fsread: filename match "$HOME/Desktop*" then permit
+	linux64-fswrite: filename match "$HOME/Desktop*" then permit
+	linux64-fsread: filename match "$HOME/auth/xchat_auth*" then permit
+	linux64-fsread: filename match "$HOME/libenchant*" then deny
+	linux64-fsread: filename eq "/lib" then permit
+	linux64-fsread: filename eq "/lib64" then permit
+	linux64-fsread: filename match "*/lib64/libbz2.so*" then permit
+	linux64-fsread: filename match "*/lib64/libc.so*" then permit
+	linux64-fsread: filename match "*/lib64/libdl.so*" then permit
+	linux64-fsread: filename match "*/lib64/libenchant.so*" then permit
+	linux64-fsread: filename match "*/lib64/libm.so*" then permit
+	linux64-fsread: filename match "*/lib64/libnsl.so*" then permit
+	linux64-fsread: filename match "*/lib64/libnss_compat.so*" then permit
+	linux64-fsread: filename match "*/lib64/libnss_dns.so*" then permit
+	linux64-fsread: filename match "*/lib64/libnss_files.so*" then permit
+	linux64-fsread: filename match "*/lib64/libnss_nis.so*" then permit
+	linux64-fsread: filename match "*/lib64/libpcre.so*" then permit
+	linux64-fsread: filename match "*/lib64/libpthread.so*" then permit
+	linux64-fsread: filename match "*/lib64/libresolv.so*" then permit
+	linux64-fsread: filename match "*/lib64/librt.so*" then permit
+	linux64-fsread: filename match "*/lib64/libz.so*" then permit
+	linux64-fsread: filename match "*/lib64/tls" then permit
+	linux64-fsread: filename match "*/lib64/tls/libenchant.so*" then permit
+	linux64-fsread: filename match "*/lib64/tls/x86_64" then permit
+	linux64-fsread: filename match "*/lib64/tls/x86_64/libenchant.so*" then permit
+	linux64-fsread: filename match "*/lib64/x86_64" then permit
+	linux64-fsread: filename match "*/lib64/x86_64/libenchant.so*" then permit
+	linux64-fsread: filename eq "/initramfs" then deny
+	linux64-fsread: filename eq "/mnt" then permit
+	linux64-fsread: filename eq "/mnt/livecd/usr" then permit
+	linux64-fsread: filename eq "/opt" then permit
+	linux64-fsread: filename eq "/dev/random" then permit
+	linux64-fsread: filename eq "/dev/urandom" then permit
+	linux64-fsread: filename match "/proc*" then deny
+	linux64-fsread: filename match "/sys*" then deny
+	linux64-fsread: filename match "/dev*" then deny
+	linux64-fsread: filename eq "/root" then deny
+	linux64-fsread: filename eq "/run" then permit
+	linux64-fsread: filename eq "/sbin" then permit
+	linux64-fsread: filename eq "/tmp" then permit
+	linux64-fsread: filename eq "/usr" then permit
+	linux64-fsread: filename eq "/usr/.hidden" then permit
+	linux64-fsread: filename eq "/usr/bin" then permit
+	linux64-fsread: filename eq "/usr/include" then permit
+	linux64-fsread: filename eq "/usr/lib" then permit
+	linux64-fsread: filename match "/usr/lib/gcc/*/libgcc_s.so*" then permit
+	linux64-fsread: filename match "/usr/lib/gcc/*/libstdc++.so*" then permit
+	linux64-fsread: filename eq "/usr/lib64" then permit
+	linux64-fsread: filename match "*/usr/lib64/charset.alias" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/ISO-2022-JP.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/KOI8-R.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/gconv-modules.cache" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/libGB.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/libJIS.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/libKSC.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/tls" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/tls/libJIS.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/tls/x86_64" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/tls/x86_64/libJIS.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/x86_64" then permit
+	linux64-fsread: filename match "*/usr/lib64/gconv/x86_64/libJIS.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gdk-pixbuf-2.0/*/loaders.cache" then permit
+	linux64-fsread: filename match "*/usr/lib64/gdk-pixbuf-2.0/*/loaders/libpixbufloader-png.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gio/modules" then permit
+	linux64-fsread: filename match "*/usr/lib64/gio/modules/giomodule.cache" then permit
+	linux64-fsread: filename match "*/usr/lib64/gio/modules/libgiognomeproxy.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gio/modules/libgiognutls.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gio/modules/libgiolibproxy.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/gtk-2.0/*/immodules.cache" then permit
+	linux64-fsread: filename match "*/usr/lib64/hexchat/plugins" then permit
+	linux64-fsread: filename match "*/usr/lib64/libEGL.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libGL.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libX11-xcb.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libX11.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXau.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXcomposite.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXcursor.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXdamage.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXdmcp.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXext.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXfixes.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXi.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXrandr.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXrender.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libXxf86vm.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libatk-1.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libbsd.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libcairo.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libcrypto.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libdrm.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libenchant.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libexpat.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libffi.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libfontconfig.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libfreetype.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgbm.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgdk-x11-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgdk_pixbuf-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgio-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libglapi.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libglib-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgmodule-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgobject-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgraphite2.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libgtk-x11-2.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libharfbuzz.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libpango-1.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libpangocairo-1.0.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libpangoft2-1.0*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libpixman-1.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libpng16.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libssl.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-dri2.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-dri3.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-glx.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-present.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-render.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-shm.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-sync.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb-xfixes.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxcb.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/libxshmfence.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/tls" then permit
+	linux64-fsread: filename match "*/usr/lib64/tls/libenchant.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/tls/*" then permit
+	linux64-fsread: filename match "*/usr/lib64/tls/*/libenchant.so*" then permit
+	linux64-fsread: filename match "*/usr/lib64/*" then permit
+	linux64-fsread: filename match "*/usr/lib64/*/libenchant.so*" then permit
+	linux64-fsread: filename eq "/usr/libexec" then permit
+	linux64-fsread: filename eq "/usr/livecd" then permit
+	linux64-fsread: filename eq "/usr/local" then permit
+	linux64-fsread: filename eq "/usr/local/.hidden" then permit
+	linux64-fsread: filename eq "/usr/local/bin" then permit
+	linux64-fsread: filename eq "/usr/local/lib" then permit
+	linux64-fsread: filename eq "/usr/local/lib/.hidden" then permit
+	linux64-fsread: filename match "*/usr/local/lib/hexchat*" then permit
+	linux64-fsread: filename match "*/usr/local/share*" then permit
+	linux64-fsread: filename eq "/usr/portage" then permit
+	linux64-fsread: filename eq "/usr/sbin" then permit
+	linux64-fsread: filename eq "/usr/share" then permit
+	linux64-fsread: filename match "*/usr/share/*" then permit
+	linux64-fsread: filename eq "/usr/src" then permit
+	linux64-fsread: filename eq "/usr/tmp" then permit
+	linux64-fsread: filename match "/usr/*" then permit
+	linux64-fsread: filename eq "/var" then permit
+	linux64-fsread: filename match "/var/cache/fontconfig*" then permit
+	linux64-fstat: permit
+	linux64-fstatfs: permit
+	linux64-fsync: permit
+	linux64-futex: permit
+	linux64-getdents: permit
+	linux64-getpeername: permit
+	linux64-getresgid: deny
+	linux64-getresuid: deny
+	linux64-getrlimit: permit
+	linux64-getsockname: permit
+	linux64-getuid: deny
+	linux64-geteuid: deny
+	linux64-getgid: deny
+	linux64-getegid: deny
+	linux64-inotify_add_watch: permit
+	linux64-inotify_rm_watch: permit
+	linux64-ioctl: permit
+	linux64-kill: permit
+	linux64-lseek: permit
+	linux64-madvise: permit
+	linux64-mmap: prot eq "PROT_NONE" then permit
+	linux64-mmap: prot eq "PROT_READ" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_EXEC" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mprotect: prot eq "PROT_NONE" then permit
+	linux64-mprotect: prot eq "PROT_READ" then permit
+	linux64-mprotect: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-munmap: permit
+	linux64-nanosleep: permit
+	linux64-pipe2: permit
+	linux64-pipe: permit
+	linux64-poll: permit
+	linux64-prctl: permit
+	linux64-read: permit
+	linux64-recvfrom: permit
+	linux64-recvmsg: permit
+	linux64-restart_syscall: permit
+	linux64-rt_sigaction: permit
+	linux64-rt_sigprocmask: permit
+	linux64-sendto: sockaddr eq "family(16)" then deny
+	linux64-sendto: true then deny
+	linux64-set_robust_list: permit
+	linux64-set_tid_address: permit
+	linux64-setsockopt: permit
+	linux64-setuid: deny
+	linux64-shmat: deny
+	linux64-shmctl: deny
+	linux64-shmdt: deny
+	linux64-shmget: deny
+	linux64-signalfd4: permit
+	linux64-socket: permit
+	linux64-statfs: permit
+	linux64-uname: deny
+	linux64-unknown-307: permit
+	linux64-wait4: permit
+	linux64-write: permit
+	linux64-writev: permit
+	linux64-inotify_init: permit
+	linux64-inotify_add_watch: permit
+	linux64-inotify_rm_watch: permit
