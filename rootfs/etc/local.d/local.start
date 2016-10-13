@@ -60,10 +60,10 @@ done
 #iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-cat /proc/cmdline | grep docache
-if [ $? -eq 1 ] ; then
-	[ -e /usr/bin/eject ] && eject /dev/sr0 || true
-fi
+#cat /proc/cmdline | grep docache
+#if [ ! $(cat /proc/cmdline | grep docache) ] ; then
+#	[ -e /usr/bin/eject ] && eject /dev/sr0 || true
+#fi
 
 if [ -e /etc/rc.local.d/cryptsetup.sh ]; then
 	/bin/sh /etc/rc.local.d/cryptsetup.sh
