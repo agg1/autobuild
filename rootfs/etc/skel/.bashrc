@@ -17,3 +17,7 @@ fi
 
 # Put your fun stuff here.
 umask 0007
+if [ -z "$RUNX" -a ! -e ${HOME}/.nox ] ; then
+        export RUNX=1
+        exec /usr/local/bin/runx.sh
+fi
