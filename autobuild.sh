@@ -4,16 +4,13 @@
 set -e
 
 # ssl/ssh preferred cipher config, libressl
-# custom hexchat, irssi, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?
+# custom hexchat, irssi, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?, eclipse, java, systrace, xtrlock
 # check installed packages, eval, remove, track... gupnp etc...
 # consider minimal flag
 # check llvm/clang cycling
 # shell input con limit
 # sync portage tree to latest
-# add portage tree to livecd
 # musl overlay
-# java overlay
-# systrace overlay
 # sync NIST CVE database
 # check signatures and git trees, key locations
 # tighten systrace profiles, systrace emerge -f
@@ -21,9 +18,7 @@ set -e
 # squashfs routine hashsum check
 # eselect packages
 # opensmtpd
-# build from livecd
 # check -X and what pulls in x11 parts with minimal/init admincd
-# eclipse
 # check arp, dhcp, ip stack
 # ubsan performance
 # check firmware and microcode inclusion
@@ -36,16 +31,15 @@ set -e
 # replace glibc with musl
 # PRINTING VM for brother printer
 # signal qemu halt
-# xtrlock build and inclusion with .xinitrc
 # https://github.com/ganto/freeipa
 # glsa-check
 # firefox noflash, noscript, adblock and/or privoxy
 # offline wikipedia
 # backup script
-# runx.sh script checking ttyN and spawning new X-Server
 # virtual machine init scripts
 # crashdumps
 # iscsi, lvm, e4cr backup, keyring maintenance, tpm
+# opengl, egl, gles
 
 # SLAB, CROSS_MEM, ASLR 28/32? performance issue
 # CONFIG_SCHED_MC
@@ -56,8 +50,8 @@ prepare_system() {
 
 	export MAKEOPTS="-j12"
 	#STAMP=$(date -u +%s)
-	export STAMP=latest
-	export TARGT=
+	export STAMP="latest"
+	export TARGT=""
 	export CCONF="/home/catalyst/catalyst-cache.conf"
 	export CADIR="/home/catalyst"
 	export RELDA="$(date +%Y%m%d)"
@@ -66,6 +60,7 @@ prepare_system() {
 	export PKDIR="/home/packages"
 	export DFDIR="/home/distfiles"
 	export PTREE="${SDDIR}/portage-latest.tar.bz2"
+	export RODIR="${CADIR}/rootfs"
 
 	mkdir -p /usr/portage/distfiles
 	mount --bind ${DFDIR} /usr/portage/distfiles
@@ -123,7 +118,7 @@ prepare_portage() {
 
 	catalyst -v -c ${CCONF} -s $STAMP
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}
-	# COPY to SDDIR
+	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${RODIR}
 }
 
 sync_sources() {
