@@ -21,7 +21,7 @@ si::sysinit:/sbin/openrc sysinit
 # Further system initialization, brings up the boot runlevel.
 rc::bootwait:/sbin/openrc boot
 
-l0:0:wait:/sbin/openrc shutdown 
+l0:0:wait:/sbin/openrc shutdown
 l0s:0:wait:/sbin/halt -dhnp
 l1:1:wait:/sbin/openrc single
 l2:2:wait:/sbin/openrc nonetwork
@@ -63,4 +63,6 @@ c2:12345:respawn:/sbin/mingetty tty2
 c3:12345:respawn:/sbin/mingetty tty3
 c4:12345:respawn:/sbin/mingetty tty4
 c5:12345:respawn:/sbin/mingetty tty5
-c6:12345:respawn:/sbin/mingetty tty6
+c7:12345:respawn:/sbin/mingetty tty7
+c8:12345:respawn:/sbin/mingetty tty8
+c9:12345:respawn:/sbin/mingetty tty9
