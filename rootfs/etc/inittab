@@ -63,6 +63,7 @@ c2:12345:respawn:/sbin/mingetty tty2
 c3:12345:respawn:/sbin/mingetty tty3
 c4:12345:respawn:/sbin/mingetty tty4
 c5:12345:respawn:/sbin/mingetty tty5
+c6:12345:respawn:/sbin/mingetty tty6
 c7:12345:respawn:/sbin/mingetty tty7
 c8:12345:respawn:/sbin/mingetty tty8
 c9:12345:respawn:/sbin/mingetty tty9

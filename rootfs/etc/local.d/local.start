@@ -73,6 +73,7 @@ fi
 #STANDARD label mount points
 #e2label /dev/mapper/home HOME
 swapon -L SWAP 2>/dev/null
+# -o user_xattr,sync,dirsync
 mount /dev/disk/by-label/HOME /home 2>/dev/null
 mount /dev/disk/by-label/BACKUP /media/backup 2>/dev/null
 
