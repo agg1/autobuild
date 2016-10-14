@@ -43,9 +43,8 @@ set -e
 # softether
 # gcc -dumpspecs | less ... protector strong
 # testuser, check automated e4crzpt of $home,
+# webchat tor, bnc
 
-# SLAB, CROSS_MEM, ASLR 28/32? performance issue
-# CONFIG_SCHED_MC
 # strict /dev/mem IO -> radeon issue
 
 prepare_system() {
