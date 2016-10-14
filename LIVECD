@@ -1,20 +1,12 @@
-# ssh -vT git@github.com
 ssh-keygen -t ed25519
 ssh-keygen -t dsa
 ssh-keygen -t rsa
 
 emaint -A sync
 #emerge --sync
-#emerge -efD world
 #emerge --resume -p | genlop -p
 #emerge --oneshot portage
-
-EMERGE_DEFAULT_OPTS=--with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8
-sg wanout -c 'emerge -uNf @world'
 emerge --jobs=8 -kbvuND @world
-emerge -kbv @preserved-rebuild
-revdep-rebuild -v
-#-p
 etc-update --automode -5
 equery list "*"
 equery depends "=app-crypts/gnupg-1.4.21"
@@ -23,35 +15,23 @@ eanalyze
 emerge --info
 eselect profile list
 eselect kernel show
-eselect profile set 6 && eselect profile show
+eselect profile set 6
 emerge -v --depclean <atom> # -p
 emerge -av --depclean
---usepkgonly
 euse -D 3dfx
 quse -D bindist
-# fetch all
-emerge -F
 quickpkg  --include-config y --include-unmodified-config y "*/*"
 
+tree /etc/runlevels/
+
+https://wiki.gentoo.org/wiki/Gentoo_Cheat_Sheet#Package_installation_and_removal
+https://wiki.gentoo.org/wiki/Project:Hardened_musl
 https://wiki.gentoo.org/wiki/Gentoo_git_workflow
 https://wiki.gentoo.org/wiki/Layman
-https://wiki.gentoo.org/wiki/Project:Portage/Sync
-https://wiki.gentoo.org/wiki/Upgrading_Gentoo
 https://wiki.gentoo.org/wiki/Binary_package_guide
 https://wiki.gentoo.org/wiki/Gentoolkit
 https://security.gentoo.org/
-https://wiki.archlinux.org/index.php/ext4#Using_ext4_per_directory_encryption
 https://www.cvedetails.com
-https://wiki.gentoo.org/wiki/Gentoo_Cheat_Sheet#Package_installation_and_removal
 http://www.admin-magazin.de/Das-Heft/2009/03/Rechte-ueber-File-Capabilities-einschraenken
-https://wiki.gentoo.org/wiki/Project:Hardened_musl
-#HIGHMEM64
-#gcc -dumpspecs | less
-#handbook
 #dijkstra
-
-#softether
-#metasploit
-#ipv6
-#docker
 #tinkyflash
