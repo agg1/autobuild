@@ -312,6 +312,8 @@ livecd/packages:
 	dev-vcs/git
 	dev-vcs/git-crypt
 #	dev-vcs/subversion
+	games-fps/darkplaces
+	games-util/joystick
 #	lxde-base/lxappearance
 ##	lxde-base/lxappearance-obconf
 #	lxde-base/lxde-common
