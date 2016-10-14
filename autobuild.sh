@@ -6,11 +6,8 @@ set -e
 # ssl/ssh preferred cipher config, libressl
 # custom hexchat, irssi, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?, eclipse, java, systrace, xtrlock
 # check installed packages, eval, remove, track... gupnp etc...
-# consider minimal flag
 # check llvm/clang cycling
-# shell input con limit
 # sync portage tree to latest
-# musl overlay
 # sync NIST CVE database
 # check signatures and git trees, key locations
 # tighten systrace profiles, systrace emerge -f
@@ -27,7 +24,7 @@ set -e
 # config script MAC/serial dependent
 # traced proxy setup, dhcp setup
 # honeypot
-# replace glibc with musl
+# replace glibc with musl, musl overlay
 # PRINTING VM for brother printer
 # signal qemu halt
 # https://github.com/ganto/freeipa
@@ -37,13 +34,14 @@ set -e
 # backup script
 # virtual machine init scripts, shutdown signaling
 # crashdumps
-# iscsi, lvm, e4cr backup, keyring maintenance, tpm
+# iscsi, lvm, e4cr backup
 # opengl, egl, gles
 # revdep-rebuild? @preserved-rebuild? differences?
 # softether
 # gcc -dumpspecs | less ... protector strong
 # testuser, check automated e4crzpt of $home,
 # webchat tor, bnc
+# protect seeds and catalyst dir
 
 # strict /dev/mem IO -> radeon issue
 
