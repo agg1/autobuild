@@ -27,7 +27,6 @@ set -e
 # config script MAC/serial dependent
 # traced proxy setup, dhcp setup
 # honeypot
-# do not mount /usr/local read-write no more once packages are shipped with livecd
 # replace glibc with musl
 # PRINTING VM for brother printer
 # signal qemu halt
@@ -36,10 +35,13 @@ set -e
 # firefox noflash, noscript, adblock and/or privoxy
 # offline wikipedia
 # backup script
-# virtual machine init scripts
+# virtual machine init scripts, shutdown signaling
 # crashdumps
 # iscsi, lvm, e4cr backup, keyring maintenance, tpm
 # opengl, egl, gles
+# revdep-rebuild? @preserved-rebuild? differences?
+# softether
+# gcc -dumpspecs | less ... protector strong
 
 # SLAB, CROSS_MEM, ASLR 28/32? performance issue
 # CONFIG_SCHED_MC
