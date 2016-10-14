@@ -27,6 +27,7 @@ livecd/use:
 	-jit
 	-orc
 	-X
+	-minimal
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw

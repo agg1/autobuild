@@ -189,6 +189,7 @@ livecd/packages:
 	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
+	app-crypt/md5deep
 	app-crypt/pinentry
 	app-dicts/aspell-de
 	app-dicts/aspell-de-alt
