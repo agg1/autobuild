@@ -42,6 +42,7 @@ set -e
 # revdep-rebuild? @preserved-rebuild? differences?
 # softether
 # gcc -dumpspecs | less ... protector strong
+# testuser, check automated e4crzpt of $home,
 
 # SLAB, CROSS_MEM, ASLR 28/32? performance issue
 # CONFIG_SCHED_MC
@@ -49,6 +50,8 @@ set -e
 
 prepare_system() {
 	echo "### prepare_system()"
+
+	mount -o remount,size=24G /
 
 	export MAKEOPTS="-j12"
 	#STAMP=$(date -u +%s)
@@ -78,12 +81,14 @@ prepare_system() {
 	echo 3 > /proc/sys/vm/drop_caches
 	echo 524288 > /proc/sys/vm/min_free_kbytes
 
-	mount -o remount,size=22G /
-	if [ ! -e /usr/bin/catalyst ] ; then
-		emerge catalyst
-	fi
+	#if [ ! -e /usr/bin/catalyst ] ; then
+	#	emerge catalyst
+	#fi
+
 	#HOTFIX overlay fix of catalyst script, also $ROOTFS/etc/portage fix necessary
-	#patch -d / -Np0 < catalyst.patch
+	cp -pR /usr/share/catalyst /tmp
+	mount -o bind /tmp/catalyst /usr/share/catalyst
+	patch -d / -Np0 < /home/catalyst/catalyst.patch
 }
 
 prepare_portage() {
@@ -151,6 +156,7 @@ fetch_distfiles() {
 }
 
 fetch_all() {
+	echo "### fetch_all()"
 }
 
 clean_portage() {
