@@ -1,7 +1,13 @@
 #!/bin/sh
 # Copyright aggi 2016
 
+set -e
+
 source /home/catalyst/autobuild.sh
 
-#[ "${FETCH}X" != "X" ] && 
-fetch_distfiles || exit 255
+prepare_system && \
+clean_portage && \
+prepare_portage && \
+fetch_distfiles && \
+echo "SUCCESS" || \
+echo "ERROR"
