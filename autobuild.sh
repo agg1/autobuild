@@ -128,6 +128,7 @@ sync_sources() {
 sync_portage() {
 	echo "### sync_portage()"
 	sg wanout -c "emaint -A sync"
+	#emerge --sync
 }
 
 fetch_distfiles() {
@@ -150,6 +151,9 @@ fetch_distfiles() {
 
 fetch_all() {
 	echo "### fetch_all()"
+#	equery l -p --format='$category/$name' '*'
+#	equery l -p '*'
+#	equery l -o '*'
 }
 
 clean_portage() {
