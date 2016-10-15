@@ -33,7 +33,7 @@ set -e
 # offline wikipedia
 # virtual machine init scripts, shutdown signaling
 # crashdumps
-# iscsi over ipsec, lvm, e4cr backup
+# iscsi over ipsec
 # opengl, egl, gles
 # revdep-rebuild? @preserved-rebuild? differences?
 # softether
