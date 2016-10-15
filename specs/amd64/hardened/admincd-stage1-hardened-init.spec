@@ -266,7 +266,6 @@ livecd/packages:
 	sys-block/aoetools
 #	sys-block/eject
 	sys-block/fio
-	sys-block/iscsitarget
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
@@ -321,7 +320,7 @@ livecd/packages:
 #	sys-power/pm-utils
 	sys-process/htop
 	sys-process/lsof
-	sys-process/iotop
+#	sys-process/iotop
 	sys-process/procps
 	sys-process/psmisc
 	www-client/links

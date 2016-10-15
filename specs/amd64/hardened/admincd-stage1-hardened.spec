@@ -313,7 +313,7 @@ livecd/packages:
 	dev-vcs/git
 	dev-vcs/git-crypt
 #	dev-vcs/subversion
-	games-fps/darkplaces
+#	games-fps/darkplaces
 	games-util/joystick
 #	lxde-base/lxappearance
 ##	lxde-base/lxappearance-obconf
@@ -735,7 +735,6 @@ livecd/packages:
 #	sys-block/eject
 	sys-block/fio
 	sys-block/gparted
-	sys-block/iscsitarget
 #	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
@@ -825,7 +824,7 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/memwatch
 	sys-process/nmon
-	sys-process/iotop
+#	sys-process/iotop
 	sys-process/procps
 	sys-process/psmisc
 	#virtual/opengl
