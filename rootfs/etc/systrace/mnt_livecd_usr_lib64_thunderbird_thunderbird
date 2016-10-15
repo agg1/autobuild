@@ -25,6 +25,7 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-connect: sockaddr match "inet-*:0" then deny
 	linux64-sendmsg: sockaddr eq "<unknown>" then deny
 	linux64-bind: sockaddr eq "family(16)" then deny
+	linux64-dup3: permit
 	linux64-dup2: permit
 	linux64-dup: permit
 	linux64-epoll_create: permit
@@ -67,6 +68,8 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename eq "/etc/xdg/mimeapps.list" then permit
 	linux64-fsread: filename eq "/" then permit
 	linux64-fsread: filename eq "/home" then permit
+	linux64-fsread: filename match "$HOME/.gnupg*" then permit
+	linux64-fswrite: filename match "$HOME/.gnupg*" then permit
 	linux64-fsread: filename match "$HOME*" then permit
 	linux64-fsread: filename match "$HOME/*" then permit
 	linux64-fsread: filename match "$HOME/.*" then permit
@@ -400,8 +403,6 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename match "/var/cache/fontconfig*" then permit
 	linux64-fstat: permit
 	linux64-fstatfs: permit
-	linux64-fsread: filename match "$HOME/.gnupg*" then permit
-	linux64-fswrite: filename match "$HOME/.gnupg*" then permit
 	linux64-fswrite: filename match "*/usr/lib64/thunderbird" then deny
 	linux64-fsread: filename match "/tmp*" then permit
 	linux64-fswrite: filename match "/tmp*" then permit

@@ -7,6 +7,9 @@ echo 524288 > /proc/sys/vm/min_free_kbytes
 echo 0 > /proc/sys/vm/swappiness
 echo 3 > /proc/sys/vm/drop_caches
 echo 2 > /proc/sys/kernel/randomize_va_space
+echo 10 > /proc/sys/vm/dirty_expire_centisecs
+echo 10 > /proc/sys/vm/dirty_writeback_centisecs
+echo 32 > /proc/sys/vm/mmap_rnd_bits
 
 # enable core dumps
 sysctl -w kernel.core_uses_pid=1
