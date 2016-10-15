@@ -321,7 +321,7 @@ livecd/packages:
 #	sys-power/pm-utils
 	sys-process/htop
 	sys-process/lsof
-	sys-process/iotop
+#	sys-process/iotop
 	sys-process/procps
 	sys-process/psmisc
 	www-client/links

@@ -104,6 +104,7 @@ boot/kernel/gentoo/use:
 	static-libs
 
 #boot/kernel/gentoo/packages:
+#	sys-block/iscsitarget
 #	sys-kernel/linux-firmware
 
 #livecd/unmerge:

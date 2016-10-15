@@ -102,7 +102,10 @@ boot/kernel/gentoo/use:
 	latex
 	static-libs
 
-#boot/kernel/gentoo/packages:
+boot/kernel/gentoo/packages:
+	games-fps/darkplaces
+	games-fps/xonotic
+#	sys-block/iscsitarget
 #	sys-kernel/linux-firmware
 
 #livecd/unmerge:
