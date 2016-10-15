@@ -4,7 +4,7 @@
 set -e
 
 # ssl/ssh preferred cipher config, libressl
-# custom hexchat, irssi, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?, eclipse, java, systrace, xtrlock
+# custom hexchat, irssi, mutt, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?, eclipse, java, systrace, xtrlock
 # check installed packages, eval, remove, track... gupnp etc...
 # check llvm/clang cycling
 # sync portage tree to latest
@@ -34,16 +34,14 @@ set -e
 # backup script
 # virtual machine init scripts, shutdown signaling
 # crashdumps
-# iscsi, lvm, e4cr backup
+# iscsi over ipsec, lvm, e4cr backup
 # opengl, egl, gles
 # revdep-rebuild? @preserved-rebuild? differences?
 # softether
 # gcc -dumpspecs | less ... protector strong
-# testuser, check automated e4crzpt of $home,
 # webchat tor, bnc
 # protect seeds and catalyst dir
-
-# strict /dev/mem IO -> radeon issue
+# update passwords
 
 prepare_system() {
 	echo "### prepare_system()"
