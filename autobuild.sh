@@ -31,7 +31,6 @@ set -e
 # glsa-check
 # firefox noflash, noscript, adblock and/or privoxy
 # offline wikipedia
-# backup script
 # virtual machine init scripts, shutdown signaling
 # crashdumps
 # iscsi over ipsec, lvm, e4cr backup
@@ -40,7 +39,6 @@ set -e
 # softether
 # gcc -dumpspecs | less ... protector strong
 # webchat tor, bnc
-# protect seeds and catalyst dir
 # update passwords
 
 prepare_system() {
