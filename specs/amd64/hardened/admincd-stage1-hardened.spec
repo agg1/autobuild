@@ -460,6 +460,8 @@ livecd/packages:
 #	media-sound/easytag
 #	media-sound/grip
 #	media-sound/hydrogen
+#	media-sound/pamix
+#	media-sound/pulseaudio
 #	media-sound/rhythmbox
 #	media-tv/w_scan
 	media-video/dvdrip
