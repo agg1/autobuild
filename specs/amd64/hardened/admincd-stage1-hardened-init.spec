@@ -266,6 +266,7 @@ livecd/packages:
 	sys-block/aoetools
 #	sys-block/eject
 	sys-block/fio
+	sys-block/iscsitarget
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
