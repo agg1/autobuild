@@ -112,11 +112,14 @@ boot/kernel/gentoo/use:
 #	sys-auth/pambase
 
 livecd/empty:
-	/home/catalyst
+	/home
 	/media
 	/media/backup
 	/media/catalyst
 	/media/cdrom
+	/media/iscsi
+	/media/nfs
+	/media/sshfs
 	/media/stick
 #	/etc/cron.daily
 #	/etc/cron.hourly
