@@ -735,6 +735,7 @@ livecd/packages:
 #	sys-block/eject
 	sys-block/fio
 	sys-block/gparted
+	sys-block/iscsitarget
 #	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
