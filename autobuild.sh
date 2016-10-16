@@ -119,7 +119,6 @@ prepare_portage() {
 
 	catalyst -v -c ${CCONF} -s $STAMP
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}
-	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${RODIR}
 
 	mkdir -p /var/tmp/catalyst/builds/hardened
 }
@@ -179,6 +178,7 @@ clean_stage() {
 	rm -rf /var/tmp/catalyst/tmp/hardened/
 	rm -rf /var/tmp/catalyst/packages/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
+	rm -rf /var/tmp/genkernel
 	sync
 	echo 3 > /proc/sys/vm/drop_caches
 }
@@ -220,6 +220,7 @@ build_livecd_minimal() {
 	echo "### build_livecd_minimal()"
 
 	clean_stage
+	rm -f ${RODIR}/portage-latest.*
 
 	cp ${SDDIR}/init/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/minimal/latest
@@ -235,6 +236,7 @@ build_livecd_desktop() {
 	echo "### build_livecd_desktop()"
 
 	clean_stage
+	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${RODIR}
 
 	# seed destkop build from minimal livecd stage1 seed
 	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
@@ -251,6 +253,7 @@ update_livecd_desktop() {
 	echo "### update_livecd_desktop()"
 
 	clean_stage
+	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${RODIR}
 
 	# seed destkop build from desktop livecd stage1 seed
 	cp ${SDDIR}/desktop/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
