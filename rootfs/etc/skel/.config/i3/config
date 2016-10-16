@@ -32,7 +32,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec xterm -fn 10x20 -bg black -fg grey90 -s
+#bindsym $mod+Return exec xterm -fn 10x20 -bg black -fg grey90 -s
+bindsym $mod+Return exec xterm -fa 'Monospace' -fs 15 -bg black -fg grey90 -s
 
 # kill focused window
 bindsym $mod+Shift+q kill
