@@ -64,6 +64,7 @@ livecd/use:
 	livecd
 	loop-aes
 	extra-ciphers
+	jpg
 	keyscrub
 	lvm1
 	midi
@@ -708,6 +709,7 @@ livecd/packages:
 	sys-apps/less
 	sys-apps/lsb-release
 	sys-apps/man
+#	sys-apps/man-db
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester

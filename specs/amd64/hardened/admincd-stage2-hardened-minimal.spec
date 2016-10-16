@@ -47,7 +47,7 @@ boot/kernel/gentoo/use:
 	-jit
 	-orc
 	-X
-	-minimal
+	minimal
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -100,108 +100,28 @@ boot/kernel/gentoo/use:
 	unicode
 	urandom
 	usb
-	doc
+	-doc
 	latex
 	static-libs
 
 #boot/kernel/gentoo/packages:
+#	sys-block/iscsitarget
 #	sys-kernel/linux-firmware
 
 #livecd/unmerge:
 #	sys-libs/pam
 #	sys-auth/pambase
 
-livecd/empty:
-	/home
-	/media
-	/media/backup
-	/media/catalyst
-	/media/cdrom
-	/media/iscsi
-	/media/nfs
-	/media/sshfs
-	/media/stick
-#	/etc/cron.daily
-#	/etc/cron.hourly
-#	/etc/cron.monthly
-#	/etc/cron.weekly
-#	/etc/logrotate.d
-#	/etc/modules.autoload.d
-#	/etc/runlevels/single
-#	/etc/skel
-#	/lib/dev-state
-#	/lib/udev-state
-#	/lib64/dev-state
-#	/lib64/udev-state
-#	/root/.ccache
-#	/tmp
-#	/usr/diet/include
-#	/usr/diet/man
-#	/usr/i?86-gentoo-linux-uclibc
-#	/usr/i?86-pc-linux-uclibc
-#	/usr/lib/X11/config
-#	/usr/lib/X11/doc
-#	/usr/lib/X11/etc
-#	/usr/lib/awk
-#	/usr/lib/ccache
-#	/usr/lib/gcc-config
-#	/usr/lib/gconv
-#	/usr/lib/nfs
-#	/usr/lib/perl5/site_perl
-#	/usr/lib/portage
-#	/usr/lib64/X11/config
-#	/usr/lib64/X11/doc
-#	/usr/lib64/X11/etc
-#	/usr/lib64/awk
-#	/usr/lib64/ccache
-#	/usr/lib64/gcc-config
-#	/usr/lib64/gconv
-#	/usr/lib64/nfs
-#	/usr/lib64/perl5/site_perl
-#	/usr/lib64/portage
-#	/usr/local
-#	/usr/portage
-#	/usr/share/aclocal
-#	/usr/share/baselayout
-#	/usr/share/binutils-data
-#	/usr/share/consolefonts/partialfonts
-#	/usr/share/consoletrans
-#	/usr/share/dict
-#	/usr/share/et
-#	/usr/share/gcc-data
-#	/usr/share/genkernel
-#	/usr/share/gettext
-#	/usr/share/glib-2.0
-#	/usr/share/gnuconfig
-#	/usr/share/gtk-doc
-#	/usr/share/i18n
-#	/usr/share/info
-#	/usr/share/lcms
-#	/usr/share/libtool
-#	/usr/share/locale
-#	/usr/share/man
-#	/usr/share/rfc
-#	/usr/share/ss
-#	/usr/share/state
-#	/usr/share/texinfo
-#	/usr/share/unimaps
-#	/usr/share/zoneinfo
-#	/usr/src
-#	/var/cache
-#	/var/empty
-#	/var/lib/portage
-#	/var/log
-#	/var/spool
-#	/var/state
-#	/var/tmp
-
 livecd/rm:
-	/var/tmp/genkernel
 	/boot/System*
 	/boot/initr*
 	/boot/kernel*
+	/etc/make.conf*
+	/etc/make.globals
+	/etc/make.profile
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
+	/var/tmp/genkernel
 #	/etc/*-
 #	/etc/*.old
 #	/etc/default/audioctl
@@ -212,9 +132,6 @@ livecd/rm:
 #	/etc/hosts.bck
 #	/etc/issue*
 #	/etc/genkernel.conf
-	/etc/make.conf*
-	/etc/make.globals
-	/etc/make.profile
 #	/etc/man.conf
 #	/etc/resolv.conf
 #	/lib*/*.a
@@ -300,3 +217,78 @@ livecd/rm:
 #	/usr/share/consolefonts/t*
 #	/usr/share/consolefonts/v*
 #	/usr/share/misc/*.old
+
+#livecd/empty:
+#	/etc/cron.daily
+#	/etc/cron.hourly
+#	/etc/cron.monthly
+#	/etc/cron.weekly
+#	/etc/logrotate.d
+#	/etc/modules.autoload.d
+#	/etc/runlevels/single
+#	/etc/skel
+#	/lib/dev-state
+#	/lib/udev-state
+#	/lib64/dev-state
+#	/lib64/udev-state
+#	/root/.ccache
+#	/tmp
+#	/usr/diet/include
+#	/usr/diet/man
+#	/usr/i?86-gentoo-linux-uclibc
+#	/usr/i?86-pc-linux-uclibc
+#	/usr/lib/X11/config
+#	/usr/lib/X11/doc
+#	/usr/lib/X11/etc
+#	/usr/lib/awk
+#	/usr/lib/ccache
+#	/usr/lib/gcc-config
+#	/usr/lib/gconv
+#	/usr/lib/nfs
+#	/usr/lib/perl5/site_perl
+#	/usr/lib/portage
+#	/usr/lib64/X11/config
+#	/usr/lib64/X11/doc
+#	/usr/lib64/X11/etc
+#	/usr/lib64/awk
+#	/usr/lib64/ccache
+#	/usr/lib64/gcc-config
+#	/usr/lib64/gconv
+#	/usr/lib64/nfs
+#	/usr/lib64/perl5/site_perl
+#	/usr/lib64/portage
+#	/usr/local
+#	/usr/portage
+#	/usr/share/aclocal
+#	/usr/share/baselayout
+#	/usr/share/binutils-data
+#	/usr/share/consolefonts/partialfonts
+#	/usr/share/consoletrans
+#	/usr/share/dict
+#	/usr/share/et
+#	/usr/share/gcc-data
+#	/usr/share/genkernel
+#	/usr/share/gettext
+#	/usr/share/glib-2.0
+#	/usr/share/gnuconfig
+#	/usr/share/gtk-doc
+#	/usr/share/i18n
+#	/usr/share/info
+#	/usr/share/lcms
+#	/usr/share/libtool
+#	/usr/share/locale
+#	/usr/share/man
+#	/usr/share/rfc
+#	/usr/share/ss
+#	/usr/share/state
+#	/usr/share/texinfo
+#	/usr/share/unimaps
+#	/usr/share/zoneinfo
+#	/usr/src
+#	/var/cache
+#	/var/empty
+#	/var/lib/portage
+#	/var/log
+#	/var/spool
+#	/var/state
+#	/var/tmp
