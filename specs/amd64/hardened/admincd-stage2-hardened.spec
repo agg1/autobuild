@@ -13,7 +13,7 @@ livecd/volid: Linux Hardened Live System
 livecd/type: generic-livecd
 livecd/iso: admincd-amd64-latest.iso
 livecd/fstype: squashfs
-livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf
+livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
 livecd/bootargs: dokeymap docache memory_corruption_check=1 modprobe.blacklist=asix,mcs7830
 # ubsan_handle=OEAINVBSLF
