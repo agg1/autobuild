@@ -27,7 +27,7 @@ livecd/use:
 	-jit
 	-orc
 	-X
-	-minimal
+	minimal
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -80,7 +80,7 @@ livecd/use:
 	unicode
 	urandom
 	usb
-    doc
+    -doc
     latex
     static-libs
 #   static
@@ -244,9 +244,10 @@ livecd/packages:
 	sys-apps/iproute2
 	sys-apps/less
 	sys-apps/lsb-release
-	sys-apps/man
-	sys-apps/man-pages
-	sys-apps/man-pages-posix
+#	sys-apps/man
+#	sys-apps/man-db
+#	sys-apps/man-pages
+#	sys-apps/man-pages-posix
 	sys-apps/memtester
 	sys-apps/miscfiles
 	sys-apps/mlocate

@@ -62,6 +62,7 @@ livecd/use:
 	livecd
 	loop-aes
 	extra-ciphers
+	jpg
 	keyscrub
 	lvm1
 	midi
@@ -79,7 +80,7 @@ livecd/use:
 	unicode
 	urandom
 	usb
-    doc
+    -doc
     latex
     static-libs
 #   static
@@ -244,6 +245,7 @@ livecd/packages:
 	sys-apps/less
 	sys-apps/lsb-release
 	sys-apps/man
+#	sys-apps/man-db
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
