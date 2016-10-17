@@ -26,7 +26,6 @@ set -e
 # honeypot
 # replace glibc with musl, musl overlay
 # PRINTING VM for brother printer
-# signal qemu halt
 # https://github.com/ganto/freeipa
 # glsa-check
 # firefox noflash, noscript, adblock and/or privoxy
@@ -41,30 +40,39 @@ set -e
 # webchat tor, bnc
 # update passwords
 
+livecd_writable() {
+	echo "### livecd_writable()"
+	if [ -e /mnt/livecd/.writeable ] ; then
+		echo "already writable"
+	else
+		modprobe overlay || true
+		mkdir -p /tmp/livecd_overlay/upper /tmp/livecd_overlay/work
+		mount -t overlay overlay -o lowerdir=/mnt/livecd/,upperdir=/tmp/livecd_overlay/upper,workdir=/tmp/livecd_overlay/work /mnt/livecd/
+		touch /mnt/livecd/.writeable
+	fi
+}
+
 prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,size=24G /
 
-	export MAKEOPTS="-j12"
-	#STAMP=$(date -u +%s)
-	export STAMP="latest"
+	NEWDA="$(date +%Y%m%d)"
+	export MAKEOPTS="${MAKEOPTS:--j12}"
+	export STAMP="${STAMP:-latest}"
 	export TARGT=""
-	export CCONF="/home/catalyst/catalyst-cache.conf"
+	export CCONF="${CCONF:-/home/catalyst/catalyst-cache.conf}"
 	export CADIR="/home/catalyst"
-	export RELDA="$(date +%Y%m%d)"
-	export BDDIR="/var/tmp/catalyst/builds/hardened"
-	export SDDIR="/home/seeds"
-	export PKDIR="/home/packages"
-	export DFDIR="/home/distfiles"
-	export PTREE="${SDDIR}/portage-latest.tar.bz2"
-	#export PTREE="${SDDIR}/portage.tar"
-	export RODIR="${CADIR}/rootfs"
+	export RELDA="${RELDA:-$NEWDA}"
+	export BDDIR="${BDDIR:-/var/tmp/catalyst/builds/hardened}"
+	export SDDIR="${SDDIR:-/home/seeds}"
+	export PKDIR="${PKDIR:-/home/packages}"
+	export DFDIR="${DFDIR:-/home/distfiles}"
+	export PTREE="${PTREE:-${SDDIR}/portage-latest.tar.bz2}"
+	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
 	mkdir -p /usr/portage/distfiles
 	mount --bind ${DFDIR} /usr/portage/distfiles
-#	mkdir -p /usr/portage/packages
-#	mount --bind ${PKDIR} /usr/portage/packages
 
 	cd /usr/
 	tar -xf ${PTREE}
@@ -75,13 +83,10 @@ prepare_system() {
 	echo 3 > /proc/sys/vm/drop_caches
 	echo 524288 > /proc/sys/vm/min_free_kbytes
 
-	#if [ ! -e /usr/bin/catalyst ] ; then
-	#	emerge catalyst
-	#fi
-
 	#HOTFIX overlay fix of catalyst script, also $ROOTFS/etc/portage fix necessary
-	cp -pR /usr/share/catalyst /tmp
-	mount -o bind /tmp/catalyst /usr/share/catalyst
+	#cp -pR /usr/share/catalyst /tmp
+	#mount -o bind /tmp/catalyst /usr/share/catalyst
+	livecd_writable
 	patch -d / -Np0 < /home/catalyst/catalyst.patch
 }
 
