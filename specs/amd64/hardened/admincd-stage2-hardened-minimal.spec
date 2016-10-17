@@ -26,7 +26,7 @@ livecd/root_overlay: /home/catalyst/rootfs
 
 boot/kernel: gentoo
 
-boot/kernel/gentoo/sources: gentoo-sources
+boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 #-udev
 boot/kernel/gentoo/use:
@@ -105,8 +105,8 @@ boot/kernel/gentoo/use:
 	static-libs
 
 #boot/kernel/gentoo/packages:
-#	sys-block/iscsitarget
 #	sys-kernel/linux-firmware
+#	sys-block/iscsitarget
 
 #livecd/unmerge:
 #	sys-libs/pam

@@ -326,4 +326,3 @@ livecd/packages:
 	sys-process/procps
 	sys-process/psmisc
 	www-client/links
-	sys-kernel/linux-firmware
