@@ -803,7 +803,6 @@ livecd/packages:
 #	sys-fs/xfsprogs
 	sys-kernel/genkernel
 	sys-kernel/linux-docs
-	sys-kernel/linux-firmware
 	sys-kernel/linux-headers
 	sys-libs/db
 	sys-libs/gdbm
