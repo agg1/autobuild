@@ -46,8 +46,8 @@ livecd_writable() {
 		echo "already writable"
 	else
 		modprobe overlay || true
-		mkdir -p /tmp/livecd_overlay/upper /tmp/livecd_overlay/work
-		mount -t overlay overlay -o lowerdir=/mnt/livecd/,upperdir=/tmp/livecd_overlay/upper,workdir=/tmp/livecd_overlay/work /mnt/livecd/
+		mkdir -p /home/livecd_overlay/upper /home/livecd_overlay/work
+		mount -t overlay overlay -o lowerdir=/mnt/livecd/,upperdir=/home/livecd_overlay/upper,workdir=/home/livecd_overlay/work /mnt/livecd/
 		touch /mnt/livecd/.writeable
 	fi
 }
