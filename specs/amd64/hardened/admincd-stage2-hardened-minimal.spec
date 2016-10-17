@@ -18,7 +18,7 @@ livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.t
 livecd/bootargs: dokeymap docache memory_corruption_check=1 modprobe.blacklist=asix,mcs7830
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
-livecd/rcdel: keymaps|boot netmount|default
+livecd/rcdel: keymaps|boot netmount|default fixinittab|default
 #dhcpcd
 #livecd/rcadd:
 livecd/root_overlay: /home/catalyst/rootfs
