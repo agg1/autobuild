@@ -6,7 +6,7 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 #source_subpath: hardened/stage4-amd64-latest.tar.bz2
 source_subpath: hardened/livecd-stage1-amd64-latest.tar.bz2
-portage_confdir: /home/catalyst/etc/portage/
+portage_confdir: /home/catalyst/etc/portage-desktop
 #portage_overlay: /home/source/portage/proj/musl
 cflags: -O3 -pipe -march=nehalem -mtune=nehalem
 cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
@@ -90,7 +90,7 @@ livecd/use:
 livecd/packages:
 #	app-accessibility/brltty
 #	app-accessibility/espeakup
-#    app-doc/doxygen
+    app-doc/doxygen
 #	app-admin/bastille
 	app-admin/checksec
 	app-admin/chroot_safe
@@ -836,7 +836,8 @@ livecd/packages:
 #	www-client/chromium
 	www-client/firefox
 	www-client/links
-	www-client/netsurf
+	# broken libcss
+#	www-client/netsurf
 	www-client/w3m
 #	www-misc/
 #	www-plugins/
