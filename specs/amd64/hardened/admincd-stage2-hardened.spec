@@ -105,8 +105,6 @@ boot/kernel/gentoo/use:
 
 boot/kernel/gentoo/packages:
 	sys-kernel/linux-firmware
-	games-fps/darkplaces
-	games-fps/xonotic
 #	sys-block/iscsitarget
 
 #livecd/unmerge:
