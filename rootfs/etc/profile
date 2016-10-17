@@ -64,7 +64,7 @@ unset sh
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
-if [ ! -z "$(grep -R "^${USER}$" /home/chome)" ]; then
+if [ -e /home/chome -a ! -z "$(grep -R "^${USER}$" /home/chome 2>/dev/null)" ]; then
     echo "Unlock $HOME"
     /usr/sbin/e4crypt add_key -S 0xffff $HOME
 fi
