@@ -55,7 +55,9 @@ livecd_writable() {
 prepare_system() {
 	echo "### prepare_system()"
 
-	mount -o remount,size=28G /
+	mount -o remount,size=22G /
+	mkdir -p /var/tmp/catalyst/builds/
+	mount -o bind /home/tmp/builds /var/tmp/catalyst/builds/
 
 	NEWDA="$(date +%Y%m%d)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -81,7 +83,7 @@ prepare_system() {
 
 	echo 0 > /proc/sys/vm/swappiness
 	echo 3 > /proc/sys/vm/drop_caches
-	echo 524288 > /proc/sys/vm/min_free_kbytes
+	echo 262144 > /proc/sys/vm/min_free_kbytes
 
 	#HOTFIX overlay fix of catalyst script, also $ROOTFS/etc/portage fix necessary
 	#cp -pR /usr/share/catalyst /tmp
@@ -255,6 +257,8 @@ build_livecd_desktop() {
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
+
+	rm -f ${RODIR}/portage-latest.*
 }
 
 update_livecd_desktop() {
@@ -267,9 +271,14 @@ update_livecd_desktop() {
 	cp ${SDDIR}/desktop/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+	# free space
 	cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	rm -rf /var/tmp/catalyst/tmp/hardened/*
+	rm -rf /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
+
+	rm -f ${RODIR}/portage-latest.*
 }
