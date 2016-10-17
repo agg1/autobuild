@@ -55,7 +55,7 @@ livecd_writable() {
 prepare_system() {
 	echo "### prepare_system()"
 
-	mount -o remount,size=24G /
+	mount -o remount,size=28G /
 
 	NEWDA="$(date +%Y%m%d)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -247,8 +247,11 @@ build_livecd_desktop() {
 	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+	# free space
 	cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	rm -rf /var/tmp/catalyst/tmp/hardened/*
+	rm -rf /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
