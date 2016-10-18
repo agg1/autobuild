@@ -102,3 +102,5 @@ mount /dev/disk/by-label/BACKUP /media/backup 2>/dev/null
 if [ -e /home/init.sh ]; then
     /bin/sh /home/init.sh
 fi
+
+chmod +s /usr/local/bin/xtrlock || true
