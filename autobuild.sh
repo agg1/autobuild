@@ -73,23 +73,20 @@ prepare_system() {
 	export PTREE="${PTREE:-${SDDIR}/portage-latest.tar.bz2}"
 	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
-	mkdir -p /usr/portage/distfiles
-	mount --bind ${DFDIR} /usr/portage/distfiles
-
 	cd /usr/
 	tar -xf ${PTREE}
-
 	cd ${CADIR}
+
+	mkdir -p /usr/portage/distfiles
+	mount --bind ${DFDIR} /usr/portage/distfiles
 
 	echo 0 > /proc/sys/vm/swappiness
 	echo 3 > /proc/sys/vm/drop_caches
 	echo 262144 > /proc/sys/vm/min_free_kbytes
 
 	#HOTFIX overlay fix of catalyst script, also $ROOTFS/etc/portage fix necessary
-	#cp -pR /usr/share/catalyst /tmp
-	#mount -o bind /tmp/catalyst /usr/share/catalyst
-	livecd_writable
-	patch -d / -Np0 < /home/catalyst/catalyst.patch
+	#livecd_writable
+	#patch -d / -Np0 < /home/catalyst/catalyst.patch
 }
 
 prepare_portage() {
