@@ -40,15 +40,16 @@ set -e
 # webchat tor, bnc
 # update passwords
 
-livecd_writable() {
-	echo "### livecd_writable()"
-	if [ -e /mnt/livecd/.writeable ] ; then
+writable() {
+	echo "### writable()"
+	if [ -e /mnt/livecd/usr/.writeable ] ; then
 		echo "already writable"
 	else
 		modprobe overlay || true
-		mkdir -p /home/livecd_overlay/upper /home/livecd_overlay/work
-		mount -t overlay overlay -o lowerdir=/mnt/livecd/,upperdir=/home/livecd_overlay/upper,workdir=/home/livecd_overlay/work /mnt/livecd/
-		touch /mnt/livecd/.writeable
+		rm -rf /home/livecd_overlay/upper/usr /home/livecd_overlay/work/usr
+		mkdir -p /home/livecd_overlay/upper/usr /home/livecd_overlay/work/usr
+		mount -t overlay overlay -o lowerdir=/mnt/livecd/usr,upperdir=/home/livecd_overlay/upper/usr,workdir=/home/livecd_overlay/work/usr /mnt/livecd/usr
+		touch /mnt/livecd/usr/.writeable
 	fi
 }
 
@@ -73,6 +74,17 @@ prepare_system() {
 	export PTREE="${PTREE:-${SDDIR}/portage-latest.tar.bz2}"
 	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
+	echo 0 > /proc/sys/vm/swappiness
+	echo 3 > /proc/sys/vm/drop_caches
+	echo 262144 > /proc/sys/vm/min_free_kbytes
+
+	unalias cp || true
+	unalias rm || true
+	unalias mv || true
+	cp -fp /home/catalyst/rootfs/etc/profile /etc
+
+	writable
+
 	cd /usr/
 	tar -xf ${PTREE}
 	cd ${CADIR}
@@ -80,13 +92,8 @@ prepare_system() {
 	mkdir -p /usr/portage/distfiles
 	mount --bind ${DFDIR} /usr/portage/distfiles
 
-	echo 0 > /proc/sys/vm/swappiness
-	echo 3 > /proc/sys/vm/drop_caches
-	echo 262144 > /proc/sys/vm/min_free_kbytes
-
 	#HOTFIX overlay fix of catalyst script, also $ROOTFS/etc/portage fix necessary
-	#livecd_writable
-	#patch -d / -Np0 < /home/catalyst/catalyst.patch
+	patch -d / -Np0 < /home/catalyst/catalyst.patch
 }
 
 prepare_portage() {
@@ -106,11 +113,11 @@ prepare_portage() {
 	ln -sf ../../usr/portage/profiles/hardened/linux/amd64/no-multilib /home/catalyst/etc/portage/make.profile
 
 	# it seems some things are grabbed from /ROOT instead of /STAGEROOT such as /etc/portage things!
-	cp /home/catalyst/toolchain.eclass /usr/portage/eclass
-	cp /home/catalyst/etc/portage/make.defaults /usr/portage/profiles/hardened/linux/amd64/no-multilib/
-	cp /home/catalyst/dmraid-1.0.0_rc16-r3.ebuild /usr/portage/sys-fs/dmraid
+	cp -fp /home/catalyst/toolchain.eclass /usr/portage/eclass
+	cp -fp /home/catalyst/etc/portage/make.defaults /usr/portage/profiles/hardened/linux/amd64/no-multilib/
+	cp -fp /home/catalyst/dmraid-1.0.0_rc16-r3.ebuild /usr/portage/sys-fs/dmraid
 	# consider pulling in individual drivers instead of xorg-drivers package
-	cp /home/catalyst/xorg-drivers-1.18-r1.ebuild /usr/portage/x11-base/xorg-drivers
+	cp -fp /home/catalyst/xorg-drivers-1.18-r1.ebuild /usr/portage/x11-base/xorg-drivers
 
 	cd /usr/portage
 	git config --global user.email "aggi@localhost"
