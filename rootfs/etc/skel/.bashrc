@@ -16,6 +16,7 @@ fi
 
 
 # Put your fun stuff here.
+set +o history
 umask 0007
 if [ -z "$RUNX" -a ! -e ${HOME}/.nox ] ; then
         export RUNX=1
