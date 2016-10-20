@@ -50,7 +50,7 @@ su1:S:wait:/sbin/sulogin
 #s1:12345:respawn:/sbin/agetty -L 115200 ttyS1 vt100
 
 # What to do at the "Three Finger Salute".
-ca:12345:ctrlaltdel:/sbin/shutdown -r now
+#ca:12345:ctrlaltdel:/sbin/shutdown -r now
 
 # Used by /etc/init.d/xdm to control DM startup.
 # Read the comments in /etc/init.d/xdm for more
@@ -58,12 +58,12 @@ ca:12345:ctrlaltdel:/sbin/shutdown -r now
 # extra at boot if /etc/init.d/xdm is not added
 # to the "default" runlevel.
 #x:a:once:/etc/X11/startDM.sh
-c1:12345:respawn:/sbin/mingetty tty1
-c2:12345:respawn:/sbin/mingetty tty2
-c3:12345:respawn:/sbin/mingetty tty3
-c4:12345:respawn:/sbin/mingetty tty4
-c5:12345:respawn:/sbin/mingetty tty5
-c6:12345:respawn:/sbin/mingetty tty6
-c7:12345:respawn:/sbin/mingetty tty7
-c8:12345:respawn:/sbin/mingetty tty8
-c9:12345:respawn:/sbin/mingetty tty9
+c1:12345:respawn:/sbin/mingetty --nohostname tty1
+c2:12345:respawn:/sbin/mingetty --nohostname tty2
+c3:12345:respawn:/sbin/mingetty --nohostname tty3
+c4:12345:respawn:/sbin/mingetty --nohostname tty4
+c5:12345:respawn:/sbin/mingetty --nohostname tty5
+c6:12345:respawn:/sbin/mingetty --nohostname tty6
+c7:12345:respawn:/sbin/mingetty --nohostname tty7
+c8:12345:respawn:/sbin/mingetty --nohostname tty8
+c9:12345:respawn:/sbin/mingetty --nohostname tty9
