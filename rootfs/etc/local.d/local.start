@@ -1,10 +1,12 @@
 #!/bin/sh
 
+echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
+
 # adjust caching
 #sysctl -w vm.swappiness=0
 #sysctl -w kernel.randomize_va_space=2
-echo 524288 > /proc/sys/vm/min_free_kbytes
-echo 0 > /proc/sys/vm/swappiness
+echo 65536 > /proc/sys/vm/min_free_kbytes
+echo 30 > /proc/sys/vm/swappiness
 echo 3 > /proc/sys/vm/drop_caches
 echo 2 > /proc/sys/kernel/randomize_va_space
 echo 32 > /proc/sys/vm/mmap_rnd_bits
@@ -12,6 +14,9 @@ echo 32 > /proc/sys/vm/mmap_rnd_bits
 #echo 500 > /proc/sys/vm/dirty_writeback_centisecs
 
 echo -1 > /sys/module/usbcore/parameters/autosuspend
+echo 2000000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+echo 20 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
 
 # enable core dumps
 sysctl -w kernel.core_uses_pid=1
@@ -42,8 +47,6 @@ chmod 755 /
 # add default users groups and passwords
 groupadd -g 7777 lanout
 groupadd -g 8888 wanout
-
-echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
 
 # lock down network
 LANUSERS=""
@@ -81,26 +84,16 @@ done
 #iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-#cat /proc/cmdline | grep docache
-#if [ ! $(cat /proc/cmdline | grep docache) ] ; then
-#	[ -e /usr/bin/eject ] && eject /dev/sr0 || true
-#fi
-
-if [ -e /etc/rc.local.d/cryptsetup.sh ]; then
-	/bin/sh /etc/rc.local.d/cryptsetup.sh
-fi
-
-#mount -t tmpfs -o size=1G tmpfs /usr/local/
-#STANDARD label mount points
 #e2label /dev/mapper/home HOME
 #mkswap -L SWAP /dev/DISK
+mount /dev/disk/by-label/CFG /etc/cfg 2>/dev/null
 swapon -L SWAP 2>/dev/null
 # -o user_xattr,sync,dirsync
-mount /dev/disk/by-label/HOME /home 2>/dev/null
-mount /dev/disk/by-label/BACKUP /media/backup 2>/dev/null
 
-if [ -e /home/init.sh ]; then
-    /bin/sh /home/init.sh
+#relocate scriptlets to CFG
+if [ -e /etc/cfg/cfg.sh ]; then
+    /bin/sh /etc/cfg/cfg.sh
+    umount /etc/cfg
 fi
 
-chmod +s /usr/local/bin/xtrlock || true
+sync || true
