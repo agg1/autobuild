@@ -40,7 +40,7 @@
 prepare_system() {
 	echo "### prepare_system()"
 
-	mount -o remount,size=22G /
+	mount -o remount,size=32G /
 
 	NEWDA="$(date +%Y%m%d-%s)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -58,7 +58,7 @@ prepare_system() {
 
 	echo 30 > /proc/sys/vm/swappiness
 	echo 3 > /proc/sys/vm/drop_caches
-	echo 524288 > /proc/sys/vm/min_free_kbytes
+	echo 1048576 > /proc/sys/vm/min_free_kbytes
 
 	mkdir -p /var/tmp/catalyst/builds
 	mkdir -p /var/tmp/catalyst/builds/hardened
