@@ -103,7 +103,7 @@ boot/kernel/gentoo/use:
 	latex
 	static-libs
 
-boot/kernel/gentoo/packages:
+#boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 
