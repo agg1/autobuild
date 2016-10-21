@@ -1,7 +1,4 @@
-#!/bin/sh
 # Copyright aggi 2016
-
-set -e
 
 # ssl/ssh preferred cipher config, libressl
 # custom hexchat, irssi, mutt, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?, eclipse, java, systrace, xtrlock
@@ -40,27 +37,12 @@ set -e
 # webchat tor, bnc
 # update passwords
 
-writable() {
-	echo "### writable()"
-	if [ -e /mnt/livecd/usr/.writeable ] ; then
-		echo "already writable"
-	else
-		modprobe overlay || true
-		rm -rf /home/livecd_overlay/upper/usr /home/livecd_overlay/work/usr
-		mkdir -p /home/livecd_overlay/upper/usr /home/livecd_overlay/work/usr
-		mount -t overlay overlay -o lowerdir=/mnt/livecd/usr,upperdir=/home/livecd_overlay/upper/usr,workdir=/home/livecd_overlay/work/usr /mnt/livecd/usr
-		touch /mnt/livecd/usr/.writeable
-	fi
-}
-
 prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,size=22G /
-	mkdir -p /var/tmp/catalyst/builds/
-	mount -o bind /home/tmp/builds /var/tmp/catalyst/builds/
 
-	NEWDA="$(date +%Y%m%d)"
+	NEWDA="$(date +%Y%m%d-%s)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
 	export STAMP="${STAMP:-latest}"
 	export TARGT=""
@@ -74,26 +56,22 @@ prepare_system() {
 	export PTREE="${PTREE:-${SDDIR}/portage-latest.tar.bz2}"
 	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
-	echo 0 > /proc/sys/vm/swappiness
+	echo 30 > /proc/sys/vm/swappiness
 	echo 3 > /proc/sys/vm/drop_caches
-	echo 262144 > /proc/sys/vm/min_free_kbytes
-
-	unalias cp || true
-	unalias rm || true
-	unalias mv || true
-	cp -fp /home/catalyst/rootfs/etc/profile /etc
-
-	writable
+	echo 524288 > /proc/sys/vm/min_free_kbytes
 
 	cd /usr/
 	tar -xf ${PTREE}
 	cd ${CADIR}
+	
+	mkdir -p ${PKDIR}
 
 	mkdir -p /usr/portage/distfiles
+	mkdir -p /var/tmp/catalyst/builds
+	mkdir -p /var/tmp/catalyst/packages
 	mount --bind ${DFDIR} /usr/portage/distfiles
-
-	#HOTFIX overlay fix of catalyst script, also $ROOTFS/etc/portage fix necessary
-	patch -d / -Np0 < /home/catalyst/catalyst.patch
+	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
+	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
 }
 
 prepare_portage() {
@@ -103,6 +81,7 @@ prepare_portage() {
 	mkdir -p ${SDDIR}/desktop/${RELDA}
 	mkdir -p ${SDDIR}/init/${RELDA}
 	mkdir -p ${SDDIR}/minimal/${RELDA}
+	mkdir -p ${SDDIR}/portage/${RELDA}
 
 	[ ! -e /etc/portage.orig ] && cp -pR /etc/portage /etc/portage.orig
 	rm -rf /etc/portage
@@ -129,7 +108,9 @@ prepare_portage() {
 	cd -
 
 	catalyst -v -c ${CCONF} -s $STAMP
-	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}
+	rm -f ${SDDIR}/portage/latest
+	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}/portage/${RELDA}
+	ln -sf ${SDDIR}/portage/${RELDA} ${SDDIR}/portage/latest
 
 	mkdir -p /var/tmp/catalyst/builds/hardened
 }
@@ -173,8 +154,8 @@ clean_portage() {
 	echo "### clean_portage()"
 
 	rm -rf /var/tmp/catalyst/builds/hardened/*
-	rm -rf /var/tmp/catalyst/tmp/hardened/
-	rm -rf /var/tmp/catalyst/packages/hardened
+	rm -rf /var/tmp/catalyst/packages/hardened/*
+	rm -rf /var/tmp/catalyst/tmp/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
 	rm -rf /var/tmp/catalyst/snapshots
 	rm -rf /var/tmp/catalyst/snapshot_cache
@@ -186,8 +167,8 @@ clean_stage() {
 	echo "### clean_stage()"
 
 	rm -rf /var/tmp/catalyst/builds/hardened/*
-	rm -rf /var/tmp/catalyst/tmp/hardened/
-	rm -rf /var/tmp/catalyst/packages/hardened
+	rm -rf /var/tmp/catalyst/packages/hardened/*
+	rm -rf /var/tmp/catalyst/tmp/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
 	rm -rf /var/tmp/genkernel
 	sync
@@ -253,14 +234,12 @@ build_livecd_desktop() {
 	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
-	# free space
-	cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
-	rm -rf /var/tmp/catalyst/tmp/hardened/*
-	rm -rf /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
+	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
+	[ ! -z "${PKDIR}" ] && cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
 	rm -f ${RODIR}/portage-latest.*
 }
@@ -275,14 +254,12 @@ update_livecd_desktop() {
 	cp ${SDDIR}/desktop/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
-	# free space
-	cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
-	rm -rf /var/tmp/catalyst/tmp/hardened/*
-	rm -rf /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
+	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
+	[ ! -z "${PKDIR}" ] && cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
 	rm -f ${RODIR}/portage-latest.*
 }
