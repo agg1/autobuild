@@ -60,11 +60,24 @@ prepare_system() {
 	echo 3 > /proc/sys/vm/drop_caches
 	echo 524288 > /proc/sys/vm/min_free_kbytes
 
+	mkdir -p /var/tmp/catalyst/builds
+	mkdir -p /var/tmp/catalyst/builds/hardened
+	mkdir -p /var/tmp/catalyst/packages
+	mkdir -p ${PKDIR}
+
+	mkdir -p ${SDDIR}/boot/${RELDA}
+	mkdir -p ${SDDIR}/desktop/${RELDA}
+	mkdir -p ${SDDIR}/init/${RELDA}
+	mkdir -p ${SDDIR}/minimal/${RELDA}
+	mkdir -p ${SDDIR}/portage/${RELDA}
+}
+
+prepare_portage() {
+	echo "### prepare_portage()"
+
 	cd /usr/
 	tar -xf ${PTREE}
 	cd ${CADIR}
-	
-	mkdir -p ${PKDIR}
 
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /var/tmp/catalyst/builds
@@ -72,16 +85,6 @@ prepare_system() {
 	mount --bind ${DFDIR} /usr/portage/distfiles
 	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
 	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
-}
-
-prepare_portage() {
-	echo "### prepare_portage()"
-
-	mkdir -p ${SDDIR}/boot/${RELDA}
-	mkdir -p ${SDDIR}/desktop/${RELDA}
-	mkdir -p ${SDDIR}/init/${RELDA}
-	mkdir -p ${SDDIR}/minimal/${RELDA}
-	mkdir -p ${SDDIR}/portage/${RELDA}
 
 	[ ! -e /etc/portage.orig ] && cp -pR /etc/portage /etc/portage.orig
 	rm -rf /etc/portage
@@ -111,8 +114,6 @@ prepare_portage() {
 	rm -f ${SDDIR}/portage/latest
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}/portage/${RELDA}
 	ln -sf ${SDDIR}/portage/${RELDA} ${SDDIR}/portage/latest
-
-	mkdir -p /var/tmp/catalyst/builds/hardened
 }
 
 sync_sources() {
