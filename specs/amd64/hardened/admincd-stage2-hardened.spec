@@ -15,10 +15,10 @@ livecd/iso: admincd-amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
-livecd/bootargs: dokeymap docache memory_corruption_check=1 modprobe.blacklist=asix,mcs7830 vga=normal
+livecd/bootargs: dokeymap docache memory_corruption_check=1 modprobe.blacklist=asix,mcs7830
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
-livecd/rcdel: keymaps|boot netmount|default fixinittab|default
+livecd/rcdel: keymaps|boot netmount|default
 #dhcpcd
 #livecd/rcadd:
 livecd/root_overlay: /home/catalyst/rootfs
@@ -38,8 +38,8 @@ boot/kernel/gentoo/use:
 	-systemd
 	-kdbus
 	-dbus
-    -pulseaudio
-    -bindist
+	-pulseaudio
+	-bindist
 	-branding
 	-gvfs
 	-gnome-keyring
@@ -104,7 +104,7 @@ boot/kernel/gentoo/use:
 	static-libs
 
 boot/kernel/gentoo/packages:
-	sys-kernel/linux-firmware
+#	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 
 #livecd/unmerge:
@@ -112,6 +112,7 @@ boot/kernel/gentoo/packages:
 #	sys-auth/pambase
 
 livecd/rm:
+	/lib/firmware
 	/boot/System*
 	/boot/initr*
 	/boot/kernel*
