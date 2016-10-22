@@ -53,7 +53,7 @@ prepare_system() {
 	export SDDIR="${SDDIR:-/home/seeds}"
 	export PKDIR="${PKDIR:-/home/packages}"
 	export DFDIR="${DFDIR:-/home/distfiles}"
-	export PTREE="${PTREE:-${SDDIR}/portage-latest.tar.bz2}"
+	export PTREE="${PTREE:-${SDDIR}/portage/latest/portage-latest.tar.bz2}"
 	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
 	echo 30 > /proc/sys/vm/swappiness
@@ -93,22 +93,6 @@ prepare_portage() {
 	rm -f /home/catalyst/etc/portage/make.profile
 	ln -sf ../../usr/portage/profiles/hardened/linux/amd64/no-multilib /etc/portage/make.profile
 	ln -sf ../../usr/portage/profiles/hardened/linux/amd64/no-multilib /home/catalyst/etc/portage/make.profile
-
-	# it seems some things are grabbed from /ROOT instead of /STAGEROOT such as /etc/portage things!
-	cp -fp /home/catalyst/toolchain.eclass /usr/portage/eclass
-	cp -fp /home/catalyst/etc/portage/make.defaults /usr/portage/profiles/hardened/linux/amd64/no-multilib/
-	cp -fp /home/catalyst/dmraid-1.0.0_rc16-r3.ebuild /usr/portage/sys-fs/dmraid
-	# consider pulling in individual drivers instead of xorg-drivers package
-	cp -fp /home/catalyst/xorg-drivers-1.18-r1.ebuild /usr/portage/x11-base/xorg-drivers
-
-	cd /usr/portage
-	git config --global user.email "aggi@localhost"
-	git config --global user.name "aggi"
-	git commit -m "hotfix to pick first toolchain entry from gcc-config list" eclass/toolchain.eclass
-	git commit -m "hardened no-multilib make.defaults" profiles/hardened/linux/amd64/no-multilib/make.defaults
-	git commit -m "quickfix for non-parallel dmraid build" sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild
-	git commit -m "disable broken xorg drivers" x11-base/xorg-drivers
-	cd -
 
 	catalyst -v -c ${CCONF} -s $STAMP
 	rm -f ${SDDIR}/portage/latest
