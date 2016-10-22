@@ -84,13 +84,16 @@ done
 #iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
+mkdir -p /media/backup /media/catalyst /media/cdrom /media/iscsi /media/nfs /media/sshfs /media/stick
+# /etc/cfg
+
 #e2label /dev/mapper/home HOME
 #mkswap -L SWAP /dev/DISK
 mount /dev/disk/by-label/CFG /etc/cfg 2>/dev/null
 swapon -L SWAP 2>/dev/null
 # -o user_xattr,sync,dirsync
 
-#relocate scriptlets to CFG
+#relocate compiled scriptlets to CFG
 if [ -e /etc/cfg/cfg.sh ]; then
     /bin/sh /etc/cfg/cfg.sh
     umount /etc/cfg
