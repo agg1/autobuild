@@ -1,5 +1,7 @@
 #!/bin/sh
 
+hostname localhost
+
 echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
 
 # adjust caching
