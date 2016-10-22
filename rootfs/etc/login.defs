@@ -84,7 +84,7 @@ MOTD_FILE	/etc/motd
 #
 # If defined, this file will be output before each login(1) prompt.
 #
-#ISSUE_FILE	/etc/issue
+ISSUE_FILE	/etc/issue
 
 #
 # If defined, file which maps tty line to TERM environment parameter.
