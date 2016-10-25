@@ -164,7 +164,6 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename match "/run/user*" then permit
 	linux64-fswrite: filename match "/run/user*" then permit
 	linux64-fsread: filename match "/sys*" then deny
-	linux64-fsread: filename match "*/mnt" then permit
 	linux64-fsread: filename eq "/tmp" then permit
 	linux64-fsread: filename match "*/usr" then permit
 	linux64-fsread: filename match "*/usr/bin" then permit
@@ -401,6 +400,11 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename match "*/usr/local/share*" then permit
 	linux64-fsread: filename match "*/usr/share/*" then permit
 	linux64-fsread: filename match "/var/cache/fontconfig*" then permit
+	linux64-fsread: filename eq "/mnt/livecd/dev" then deny
+	linux64-fsread: filename eq "/mnt/livecd/etc" then deny
+	linux64-fsread: filename eq "/mnt/livecd/proc" then deny
+	linux64-fsread: filename eq "/mnt/livecd/sys" then deny
+	linux64-fsread: filename match "/mnt" then permit
 	linux64-fstat: permit
 	linux64-fstatfs: permit
 	linux64-fswrite: filename match "*/usr/lib64/thunderbird" then deny

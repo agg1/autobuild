@@ -40,6 +40,10 @@ Policy: /mnt/livecd/usr/bin/hexchat, Emulation: linux64
 	linux64-fsread: filename eq "$HOME" then permit
 	linux64-fsread: filename match "$HOME/.Xauthority*" then permit
 	linux64-fsread: filename match "$HOME/.Xdefaults*" then permit
+	linux64-fsread: filename match "$HOME/.mozilla*" then deny
+	linux64-fsread: filename match "$HOME/.thunderbird*" then deny
+	linux64-fsread: filename match "$HOME/.cache/mozilla*" then deny
+	linux64-fsread: filename match "$HOME/.cache/thunderbird*" then deny
 	linux64-fsread: filename match "$HOME/.cache*" then permit
 	linux64-fswrite: filename match "$HOME/.cache*" then permit
 	linux64-rename: filename match "$HOME/.cache*" then permit

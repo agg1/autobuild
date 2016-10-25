@@ -266,7 +266,11 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-fsread: filename match "*/usr/lib64/*/libgtk-3.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/*/libncurses.so*" then permit
 	linux64-fswrite: filename match "*/usr/lib64/firefox/browser" then permit
-	linux64-fsread: filename match "*/mnt" then permit
+	linux64-fsread: filename eq "/mnt/livecd/dev" then deny
+	linux64-fsread: filename eq "/mnt/livecd/etc" then deny
+	linux64-fsread: filename eq "/mnt/livecd/proc" then deny
+	linux64-fsread: filename eq "/mnt/livecd/sys" then deny
+	linux64-fsread: filename match "/mnt" then permit
 	linux64-fsread: filename match "*/usr" then permit
 	linux64-fsread: filename match "*/usr/local" then permit
 	linux64-fsread: filename match "*/usr/local/bin" then permit
