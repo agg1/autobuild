@@ -1,0 +1,204 @@
+diff --git a/eclass/toolchain.eclass b/eclass/toolchain.eclass
+index 5dff279..e1ae69a 100644
+--- a/eclass/toolchain.eclass
++++ b/eclass/toolchain.eclass
+@@ -2124,6 +2124,8 @@ do_gcc_config() {
+ 		# TODO: Should update gcc-config to accept `-l ${CTARGET}` rather than
+ 		# doing a partial grep like this.
+ 		target=$(gcc-config -l 2>/dev/null | grep " ${CTARGET}-[0-9]" | tail -1 | awk '{print $2}')
++		# hotfix to pick first toolchain entry from gcc-config list, see #584234
++		target=$(gcc-config -S $target | awk '{print $1 "-" $2}')
+ 	fi
+ 
+ 	gcc-config "${target}"
+diff --git a/profiles/hardened/linux/amd64/no-multilib/make.defaults b/profiles/hardened/linux/amd64/no-multilib/make.defaults
+index 7eee20a..17cd243 100644
+--- a/profiles/hardened/linux/amd64/no-multilib/make.defaults
++++ b/profiles/hardened/linux/amd64/no-multilib/make.defaults
+@@ -2,14 +2,42 @@
+ # Distributed under the terms of the GNU General Public License v2
+ # $Id$
+ 
+-# We don't need to have pic on
+-USE="-pic"
++CHOST=x86_64-pc-linux-gnu
++
++# Ian Stakenvicius, 2014-09-03
++# Set a variable just to indicate that the current profile is a hardened one
++# This variable can be leveraged in ebuilds for pkg_postinst messages that
++# indicate said package is, say, configured in a way that defeats the purpose
++# of running hardened.
++PROFILE_IS_HARDENED=1
++
++GENTOO_MIRRORS="http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
++PORTAGE_CHECKSUM_FILTER="-* sha512"
++PORTAGE_COMPRESS=""
++#PORTAGE_COMPRESS_FLAGS=""
++#PORTAGE_COMPRESS_EXCLUDE_SUFFIXES=""
++
++BOOTSTRAP_USE="${BOOTSTRAP_USE} hardened urandom pic -fortran -jit -orc -kdbus -branding -bindist -consolekit -policykit -pam -dbus -systemd -pulseaudio -gvfs -gtk3 -gnome-keyring"
++
++USE="hardened urandom -pic -fortran -jit -orc -kdbus -branding -bindist -consolekit -policykit -pam -dbus -systemd -pulseaudio -gvfs -gtk3 -gnome-keyring"
++#-udev
+ 
+ ARCH="amd64"
+-ACCEPT_KEYWORDS="${ARCH}"
++#ACCEPT_KEYWORDS="${ARCH}"
+ 
+ MULTILIB_ABIS="amd64"
+ 
+ # Mirror profile/amd64/no-multilib/make.defaults
+ USE_EXPAND_HIDDEN="ABI_X86"
+ 
++#nouveau vmware virtualbox qxl trident
++VIDEO_CARDS="i915 i965 r100 r200 r300 r600 glint intel mach64 mga nv r128 radeon savage tdfx vesa via cirrus ast chips i128 i740 imstt s3virge tseng v4l vermilion"
++LINGUAS="af ar as ast az be bg bn bo br brx bs ca ca@valencia ca_XV cs csb cy da de dgo dz el en en_GB en_ZA eo es et eu fa fi fo fr fy ga gd gl gu gu_IN ha he hi hr hsb hu ia id is it ja ka kk km kn kn_IN ko kok ks ku lb lo lt lv mai mi mk ml mn mni mr ms mt my nb nds ne nl nn nr nso oc om or pa pa_IN pl pt pt_BR ro ru rw sa_IN sat sd se sh si sk sl sq sr ss st sv sw sw_TZ ta ta_IN te tg th tn tr ts tt ug uk uz ve ven vi wa xh zh_CN zh_HK zh_TW zu"
++INPUT_DEVICES="evdev keyboard mouse synaptics virtualbox mutouch vmmouse"
++
++#ACCEPT_LICENSE="-* @FREE"
++#pick developement versions??
++ACCEPT_KEYWORDS="~amd64"
++
++EMERGE_DEFAULT_OPTS=" --jobs=3 "
++MAKEOPTS="-j12"
+diff --git a/sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild b/sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild
+index 93f8ede..8c11680 100644
+--- a/sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild
++++ b/sys-fs/dmraid/dmraid-1.0.0_rc16-r3.ebuild
+@@ -11,6 +11,7 @@ MY_PV=${PV/_/.}-3
+ DESCRIPTION="Device-mapper RAID tool and library"
+ HOMEPAGE="https://people.redhat.com/~heinzm/sw/dmraid/"
+ SRC_URI="https://people.redhat.com/~heinzm/sw/dmraid/src/${PN}-${MY_PV}.tar.bz2"
++MAKEOPTS="-j1"
+ 
+ LICENSE="GPL-2"
+ SLOT="0"
+@@ -67,7 +68,7 @@ src_configure() {
+ }
+ 
+ src_install() {
+-	emake DESTDIR="${D}" install
++	emake -j1 DESTDIR="${D}" install
+ 	dodoc CHANGELOG README TODO KNOWN_BUGS doc/*
+ 	insinto /usr/share/${PN}
+ 	doins "${WORKDIR}"/${PN}-${MY_PV}-prepatched.tar.bz2
+diff --git a/x11-base/xorg-drivers/xorg-drivers-1.18-r1.ebuild b/x11-base/xorg-drivers/xorg-drivers-1.18-r1.ebuild
+index 2eeca69..6b6394b 100644
+--- a/x11-base/xorg-drivers/xorg-drivers-1.18-r1.ebuild
++++ b/x11-base/xorg-drivers/xorg-drivers-1.18-r1.ebuild
+@@ -12,11 +12,11 @@ LICENSE="metapackage"
+ SLOT="0"
+ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
+ 
++#	input_devices_evdev
+ IUSE_INPUT_DEVICES="
+ 	input_devices_acecad
+ 	input_devices_aiptek
+ 	input_devices_elographics
+-	input_devices_evdev
+ 	input_devices_fpit
+ 	input_devices_hyperpen
+ 	input_devices_joystick
+@@ -31,6 +31,11 @@ IUSE_INPUT_DEVICES="
+ 	input_devices_synaptics
+ 	input_devices_wacom
+ "
++#	video_cards_nouveau
++#	video_cards_trident
++#	video_cards_virtualbox
++#	video_cards_vmware
++#	video_cards_qxl
+ IUSE_VIDEO_CARDS="
+ 	video_cards_amdgpu
+ 	video_cards_apm
+@@ -49,11 +54,9 @@ IUSE_VIDEO_CARDS="
+ 	video_cards_mach64
+ 	video_cards_mga
+ 	video_cards_neomagic
+-	video_cards_nouveau
+ 	video_cards_nv
+ 	video_cards_omap
+ 	video_cards_omapfb
+-	video_cards_qxl
+ 	video_cards_r128
+ 	video_cards_radeon
+ 	video_cards_radeonsi
+@@ -73,12 +76,9 @@ IUSE_VIDEO_CARDS="
+ 	video_cards_tdfx
+ 	video_cards_tegra
+ 	video_cards_tga
+-	video_cards_trident
+ 	video_cards_tseng
+ 	video_cards_vesa
+ 	video_cards_via
+-	video_cards_virtualbox
+-	video_cards_vmware
+ 	video_cards_voodoo
+ 	video_cards_fglrx
+ 	video_cards_nvidia
+@@ -86,11 +86,11 @@ IUSE_VIDEO_CARDS="
+ 
+ IUSE="${IUSE_VIDEO_CARDS} ${IUSE_INPUT_DEVICES}"
+ 
++#	input_devices_evdev?       ( x11-drivers/xf86-input-evdev )
+ PDEPEND="
+ 	input_devices_acecad?      ( x11-drivers/xf86-input-acecad )
+ 	input_devices_aiptek?      ( x11-drivers/xf86-input-aiptek )
+ 	input_devices_elographics? ( x11-drivers/xf86-input-elographics )
+-	input_devices_evdev?       ( x11-drivers/xf86-input-evdev )
+ 	input_devices_fpit?        ( x11-drivers/xf86-input-fpit )
+ 	input_devices_hyperpen?    ( x11-drivers/xf86-input-hyperpen )
+ 	input_devices_joystick?    ( x11-drivers/xf86-input-joystick )
+@@ -104,7 +104,6 @@ PDEPEND="
+ 	input_devices_void?        ( x11-drivers/xf86-input-void )
+ 	input_devices_synaptics?   ( x11-drivers/xf86-input-synaptics )
+ 	input_devices_wacom?       ( x11-drivers/xf86-input-wacom )
+-
+ 	video_cards_amdgpu?        ( x11-drivers/xf86-video-amdgpu )
+ 	video_cards_apm?           ( x11-drivers/xf86-video-apm )
+ 	video_cards_ast?           ( x11-drivers/xf86-video-ast )
+@@ -121,11 +120,9 @@ PDEPEND="
+ 	video_cards_mach64?        ( x11-drivers/xf86-video-mach64 )
+ 	video_cards_mga?           ( x11-drivers/xf86-video-mga )
+ 	video_cards_neomagic?      ( x11-drivers/xf86-video-neomagic )
+-	video_cards_nouveau?       ( x11-drivers/xf86-video-nouveau )
+ 	video_cards_nv?            ( x11-drivers/xf86-video-nv )
+ 	video_cards_omap?          ( x11-drivers/xf86-video-omap )
+ 	video_cards_omapfb?        ( x11-drivers/xf86-video-omapfb )
+-	video_cards_qxl?           ( x11-drivers/xf86-video-qxl )
+ 	video_cards_nvidia?        ( x11-drivers/nvidia-drivers )
+ 	video_cards_fglrx?         ( x11-drivers/ati-drivers )
+ 	video_cards_r128?          ( x11-drivers/xf86-video-r128 )
+@@ -146,14 +143,10 @@ PDEPEND="
+ 	video_cards_tdfx?          ( x11-drivers/xf86-video-tdfx )
+ 	video_cards_tegra?         ( x11-drivers/xf86-video-opentegra )
+ 	video_cards_tga?           ( x11-drivers/xf86-video-tga )
+-	video_cards_trident?       ( x11-drivers/xf86-video-trident )
+ 	video_cards_tseng?         ( x11-drivers/xf86-video-tseng )
+ 	video_cards_vesa?          ( x11-drivers/xf86-video-vesa )
+ 	video_cards_via?           ( x11-drivers/xf86-video-openchrome )
+-	video_cards_virtualbox?    ( x11-drivers/xf86-video-virtualbox )
+-	video_cards_vmware?        ( x11-drivers/xf86-video-vmware )
+ 	video_cards_voodoo?        ( x11-drivers/xf86-video-voodoo )
+-
+ 	!x11-drivers/xf86-input-citron
+ 	!x11-drivers/xf86-video-cyrix
+ 	!x11-drivers/xf86-video-impact
+@@ -163,8 +156,14 @@ PDEPEND="
+ 	!<=x11-drivers/xf86-video-newport-0.2.4
+ 	!<=x11-drivers/xf86-video-sis-0.10.7
+ 	!<=x11-drivers/xf86-video-v4l-0.2.0
+-	!<x11-drivers/xf86-input-evdev-2.10.0
+ 	!<x11-drivers/xf86-video-ati-7.6.1
+ 	!<x11-drivers/xf86-video-intel-2.99.917_p20160122
+-	!<x11-drivers/xf86-video-nouveau-1.0.12
+ "
++#	!<x11-drivers/xf86-input-evdev-2.10.0
++
++#	video_cards_qxl?           ( x11-drivers/xf86-video-qxl )
++#	video_cards_virtualbox?    ( x11-drivers/xf86-video-virtualbox )
++#	video_cards_vmware?        ( x11-drivers/xf86-video-vmware )
++#	video_cards_trident?       ( x11-drivers/xf86-video-trident )
++#	video_cards_nouveau?       ( x11-drivers/xf86-video-nouveau )
++#	!<x11-drivers/xf86-video-nouveau-1.0.12
+\ No newline at end of file
