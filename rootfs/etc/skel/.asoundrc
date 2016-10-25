@@ -1,28 +1,28 @@
-#defaults.pcm.card 0
-#defaults.pcm.device 0
+defaults.pcm.card 0
+defaults.pcm.device 0
 #defaults.pcm.subdevice 0
-#defaults.ctl.card 0
+defaults.ctl.card 0
 period_size=2048
 buffer_size=4096
 
 pcm.device{
 	format S16_LE
 #	rate 96000
-	rate 48000
+	rate 44100
 	type hw
 	card 0
 	device 0
-	subdevice 0
+#	subdevice 0
 }
 
 pcm.!default {
-#  type hw
-#  device 0
-#  subdevice 0
-#  card 0
+#	type hw
+#	device 0
+#	subdevice 0
+#	card 0
 	type plug
-	#slave.pcm "device"
-	slave.pcm hw
+	slave.pcm "device"
+	#slave.pcm hw
 }
 ctl.!default {
 	type hw
