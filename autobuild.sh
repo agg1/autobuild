@@ -15,9 +15,8 @@
 # check -X and what pulls in x11 parts with minimal/init admincd
 # check arp, dhcp, ip stack
 # ubsan performance
-# check firmware and microcode inclusion
 # systrace fetch.sh script, fetch all distfiles from portage tree
-# losetup squashfs bootcd ssword, livecd enc-loop
+# losetup squashfs bootcd ssword, livecd enc-loop, coswd!=null else desktop interactive, cfg e4c
 # config script MAC/serial dependent
 # traced proxy setup, dhcp setup
 # honeypot
@@ -28,7 +27,6 @@
 # firefox noflash, noscript, adblock and/or privoxy
 # offline wikipedia
 # virtual machine init scripts, shutdown signaling
-# crashdumps
 # iscsi over ipsec
 # opengl, egl, gles
 # revdep-rebuild? @preserved-rebuild? differences?
@@ -36,6 +34,23 @@
 # gcc -dumpspecs | less ... protector strong
 # webchat tor, bnc
 # update passwords
+# randomize_va_space remove /sys paramater
+# rmlint
+# kerberos
+# disable dhcp
+# hexchat certs, trusted cerst
+# msmtp proxy
+# non-ssl IRC with hexchat, #xonotic, #pac.xon, #smb
+# disable dhcp
+# mozilla -jit, llvm, plugin-container, crashes
+# catalyst -C params
+# ipsec
+# arptables, custom MACs
+# tmux
+# ssh source port
+# desktop-system nocache boot
+# cdbackup zisofs
+# cleanup use flags
 
 prepare_system() {
 	echo "### prepare_system()"
