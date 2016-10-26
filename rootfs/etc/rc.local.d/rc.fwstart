@@ -1,0 +1,35 @@
+#!/bin/sh
+
+groupadd -g 3333333 lanout 2>/dev/null
+groupadd -g 8888888 wanout 2>/dev/null
+
+# lock down network
+LANUSERS=""
+WANUSERS=""
+LANGROUPS="3333333"
+WANGROUPS="8888888"
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+# WoL port
+iptables -A OUTPUT -p udp -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 --dport 9999 -j ACCEPT
+# deny x11
+iptables -A OUTPUT -p tcp --syn --destination-port 6000:6063 -j REJECT
+iptables -A INPUT -p tcp --syn --destination-port 6000:6063 -j DROP
+#
+for u in $WANUSERS ; do
+  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+  iptables -A OUTPUT -m owner --uid-owner $u -j ACCEPT
+done
+for u in $LANUSERS ; do
+  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j ACCEPT
+done
+for g in $WANGROUPS ; do
+  iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+  iptables -A OUTPUT -m owner --gid-owner $g -j ACCEPT
+done
+for g in $LANGROUPS ; do
+  iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 -j ACCEPT
+done
+#iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT

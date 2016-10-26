@@ -1,0 +1,57 @@
+#!/bin/sh
+
+hostname testing
+
+# set default root password
+echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
+
+# fix /mnt/livecd permissinos
+chmod 700 /mnt/cdrom /mnt/gentoo /mnt/key
+chmod 600 /mnt/image.squashfs
+chmod 755 /
+
+# adjust caching
+echo 65536 > /proc/sys/vm/min_free_kbytes
+echo 0 > /proc/sys/vm/swappiness
+echo 3 > /proc/sys/vm/drop_caches
+echo 2 > /proc/sys/kernel/randomize_va_space
+echo 32 > /proc/sys/vm/mmap_rnd_bits
+#echo 3000 > /proc/sys/vm/dirty_expire_centisecs
+#echo 500 > /proc/sys/vm/dirty_writeback_centisecs
+
+# adjust powersafe settings
+echo -1 > /sys/module/usbcore/parameters/autosuspend
+#echo 2000000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+#echo 30 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+#echo 20 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+
+# enable core dumps
+sysctl -w kernel.core_uses_pid=1
+sysctl -w kernel.core_pattern="/tmp/core-%e-%s-%u-%g-%p-%t"
+sysctl -w fs.suid_dumpable=2
+
+# networking tweaks
+sysctl -w net.core.netdev_max_backlog=2000
+sysctl -w net.ipv4.tcp_max_syn_backlog=2048
+sysctl -w net.core.rmem_max=425984
+sysctl -w net.core.wmem_max=425984
+sysctl -w net.ipv4.tcp_sack=0
+
+for i in $(ifconfig -a | sed 's/[ \t].*//;/^$/d' | sed 's/://g' | grep -v '^lo$') ; do
+	ifconfig ${i} txqueuelen 2000
+done
+
+# umount
+umount /mnt/cdrom 2>/dev/null
+umount /sys/fs/cgroup/openrc 2>/dev/null
+umount /sys/fs/cgroup 2>/dev/null
+umount /sys/fs/fuse/connections 2>/dev/null
+umount /dev/mqueue 2>/dev/null
+umount /dev/shm 2>/dev/null
+
+# protect /procfs
+mount -o remount,hidepid=2 /proc/
+
+# create default mount points and swapon
+mkdir -p /etc/cfg /media/backup /media/catalyst /media/cdrom /media/iscsi /media/nfs /media/sshfs /media/stick
+swapon -L SWAP 2>/dev/null

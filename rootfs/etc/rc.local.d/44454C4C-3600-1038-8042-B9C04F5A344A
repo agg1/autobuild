@@ -1,0 +1,32 @@
+#!/bin/sh
+
+/etc/rc.local.d/rc.default
+
+hostname localhost
+
+# make /lib/firmware writeable and modprobe radeon
+/usr/local/bin/firmware.sh
+rmmod radeon; modprobe radeon
+
+# wake on lan
+ifconfig enp35s0 10.0.0.1/8; ethtool -s enp35s0 wol u
+
+# reset and start firewall
+/etc/rc.local.d/rc.fwstop
+/etc/rc.local.d/rc.fwstart
+
+# allow for remote administration with ssh and X11 forwareding
+iptables -I INPUT 1 -p tcp -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 --dport 2222 -j ACCEPT
+iptables -I INPUT 1 -p udp -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 --dport 9999 -j ACCEPT
+iptables -I INPUT 1 -p tcp --destination-port 6000:6063 -j ACCEPT
+iptables -I OUTPUT 1 -p tcp --destination-port 6000:6063 -j ACCEPT
+iptables -I OUTPUT 1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+chmod 600 /etc/ssh/sshd_config
+/etc/init.d/sshd restart
+
+mount /dev/disk/by-label/HOME /home/
+
+eject /dev/sr0
+sleep 2
+
+/usr/local/bin/sleep.sh
