@@ -16,12 +16,11 @@
 # check arp, dhcp, ip stack
 # ubsan performance
 # systrace fetch.sh script, fetch all distfiles from portage tree
-# losetup squashfs bootcd ssword, livecd enc-loop, coswd!=null else desktop interactive, cfg e4c
-# config script MAC/serial dependent
+# losetup squashfs bootcd ssword, livecd enc-loop, coswd!=null else desktop interactive
 # traced proxy setup, dhcp setup
 # honeypot
 # replace glibc with musl, musl overlay
-# PRINTING VM for brother printer
+# PRINTING VM for brother printer, skype etc...
 # https://github.com/ganto/freeipa
 # glsa-check
 # firefox noflash, noscript, adblock and/or privoxy
