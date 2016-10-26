@@ -253,7 +253,7 @@ livecd/packages:
 	app-misc/screen
 #	app-misc/splitvt
 	app-misc/tmux
-	app-misc/vlock
+	app-misc/zisofs-tools
 	app-mobilephone/smsclient
 	app-mobilephone/smssend
 	app-mobilephone/smstools
@@ -308,6 +308,7 @@ livecd/packages:
 #	dev-util/kdbg
 	dev-util/ltrace
 	dev-util/pkgconfig
+	dev-util/shc
 	dev-util/strace
 	dev-util/valgrind
 #	dev-vcs/cvs
@@ -574,6 +575,7 @@ livecd/packages:
 	net-dns/dnsmasq
 #	net-dns/dnstop
 	net-dns/pdns
+	net-dns/pdnsd
 	net-firewall/arptables
 	net-firewall/conntrack-tools
 	net-firewall/ebtables
