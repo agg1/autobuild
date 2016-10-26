@@ -95,6 +95,7 @@ Policy: /mnt/livecd/usr/bin/hexchat, Emulation: linux64
 	linux64-fsread: filename match "*/lib64/x86_64" then permit
 	linux64-fsread: filename match "*/lib64/x86_64/libenchant.so*" then permit
 	linux64-fsread: filename eq "/initramfs" then deny
+	linux64-fsread: filename eq "/mnt/livecd/bin" then deny
 	linux64-fsread: filename eq "/mnt" then permit
 	linux64-fsread: filename eq "/mnt/livecd/usr" then permit
 	linux64-fsread: filename eq "/opt" then permit
