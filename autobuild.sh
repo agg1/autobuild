@@ -1,56 +1,5 @@
 # Copyright aggi 2016
 
-# ssl/ssh preferred cipher config, libressl
-# custom hexchat, irssi, mutt, ircd-hybrid, jitsi, mumble, WendzelNNTPd, yatb, xpdf, pulseaudio -gtk -dbus , pamix?, eclipse, java, systrace, xtrlock
-# check installed packages, eval, remove, track... gupnp etc...
-# check llvm/clang cycling
-# sync portage tree to latest
-# sync NIST CVE database
-# check signatures and git trees, key locations
-# tighten systrace profiles, systrace emerge -f
-# test build with -udev
-# squashfs routine hashsum check
-# eselect packages
-# opensmtpd
-# check -X and what pulls in x11 parts with minimal/init admincd
-# check arp, dhcp, ip stack
-# ubsan performance
-# systrace fetch.sh script, fetch all distfiles from portage tree
-# losetup squashfs bootcd ssword, livecd enc-loop, coswd!=null else desktop interactive
-# traced proxy setup, dhcp setup
-# honeypot
-# replace glibc with musl, musl overlay
-# PRINTING VM for brother printer, skype etc...
-# https://github.com/ganto/freeipa
-# glsa-check
-# firefox noflash, noscript, adblock and/or privoxy
-# offline wikipedia
-# virtual machine init scripts, shutdown signaling
-# iscsi over ipsec
-# opengl, egl, gles
-# revdep-rebuild? @preserved-rebuild? differences?
-# softether
-# gcc -dumpspecs | less ... protector strong
-# webchat tor, bnc
-# update passwords
-# randomize_va_space remove /sys paramater
-# rmlint
-# kerberos
-# disable dhcp
-# hexchat certs, trusted cerst
-# msmtp proxy
-# non-ssl IRC with hexchat, #xonotic, #pac.xon, #smb
-# disable dhcp
-# mozilla -jit, llvm, plugin-container, crashes
-# catalyst -C params
-# ipsec
-# arptables, custom MACs
-# tmux
-# ssh source port
-# desktop-system nocache boot
-# cdbackup zisofs
-# cleanup use flags
-
 prepare_system() {
 	echo "### prepare_system()"
 
@@ -182,10 +131,12 @@ build_seed_init() {
 
 	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-20160908.tar.bz2* /var/tmp/catalyst/builds/hardened
 	rm -f ${SDDIR}/boot/latest
+
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+
 	cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${SDDIR}/boot/${RELDA}
 	ln -sf ${SDDIR}/boot/${RELDA} ${SDDIR}/boot/latest
 }
@@ -198,10 +149,12 @@ build_seed() {
 
 	cp ${SDDIR}/boot/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/init/latest
+
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+
 	cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${SDDIR}/init/${RELDA}
 	ln -sf ${SDDIR}/init/${RELDA} ${SDDIR}/init/latest
 }
@@ -215,11 +168,15 @@ build_livecd_minimal() {
 
 	cp ${SDDIR}/init/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/minimal/latest
+
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
+
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
 	ln -sf ${SDDIR}/minimal/${RELDA} ${SDDIR}/minimal/latest
+        [ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 }
 
 ### build desktop livecd from minimal seed tarball
@@ -232,15 +189,35 @@ build_livecd_desktop() {
 	# seed destkop build from minimal livecd stage1 seed
 	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
+
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
-	[ ! -z "${PKDIR}" ] && cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
 	rm -f ${RODIR}/portage-latest.*
+}
+
+### build minimal livecd from new seed tarball
+update_livecd_minimal() {
+	echo "### update_livecd_minimal()"
+
+	clean_stage
+	rm -f ${RODIR}/portage-latest.*
+
+	# seed minimal build from previous minimal stage1
+	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
+	rm -f ${SDDIR}/minimal/latest
+
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
+	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
+	ln -sf ${SDDIR}/minimal/${RELDA} ${SDDIR}/minimal/latest
+        mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 }
 
 update_livecd_desktop() {
@@ -252,13 +229,12 @@ update_livecd_desktop() {
 	# seed destkop build from desktop livecd stage1 seed
 	cp ${SDDIR}/desktop/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
-	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
-	[ ! -z "${PKDIR}" ] && cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
 	rm -f ${RODIR}/portage-latest.*
 }
