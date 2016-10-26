@@ -7,6 +7,6 @@ prepare_system
 clean_portage
 prepare_portage
 export PKDIR="/home/packages-minimal"
-build_livecd_minimal
+update_livecd_minimal
 export PKDIR="/home/packages-desktop"
 update_livecd_desktop
