@@ -4,6 +4,7 @@ prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,size=32G /
+	umount /etc || true
 
 	NEWDA="$(date +%Y%m%d-%s)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -45,7 +46,7 @@ prepare_portage() {
 	mkdir -p /var/tmp/catalyst/builds
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p /var/tmp/catalyst/snapshots
-	mkdir -p /var/tmp/catalyst/snapshots_cache
+	mkdir -p /var/tmp/catalyst/snapshot_cache
 	mkdir -p /home/tmp/catalyst/builds
 	mkdir -p /home/tmp/catalyst/packages
 	mkdir -p /home/tmp/catalyst/snapshots
@@ -54,7 +55,7 @@ prepare_portage() {
 	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
 	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
 	mount --bind /home/tmp/snapshots /var/tmp/catalyst/snapshots
-	mount --bind /home/tmp/snapshots_cache /var/tmp/catalyst/snapshots_cache
+	mount --bind /home/tmp/snapshot_cache /var/tmp/catalyst/snapshot_cache
 
 	[ ! -e /etc/portage.orig ] && cp -pR /etc/portage /etc/portage.orig
 	rm -rf /etc/portage
