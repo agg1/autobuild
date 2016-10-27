@@ -6,6 +6,7 @@ prepare_system
 
 clean_portage
 prepare_portage
+
 build_seed_init
 build_seed
 export PKDIR="/home/packages-minimal"
