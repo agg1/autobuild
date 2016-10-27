@@ -47,10 +47,10 @@ prepare_portage() {
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p /var/tmp/catalyst/snapshots
 	mkdir -p /var/tmp/catalyst/snapshot_cache
-	mkdir -p /home/tmp/catalyst/builds
-	mkdir -p /home/tmp/catalyst/packages
-	mkdir -p /home/tmp/catalyst/snapshots
-	mkdir -p /home/tmp/catalyst/snapshots_cache
+	mkdir -p /home/tmp/builds
+	mkdir -p /home/tmp/packages
+	mkdir -p /home/tmp/snapshots
+	mkdir -p /home/tmp/snapshots_cache
 	mount --bind ${DFDIR} /usr/portage/distfiles
 	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
 	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
