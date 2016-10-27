@@ -83,14 +83,14 @@ livecd/use:
 	urandom
 	usb
 	sqlite
-    doc
-    latex
-    static-libs
+	doc
+	latex
+	static-libs
 
 livecd/packages:
 #	app-accessibility/brltty
 #	app-accessibility/espeakup
-    app-doc/doxygen
+	app-doc/doxygen
 #	app-admin/bastille
 	app-admin/checksec
 	app-admin/chroot_safe
@@ -176,14 +176,14 @@ livecd/packages:
 	app-benchmarks/iozone
 	app-benchmarks/stress
 #	app-benchmarks/tiobench
-    app-cdr/bashburn
+	app-cdr/bashburn
 	app-cdr/bin2iso
 	app-cdr/cdrdao
 #	app-cdr/cdrkit
-    app-cdr/cdrtools
-    app-cdr/dvd+rw-tools
+	app-cdr/cdrtools
+	app-cdr/dvd+rw-tools
 	app-cdr/nrg2iso
-#    app-cdr/xcdroast
+#	app-cdr/xcdroast
 	app-crypt/aescrypt
 	app-crypt/aespipe
 	app-crypt/bcrypt
@@ -755,7 +755,7 @@ livecd/packages:
 	sys-devel/automake
 	sys-devel/automake-wrapper
 	sys-devel/bc
-    sys-devel/binutils-config
+	sys-devel/binutils-config
 	sys-devel/bison
 #	sys-devel/gcc
 	sys-devel/gcc-config
@@ -763,7 +763,7 @@ livecd/packages:
 #    sys-devel/clang
 #	sys-devel/distcc
 	sys-devel/gcc
-    sys-devel/gcc-config
+	sys-devel/gcc-config
 	sys-devel/gettext
 	sys-devel/gdb
 	sys-devel/gnuconfig
@@ -909,6 +909,7 @@ livecd/packages:
 	x11-misc/xautolock
 #	x11-misc/xlockmore
 	x11-misc/xtrlock
+	x11-misc/zim
 #	x11-plugins/
 	x11-proto/dri3proto
 	x11-proto/inputproto
