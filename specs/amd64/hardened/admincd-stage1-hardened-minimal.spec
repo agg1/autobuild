@@ -58,7 +58,7 @@ livecd/use:
 	alsa_pcm_plugins_softvol
 	bzip2
 	fbcon
-    hardened
+	hardened
 	ipv6
 	livecd
 	loop-aes
@@ -80,17 +80,17 @@ livecd/use:
 	unicode
 	urandom
 	usb
-    -doc
-    latex
-    static-libs
-#   static
+	-doc
+	latex
+	static-libs
+#	static
 #	deprecated
 #	fbcondecor
 #	portaudio
 #	minimal
 
 livecd/packages:
-#    app-doc/doxygen
+#	app-doc/doxygen
 	app-accessibility/brltty
 #	app-accessibility/espeakup
 	app-admin/eselect
