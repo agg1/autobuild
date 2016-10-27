@@ -26,7 +26,8 @@ chmod 600 /etc/ssh/sshd_config
 
 mount /dev/disk/by-label/HOME /home/
 
+sync
 eject /dev/sr0
-sleep 2
 
+/usr/local/bin/locketc.sh
 /usr/local/bin/sleep.sh
