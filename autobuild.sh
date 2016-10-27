@@ -24,7 +24,6 @@ prepare_system() {
 	echo 1048576 > /proc/sys/vm/min_free_kbytes
 
 	mkdir -p /var/tmp/catalyst/builds
-	mkdir -p /var/tmp/catalyst/builds/hardened
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p ${PKDIR}
 
@@ -45,9 +44,17 @@ prepare_portage() {
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /var/tmp/catalyst/builds
 	mkdir -p /var/tmp/catalyst/packages
+	mkdir -p /var/tmp/catalyst/snapshots
+	mkdir -p /var/tmp/catalyst/snapshots_cache
+	mkdir -p /home/tmp/catalyst/builds
+	mkdir -p /home/tmp/catalyst/packages
+	mkdir -p /home/tmp/catalyst/snapshots
+	mkdir -p /home/tmp/catalyst/snapshots_cache
 	mount --bind ${DFDIR} /usr/portage/distfiles
 	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
 	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
+	mount --bind /home/tmp/snapshots /var/tmp/catalyst/snapshots
+	mount --bind /home/tmp/snapshots_cache /var/tmp/catalyst/snapshots_cache
 
 	[ ! -e /etc/portage.orig ] && cp -pR /etc/portage /etc/portage.orig
 	rm -rf /etc/portage
@@ -105,8 +112,8 @@ clean_portage() {
 	rm -rf /var/tmp/catalyst/packages/hardened/*
 	rm -rf /var/tmp/catalyst/tmp/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
-	rm -rf /var/tmp/catalyst/snapshots
-	rm -rf /var/tmp/catalyst/snapshot_cache
+	rm -rf /var/tmp/catalyst/snapshots/*
+	rm -rf /var/tmp/catalyst/snapshot_cache/*
 	sync
 	echo 3 > /proc/sys/vm/drop_caches
 }
@@ -217,7 +224,6 @@ update_livecd_minimal() {
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
 	ln -sf ${SDDIR}/minimal/${RELDA} ${SDDIR}/minimal/latest
-        mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 }
 
 update_livecd_desktop() {
@@ -234,7 +240,6 @@ update_livecd_desktop() {
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
-	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
 	rm -f ${RODIR}/portage-latest.*
 }
