@@ -3,7 +3,7 @@
 prepare_system() {
 	echo "### prepare_system()"
 
-	mount -o remount,size=32G /
+	mount -o remount,size=22G /
 	umount /etc || true
 
 	NEWDA="$(date +%Y%m%d-%s)"
@@ -20,9 +20,9 @@ prepare_system() {
 	export PTREE="${PTREE:-${SDDIR}/portage/latest/portage-latest.tar.bz2}"
 	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
-	echo 30 > /proc/sys/vm/swappiness
+	echo 0 > /proc/sys/vm/swappiness
 	echo 3 > /proc/sys/vm/drop_caches
-	echo 1048576 > /proc/sys/vm/min_free_kbytes
+	echo 524288 > /proc/sys/vm/min_free_kbytes
 
 	mkdir -p /var/tmp/catalyst/builds
 	mkdir -p /var/tmp/catalyst/packages
@@ -47,10 +47,10 @@ prepare_portage() {
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p /var/tmp/catalyst/snapshots
 	mkdir -p /var/tmp/catalyst/snapshot_cache
-	mkdir -p /home/tmp/builds
-	mkdir -p /home/tmp/packages
+	mkdir -p /home/tmp/builds/hardened
+	mkdir -p /home/tmp/packages/hardened
 	mkdir -p /home/tmp/snapshots
-	mkdir -p /home/tmp/snapshots_cache
+	mkdir -p /home/tmp/snapshot_cache
 	mount --bind ${DFDIR} /usr/portage/distfiles
 	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
 	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
@@ -109,12 +109,12 @@ fetch_all() {
 clean_portage() {
 	echo "### clean_portage()"
 
-	rm -rf /var/tmp/catalyst/builds/hardened/*
-	rm -rf /var/tmp/catalyst/packages/hardened/*
+	rm -rf /home/tmp/builds/hardened/*
+	rm -rf /home/tmp/packages/hardened/*
+	rm -rf /home/tmp/snapshots/*
+	rm -rf /home/tmp/snapshot_cache/*
 	rm -rf /var/tmp/catalyst/tmp/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
-	rm -rf /var/tmp/catalyst/snapshots/*
-	rm -rf /var/tmp/catalyst/snapshot_cache/*
 	sync
 	echo 3 > /proc/sys/vm/drop_caches
 }
@@ -122,8 +122,8 @@ clean_portage() {
 clean_stage() {
 	echo "### clean_stage()"
 
-	rm -rf /var/tmp/catalyst/builds/hardened/*
-	rm -rf /var/tmp/catalyst/packages/hardened/*
+	rm -rf /home/tmp/builds/hardened/*
+	rm -rf /home/tmp/packages/hardened/*
 	rm -rf /var/tmp/catalyst/tmp/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
 	rm -rf /var/tmp/genkernel
@@ -244,3 +244,4 @@ update_livecd_desktop() {
 
 	rm -f ${RODIR}/portage-latest.*
 }
+
