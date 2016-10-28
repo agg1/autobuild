@@ -1,11 +1,14 @@
 #!/bin/sh
+WDIR=$1
+[ -z "${WDIR}" -o ! -e "${WDIR}" ] && echo "directory error" && exit
+
 echo "### writable()"
-if [ -e /mnt/livecd/usr/.writeable ] ; then
+if [ -e ${WDIR}/.writeable ] ; then
 	echo "already writable"
 else
 	modprobe overlay || true
-	rm -rf /home/livecd_overlay/upper/usr /home/livecd_overlay/work/usr
-	mkdir -p /home/livecd_overlay/upper/usr /home/livecd_overlay/work/usr
-	mount -t overlay overlay -o lowerdir=/mnt/livecd/usr,upperdir=/home/livecd_overlay/upper/usr,workdir=/home/livecd_overlay/work/usr /mnt/livecd/usr
-	touch /mnt/livecd/usr/.writeable
+	rm -rf /home/livecd_overlay/upper/${WDIR} /home/livecd_overlay/work/${WDIR}
+	mkdir -p /home/livecd_overlay/upper/${WDIR} /home/livecd_overlay/work/${WDIR}
+	mount -t overlay overlay -o lowerdir=${WDIR},upperdir=/home/livecd_overlay/upper/${WDIR},workdir=/home/livecd_overlay/work/ ${WDIR}
+	touch ${WDIR}/.writeable
 fi
