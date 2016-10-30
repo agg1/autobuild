@@ -258,6 +258,7 @@ livecd/packages:
 	sys-apps/x86info
 	sys-block/aoetools
 	sys-block/fio
+	sys-block/iscsitarget
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
