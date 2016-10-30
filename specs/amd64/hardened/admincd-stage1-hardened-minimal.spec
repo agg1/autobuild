@@ -9,6 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /home/catalyst/extra_overlay/
 
 livecd/use:
+	-*
 	-avahi
 	-consolekit
 	-doc
@@ -22,6 +23,7 @@ livecd/use:
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk
 	-gtk3
 	-jit
 	-orc

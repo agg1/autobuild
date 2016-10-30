@@ -14,7 +14,7 @@ livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
 #livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
-livecd/bootargs: dokeymap memory_corruption_check=1
+livecd/bootargs: dokeymap docache memory_corruption_check=1
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
@@ -24,7 +24,6 @@ livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
 boot/kernel: gentoo
-
 boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
@@ -43,6 +42,7 @@ boot/kernel/gentoo/use:
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk
 	-gtk3
 	-jit
 	-orc
@@ -65,7 +65,6 @@ boot/kernel/gentoo/use:
 	nptlonly
 	readline
 	ssl
-	truetype
 	unicode
 	urandom
 	usb

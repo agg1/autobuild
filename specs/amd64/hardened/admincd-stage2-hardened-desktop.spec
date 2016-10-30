@@ -5,7 +5,7 @@ rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/livecd-stage1-amd64-latest.tar.bz2
-portage_confdir: /home/catalyst/etc/portage-desktop
+portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /home/catalyst/extra_overlay/
 
 livecd/volid: Hardened Desktop Live System
@@ -14,8 +14,7 @@ livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
-livecd/bootargs: dokeymap docache memory_corruption_check=1 modprobe.blacklist=asix,mcs7830
-# nocache variant
+livecd/bootargs: dokeymap docache memory_corruption_check=1
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
@@ -25,7 +24,6 @@ livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
 boot/kernel: gentoo
-
 boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
@@ -109,6 +107,9 @@ boot/kernel/gentoo/use:
 	opencl
 	xvfb
 	X
+	-video_cards_qxl
+	-video_cards_virtualbox
+	-video_cards_vmware
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware

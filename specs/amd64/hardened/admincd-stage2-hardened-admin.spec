@@ -24,7 +24,6 @@ livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
 boot/kernel: gentoo
-
 boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
@@ -43,6 +42,7 @@ boot/kernel/gentoo/use:
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk
 	-gtk3
 	-jit
 	-orc
@@ -83,7 +83,6 @@ boot/kernel/gentoo/use:
 	livecd
 	loop-aes
 	extra-ciphers
-	jpg
 	keyscrub
 	lvm1
 	midi
@@ -93,15 +92,12 @@ boot/kernel/gentoo/use:
 	nls
 	nptl
 	nptlonly
-	png
 	readline
 	socks5
 	ssl
-	truetype
 	unicode
 	urandom
 	usb
-	latex
 	static-libs
 	mmx
 	sse

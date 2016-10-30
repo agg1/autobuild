@@ -5,7 +5,7 @@ rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
-portage_confdir: /home/catalyst/etc/portage-desktop
+portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /home/catalyst/extra_overlay/
 
 livecd/use:
@@ -88,6 +88,9 @@ livecd/use:
 	opencl
 	xvfb
 	X
+	-video_cards_qxl
+	-video_cards_virtualbox
+	-video_cards_vmware
 
 livecd/packages:
 #	app-accessibility/brltty
@@ -160,7 +163,6 @@ livecd/packages:
 	app-arch/cpio
 	app-arch/dpkg
 	app-arch/gzip
-#	PATH_MAX rumble
 	app-arch/mt-st
 	app-arch/p7zip
 	app-arch/pbzip2
@@ -249,6 +251,7 @@ livecd/packages:
 	app-misc/ca-certificates
 #	app-misc/beagle
 	app-misc/colordiff
+	app-misc/rmlint
 	app-misc/mc
 #	app-misc/pax-utils
 	app-misc/screen
@@ -447,8 +450,8 @@ livecd/packages:
 #	media-sound/easytag
 #	media-sound/grip
 #	media-sound/hydrogen
-#	media-sound/pamix
-#	media-sound/pulseaudio
+	media-sound/pamix
+	media-sound/pulseaudio
 #	media-sound/rhythmbox
 #	media-tv/w_scan
 	media-video/dvdrip
@@ -590,8 +593,10 @@ livecd/packages:
 	net-ftp/ncftp
 #	net-ftp/vsftpd
 	net-im/pidgin
+	net-irc/anope
 	net-irc/hexchat
 	net-irc/irssi
+	net-irc/irssi-fish
 	net-irc/weechat
 	net-irc/znc
 #	net-mail/dovecot
@@ -623,6 +628,8 @@ livecd/packages:
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
+	net-misc/WendzelNNTPd
+	net-misc/yatb
 	net-misc/youtube-dl
 	net-misc/youtube-viewer
 #	net-nds/ypserv
@@ -708,6 +715,7 @@ livecd/packages:
 	sys-apps/sg3_utils
 #	sys-apps/slocate
 	sys-apps/smartmontools
+	sys-apps/systrace
 	sys-apps/texinfo
 	sys-apps/usbutils
 	sys-apps/util-linux
@@ -715,7 +723,6 @@ livecd/packages:
 	sys-apps/x86info
 	sys-block/aoetools
 	sys-block/disktype
-#	sys-block/eject
 	sys-block/fio
 	sys-block/gparted
 #	sys-block/mpt-status
@@ -723,9 +730,8 @@ livecd/packages:
 	sys-block/open-iscsi
 	sys-block/parted
 	sys-block/partimage
-#	sys-block/qla-fc-firmware
 	sys-block/tw_cli
-#	sys-boot/grub
+	sys-boot/grub
 	sys-boot/syslinux
 	sys-boot/winusb
 	sys-devel/autoconf
@@ -752,9 +758,7 @@ livecd/packages:
 	sys-devel/make
 	sys-devel/patch
 #	sys-fabric/
-#	sys-firmware/
 #	sys-freebsd/
-#	sys-fs/eudev
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
 	sys-fs/ddrescue
@@ -787,12 +791,7 @@ livecd/packages:
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
-#	sys-power/acpid
-#	sys-power/apcupsd
 	sys-power/cpupower
-#	sys-power/pm-quirks
-#	sys-power/pm-utils
-	sys-power/powertop
 #	sys-process/acct
 	sys-process/at
 	sys-process/atop
@@ -883,7 +882,6 @@ livecd/packages:
 	x11-misc/i3status
 	x11-misc/openbox-menu
 	x11-misc/xautolock
-#	x11-misc/xlockmore
 	x11-misc/xtrlock
 	x11-misc/zim
 #	x11-plugins/
