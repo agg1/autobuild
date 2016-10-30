@@ -335,6 +335,7 @@ livecd/packages:
 	mail-mta/opensmtpd
 	mail-mta/postfix
 	mail-mta/sstmp
+	media-fonts/dejavu
 	media-gfx/blender
 #	media-gfx/digikam
 #	media-gfx/fbida
@@ -725,6 +726,7 @@ livecd/packages:
 	sys-block/disktype
 	sys-block/fio
 	sys-block/gparted
+	sys-block/iscsitarget
 #	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
@@ -802,10 +804,10 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/memwatch
 	sys-process/nmon
-#	sys-process/iotop
 	sys-process/procps
 	sys-process/psmisc
-	#virtual/opengl
+#	virtual/opengl
+	virtual/jdk
 	virtual/pkgconfig
 #	www-apache/
 #	www-apps/
