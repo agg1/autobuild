@@ -1,4 +1,4 @@
-GENTOO_MIRRORS="http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
+GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
 EMERGE_DEFAULT_OPTS=" --verbose --tree --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=3 "
 PORTAGE_CHECKSUM_FILTER="-* sha512"
 PORTAGE_COMPRESS=""

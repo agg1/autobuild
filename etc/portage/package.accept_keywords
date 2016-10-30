@@ -1,8 +1,6 @@
-#required by sys-apps/chname (argument)
-#=sys-apps/chname-1.0-r2 ~amd64
-# required by sys-fs/ext3grep (argument)
-#=sys-fs/ext3grep-0.10.2 ~amd64
-#fix broken gcc profile env.d/gcc symlink
+### overrrides package.keywords
 =sys-devel/gcc-config-1.8-r1 ~amd64
-#~sys-devel/gcc-config-1.8 ~amd64
-#=sys-devel/gcc-4.9.3 ~amd64
+
+# *  stable on any architecture
+# ~* testing on any architecture
+# ** always visible
