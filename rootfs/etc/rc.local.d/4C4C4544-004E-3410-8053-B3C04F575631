@@ -29,6 +29,7 @@ iptables -A OUTPUT -m owner --gid-owner 250 -j ACCEPT
 # proxy rules
 iptables -t nat -I OUTPUT 1 -p TCP -m owner --uid-owner proxy01 -j DNAT --to-destination 127.0.0.1:8118
 iptables -t nat -I OUTPUT 1 -p TCP -m owner --uid-owner proxy02 -j DNAT --to-destination 127.0.0.1:8228
+iptables -t nat -I OUTPUT 1 -p TCP -m owner --uid-owner proxy03 -j DNAT --to-destination 127.0.0.1:8338
 # prevent dns leaks
 iptables -t nat -I OUTPUT 1 -p UDP --to-destination !127.0.0.1 --dport 53 -j DNAT --to-destination 127.0.0.1
 
@@ -36,15 +37,25 @@ iptables -t nat -I OUTPUT 1 -p UDP --to-destination !127.0.0.1 --dport 53 -j DNA
 sg lanout -c "ntpdate 172.16.2.1"
 
 # default users and groups
+groupadd -g 44444440 fw01
+groupadd -g 44444441 proxy01
+groupadd -g 44444442 proxy02
+groupadd -g 44444443 proxy03
+groupadd -g 44444444 proxy04
 groupadd -g 6666666 public
 groupadd -g 9999999 documents
+groupadd -g 66669999 user
+groupadd -g 99996666 office
+groupadd -g 77777777 gamer
 
-useradd -M -u 44444444 fw01
-useradd -M -u 44444445 proxy01
-useradd -M -u 44444446 proxy02
+useradd -M -u 44444440 -G fw01 fw01
+useradd -M -u 44444441 -G proxy01 proxy01
+useradd -M -u 44444442 -G proxy02 proxy02
+useradd -M -u 44444443 -G proxy02 proxy03
+useradd -M -u 44444444 -G proxy02 proxy04
 
-useradd -M -u 66669999 -G portage,wheel,wanout,lanout,public,documents user
-useradd -M -u 99996666 -G wanout,lanout,public,documents office
+useradd -M -u 66669999 -G user,portage,wheel,wanout,lanout,public,documents user
+useradd -M -u 99996666 -G office,wanout,lanout,public,documents office
 useradd -M -u 77777777 -G audio,video,wanout,public gamer
 #input, games
 
