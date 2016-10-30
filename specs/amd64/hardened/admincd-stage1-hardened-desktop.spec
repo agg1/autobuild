@@ -4,15 +4,12 @@ target: livecd-stage1
 rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
-#source_subpath: hardened/stage4-amd64-latest.tar.bz2
-source_subpath: hardened/livecd-stage1-amd64-latest.tar.bz2
+source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage-desktop
-#portage_overlay: /home/source/portage/proj/musl
-cflags: -O3 -pipe -march=nehalem -mtune=nehalem
-cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
+portage_overlay: /home/catalyst/extra_overlay/
 
-#-udev
 livecd/use:
+	-*
 	-avahi
 	-consolekit
 	-policykit
@@ -28,7 +25,6 @@ livecd/use:
 	-gtk3
 	-jit
 	-orc
-	glamor
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -58,7 +54,7 @@ livecd/use:
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
 	bzip2
-	fbcon
+	cryptsetup
 	hardened
 	ipv6
 	livecd
@@ -82,10 +78,16 @@ livecd/use:
 	unicode
 	urandom
 	usb
-	sqlite
 	doc
 	latex
 	static-libs
+	mmx
+	sse
+	sse2
+	gtk
+	opencl
+	xvfb
+	X
 
 livecd/packages:
 #	app-accessibility/brltty
@@ -167,7 +169,6 @@ livecd/packages:
 	app-arch/unrar
 	app-arch/unzip
 	app-backup/duplicity
-	app-benchmarks/cpuburn
 	app-benchmarks/bonnie
 	app-benchmarks/bonnie++
 	app-benchmarks/dbench
@@ -209,7 +210,7 @@ livecd/packages:
 	#stardict
 	app-doc/abs-guide
 	app-doc/autobook
-#	app-doc/cppman
+	app-doc/cppman
 #	app-doc/devmanual
 #	app-doc/phrack-all
 #	app-editors/bluefish
@@ -280,14 +281,14 @@ livecd/packages:
 	app-shells/dash
 	app-shells/bash-completion
 	app-shells/gentoo-bashcomp
-#	app-shells/zsh
-#	app-text/evince
 	app-text/dos2unix
+	app-text/gtkspell
 	app-text/mupdf
 	app-text/stardict
 #	app-text/tetex
 	app-text/tree
 	app-text/wgetpaste
+	app-text/xpdf
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
@@ -311,42 +312,26 @@ livecd/packages:
 	dev-util/shc
 	dev-util/strace
 	dev-util/valgrind
-#	dev-vcs/cvs
+	dev-vcs/cvs
 	dev-vcs/git
 	dev-vcs/git-crypt
-#	dev-vcs/subversion
-#	games-fps/darkplaces
+	dev-vcs/subversion
 	games-util/joystick
-#	lxde-base/lxappearance
-##	lxde-base/lxappearance-obconf
-#	lxde-base/lxde-common
-#	lxde-base/lxde-icon-theme
-#	lxde-base/lxde-meta
-#	lxde-base/lxdm
-#	lxde-base/lxinput
-#	lxde-base/lxlauncher
-#	lxde-base/lxmenu-data
-#	lxde-base/lxpanel
-#	lxde-base/lxrandr
-#	lxde-base/lxsession
-#	lxde-base/lxsession-edit
-#	lxde-base/lxshortcut
-#	lxde-base/lxtask
-#	lxde-base/lxterminal
-#	lxde-base/menu-cache
-#	mail-client/alpine
+	mail-client/alpine
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx
 	mail-client/mailx-support
-#	mail-filter/procmail
-#	mail-filter/clamassassin
-#	mail-filter/spamassassin
-#	mail-mta/courier
-#	mail-mta/exim
-#	mail-mta/msmtp
-#	mail-mta/postfix
-#	mail-mta/sstmp
+	mail-filter/procmail
+	mail-filter/clamassassin
+	mail-filter/opensmtpd-extras
+	mail-filter/spamassassin
+	mail-mta/courier
+	mail-mta/exim
+	mail-mta/msmtp
+	mail-mta/opensmtpd
+	mail-mta/postfix
+	mail-mta/sstmp
 	media-gfx/blender
 #	media-gfx/digikam
 #	media-gfx/fbida
@@ -673,14 +658,8 @@ livecd/packages:
 	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-#	net-wireless/prism54-firmware
-#	net-wireless/ipw2100-firmware
-#	net-wireless/ipw2200-firmware
-#	net-wireless/zd1201-firmware
-#	net-wireless/zd1211-firmware
-#	perl-core/PodParser
-#	perl-core/Test-Harness
 #	sci-*/
+	sci-visualization/gnuplot
 #	sys-apps/apmd
 	sys-apps/arrayprobe
 	sys-apps/acl
@@ -757,11 +736,11 @@ livecd/packages:
 	sys-devel/bc
 	sys-devel/binutils-config
 	sys-devel/bison
-#	sys-devel/gcc
+	sys-devel/gcc
 	sys-devel/gcc-config
 	sys-devel/flex
-#    sys-devel/clang
-#	sys-devel/distcc
+	sys-devel/clang
+	sys-devel/distcc
 	sys-devel/gcc
 	sys-devel/gcc-config
 	sys-devel/gettext
@@ -769,14 +748,11 @@ livecd/packages:
 	sys-devel/gnuconfig
 	sys-devel/libtool
 	sys-devel/m4
-#	sys-devel/llvm
+	sys-devel/llvm
 	sys-devel/make
 	sys-devel/patch
 #	sys-fabric/
 #	sys-firmware/
-#	sys-firmware/iwl3945-ucode
-#	sys-firmware/iwl4965-ucode
-#	sys-firmware/iwl5000-ucode
 #	sys-freebsd/
 #	sys-fs/eudev
 	sys-fs/btrfs-progs
@@ -921,4 +897,3 @@ livecd/packages:
 	x11-wm/openbox
 #	xfce-base/
 #	xfce-extra/
-	sys-kernel/linux-firmware
