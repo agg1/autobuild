@@ -2,4 +2,5 @@ net-misc/openssh -bindist
 dev-libs/openssl -bindist
 mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened gtk2
+media-sound/pulseaudio -gtk -X
 games-fps/darkplaces alsa cdsound -debug opengl oss lights textures
