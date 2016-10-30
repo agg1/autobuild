@@ -9,6 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /home/catalyst/extra_overlay/
 
 livecd/use:
+	-*
 	-avahi
 	-consolekit
 	-doc
@@ -22,6 +23,7 @@ livecd/use:
 	-branding
 	-gvfs
 	-gnome-keyring
+	-gtk
 	-gtk3
 	-jit
 	-orc
@@ -62,7 +64,6 @@ livecd/use:
 	livecd
 	loop-aes
 	extra-ciphers
-	jpg
 	keyscrub
 	lvm1
 	midi
@@ -72,21 +73,16 @@ livecd/use:
 	nls
 	nptl
 	nptlonly
-	png
 	readline
 	socks5
 	ssl
-	truetype
 	unicode
 	urandom
 	usb
-	latex
 	static-libs
 	mmx
 	sse
 	sse2
-#	static
-#	portaudio
 
 livecd/packages:
 	app-admin/eselect
@@ -102,7 +98,6 @@ livecd/packages:
 	app-arch/cpio
 	app-arch/dpkg
 	app-arch/gzip
-#	PATH_MAX rumble
 	app-arch/mt-st
 	app-arch/p7zip
 	app-arch/pbzip2
@@ -158,6 +153,7 @@ livecd/packages:
 	dev-python/pycrypto
 	dev-util/catalyst
 	dev-util/pkgconfig
+	dev-util/shc
 	dev-vcs/git
 	media-gfx/fbgrab
 	media-libs/alsa-oss
@@ -182,6 +178,7 @@ livecd/packages:
 	net-ftp/ftp
 	net-ftp/ncftp
 	net-irc/irssi
+	net-irc/irssi-fish
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcpcd
@@ -198,6 +195,8 @@ livecd/packages:
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
+	net-misc/WendzelNNTPd
+	net-misc/yatb
 	net-proxy/dante
 	net-proxy/tsocks
 	net-wireless/b43-fwcutter
@@ -251,20 +250,20 @@ livecd/packages:
 	sys-apps/setserial
 	sys-apps/sg3_utils
 	sys-apps/smartmontools
+	sys-apps/systrace
 	sys-apps/texinfo
 	sys-apps/usbutils
 	sys-apps/util-linux
 	sys-apps/which
 	sys-apps/x86info
 	sys-block/aoetools
-#	sys-block/eject
 	sys-block/fio
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
 	sys-block/partimage
 	sys-block/tw_cli
-#	sys-boot/grub
+	sys-boot/grub
 	sys-devel/autoconf
 	sys-devel/autoconf-wrapper
 	sys-devel/automake
@@ -273,7 +272,7 @@ livecd/packages:
 	sys-devel/binutils-config
 	sys-devel/bison
 	sys-devel/flex
-#	sys-devel/gcc
+	sys-devel/gcc
 	sys-devel/gcc-config
 	sys-devel/gettext
 	sys-devel/gnuconfig
@@ -281,7 +280,6 @@ livecd/packages:
 	sys-devel/m4
 	sys-devel/make
 	sys-devel/patch
-#	sys-fs/eudev
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
 	sys-fs/ddrescue
@@ -308,12 +306,8 @@ livecd/packages:
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
-#	sys-power/acpid
-#	sys-power/pm-quirks
-#	sys-power/pm-utils
 	sys-process/htop
 	sys-process/lsof
-#	sys-process/iotop
 	sys-process/procps
 	sys-process/psmisc
 	www-client/links
