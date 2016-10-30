@@ -10,7 +10,7 @@ prepare_system() {
 	export MAKEOPTS="${MAKEOPTS:--j12}"
 	export STAMP="${STAMP:-latest}"
 	export TARGT=""
-	export CCONF="${CCONF:-/home/catalyst/catalyst-cache.conf}"
+	export CCONF="${CCONF:-/home/catalyst/catalyst.conf}"
 	export CADIR="/home/catalyst"
 	export RELDA="${RELDA:-$NEWDA}"
 	export BDDIR="${BDDIR:-/var/tmp/catalyst/builds/hardened}"
@@ -28,6 +28,7 @@ prepare_system() {
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p ${PKDIR}
 
+	mkdir -p ${SDDIR}/admin/${RELDA}
 	mkdir -p ${SDDIR}/boot/${RELDA}
 	mkdir -p ${SDDIR}/desktop/${RELDA}
 	mkdir -p ${SDDIR}/init/${RELDA}
@@ -37,6 +38,8 @@ prepare_system() {
 
 prepare_portage() {
 	echo "### prepare_portage()"
+    [ -e /usr/portage/.prepared ] && return
+    touch /usr/portage/.prepared
 
 	cd /usr/
 	tar -xf ${PTREE}
@@ -94,14 +97,17 @@ fetch_distfiles() {
 
 	iptables -P OUTPUT ACCEPT
 	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
 	iptables -P OUTPUT DROP
 }
 
 fetch_all() {
-	echo "### fetch_all()"
-#	equery l -p --format='$category/$name' '*'
+#	echo "### fetch_all()"
+#	PKLIST=$(equery l -p --format='$category/$name' '*')
+#	emerge -f $PKLIST
+#	chown portage:portage /usr/portage/distfiles/*
+#	chmod 644 /usr/portage/distfiles/*
+
 #	equery l -p '*'
 #	equery l -o '*'
 }
@@ -132,8 +138,8 @@ clean_stage() {
 }
 
 ### build seed tarball from official stage3 seed
-build_seed_init() {
-	echo "### build_seed_init()"
+build_seed_boot() {
+	echo "### build_seed_boot()"
 
 	clean_stage
 
@@ -149,9 +155,9 @@ build_seed_init() {
 	ln -sf ${SDDIR}/boot/${RELDA} ${SDDIR}/boot/latest
 }
 
-### build seed tarball from custom seed
-build_seed() {
-	echo "### build_seed()"
+### build seed tarball from boot seed
+build_seed_init() {
+	echo "### build_seed_init()"
 
 	clean_stage
 
@@ -177,13 +183,34 @@ build_livecd_minimal() {
 	cp ${SDDIR}/init/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/minimal/latest
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
+	# seed minimal build from init stage3 seed
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
-	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
 	ln -sf ${SDDIR}/minimal/${RELDA} ${SDDIR}/minimal/latest
-        [ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
+	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+}
+
+build_livecd_admin() {
+	echo "### build_livecd_admin()"
+
+	clean_stage
+	rm -f ${RODIR}/portage-latest.*
+
+	cp ${SDDIR}/init/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	rm -f ${SDDIR}/admin/latest
+
+	# seed admin build from init stage3 seed
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
+
+	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
+	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/admin/${RELDA}
+	ln -sf ${SDDIR}/admin/${RELDA} ${SDDIR}/admin/latest
+	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
 	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 }
 
@@ -194,15 +221,15 @@ build_livecd_desktop() {
 	clean_stage
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${RODIR}
 
-	# seed destkop build from minimal livecd stage1 seed
-	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
+	# seed desktop build from minimal stage3 seed
+	cp ${SDDIR}/init/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
-	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
+	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
 	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
@@ -210,7 +237,6 @@ build_livecd_desktop() {
 	rm -f ${RODIR}/portage-latest.*
 }
 
-### build minimal livecd from new seed tarball
 update_livecd_minimal() {
 	echo "### update_livecd_minimal()"
 
@@ -221,10 +247,26 @@ update_livecd_minimal() {
 	cp ${SDDIR}/minimal/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/minimal/latest
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-init.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
-	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
 	ln -sf ${SDDIR}/minimal/${RELDA} ${SDDIR}/minimal/latest
+}
+
+update_livecd_admin() {
+	echo "### update_livecd_admin()"
+
+	clean_stage
+	rm -f ${RODIR}/portage-latest.*
+
+	# seed admin build from previous admin stage1
+	cp ${SDDIR}/admin/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
+	rm -f ${SDDIR}/admin/latest
+
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
+	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
+	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/admin/${RELDA}
+	ln -sf ${SDDIR}/admin/${RELDA} ${SDDIR}/admin/latest
 }
 
 update_livecd_desktop() {
@@ -237,11 +279,10 @@ update_livecd_desktop() {
 	cp ${SDDIR}/desktop/latest/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
 	rm -f ${SDDIR}/desktop/latest
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
-	cp -p ${BDDIR}/admincd-amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
+	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
 
 	rm -f ${RODIR}/portage-latest.*
 }
-
