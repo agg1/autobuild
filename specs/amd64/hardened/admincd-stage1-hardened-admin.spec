@@ -6,13 +6,12 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
-cflags: -O3 -pipe -march=nehalem -mtune=nehalem
-cxxflags: -O3 -pipe -march=nehalem -mtune=nehalem
+portage_overlay: /home/catalyst/extra_overlay/
 
-#-udev
 livecd/use:
 	-avahi
 	-consolekit
+	-doc
 	-policykit
 	-pam
 	-systemd
@@ -56,6 +55,7 @@ livecd/use:
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
 	bzip2
+	cryptsetup
 	fbcon
 	hardened
 	ipv6
@@ -80,19 +80,15 @@ livecd/use:
 	unicode
 	urandom
 	usb
-	-doc
 	latex
 	static-libs
+	mmx
+	sse
+	sse2
 #	static
-#	deprecated
-#	fbcondecor
 #	portaudio
-#	minimal
 
 livecd/packages:
-#    app-doc/doxygen
-	app-accessibility/brltty
-#	app-accessibility/espeakup
 	app-admin/eselect
 	app-admin/hddtemp
 	app-admin/passook
@@ -120,7 +116,6 @@ livecd/packages:
 	app-benchmarks/dbench
 	app-benchmarks/iozone
 	app-benchmarks/stress
-#	app-benchmarks/tiobench
 	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
@@ -138,7 +133,7 @@ livecd/packages:
 	app-eselect/eselect-vi
 	app-misc/ca-certificates
 	app-misc/colordiff
-#	app-misc/mc
+	app-misc/mc
 	app-misc/pax-utils
 	app-misc/screen
 	app-misc/tmux
@@ -149,7 +144,6 @@ livecd/packages:
 	app-portage/portage-utils
 	app-shells/bash-completion
 	app-shells/gentoo-bashcomp
-#	app-shells/zsh
 	app-text/tree
 	app-text/dos2unix
 	app-text/wgetpaste
@@ -172,7 +166,6 @@ livecd/packages:
 	net-analyzer/iptraf-ng
 	net-analyzer/netcat6
 	net-analyzer/tcptraceroute
-#	uint16_t not found???
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
@@ -183,13 +176,13 @@ livecd/packages:
 	net-dialup/pptpclient
 	net-dialup/rp-pppoe
 	net-dns/bind-tools
+	net-firewall/iptables
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 	net-ftp/ftp
 	net-ftp/ncftp
 	net-irc/irssi
 	net-misc/bridge-utils
-#	net-misc/connman
 	net-misc/curl
 	net-misc/dhcpcd
 	net-misc/iputils
@@ -214,8 +207,6 @@ livecd/packages:
 	net-wireless/rfkill
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-#	perl-core/PodParser
-#	perl-core/Test-Harness
 #	sys-apps/apmd
 	sys-apps/arrayprobe
 	sys-apps/acl
