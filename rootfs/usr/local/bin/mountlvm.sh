@@ -9,6 +9,8 @@ if [ $? -gt 0 ];then
 	exit 1
 fi
 
+sleep 3
+
 fsck -y /dev/mapper/vghome-lvhome
 fsck -y /dev/mapper/vghome-lvdistfiles
 mount -o nodev,nosuid,noexec /dev/mapper/vghome-lvhome /home/ 2>/dev/null
