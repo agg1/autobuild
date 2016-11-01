@@ -69,6 +69,7 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-fsread: filename match "/usr/share/squid*" then permit
 	linux64-fsread: filename match "/var/cache/squid*" then permit
 	linux64-fsread: filename eq "/var/db/services.db" then permit
+	linux64-fsread: filename match "/tmp/stdio:/var/lib/squid*" then permit
 	linux64-fstat: permit
 	linux64-fswrite: filename eq "/dev/null" then permit
 	linux64-fswrite: filename eq "/dev/shm/squid-cf__metadata.shm" then permit
@@ -77,6 +78,8 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-fswrite: filename eq "/run/squid.pid" then permit
 	linux64-fswrite: filename match "/var/cache/squid*" then permit
 	linux64-fswrite: filename eq "/var/log/squid/cache.log" then permit
+	linux64-fswrite: filename eq "/var/lib/squid/netdb.state" then permit
+	linux64-fswrite: filename match "/tmp/stdio:/var/lib/squid*" then permit
 	linux64-ftruncate: permit
 	linux64-futex: permit
 	linux64-getdents: permit

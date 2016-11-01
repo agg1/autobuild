@@ -6,6 +6,7 @@ Policy: /mnt/livecd/usr/bin/tor, Emulation: linux64
 	linux64-close: permit
 	linux64-bind: sockaddr eq "family(16)" then permit
 	linux64-bind: sockaddr eq "inet-[127.0.0.1]:9050" then permit
+	linux64-bind: sockaddr eq "inet-[127.0.0.1]:53" then permit
 	linux64-connect: sockaddr eq "/dev/log" then permit
 	linux64-connect: sockaddr eq "inet-[18.0.0.1]:9" then deny
 	linux64-connect: sockaddr match "inet-*" then permit
@@ -100,3 +101,4 @@ Policy: /mnt/livecd/usr/bin/tor, Emulation: linux64
 	linux64-uname: deny
 	linux64-unknown-318: permit
 	linux64-write: permit
+	linux64-rt_sigreturn: permit
