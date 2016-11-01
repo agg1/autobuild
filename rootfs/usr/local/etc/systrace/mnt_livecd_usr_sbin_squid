@@ -1,0 +1,127 @@
+Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
+	linux64-accept: permit
+	linux64-arch_prctl: permit
+	linux64-bind: sockaddr eq "inet-[0.0.0.0]:0" then permit
+	linux64-bind: sockaddr eq "inet-[127.0.0.1]:3128" then permit
+	linux64-bind: sockaddr eq "inet-[::1]:0" then permit
+	linux64-bind: sockaddr eq "inet-[::]:0" then permit
+	linux64-brk: permit
+	linux64-chdir: filename eq "/var/cache/squid" then permit
+	linux64-clone: permit
+	linux64-close: permit
+	linux64-connect: sockaddr eq "/dev/log" then permit
+	linux64-connect: sockaddr eq "inet-[127.0.0.1]:8118" then permit
+	linux64-dup: permit
+	linux64-dup2: permit
+	linux64-dup3: permit
+	linux64-epoll_create: permit
+	linux64-epoll_ctl: permit
+	linux64-epoll_wait: permit
+	linux64-execve: filename eq "/usr/libexec/squid/basic_ncsa_auth" then permit
+	linux64-execve: filename eq "/usr/libexec/squid/log_file_daemon" then permit
+	linux64-execve: filename eq "/usr/libexec/squid/pinger" then permit
+	linux64-execve: filename eq "/usr/libexec/squid/unlinkd" then permit
+	linux64-execve: filename eq "/usr/sbin/squid" then permit
+	linux64-execve: filename eq "/usr/sbin/squid_start" then permit
+	linux64-exit_group: permit
+	linux64-fcntl: cmd eq "F_GETFD" then permit
+	linux64-fcntl: cmd eq "F_GETFL" then permit
+	linux64-fcntl: cmd eq "F_SETFD" then permit
+	linux64-fcntl: cmd eq "F_SETFL" then permit
+	linux64-fsread: filename eq "/dev/urandom" then permit
+	linux64-fsread: filename eq "/etc/group" then permit
+	linux64-fsread: filename eq "/etc/hosts" then permit
+	linux64-fsread: filename eq "/etc/ld.so.cache" then permit
+	linux64-fsread: filename eq "/etc/ld.so.preload" then permit
+	linux64-fsread: filename eq "/etc/localtime" then permit
+	linux64-fsread: filename eq "/etc/nsswitch.conf" then permit
+	linux64-fsread: filename eq "/etc/passwd" then permit
+	linux64-fsread: filename eq "/etc/resolv.conf" then permit
+	linux64-fsread: filename eq "/etc/services" then permit
+	linux64-fsread: filename eq "/etc/squid/errorpage.css" then permit
+	linux64-fsread: filename eq "/etc/squid/mime.conf" then permit
+	linux64-fsread: filename eq "/etc/ssl/cert.pem" then permit
+	linux64-fsread: filename eq "/etc/suid-debug" then permit
+	linux64-fsread: filename eq "/lib64/libc.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libdl.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libm.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libnsl.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libnss_compat.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_db.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_files.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_nis.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libpthread.so.0" then permit
+	linux64-fsread: filename eq "/lib64/librt.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libz.so.1" then permit
+	linux64-fsread: filename eq "/proc/sys/kernel/ngroups_max" then permit
+	linux64-fsread: filename eq "/root/stdio:/var/lib/squid/netdb.state" then permit
+	linux64-fsread: filename eq "/run/squid.pid" then permit
+	linux64-fsread: filename eq "/usr/lib/gcc/x86_64-pc-linux-gnu/5.4.0/libgcc_s.so.1" then permit
+	linux64-fsread: filename eq "/usr/lib/gcc/x86_64-pc-linux-gnu/5.4.0/libstdc++.so.6" then permit
+	linux64-fsread: filename eq "/usr/lib64/libcrypto.so.1.0.0" then permit
+	linux64-fsread: filename eq "/usr/lib64/libltdl.so.7" then permit
+	linux64-fsread: filename eq "/usr/lib64/libnettle.so.6" then permit
+	linux64-fsread: filename eq "/usr/lib64/libssl.so.1.0.0" then permit
+	linux64-fsread: filename eq "/usr/libexec/squid/basic_ncsa_auth" then permit
+	linux64-fsread: filename eq "/usr/libexec/squid/log_file_daemon" then permit
+	linux64-fsread: filename eq "/usr/libexec/squid/unlinkd" then permit
+	linux64-fsread: filename eq "/usr/local/etc/squid/squid.conf" then permit
+	linux64-fsread: filename match "/usr/share/squid*" then permit
+	linux64-fsread: filename match "/var/cache/squid*" then permit
+	linux64-fsread: filename eq "/var/db/services.db" then permit
+	linux64-fstat: permit
+	linux64-fswrite: filename eq "/dev/null" then permit
+	linux64-fswrite: filename eq "/dev/shm/squid-cf__metadata.shm" then permit
+	linux64-fswrite: filename eq "/dev/shm/squid-cf__queues.shm" then permit
+	linux64-fswrite: filename eq "/dev/shm/squid-cf__readers.shm" then permit
+	linux64-fswrite: filename eq "/run/squid.pid" then permit
+	linux64-fswrite: filename match "/var/cache/squid*" then permit
+	linux64-fswrite: filename eq "/var/log/squid/cache.log" then permit
+	linux64-ftruncate: permit
+	linux64-futex: permit
+	linux64-getdents: permit
+	linux64-geteuid: permit
+	linux64-getrlimit: permit
+	linux64-getsockname: permit
+	linux64-getsockopt: permit
+	linux64-getuid: permit
+	linux64-ioctl: permit
+	linux64-listen: permit
+	linux64-lseek: permit
+	linux64-mmap: prot eq "PROT_READ" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_EXEC" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mprotect: prot eq "PROT_NONE" then permit
+	linux64-mprotect: prot eq "PROT_READ" then permit
+	linux64-munmap: permit
+	linux64-pipe: permit
+	linux64-poll: permit
+	linux64-prctl: permit
+	linux64-read: permit
+	linux64-recvfrom: permit
+	linux64-rename: filename eq "/var/cache/squid/swap.state.new" and filename[1] eq "/var/cache/squid/swap.state" then permit
+	linux64-rt_sigaction: permit
+	linux64-rt_sigprocmask: permit
+	linux64-select: permit
+	linux64-sendto: true then permit
+	linux64-set_robust_list: permit
+	linux64-set_tid_address: permit
+	linux64-setgid: permit
+	linux64-setgroups: permit
+	linux64-setresuid: permit
+	linux64-setrlimit: permit
+	linux64-setsid: permit
+	linux64-setsockopt: permit
+	linux64-setuid: permit
+	linux64-socket: permit
+	linux64-socketpair: permit
+	linux64-statfs: permit
+	linux64-umask: permit
+	linux64-wait4: permit
+	linux64-write: permit
+	linux64-getrusage: permit
+	linux64-nanosleep: permit
+	linux64-kill: permit
+	linux64-getpid: permit
+	linux64-exit: permit
+	linux64-exit_group: permit

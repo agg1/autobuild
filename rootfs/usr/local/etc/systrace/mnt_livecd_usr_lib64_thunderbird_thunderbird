@@ -19,12 +19,12 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-connect: sockaddr match "inet-*:995" then permit
 	linux64-connect: sockaddr match "inet-*:80" then permit
 	linux64-connect: sockaddr match "inet-*:443" then permit
-	linux64-connect: sockaddr match "inet-*:8080" then permit
+	linux64-connect: sockaddr match "inet-*:8118" then permit
 	linux64-connect: sockaddr match "inet-*:53" then permit
 	linux64-connect: sockaddr eq "family(0)" then deny
 	linux64-connect: sockaddr match "inet-*:0" then deny
-	linux64-sendmsg: sockaddr eq "<unknown>" then deny
-	linux64-bind: sockaddr eq "family(16)" then deny
+	linux64-sendmsg: deny
+	linux64-bind: deny
 	linux64-dup3: permit
 	linux64-dup2: permit
 	linux64-dup: permit
@@ -408,6 +408,14 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fstat: permit
 	linux64-fstatfs: permit
 	linux64-fswrite: filename match "*/usr/lib64/thunderbird" then deny
+	linux64-fsread: filename match "/tmp/i3*" then deny
+	linux64-write: filename match "/tmp/i3*" then deny
+	linux64-fsread: filename match "/tmp/.X*" then deny
+	linux64-write: filename match "/tmp/.X*" then deny
+	linux64-fsread: filename match "/tmp/*overlay" then deny
+	linux64-write: filename match "/tmp/*overlay" then deny
+	linux64-fsread: filename match "/tmp*" then permit
+	linux64-fswrite: filename match "/tmp*" then permit
 	linux64-fsread: filename match "/tmp*" then permit
 	linux64-fswrite: filename match "/tmp*" then permit
 	linux64-fsread: filename match "/usr/tmp*" then permit
@@ -459,7 +467,7 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-recvmsg: permit
 	linux64-rename: filename match "$HOME/.thunderbird*" and filename[1] match "$HOME/.thunderbird*" then permit
 	linux64-link: filename match "$HOME/.gnupg*" and filename[1] match "$HOME/.gnupg*" then permit
-	linux64-symlink: string match "127.0.0.1:*" and filename match "$HOME/.thunderbird/*" then permit
+	linux64-symlink: string match "127.0.0.1*" and filename match "$HOME/.thunderbird/*" then deny
 	linux64-restart_syscall: permit
 	linux64-rt_sigaction: permit
 	linux64-rt_sigprocmask: permit

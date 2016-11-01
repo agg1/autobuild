@@ -52,9 +52,7 @@ Policy: /mnt/livecd/usr/bin/hexchat, Emulation: linux64
 	linux64-rename: filename match "$HOME/.config*" and filename[1] match "$HOME/.config*" then permit
 	linux64-fsread: filename match "$HOME/.cursors*" then permit
 	linux64-fsread: filename match "$HOME/.fonts*" then permit
-	linux64-fsread: filename match "$HOME/.gtk-bookmarks*" then permit
-	linux64-fsread: filename match "$HOME/.gtkrc-2.0*" then permit
-	linux64-fsread: filename match "$HOME/gtk*" then permit
+	linux64-fsread: filename match "$HOME/.gtk*" then permit
 	linux64-fsread: filename match "$HOME/.hidden*" then permit
 	linux64-fsread: filename match "$HOME/.icons*" then permit
 	linux64-fsread: filename match "$HOME/.local/share*" then permit
@@ -274,3 +272,8 @@ Policy: /mnt/livecd/usr/bin/hexchat, Emulation: linux64
 	linux64-inotify_init: permit
 	linux64-inotify_add_watch: permit
 	linux64-inotify_rm_watch: permit
+	linux64-ftruncate: permit
+	linux64-fchown: deny
+	linux64-mremap: permit
+	linux64-munmap: permit
+	linux64-sysinfo: deny

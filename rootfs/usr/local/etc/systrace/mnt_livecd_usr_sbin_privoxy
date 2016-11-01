@@ -1,0 +1,74 @@
+Policy: /mnt/livecd/usr/sbin/privoxy, Emulation: linux64
+	linux64-accept: permit
+	linux64-arch_prctl: permit
+	linux64-bind: sockaddr eq "family(16)" then permit
+	linux64-bind: sockaddr eq "inet-[127.0.0.1]:8118" then permit
+	linux64-brk: permit
+	linux64-chdir: filename eq "/" then permit
+	linux64-clone: permit
+	linux64-close: permit
+	linux64-connect: sockaddr eq "inet-[127.0.0.1]:9050" then permit
+	linux64-dup2: permit
+	linux64-exit: permit
+	linux64-exit_group: permit
+	linux64-fcntl: cmd eq "F_GETFL" then permit
+	linux64-fcntl: cmd eq "F_SETFL" then permit
+	linux64-fsread: filename eq "/dev/null" then permit
+	linux64-fsread: filename eq "/etc/group" then permit
+	linux64-fsread: filename eq "/etc/ld.so.cache" then permit
+	linux64-fsread: filename eq "/etc/ld.so.preload" then permit
+	linux64-fsread: filename eq "/etc/localtime" then permit
+	linux64-fsread: filename eq "/etc/nsswitch.conf" then permit
+	linux64-fsread: filename eq "/etc/passwd" then permit
+	linux64-fsread: filename eq "/lib64/libc.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libnsl.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libnss_compat.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_files.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_nis.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libpcre.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libpthread.so.0" then permit
+	linux64-fsread: filename eq "/lib64/libz.so.1" then permit
+	linux64-fsread: filename eq "/proc/sys/vm/overcommit_memory" then permit
+	linux64-fsread: filename eq "/sys/devices/system/cpu/online" then permit
+	linux64-fsread: filename eq "/usr/lib64/libpcreposix.so.0" then permit
+	linux64-fsread: filename match "/usr/local/etc/privoxy*" then permit
+	linux64-fstat: permit
+	linux64-fswrite: filename eq "/dev/null" then permit
+	linux64-fswrite: filename eq "/var/log/privoxy/logfile" then permit
+	linux64-fswrite: filename eq "/var/run/privoxy.pid" then permit
+	linux64-futex: permit
+	linux64-getrlimit: permit
+	linux64-getsockname: permit
+	linux64-getsockopt: permit
+	linux64-listen: permit
+	linux64-lseek: permit
+	linux64-madvise: permit
+	linux64-mmap: prot eq "PROT_NONE" then permit
+	linux64-mmap: prot eq "PROT_READ" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_EXEC" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mprotect: prot eq "PROT_NONE" then permit
+	linux64-mprotect: prot eq "PROT_READ" then permit
+	linux64-mprotect: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mremap: permit
+	linux64-munmap: permit
+	linux64-nanosleep: permit
+	linux64-poll: permit
+	linux64-read: permit
+	linux64-recvfrom: permit
+	linux64-recvmsg: permit
+	linux64-rt_sigaction: permit
+	linux64-rt_sigprocmask: permit
+	linux64-select: permit
+	linux64-sendto: sockaddr eq "family(16)" then permit
+	linux64-set_robust_list: permit
+	linux64-set_tid_address: permit
+	linux64-setgid: permit
+	linux64-setgroups: permit
+	linux64-setsid: permit
+	linux64-setsockopt: permit
+	linux64-setuid: permit
+	linux64-shutdown: permit
+	linux64-socket: permit
+	linux64-wait4: permit
+	linux64-write: permit
