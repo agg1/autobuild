@@ -1,4 +1,11 @@
 PidFile /var/run/tor.pid
+DNSPort 127.0.0.1:53
+ClientDNSRejectInternalAddresses 1
+ClientRejectInternalAddresses 1
+SocksPort 127.0.0.1:9050
+#SessionGroup=9050
+#CacheDNS 1
+#UseDNSCache 1
 
 ## Configuration file for a typical Tor user
 ## Last updated 12 September 2012 for Tor 0.2.4.3-alpha.
@@ -18,7 +25,6 @@ PidFile /var/run/tor.pid
 ## configure one below. Set "SocksPort 0" if you plan to run Tor only
 ## as a relay, and not make any local application connections yourself.
 #SocksPort 9050 # Default: Bind to localhost:9050 for local connections.
-SocksPort 127.0.0.1:9050 # Bind to this address:port too.
 
 ## Entry policies to allow/deny SOCKS requests based on IP address.
 ## First entry that matches wins. If no SocksPolicy is set, we accept
