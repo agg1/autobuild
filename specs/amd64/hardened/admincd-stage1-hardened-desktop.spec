@@ -672,11 +672,13 @@ livecd/packages:
 	sys-apps/arrayprobe
 	sys-apps/acl
 	sys-apps/attr
-	sys-apps/busybox
+#	sys-apps/busybox
 	sys-apps/cciss_vol_status
 	sys-apps/chname
 	sys-apps/coreutils
 	sys-apps/dcfldd
+	sys-apps/net-tools
+	sys-fs/ddrescue
 	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/dmidecode
@@ -688,7 +690,6 @@ livecd/packages:
 	sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
-#	sys-apps/gradm
 	sys-apps/grep
 	sys-apps/groff
 	sys-apps/hdparm
@@ -696,9 +697,9 @@ livecd/packages:
 	sys-apps/ipmitool
 	sys-apps/iproute2
 	sys-apps/less
+	sys-apps/lshw
 	sys-apps/lsb-release
 	sys-apps/man
-#	sys-apps/man-db
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
@@ -772,7 +773,6 @@ livecd/packages:
 	sys-fs/f2fs-tools
 	sys-fs/hfsutils
 	sys-fs/jfsutils
-#	sys-fs/loop-aes
 	sys-fs/lsscsi
 	sys-fs/lvm2
 	sys-fs/mac-fdisk

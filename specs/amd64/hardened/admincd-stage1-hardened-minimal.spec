@@ -57,6 +57,7 @@ livecd/use:
 livecd/packages:
 	net-misc/dhcp
 	net-misc/iputils
+	sys-apps/busybox
 	sys-apps/gptfdisk
 	sys-apps/iproute2
 	sys-apps/lsb-release
