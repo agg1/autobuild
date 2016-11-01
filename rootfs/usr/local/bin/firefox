@@ -1,1 +1,1 @@
-sg wanout -c "systrace -d /usr/local/etc/systrace -ia /usr/bin/firefox"&
+sg wanout -c "systrace -d /usr/local/etc/systrace -a /usr/bin/firefox"&
