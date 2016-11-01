@@ -17,19 +17,36 @@ iptables -A OUTPUT -p udp -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8
 iptables -A OUTPUT -p tcp --syn --destination-port 6000:6063 -j REJECT
 iptables -A INPUT -p tcp --syn --destination-port 6000:6063 -j DROP
 #
-for u in $WANUSERS ; do
-  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
-  iptables -A OUTPUT -m owner --uid-owner $u -j ACCEPT
-done
-for u in $LANUSERS ; do
-  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j ACCEPT
-done
+#for u in $WANUSERS ; do
+#  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+#  iptables -A OUTPUT -m owner --uid-owner $u -j ACCEPT
+#done
+#for u in $LANUSERS ; do
+#  iptables -A OUTPUT -m owner --uid-owner $u -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j ACCEPT
+#done
 for g in $WANGROUPS ; do
-  iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
   iptables -A OUTPUT -m owner --gid-owner $g -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 1080 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 3128 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 8118 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 8228 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 8338 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 8448 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 9050 -j ACCEPT
+  iptables -I OUTPUT 1 -m owner --gid-owner $g -p TCP -d 127.0.0.1 --dport 9051 -j ACCEPT
 done
 for g in $LANGROUPS ; do
   iptables -A OUTPUT -m owner --gid-owner $g -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.0/8 -j ACCEPT
 done
 #iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 1080 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 3128 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 8118 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 8228 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 8338 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 8448 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 9050 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 9051 -j ACCEPT
+iptables -I INPUT 1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -I OUTPUT 1 -m state --state ESTABLISHED,RELATED -j ACCEPT
