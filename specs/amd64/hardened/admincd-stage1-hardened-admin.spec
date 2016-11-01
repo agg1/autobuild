@@ -213,8 +213,9 @@ livecd/packages:
 	sys-apps/busybox
 	sys-apps/cciss_vol_status
 	sys-apps/chname
-	sys-apps/coreutils
+#	sys-apps/coreutils
 	sys-apps/dcfldd
+	sys-fs/ddrescue
 	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/dmidecode
@@ -234,8 +235,8 @@ livecd/packages:
 	sys-apps/iproute2
 	sys-apps/less
 	sys-apps/lsb-release
+	sys-apps/lshw
 	sys-apps/man
-#	sys-apps/man-db
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
@@ -291,7 +292,6 @@ livecd/packages:
 	sys-fs/extundelete
 	sys-fs/f2fs-tools
 	sys-fs/jfsutils
-#	sys-fs/loop-aes
 	sys-fs/lsscsi
 	sys-fs/lvm2
 	sys-fs/mac-fdisk
