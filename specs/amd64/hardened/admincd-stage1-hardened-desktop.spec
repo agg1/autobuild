@@ -604,6 +604,7 @@ livecd/packages:
 	net-misc/bridge-utils
 #	net-misc/connman
 	net-misc/curl
+	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
 #	net-misc/mosh

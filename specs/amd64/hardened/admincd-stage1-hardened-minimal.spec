@@ -56,6 +56,7 @@ livecd/use:
 
 livecd/packages:
 	net-misc/dhcp
+	net-misc/dhcpcd
 	net-misc/iputils
 	sys-apps/busybox
 	sys-apps/gptfdisk

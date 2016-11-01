@@ -172,6 +172,7 @@ livecd/packages:
 	net-dialup/pptpclient
 	net-dialup/rp-pppoe
 	net-dns/bind-tools
+	net-dns/dnsmasq
 	net-firewall/iptables
 	net-fs/cifs-utils
 	net-fs/nfs-utils
@@ -181,6 +182,7 @@ livecd/packages:
 	net-irc/irssi-fish
 	net-misc/bridge-utils
 	net-misc/curl
+	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
 	net-misc/ndisc6
