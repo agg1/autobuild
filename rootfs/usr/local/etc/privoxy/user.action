@@ -214,6 +214,6 @@ www.example.com/nasty-ads/sponsor.gif
 +session-cookies-only \
 +set-image-blocker{blank} \
 +hide-accept-language{en-US} \
-+hide-user-agent{Mozilla/5.0 (Windows; U; Windows NT 5.1; en; rv:45.0) Gecko/20100101 Firefox/45.0} \
++hide-user-agent{Mozilla/5.0 (Windows; U; Windows NT 6.1; en; rv:45.0) Gecko/20100101 Firefox/45.0} \
 }
 /
