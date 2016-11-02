@@ -16,7 +16,7 @@ SRC_URI="https://github.com/sahib/${PN}/archive/${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="X"
 
 RDEPEND="X? ( x11-libs/gtksourceview:3.0
