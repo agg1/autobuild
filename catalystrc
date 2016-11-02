@@ -1,5 +1,9 @@
 #!/bin/bash
-# This is an example catalystrc. As such, it doesn't actually *do* anything.
 
 # Uncomment the following to increase the number of threads used to compile.
-export MAKEOPTS="-j12"
+export MAKEOPTS="-j16"
+export EMERGE_DEFAULT_OPTS=" --verbose --tree --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --autounmask-keep-masks y --binpkg-respect-use y --jobs=3 "
+export PORTAGE_CHECKSUM_FILTER="-* sha512"
+export PORTAGE_COMPRESS=""
+export PROFILE_IS_HARDENED=1
+export ACCEPT_KEYWORDS="~amd64"
