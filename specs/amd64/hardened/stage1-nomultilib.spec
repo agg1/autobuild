@@ -8,3 +8,5 @@ source_subpath: hardened/stage3-amd64-latest.tar.bz2
 update_seed: yes
 update_seed_command: --update --deep @world
 portage_confdir: /home/catalyst/etc/portage/
+portage_overlay: /home/catalyst/extra_overlay/
+
