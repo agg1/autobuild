@@ -53,6 +53,7 @@ Policy: /mnt/livecd/usr/bin/tor, Emulation: linux64
 	linux64-fswrite: filename eq "/dev/null" then permit
 	linux64-fswrite: filename match "/var/lib/tor*" then permit
 	linux64-fswrite: filename eq "/var/run/tor.pid" then permit
+	linux64-fswrite: filename eq "/var/run/tor/tor.pid" then permit
 	linux64-futex: permit
 	linux64-getdents: permit
 	linux64-getegid: permit

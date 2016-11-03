@@ -33,6 +33,7 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-epoll_wait: permit
 	linux64-execve: filename match "*/usr/bin/gpg-agent" then permit
 	linux64-execve: filename match "*/usr/bin/gpg2" then permit
+	linux64-execve: filename match "*/usr/bin/gpg" then permit
 	linux64-execve: filename match "*/usr/bin/locale" then permit
 	linux64-execve: filename match "*/usr/bin/pinentry" then permit
 	linux64-exit: permit
