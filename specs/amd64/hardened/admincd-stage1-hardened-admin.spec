@@ -28,34 +28,7 @@ livecd/use:
 	-jit
 	-orc
 	-X
-	alsa
-	alsa_pcm_plugins_adpcm
-	alsa_pcm_plugins_alaw
-	alsa_pcm_plugins_asym
-	alsa_pcm_plugins_copy
-	alsa_pcm_plugins_dmix
-	alsa_pcm_plugins_dshare
-	alsa_pcm_plugins_dsnoop
-	alsa_pcm_plugins_empty
-	alsa_pcm_plugins_extplug
-	alsa_pcm_plugins_file
-	alsa_pcm_plugins_hooks
-	alsa_pcm_plugins_iec958
-	alsa_pcm_plugins_ioplug
-	alsa_pcm_plugins_ladspa
-	alsa_pcm_plugins_lfloat
-	alsa_pcm_plugins_linear
-	alsa_pcm_plugins_meter
-	alsa_pcm_plugins_mmap_emul
-	alsa_pcm_plugins_mulaw
-	alsa_pcm_plugins_multi
-	alsa_pcm_plugins_null
-	alsa_pcm_plugins_plug
-	alsa_pcm_plugins_rate
-	alsa_pcm_plugins_route
-	alsa_pcm_plugins_share
-	alsa_pcm_plugins_shm
-	alsa_pcm_plugins_softvol
+	crypt
 	bzip2
 	cryptsetup
 	fbcon
@@ -73,6 +46,7 @@ livecd/use:
 	nls
 	nptl
 	nptlonly
+	threads
 	readline
 	socks5
 	ssl
@@ -80,6 +54,8 @@ livecd/use:
 	urandom
 	usb
 	static-libs
+	python_targets_python2_7
+	python_targets_python3_4
 	mmx
 	sse
 	sse2
@@ -156,8 +132,6 @@ livecd/packages:
 	dev-util/shc
 	dev-vcs/git
 	media-gfx/fbgrab
-	media-libs/alsa-oss
-	media-sound/alsa-utils
 	net-analyzer/gnu-netcat
 	net-analyzer/iptraf-ng
 	net-analyzer/netcat6

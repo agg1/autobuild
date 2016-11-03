@@ -48,6 +48,7 @@ boot/kernel/gentoo/use:
 	-orc
 	-X
 	-udev
+	crypt
 	minimal
 	bzip2
 	cryptsetup
@@ -63,12 +64,15 @@ boot/kernel/gentoo/use:
 	nls
 	nptl
 	nptlonly
+	threads
 	readline
 	ssl
 	unicode
 	urandom
 	usb
 	static-libs
+	python_targets_python2_7
+	python_targets_python3_4
 	mmx
 	sse
 	sse2
