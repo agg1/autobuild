@@ -44,6 +44,8 @@ boot/kernel/gentoo/use:
 	-gtk3
 	-jit
 	-orc
+	crypt
+	sound
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -83,28 +85,36 @@ boot/kernel/gentoo/use:
 	keyscrub
 	lvm1
 	midi
+	fluidsynth
 	mng
 	modules
 	ncurses
 	nls
 	nptl
 	nptlonly
+	threads
 	png
 	readline
 	socks5
 	ssl
 	truetype
+	iconv
 	unicode
 	urandom
 	usb
 	doc
 	latex
 	static-libs
+	python_targets_python2_7
+	python_targets_python3_4
 	mmx
 	sse
 	sse2
+	cairo
 	gtk
-	opencl
+#	opencl
+#	llvm
+	gallium
 	xvfb
 	X
 	-video_cards_qxl

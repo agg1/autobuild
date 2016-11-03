@@ -29,6 +29,7 @@ livecd/use:
 	-orc
 	-X
 	-udev
+	crypt
 	minimal
 	bzip2
 	cryptsetup
@@ -44,12 +45,15 @@ livecd/use:
 	nls
 	nptl
 	nptlonly
+	threads
 	readline
 	ssl
 	unicode
 	urandom
 	usb
 	static-libs
+	python_targets_python2_7
+	python_targets_python3_4
 	mmx
 	sse
 	sse2

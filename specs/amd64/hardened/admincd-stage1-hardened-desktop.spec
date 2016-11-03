@@ -25,6 +25,9 @@ livecd/use:
 	-gtk3
 	-jit
 	-orc
+	crypt
+	xml
+	sound
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -64,28 +67,36 @@ livecd/use:
 	keyscrub
 	lvm1
 	midi
+	fluidsynth
 	mng
 	modules
 	ncurses
 	nls
 	nptl
 	nptlonly
+	threads
 	png
 	readline
 	socks5
 	ssl
 	truetype
+	iconv
 	unicode
 	urandom
 	usb
 	doc
 	latex
 	static-libs
+	python_targets_python2_7
+	python_targets_python3_4
 	mmx
 	sse
 	sse2
+	cairo
 	gtk
-	opencl
+#	opencl
+#	llvm
+	gallium
 	xvfb
 	X
 	-video_cards_qxl
@@ -119,7 +130,7 @@ livecd/packages:
 #	app-admin/keepass
 #	app-admin/keepassx
 #	app-admin/kpcli
-	app-admin/lnav
+#	app-admin/lnav
 	app-admin/logcheck
 	app-admin/logmon
 	app-admin/logrotate
@@ -212,7 +223,7 @@ livecd/packages:
 	#stardict
 	app-doc/abs-guide
 	app-doc/autobook
-	app-doc/cppman
+#	app-doc/cppman
 #	app-doc/devmanual
 #	app-doc/phrack-all
 #	app-editors/bluefish
@@ -327,14 +338,14 @@ livecd/packages:
 	mail-client/mailx-support
 	mail-filter/procmail
 	mail-filter/clamassassin
-	mail-filter/opensmtpd-extras
+#	mail-filter/opensmtpd-extras
 	mail-filter/spamassassin
-	mail-mta/courier
-	mail-mta/exim
+#	mail-mta/courier
+#	mail-mta/exim
 	mail-mta/msmtp
-	mail-mta/opensmtpd
-	mail-mta/postfix
-	mail-mta/sstmp
+#	mail-mta/opensmtpd
+#	mail-mta/postfix
+#	mail-mta/ssmtp
 	media-fonts/dejavu
 	media-gfx/blender
 #	media-gfx/digikam
@@ -599,7 +610,7 @@ livecd/packages:
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/weechat
-	net-irc/znc
+#	net-irc/znc
 #	net-mail/dovecot
 	net-misc/bridge-utils
 #	net-misc/connman
@@ -651,7 +662,7 @@ livecd/packages:
 	net-wireless/airsnort
 	net-wireless/airtraf
 	net-wireless/b43-fwcutter
-	net-wireless/cpyrit-opencl
+#	net-wireless/cpyrit-opencl
 #	net-wireless/bcm43xx-fwcutter
 	net-wireless/horst
 	net-wireless/hostap-utils
