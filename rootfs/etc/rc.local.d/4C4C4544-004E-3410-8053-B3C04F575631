@@ -7,8 +7,8 @@ hostname darkstar
 mkdir -p /media/lvm/lvcatalyst /media/lvm/lvdocuments /media/lvm/lvgames /media/lvm/lvimages /media/lvm/lvmovies /media/lvm/lvmusic /media/lvm/lvsource /media/lvm/lvwindows
 
 # make /lib/firmware writeable and modprobe radeon
-/usr/local/bin/firmware.sh
-rmmod radeon; modprobe radeon; umount /mnt/livecd/lib64/firmware
+#/usr/local/bin/firmware.sh
+#rmmod radeon; modprobe radeon; umount /mnt/livecd/lib64/firmware
 
 ifconfig enp0s25 10.0.0.2/8
 
@@ -48,14 +48,13 @@ iptables -A OUTPUT -m owner --gid-owner 250 -j ACCEPT
 # proxy connect chain
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g privoxy) -d 127.0.0.1 -j ACCEPT
+iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
 # disallow proxy to lan traffic
-iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
-iptables -I OUTPUT 1 -m owner --gid-owner $(id -g privoxy) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
-iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
-# allow outgoing
+iptables -A OUTPUT -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+iptables -A OUTPUT -m owner --gid-owner $(id -g privoxy) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+iptables -A OUTPUT -m owner --gid-owner $(id -g tor) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+# allow outgoing tor
 iptables -A OUTPUT -m owner --gid-owner $(id -g tor) -j ACCEPT
-#iptables -A OUTPUT -m owner --gid-owner $(id -g pdnsd) -d 127.0.0.1 --dport 9050 j ACCEPT
-iptables -A OUTPUT -m owner --gid-owner $(id -g dnsmasq) --dport 9053 j ACCEPT
 
 # prevent dns leaks
 iptables -I OUTPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
