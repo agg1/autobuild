@@ -6,6 +6,7 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
+portage_overlay: /home/catalyst/extra_overlay/
 
 stage4/use:
 	-consolekit
@@ -41,7 +42,7 @@ stage4/packages:
 boot/kernel: gentoo
 boot/kernel/gentoo/sources: gentoo-sources
 boot/kernel/gentoo/config: /etc/portage/kconfig
-boot/kernel/gentoo/gk_kernargs: --all-ramdisk-modules --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf
+boot/kernel/gentoo/gk_kernargs: --all-ramdisk-modules --lvm --dmraid --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf
 
 stage4/unmerge:
 	sys-libs/pam

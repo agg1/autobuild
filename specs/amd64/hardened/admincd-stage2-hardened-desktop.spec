@@ -12,7 +12,7 @@ livecd/volid: Hardened Desktop Live System
 livecd/type: generic-livecd
 livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
-livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
+livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp memory_corruption_check=1
 # ubsan_handle=OEAINVBSLF
