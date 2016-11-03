@@ -5,8 +5,8 @@
 hostname localhost
 
 # make /lib/firmware writeable and modprobe radeon
-/usr/local/bin/firmware.sh
-rmmod radeon; modprobe radeon ; umount /mnt/livecd/lib64/firmware
+#/usr/local/bin/firmware.sh
+#rmmod radeon; modprobe radeon ; umount /mnt/livecd/lib64/firmware
 
 # wake on lan
 ifconfig enp35s0 10.0.0.1/8; ethtool -s enp35s0 wol u
