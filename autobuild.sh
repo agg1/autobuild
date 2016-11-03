@@ -11,6 +11,8 @@ prepare_system() {
 	export STAMP="${STAMP:-latest}"
 	export TARGT=""
 	export CCONF="${CCONF:-/home/catalyst/catalyst.conf}"
+	export CCONB="${CCONB:-/home/catalyst/catalyst-boot.conf}"
+	export CCONI="${CCONI:-/home/catalyst/catalyst-init.conf}"
 	export CADIR="/home/catalyst"
 	export RELDA="${RELDA:-$NEWDA}"
 	export BDDIR="${BDDIR:-/var/tmp/catalyst/builds/hardened}"
@@ -90,11 +92,12 @@ fetch_distfiles() {
 	mkdir -p /var/tmp/catalyst/builds/hardened
 
 	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-20160908.tar.bz2* /var/tmp/catalyst/builds/hardened
+	#cp livecd-stage3
 
 	iptables -P OUTPUT ACCEPT
 	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/stage3-amd64-hardened+nomultilib-20160908.tar.bz2
+	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
+	#\ source_subpath=hardened/stage3-amd64-hardened+nomultilib-20160908.tar.bz2
 	iptables -P OUTPUT DROP
 
 	rm -f /var/tmp/catalyst/builds/hardened/*
@@ -142,10 +145,10 @@ build_seed_boot() {
 	clean_stage
 	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-20160908.tar.bz2* /var/tmp/catalyst/builds/hardened
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONB} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
+#	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONB} -C version_stamp=$STAMP
 
 	cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${SDDIR}/boot/${RELDA}
 	rm -f ${SDDIR}/boot/latest
@@ -158,10 +161,10 @@ build_seed_init() {
 	clean_stage
 	cp ${SDDIR}/boot/latest/stage3-amd64-latest.tar.bz2* ${BDDIR}
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
+#	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONI} -C version_stamp=$STAMP
 
 	cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${SDDIR}/init/${RELDA}
 	rm -f ${SDDIR}/init/latest
