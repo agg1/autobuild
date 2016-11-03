@@ -1,6 +1,11 @@
 ### overrrides package.keywords
 =sys-devel/gcc-config-1.8-r1 ~amd64
 
+# ncurses ~ seems to break build
+#sys-libs/ncurses *
+#=sys-libs/ncurses-5.9-r5 amd64
+
 # *  stable on any architecture
 # ~* testing on any architecture
 # ** always visible
+
