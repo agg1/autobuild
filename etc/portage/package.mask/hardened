@@ -7,6 +7,7 @@ sys-auth/pambase
 sys-apps/dbus
 app-accessibility/at-spi2-atk
 gnome-base/gvfs
-#media-sound/pulseaudio
+>=app-text/gtkspell-3.0.0
 >=x11-libs/gtk+-3.0
 >x11-misc/xtrlock-2.3
+#>=sys-libs/ncurses-6.0
