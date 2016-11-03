@@ -1,0 +1,23 @@
+# break circular dependencies with doc USE_FLAG set
+dev-python/jinja -doc
+dev-python/pygments -doc
+dev-python/six -doc
+dev-python/Babel -doc
+dev-tex/xcolor -doc
+x11-libs/libXaw -doc
+x11-libs/libXmu -doc
+x11-libs/libX11 -doc
+x11-libs/libXext -doc
+x11-libs/libICE -doc
+x11-libs/xtrans -doc
+x11-proto/xproto -doc
+x11-proto/xextproto -doc
+x11-libs/libXi -doc
+x11-libs/libXcomposite -doc
+x11-libs/libSM -doc
+x11-libs/libxcb -doc
+x11-libs/libXdmcp -doc
+dev-libs/icu -doc
+dev-lang/nasm -doc
+dev-util/cmake -doc
+media-libs/fontconfig -doc
