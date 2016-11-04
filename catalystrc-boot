@@ -1,7 +1,8 @@
 #!/bin/bash
 
 export MAKEOPTS="-j16"
+export EMERGE_DEFAULT_OPTS=" --verbose --verbose-conflicts --tree --with-bdeps y --with-test-deps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=6 "
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS=""
 export PROFILE_IS_HARDENED=1
-export USE="${USE} hardened urandom ipv6 livecd loop-aes -kdbus -bindist -branding -consolekit -policykit -pam -dbus -gvfs -gtk3 -gnome-keyring -systemd -pulseaudio static-libs"
+export USE="${USE} hardened urandom ipv6 livecd loop-aes -kdbus -bindist -branding -consolekit -policykit -pam -dbus -gvfs -gtk3 -gnome-keyring -systemd -pulseaudio"
