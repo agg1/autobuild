@@ -6,7 +6,7 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
-portage_overlay: /home/catalyst/extra_overlay/
+portage_overlay: /usr/local/portage
 
 livecd/use:
 	-*
@@ -66,5 +66,6 @@ livecd/packages:
 	sys-apps/gptfdisk
 	sys-apps/iproute2
 	sys-apps/lsb-release
+	sys-apps/net-tools
 	sys-devel/bc
 	sys-fs/lvm2

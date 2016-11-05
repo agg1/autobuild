@@ -6,7 +6,7 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
-portage_overlay: /home/catalyst/extra_overlay/
+portage_overlay: /usr/local/portage
 
 livecd/use:
 	-*
@@ -75,6 +75,8 @@ livecd/use:
 	nptl
 	nptlonly
 	threads
+	gmp
+	xml
 	png
 	readline
 	socks5
@@ -690,7 +692,6 @@ livecd/packages:
 	sys-apps/coreutils
 	sys-apps/dcfldd
 	sys-apps/net-tools
-	sys-fs/ddrescue
 	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/dmidecode
@@ -718,6 +719,7 @@ livecd/packages:
 	sys-apps/miscfiles
 	sys-apps/mlocate
 #	sys-apps/netplug
+	sys-apps/net-tools
 	sys-apps/pciutils
 	sys-apps/pcmciautils
 #	sys-apps/pcsc-lite
@@ -739,7 +741,7 @@ livecd/packages:
 	sys-block/disktype
 	sys-block/fio
 	sys-block/gparted
-	sys-block/iscsitarget
+#	sys-block/iscsitarget
 #	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
