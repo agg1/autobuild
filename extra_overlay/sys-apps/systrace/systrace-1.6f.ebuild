@@ -12,8 +12,11 @@ SRC_URI="http://www.citi.umich.edu/u/provos/systrace/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ppc ~sparc ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+RDEPEND="dev-libs/libevent"
+DEPEND="${RDEPEND}"
 
 RESTRICT="test"
 
