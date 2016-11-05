@@ -40,12 +40,13 @@ prepare_system() {
 
 prepare_portage() {
 	echo "### prepare_portage()"
-    [ -e /usr/portage/.prepared ] && return
-    touch /usr/portage/.prepared
+	[ -e /usr/portage/.prepared ] && return
+	touch /usr/portage/.prepared
 
 	cd /usr/
 	tar -xf ${PTREE}
 	cd ${CADIR}
+	cp -pR /home/catalyst/extra_overlay /usr/local/portage
 
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /var/tmp/catalyst/builds
