@@ -191,7 +191,7 @@ livecd/packages:
 	sys-apps/busybox
 	sys-apps/cciss_vol_status
 	sys-apps/chname
-#	sys-apps/coreutils
+	sys-apps/coreutils
 	sys-apps/dcfldd
 	sys-apps/net-tools
 	sys-apps/debianutils
