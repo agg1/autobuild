@@ -709,6 +709,7 @@ livecd/packages:
 	sys-apps/hwsetup
 	sys-apps/ipmitool
 	sys-apps/iproute2
+	sys-apps/keyctl
 	sys-apps/less
 	sys-apps/lshw
 	sys-apps/lsb-release
