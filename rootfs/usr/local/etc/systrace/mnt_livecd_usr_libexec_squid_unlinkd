@@ -21,3 +21,4 @@ Policy: /mnt/livecd/usr/libexec/squid/unlinkd, Emulation: linux64
 	linux64-fswrite: filename eq "/dev/null" then permit
 	linux64-exit: permit
 	linux64-exit_group: permit
+	linux64-write: deny
