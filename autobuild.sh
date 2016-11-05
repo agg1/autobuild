@@ -59,7 +59,7 @@ prepare_portage() {
 	mkdir -p /home/tmp/snapshot_cache
 	mount --bind ${DFDIR} /usr/portage/distfiles
 	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
-	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
+	#mount --bind /home/tmp/packages /var/tmp/catalyst/packages
 	mount --bind /home/tmp/snapshots /var/tmp/catalyst/snapshots
 	mount --bind /home/tmp/snapshot_cache /var/tmp/catalyst/snapshot_cache
 
@@ -260,4 +260,14 @@ update_livecd_desktop() {
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	rm -f ${SDDIR}/desktop/latest
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
+}
+
+archive_digests() {
+	echo "### archive_digests()"
+	cd ${SDDIR}
+	DIGESTS=$(find . | grep DIGESTS$)
+	rm -f ${CADIR}/digests.tar
+	tar -cpf ${CADIR}/digests.tar ${DIGESTS}
+	sha512sum ${CADIR}/digests.tar > ${CADIR}/digests.tar.DIGESTS
+	cd -
 }
