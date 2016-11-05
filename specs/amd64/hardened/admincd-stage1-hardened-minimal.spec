@@ -63,9 +63,11 @@ livecd/packages:
 	net-misc/dhcpcd
 	net-misc/iputils
 	sys-apps/busybox
+	sys-apps/coreutils
 	sys-apps/gptfdisk
 	sys-apps/iproute2
 	sys-apps/lsb-release
 	sys-apps/net-tools
+	sys-apps/util-linux
 	sys-devel/bc
 	sys-fs/lvm2
