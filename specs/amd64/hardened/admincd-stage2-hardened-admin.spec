@@ -6,7 +6,7 @@ profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/livecd-stage1-amd64-latest.tar.bz2
 portage_confdir: /home/catalyst/etc/portage/
-portage_overlay: /home/catalyst/extra_overlay/
+portage_overlay: /usr/local/portage
 
 livecd/volid: Hardened Admin Live System
 livecd/type: generic-livecd
@@ -65,6 +65,8 @@ boot/kernel/gentoo/use:
 	nls
 	nptl
 	threads
+	gmp
+	xml
 	nptlonly
 	readline
 	socks5
