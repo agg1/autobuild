@@ -322,9 +322,9 @@ case ${clst_hostarch} in
 
 					echo "   ${x}" >> ${kmsg}
 
-					echo "label ${x}-${y}-nocache" >> ${icfg}
+					echo "label ${x}-nocache" >> ${icfg}
 					echo "  kernel ${x}" >> ${icfg}
-					echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
+					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
 					echo >> ${icfg}
 
 					echo "   ${x}-nocache" >> ${kmsg}
