@@ -188,7 +188,7 @@ livecd/packages:
 	sys-apps/arrayprobe
 	sys-apps/acl
 	sys-apps/attr
-	sys-apps/busybox
+#	sys-apps/busybox
 	sys-apps/cciss_vol_status
 	sys-apps/chname
 	sys-apps/coreutils
@@ -211,6 +211,7 @@ livecd/packages:
 	sys-apps/hwsetup
 	sys-apps/ipmitool
 	sys-apps/iproute2
+	sys-apps/keyctl
 	sys-apps/less
 	sys-apps/lsb-release
 	sys-apps/lshw
