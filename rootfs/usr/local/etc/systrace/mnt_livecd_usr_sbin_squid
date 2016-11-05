@@ -128,3 +128,5 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-getpid: permit
 	linux64-exit: permit
 	linux64-exit_group: permit
+	linux64-rt_sigreturn: permit
+	linux64-tgkill: permit

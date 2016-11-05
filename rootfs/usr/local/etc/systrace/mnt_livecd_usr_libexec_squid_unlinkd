@@ -16,6 +16,8 @@ Policy: /mnt/livecd/usr/libexec/squid/unlinkd, Emulation: linux64
 	linux64-arch_prctl: permit
 	linux64-mprotect: prot eq "PROT_READ" then permit
 	linux64-munmap: permit
+	linux64-fswrite: filename match "/var/cache/squid*" then permit
+	linux64-fsread: filename match "/var/cache/squid*" then permit
 	linux64-fswrite: filename eq "/dev/null" then permit
 	linux64-exit: permit
 	linux64-exit_group: permit
