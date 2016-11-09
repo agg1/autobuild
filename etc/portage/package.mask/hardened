@@ -10,4 +10,4 @@ gnome-base/gvfs
 >=app-text/gtkspell-3.0.0
 >=x11-libs/gtk+-3.0
 >x11-misc/xtrlock-2.3
-#>=sys-libs/ncurses-6.0
+x11-drivers/xf86-input-evdev
