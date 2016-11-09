@@ -14,7 +14,7 @@ MODULES_SCSI="sd_mod sg sr_mod aic79xx aic7xxx aic7xxx_old arcmsr BusLogic ncr53
 MODULES_WAITSCAN="scsi_wait_scan"
 
 # Hardware (Network)
-MODULES_NET="e1000 tg3"
+MODULES_NET=""
 
 # iSCSI support
 MODULES_ISCSI=""
@@ -22,7 +22,7 @@ MODULES_ISCSI=""
 # Hardware (Pluggable)
 MODULES_FIREWIRE=""
 MODULES_PCMCIA=""
-MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd xhci-hcd xhci-plat usbhid hid-generic sl811-hcd hid-a4tech hid-apple hid-belkin hid-cherry hid-chicony hid-cypress hid-dummy hid-ezkey hid-gyration hid-logitech hid-logitech-dj hid-microsoft hid-monterey hid-petalynx hid-pl hid-samsung hid-sony hid-sunplus"
+MODULES_USB="ehci-hcd uhci usb-ohci hid usb-storage uhci-hcd ohci-hcd xhci-hcd xhci-plat usbhid hid-generic"
 
 # Filesystems
 MODULES_FS="ext4"
