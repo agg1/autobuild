@@ -13,6 +13,7 @@ livecd/use:
 	-avahi
 	-consolekit
 	-doc
+	-jit
 	-policykit
 	-pam
 	-systemd
@@ -27,8 +28,8 @@ livecd/use:
 	-gtk3
 	-jit
 	-orc
-	-X
 	-udev
+	-X
 	crypt
 	minimal
 	bzip2
@@ -48,6 +49,7 @@ livecd/use:
 	threads
 	readline
 	ssl
+	system-mitkrb5
 	unicode
 	urandom
 	usb
@@ -62,7 +64,7 @@ livecd/packages:
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
-	sys-apps/busybox
+#	sys-apps/busybox
 #	sys-apps/coreutils
 	sys-apps/dmidecode
 	sys-apps/gptfdisk

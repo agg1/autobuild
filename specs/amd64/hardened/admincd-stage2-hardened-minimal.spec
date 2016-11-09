@@ -32,6 +32,7 @@ boot/kernel/gentoo/use:
 	-avahi
 	-consolekit
 	-doc
+	-jit
 	-policykit
 	-pam
 	-systemd
@@ -46,8 +47,8 @@ boot/kernel/gentoo/use:
 	-gtk3
 	-jit
 	-orc
-	-X
 	-udev
+	-X
 	crypt
 	minimal
 	bzip2
@@ -67,6 +68,7 @@ boot/kernel/gentoo/use:
 	threads
 	readline
 	ssl
+	system-mitkrb5
 	unicode
 	urandom
 	usb
@@ -226,6 +228,7 @@ livecd/rm:
 	/usr/share/misc/*.old
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
+	/root/.bash_history
 
 livecd/empty:
 	/etc/cron.daily

@@ -31,6 +31,7 @@ boot/kernel/gentoo/use:
 	-*
 	-avahi
 	-consolekit
+	-jit
 	-policykit
 	-pam
 	-systemd
@@ -44,6 +45,7 @@ boot/kernel/gentoo/use:
 	-gtk3
 	-jit
 	-orc
+	-udev
 	crypt
 	sound
 	alsa
@@ -81,7 +83,7 @@ boot/kernel/gentoo/use:
 	livecd
 	loop-aes
 	extra-ciphers
-	jpg
+	jpeg
 	keyscrub
 	lvm1
 	midi
@@ -99,16 +101,19 @@ boot/kernel/gentoo/use:
 	readline
 	socks5
 	ssl
+	system-mitkrb5
+	fontconfig
 	truetype
+	zlib
 	iconv
 	unicode
 	urandom
 	usb
 	doc
-	latex
 	static-libs
 	python_targets_python2_7
 	python_targets_python3_4
+	sqlite
 	mmx
 	sse
 	sse2
@@ -116,12 +121,29 @@ boot/kernel/gentoo/use:
 	gtk
 #	opencl
 #	llvm
+	opengl
+	video
 	gallium
+	glamor
 	xvfb
+	xcb
 	X
+	video_cards_amdgpu
+	video_cards_intel
+	video_cards_nouveau
+	video_cards_radeon
 	-video_cards_qxl
 	-video_cards_virtualbox
 	-video_cards_vmware
+	-input_devices_evdev
+	uxa
+	sna
+	dri
+	dri2
+	dri3
+	xv
+	xvmc
+	xorg
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware
@@ -141,5 +163,6 @@ livecd/rm:
 	/etc/make.profile
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
+	/root/.bash_history
 
 #livecd/empty:

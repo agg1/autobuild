@@ -32,6 +32,7 @@ boot/kernel/gentoo/use:
 	-avahi
 	-consolekit
 	-doc
+	-jit
 	-policykit
 	-pam
 	-systemd
@@ -46,6 +47,7 @@ boot/kernel/gentoo/use:
 	-gtk3
 	-jit
 	-orc
+	-udev
 	-X
 	crypt
 	bzip2
@@ -71,6 +73,7 @@ boot/kernel/gentoo/use:
 	readline
 	socks5
 	ssl
+	system-mitkrb5
 	unicode
 	urandom
 	usb
@@ -100,6 +103,6 @@ livecd/rm:
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
 	/var/tmp/genkernel
+	/root/.bash_history
 
 #livecd/empty:
-

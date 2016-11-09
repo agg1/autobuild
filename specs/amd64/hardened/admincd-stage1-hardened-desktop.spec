@@ -12,6 +12,7 @@ livecd/use:
 	-*
 	-avahi
 	-consolekit
+	-jit
 	-policykit
 	-pam
 	-systemd
@@ -25,6 +26,7 @@ livecd/use:
 	-gtk3
 	-jit
 	-orc
+	-udev
 	crypt
 	xml
 	sound
@@ -63,7 +65,7 @@ livecd/use:
 	livecd
 	loop-aes
 	extra-ciphers
-	jpg
+	jpeg
 	keyscrub
 	lvm1
 	midi
@@ -81,16 +83,19 @@ livecd/use:
 	readline
 	socks5
 	ssl
+	system-mitkrb5
+	fontconfig
 	truetype
+	zlib
 	iconv
 	unicode
 	urandom
 	usb
 	doc
-	latex
 	static-libs
 	python_targets_python2_7
 	python_targets_python3_4
+	sqlite
 	mmx
 	sse
 	sse2
@@ -98,12 +103,29 @@ livecd/use:
 	gtk
 #	opencl
 #	llvm
+	opengl
+	video
 	gallium
+	glamor
 	xvfb
+	xcb
 	X
+	video_cards_amdgpu
+	video_cards_intel
+	video_cards_nouveau
+	video_cards_radeon
 	-video_cards_qxl
 	-video_cards_virtualbox
 	-video_cards_vmware
+	-input_devices_evdev
+	uxa
+	sna
+	dri
+	dri2
+	dri3
+	xv
+	xvmc
+	xorg
 
 livecd/packages:
 #	app-accessibility/brltty
@@ -254,7 +276,7 @@ livecd/packages:
 	app-forensics/chkrootkit
 #	app-forensics/cmospwd
 	app-forensics/memdump
-	app-forensics/rkhunter
+#	app-forensics/rkhunter
 	app-forensics/sleuthkit
 	app-forensics/unhide
 	app-forensics/volatility
@@ -299,7 +321,7 @@ livecd/packages:
 	app-shells/gentoo-bashcomp
 	app-text/dos2unix
 	app-text/gtkspell
-	app-text/mupdf
+#	app-text/mupdf
 	app-text/stardict
 #	app-text/tetex
 	app-text/tree
@@ -333,7 +355,7 @@ livecd/packages:
 	dev-vcs/git-crypt
 	dev-vcs/subversion
 	games-util/joystick
-	mail-client/alpine
+#	mail-client/alpine
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx
@@ -349,7 +371,7 @@ livecd/packages:
 #	mail-mta/postfix
 #	mail-mta/ssmtp
 	media-fonts/dejavu
-	media-gfx/blender
+#	media-gfx/blender
 #	media-gfx/digikam
 #	media-gfx/fbida
 	media-gfx/feh
@@ -464,8 +486,8 @@ livecd/packages:
 #	media-sound/easytag
 #	media-sound/grip
 #	media-sound/hydrogen
-	media-sound/pamix
-	media-sound/pulseaudio
+#	media-sound/pamix
+#	media-sound/pulseaudio
 #	media-sound/rhythmbox
 #	media-tv/w_scan
 	media-video/dvdrip
@@ -477,8 +499,8 @@ livecd/packages:
 #	net-analyzer/alive
 	net-analyzer/amap
 	net-analyzer/angst
-	net-analyzer/argus
-	net-analyzer/argus-clients
+#	net-analyzer/argus
+#	net-analyzer/argus-clients
 	net-analyzer/arpoison
 	net-analyzer/arptools
 	net-analyzer/arpwatch
@@ -486,7 +508,7 @@ livecd/packages:
 	net-analyzer/bing
 	net-analyzer/bmon
 	net-analyzer/braa
-	net-analyzer/bro
+#	net-analyzer/bro
 	net-analyzer/bwm-ng
 	net-analyzer/cbm
 	net-analyzer/cryptcat
@@ -530,7 +552,7 @@ livecd/packages:
 #	net-analyzer/metasploit
 #	net-analyzer/monitoring-plugins
 #	net-analyzer/nagios
-	net-analyzer/namebench
+#	net-analyzer/namebench
 	net-analyzer/nessus
 #	net-analyzer/net-snmp
 #	net-analyzer/netcat
@@ -541,7 +563,7 @@ livecd/packages:
 	net-analyzer/nipper
 #	net-analyzer/nmbscan
 	net-analyzer/nmap
-	net-analyzer/ntop
+#	net-analyzer/ntop
 	net-analyzer/ntopng
 	net-analyzer/openvas
 	net-analyzer/p0f
@@ -553,7 +575,7 @@ livecd/packages:
 	net-analyzer/scanlogd
 	net-analyzer/scanssh
 	net-analyzer/scli
-	net-analyzer/snort
+#	net-analyzer/snort
 	net-analyzer/ssldump
 	net-analyzer/sslscan
 #	net-analyzer/sslsniff
@@ -576,13 +598,13 @@ livecd/packages:
 	net-dns/ddclient
 	net-dns/dnsmasq
 #	net-dns/dnstop
-	net-dns/pdns
+#	net-dns/pdns
 	net-dns/pdnsd
 	net-firewall/arptables
-	net-firewall/conntrack-tools
+#	net-firewall/conntrack-tools
 	net-firewall/ebtables
 #	net-firewall/fwanalog
-	net-firewall/fwbuilder
+#	net-firewall/fwbuilder
 	net-firewall/fwipsec
 	net-firewall/fwknop
 	net-firewall/ipsec-tools
@@ -600,8 +622,7 @@ livecd/packages:
 	net-firewall/ufw-frontends
 	net-fs/cifs-utils
 	net-fs/nfs-utils
-	net-fs/samba
-#	net-fs/sshfs
+#	net-fs/samba
 	net-ftp/filezilla
 	net-ftp/ftp
 	net-ftp/ncftp
@@ -681,7 +702,7 @@ livecd/packages:
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 #	sci-*/
-	sci-visualization/gnuplot
+#	sci-visualization/gnuplot
 #	sys-apps/apmd
 	sys-apps/arrayprobe
 	sys-apps/acl
@@ -709,11 +730,11 @@ livecd/packages:
 	sys-apps/hwsetup
 	sys-apps/ipmitool
 	sys-apps/iproute2
-	sys-apps/keyctl
+	sys-apps/keyutils
 	sys-apps/less
 	sys-apps/lshw
 	sys-apps/lsb-release
-	sys-apps/man
+	sys-apps/man-db
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
@@ -808,7 +829,8 @@ livecd/packages:
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
-	sys-power/cpupower
+	sys-power/acpid
+#	sys-power/cpupower
 #	sys-process/acct
 	sys-process/at
 	sys-process/atop
@@ -822,7 +844,7 @@ livecd/packages:
 	sys-process/procps
 	sys-process/psmisc
 #	virtual/opengl
-	virtual/jdk
+#	virtual/jdk
 	virtual/pkgconfig
 #	www-apache/
 #	www-apps/
@@ -890,9 +912,7 @@ livecd/packages:
 	x11-base/xorg-server
 	x11-base/xorg-x11
 #	x11-drivers/
-	x11-drivers/xf86-input-evdev
-	x11-drivers/xf86-input-synaptics
-	x11-drivers/xf86-video-amdgpu
+#	x11-drivers/xf86-video-amdgpu
 	# remove at-spi-atk dependency to avoid pulling in dbus, seems gtk+ version 2 succeeds with -dbus while version 3 does not
 	x11-libs/gtk+
 	x11-misc/arandr
