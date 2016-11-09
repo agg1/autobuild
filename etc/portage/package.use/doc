@@ -1,8 +1,10 @@
 # break circular dependencies with doc USE_FLAG set
+app-doc/doxygen -doc dot
 dev-python/jinja -doc
 dev-python/pygments -doc
 dev-python/six -doc
 dev-python/Babel -doc
+dev-python/sphinx -latex
 dev-tex/xcolor -doc
 x11-libs/libXaw -doc
 x11-libs/libXmu -doc
@@ -20,4 +22,5 @@ x11-libs/libXdmcp -doc
 dev-libs/icu -doc
 dev-lang/nasm -doc
 dev-util/cmake -doc
+dev-util/ninja -doc
 media-libs/fontconfig -doc

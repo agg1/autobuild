@@ -1,0 +1,21 @@
+app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl ncurses
+app-office/libreoffice python_single_target_python3_4
+media-gfx/blender boost
+media-libs/gd zlib fontconfig
+media-libs/gst-plugins-bad -gtk opengl
+media-libs/gst-plugins-base -gtk opengl
+media-libs/gst-plugins-good -gtk opengl
+media-libs/gst-plugins-ugly -gtk opengl
+media-libs/libpng apng
+media-libs/harfbuzz graphite glib icu
+media-libs/mesa classic llvm gles1 gles2 egl gallium gbm -wayland
+media-sound/alsa-tools -gtk -X
+media-video/ffmpeg gpl postproc
+media-video/transcode vorbis dvd mp3 ogg
+net-analyzer/linkchecker -X
+mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
+www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened gtk2
+x11-libs/libxcb xkb
+x11-libs/cairo svg xcb X
+x11-libs/libfm gtk -automount
+games-fps/darkplaces alsa cdsound -debug opengl sdl oss lights textures
