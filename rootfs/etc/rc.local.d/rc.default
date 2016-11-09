@@ -9,24 +9,17 @@ echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuy
 chmod 700 /mnt/cdrom /mnt/gentoo /mnt/key
 chmod 600 /mnt/image.squashfs
 chmod 755 /
-mount -o remount,dirsync,sync /
+mount -o remount,dirsync,sync / 2>/dev/null
+mount -o remount,ro /mnt/livecd/ 2>/dev/null
 
 # adjust caching
 echo 65536 > /proc/sys/vm/min_free_kbytes
-echo 0 > /proc/sys/vm/swappiness
+echo 30 > /proc/sys/vm/swappiness
 echo 3 > /proc/sys/vm/drop_caches
 echo 2 > /proc/sys/kernel/randomize_va_space
 echo 32 > /proc/sys/vm/mmap_rnd_bits
-echo 536870912 > /proc/sys/vm/dirty_background_bytes
-echo 1073741824 > /proc/sys/vm/dirty_bytes
-#/proc/sys/vm/dirty_background_ratio
-#/proc/sys/vm/dirty_ratio
-# 4s, default 30s
-echo 400 > /proc/sys/vm/dirty_expire_centisecs
-# wakeup every 2s to check for dirty buffs, default 5s
-echo 200 > /proc/sys/vm/dirty_writeback_centisecs
-# after 30minutes dirty buffs expire, default is 12hours
-echo 1800 > /proc/sys/vm/dirtytime_expire_seconds
+#echo 3000 > /proc/sys/vm/dirty_expire_centisecs
+#echo 500 > /proc/sys/vm/dirty_writeback_centisecs
 
 # adjust powersafe settings
 echo -1 > /sys/module/usbcore/parameters/autosuspend
@@ -63,6 +56,6 @@ mount -o remount,hidepid=2 /proc/
 
 # create default mount points and swapon
 mkdir -p /etc/cfg /media/backup /media/catalyst /media/cdrom /media/iscsi /media/nfs /media/sshfs /media/stick
-#swapon -L SWAP 2>/dev/null
+swapon -L SWAP 2>/dev/null
 
 #echo hpet > /sys/devices/system/clocksource/clocksource0/current_clocksource
