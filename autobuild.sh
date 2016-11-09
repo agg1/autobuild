@@ -3,7 +3,9 @@
 prepare_system() {
 	echo "### prepare_system()"
 
-	mount -o remount,size=22G /
+	mount -o remount,size=22G / || true
+	mount -o remount,exec,dev,suid,size=22G /tmp/ || true
+	mount -o remount,exec,dev,suid,size=22G /var/tmp/ || true
 	umount /etc || true
 
 	NEWDA="$(date +%Y%m%d-%s)"
@@ -22,7 +24,7 @@ prepare_system() {
 	export PTREE="${PTREE:-${SDDIR}/portage/latest/portage-latest.tar.bz2}"
 	export RODIR="${RODIR:-${CADIR}/rootfs}"
 
-	echo 0 > /proc/sys/vm/swappiness
+	echo 30 > /proc/sys/vm/swappiness
 	echo 3 > /proc/sys/vm/drop_caches
 	echo 524288 > /proc/sys/vm/min_free_kbytes
 
@@ -46,7 +48,7 @@ prepare_portage() {
 	cd /usr/
 	tar -xf ${PTREE}
 	cd ${CADIR}
-	cp -pR /home/catalyst/extra_overlay /usr/local/portage
+	#cp -pR /home/catalyst/extra_overlay /usr/local/portage
 
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /var/tmp/catalyst/builds
@@ -133,6 +135,7 @@ clean_stage() {
 
 	rm -rf /home/tmp/builds/hardened/*
 	rm -rf /home/tmp/packages/hardened/*
+	rm -rf /var/tmp/catalyst/packages/hardened/*
 	rm -rf /var/tmp/catalyst/tmp/hardened
 	rm -rf /var/tmp/catalyst/kerncache/hardened
 	rm -rf /var/tmp/genkernel
