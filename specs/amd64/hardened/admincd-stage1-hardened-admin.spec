@@ -13,6 +13,7 @@ livecd/use:
 	-avahi
 	-consolekit
 	-doc
+	-jit
 	-policykit
 	-pam
 	-systemd
@@ -27,6 +28,7 @@ livecd/use:
 	-gtk3
 	-jit
 	-orc
+	-udev
 	-X
 	crypt
 	bzip2
@@ -52,6 +54,7 @@ livecd/use:
 	readline
 	socks5
 	ssl
+	system-mitkrb5
 	unicode
 	urandom
 	usb
@@ -211,11 +214,11 @@ livecd/packages:
 	sys-apps/hwsetup
 	sys-apps/ipmitool
 	sys-apps/iproute2
-	sys-apps/keyctl
+	sys-apps/keyutils
 	sys-apps/less
 	sys-apps/lsb-release
 	sys-apps/lshw
-	sys-apps/man
+	sys-apps/man-db
 	sys-apps/man-pages
 	sys-apps/man-pages-posix
 	sys-apps/memtester
@@ -288,6 +291,7 @@ livecd/packages:
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
+	sys-power/acpid
 	sys-process/htop
 	sys-process/lsof
 	sys-process/procps
