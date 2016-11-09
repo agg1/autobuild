@@ -1,0 +1,101 @@
+#!/bin/sh
+
+/etc/rc.local.d/rc.default
+
+hostname testing
+
+#mkdir -p /media/lvm/lvcatalyst /media/lvm/lvdocuments /media/lvm/lvgames /media/lvm/lvimages /media/lvm/lvmovies /media/lvm/lvmusic /media/lvm/lvsource /media/lvm/lvwindows
+
+# make /lib/firmware writeable and modprobe radeon
+#/usr/local/bin/firmware.sh
+modprobe i915
+
+#ifconfig enp0s25 10.0.0.2/8
+
+# load sound modules
+modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
+
+# add static arp entry for build server wake on lan
+arp -s 10.0.0.1 ec:08:6b:05:bb:56
+
+# default users and groups
+groupadd -g 44444440 fw01
+groupadd -g 6666666 public
+groupadd -g 9999999 documents
+groupadd -g 66669999 user
+groupadd -g 99996666 office
+groupadd -g 77777777 gamer
+groupadd -g 35 games
+groupadd -g 1000 testing
+
+#useradd -M -u 44444440 -g fw01 fw01
+
+sync
+sleep 1
+
+#useradd -M -u 66669999 -g user -G portage,wheel,wanout,lanout,public,documents user
+#useradd -M -u 99996666 -g office -G wanout,lanout,public,documents office
+#useradd -M -u 77777777 -g gamer -G games,input,audio,video,wanout,public gamer
+useradd -u 1000 -g testing -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video testing
+
+echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
+echo 'testing:$6$rounds=5000000$FC6t9/mD$XU9jIy1vrhXgvaJnM0Okgl1Dx7MhDcV8iaUtHp6DnPZQ9Scf6pauPIhB6m6Z8BsGYgAgT.E5Ch6/7bxvbmWmb.' | chpasswd -e
+
+# reset and start firewall
+/etc/rc.local.d/rc.fwstop
+/etc/rc.local.d/rc.fwstart
+
+# allow portage to fetch distfiles
+iptables -A OUTPUT -m owner --gid-owner 250 -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
+iptables -A OUTPUT -m owner --gid-owner 250 -j ACCEPT
+# proxy connect chain
+iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 127.0.0.1 -j ACCEPT
+iptables -I OUTPUT 1 -m owner --gid-owner $(id -g privoxy) -d 127.0.0.1 -j ACCEPT
+iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
+# disallow proxy to lan traffic
+iptables -A OUTPUT -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+iptables -A OUTPUT -m owner --gid-owner $(id -g privoxy) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+iptables -A OUTPUT -m owner --gid-owner $(id -g tor) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+# allow outgoing tor
+iptables -A OUTPUT -m owner --gid-owner $(id -g tor) -j ACCEPT
+
+# prevent dns leaks
+iptables -I OUTPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -I INPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -I OUTPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
+# ddclient
+iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -A OUTPUT -p TCP -m owner --uid-owner $(id -u ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
+iptables -A OUTPUT -p TCP -m owner --uid-owner $(id -u ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
+iptables -A OUTPUT -p UDP -m owner --gid-owner $(id -g ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
+iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
+
+cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
+/etc/init.d/ddclient restart
+
+/usr/local/bin/squid.sh
+/usr/local/bin/privoxy.sh
+/usr/local/bin/tor.sh
+#/usr/local/bin/pdnsd.sh
+
+# set time, move to crontab
+sg lanout -c "ntpdate 172.16.2.1"
+
+sync
+eject /dev/sr0
+
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
+/usr/local/bin/locketc.sh
+#/usr/local/bin/sleep.sh
+
+echo 'Section "Device"'				>> /etc/X11/xorg.conf
+echo 'Identifier "radeon0"'			>> /etc/X11/xorg.conf
+echo 'Driver "radeon"'				>> /etc/X11/xorg.conf
+echo 'Option "SwapbuffersWait" "false"'		>> /etc/X11/xorg.conf
+echo 'Option "AccelMethod" "glamor"'		>> /etc/X11/xorg.conf
+echo 'EndSection'				>> /etc/X11/xorg.conf
+echo >>  /etc/X11/xorg.conf
+
