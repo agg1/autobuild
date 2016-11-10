@@ -25,8 +25,10 @@ livecd/use:
 	-gnome-keyring
 	-gtk3
 	-jit
+	-libnotify
 	-orc
 	-udev
+	-udisks
 	crypt
 	xml
 	sound
@@ -437,7 +439,6 @@ livecd/packages:
 	net-firewall/psad
 	net-fs/cifs-utils
 	net-fs/nfs-utils
-#	net-fs/samba
 	net-ftp/filezilla
 	net-ftp/ftp
 	net-ftp/ncftp
