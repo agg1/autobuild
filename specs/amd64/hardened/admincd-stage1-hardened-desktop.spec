@@ -402,82 +402,10 @@ livecd/packages:
 	media-libs/sdl2-net
 	media-libs/sdl2-ttf
 	media-libs/sdlmm
-	media-plugins/gst-plugins-a52dec
-	media-plugins/gst-plugins-alsa
-#	media-plugins/gst-plugins-amr
-#	media-plugins/gst-plugins-annodex
-#	media-plugins/gst-plugins-assrender
-#	media-plugins/gst-plugins-bluez
-	media-plugins/gst-plugins-cdio
-	media-plugins/gst-plugins-cdparanoia
-#	media-plugins/gst-plugins-dash
-#	media-plugins/gst-plugins-dtls
-#	media-plugins/gst-plugins-dts
-#	media-plugins/gst-plugins-dv
-#	media-plugins/gst-plugins-dvb
-#	media-plugins/gst-plugins-dvdread
-#	media-plugins/gst-plugins-faac
-#	media-plugins/gst-plugins-faad
-	media-plugins/gst-plugins-ffmpeg
-	media-plugins/gst-plugins-flac
-#	media-plugins/gst-plugins-gconf
-#	media-plugins/gst-plugins-gdkpixbuf
-#	media-plugins/gst-plugins-gio
-	media-plugins/gst-plugins-gl
-#	media-plugins/gst-plugins-gsm
-#	media-plugins/gst-plugins-hls
-#	media-plugins/gst-plugins-ivorbis
-#	media-plugins/gst-plugins-jpeg
-	media-plugins/gst-plugins-ladspa
-	media-plugins/gst-plugins-lame
-	media-plugins/gst-plugins-libav
-#	media-plugins/gst-plugins-libde265
-#	media-plugins/gst-plugins-libmms
-#	media-plugins/gst-plugins-libnice
-	media-plugins/gst-plugins-libpng
-#	media-plugins/gst-plugins-libvisual
-#	media-plugins/gst-plugins-mad
-	media-plugins/gst-plugins-meta
-#	media-plugins/gst-plugins-modplug
-	media-plugins/gst-plugins-mpeg2dec
-	media-plugins/gst-plugins-mpeg2enc
-#	media-plugins/gst-plugins-mplex
-#	media-plugins/gst-plugins-musepack
-#	media-plugins/gst-plugins-neon
-#	media-plugins/gst-plugins-ofa
-	media-plugins/gst-plugins-ogg
-	media-plugins/gst-plugins-openh264
-#	media-plugins/gst-plugins-opus
-	media-plugins/gst-plugins-oss
-#	media-plugins/gst-plugins-pango
-#	media-plugins/gst-plugins-raw1394
-#	media-plugins/gst-plugins-resindvd
-#	media-plugins/gst-plugins-rtmp
-#	media-plugins/gst-plugins-schroedinger
-#	media-plugins/gst-plugins-shout2
-#	media-plugins/gst-plugins-sidplay
-#	media-plugins/gst-plugins-smoothstreaming
-#	media-plugins/gst-plugins-soundtouch
-#	media-plugins/gst-plugins-soup
-#	media-plugins/gst-plugins-speex
-#	media-plugins/gst-plugins-taglib
-#	media-plugins/gst-plugins-theora
-#	media-plugins/gst-plugins-twolame
-#	media-plugins/gst-plugins-uvch264
-#	media-plugins/gst-plugins-v4l2
-#	media-plugins/gst-plugins-vaapi
-#	media-plugins/gst-plugins-voaacenc
-#	media-plugins/gst-plugins-voamrwbenc
-	media-plugins/gst-plugins-vorbis
-	media-plugins/gst-plugins-vp8
-	media-plugins/gst-plugins-vpx
-	media-plugins/gst-plugins-wavpack
-	media-plugins/gst-plugins-x
-	media-plugins/gst-plugins-x264
-#	media-plugins/gst-plugins-x265
-#	media-plugins/gst-plugins-ximagesrc
-	media-plugins/gst-plugins-xvid
-	media-plugins/gst-plugins-xvideo
+	gst-plugins-bad
+	gst-plugins-base
+	gst-plugins-good
+	gst-plugins-ugly
 	media-sound/alsa-tools
 	media-sound/alsa-utils
 	media-sound/alsaplayer
@@ -600,7 +528,7 @@ livecd/packages:
 #	net-dns/dnstop
 #	net-dns/pdns
 	net-dns/pdnsd
-	net-firewall/arptables
+#	net-firewall/arptables
 #	net-firewall/conntrack-tools
 	net-firewall/ebtables
 #	net-firewall/fwanalog
@@ -619,7 +547,7 @@ livecd/packages:
 #	net-firewall/pftop
 #	net-firewall/shapecfg
 #	net-firewall/ufw
-	net-firewall/ufw-frontends
+#	net-firewall/ufw-frontends
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 #	net-fs/samba
@@ -862,16 +790,13 @@ livecd/packages:
 	www-servers/nginx
 #	www-servers/tomcat
 	x11-apps/appres
-	x11-apps/bitmap
 	x11-apps/editres
 	x11-apps/mesa-progs
 	x11-apps/xauth
 	x11-apps/xbacklight
 	x11-apps/xcalc
-	x11-apps/xclipboard
-	x11-apps/xclock
+#	x11-apps/xclipboard
 	x11-apps/xcmsdb
-	x11-apps/xclock
 	x11-apps/xconsole
 	x11-apps/xcursorgen
 #	x11-apps/xdm
@@ -883,23 +808,16 @@ livecd/packages:
 	x11-apps/xgamma
 	x11-apps/xhost
 	x11-apps/xinit
-	x11-apps/xinput
+#	x11-apps/xinput
 	x11-apps/xkbcomp
 #	x11-apps/xkbevd
 	x11-apps/xkbprint
 	x11-apps/xkbutils
-	x11-apps/xkill
-	x11-apps/xload
-	x11-apps/xlogo
-	x11-apps/xman
-	x11-apps/xmessage
 	x11-apps/xmodmap
-	x11-apps/xmore
 	x11-apps/xrandr
 	x11-apps/xrdb
 	x11-apps/xset
 	x11-apps/xsetroot
-#	x11-apps/xsm
 #	x11-apps/xstdcmap
 #	x11-apps/xtrap
 #	x11-apps/xvfb-run
@@ -907,26 +825,17 @@ livecd/packages:
 	x11-apps/xvinfo
 	x11-apps/xwd
 	x11-apps/xwininfo
-#	x11-apps/xwud
 	x11-base/xorg-drivers
 	x11-base/xorg-server
 	x11-base/xorg-x11
 #	x11-drivers/
-#	x11-drivers/xf86-video-amdgpu
-	# remove at-spi-atk dependency to avoid pulling in dbus, seems gtk+ version 2 succeeds with -dbus while version 3 does not
-	x11-libs/gtk+
-	x11-misc/arandr
 	x11-misc/i3status
 	x11-misc/openbox-menu
 	x11-misc/xautolock
 	x11-misc/xtrlock
 	x11-misc/zim
 #	x11-plugins/
-	x11-proto/dri3proto
-	x11-proto/inputproto
-	x11-proto/presentproto
-	x11-proto/resourceproto
-	x11-proto/xproto
+#	x11-proto/
 	x11-terms/xterm
 	x11-wm/i3
 	x11-wm/openbox
