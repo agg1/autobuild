@@ -29,6 +29,7 @@ livecd/use:
 	-jit
 	-orc
 	-udev
+        -udisks
 	-X
 	crypt
 	bzip2

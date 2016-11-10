@@ -48,6 +48,7 @@ boot/kernel/gentoo/use:
 	-jit
 	-orc
 	-udev
+        -udisks
 	-X
 	crypt
 	bzip2

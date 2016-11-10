@@ -44,8 +44,10 @@ boot/kernel/gentoo/use:
         -gnome-keyring
         -gtk3
         -jit
+        -libnotify
         -orc
         -udev
+        -udisks
         crypt
         xml
         sound
