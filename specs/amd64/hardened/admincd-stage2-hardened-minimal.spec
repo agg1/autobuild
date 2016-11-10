@@ -29,6 +29,7 @@ boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
 boot/kernel/gentoo/use:
 	-*
+        -awt
 	-avahi
 	-consolekit
 	-doc
