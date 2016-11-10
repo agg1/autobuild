@@ -110,13 +110,72 @@ livecd/use:
 	xvfb
 	xcb
 	X
-	video_cards_amdgpu
-	video_cards_intel
-	video_cards_nouveau
-	video_cards_radeon
+        video_cards_amdgpu
+        video_cards_apm
+        video_cards_ast
+        video_cards_chips
+        video_cards_cirrus
+        video_cards_dummy
+        video_cards_epson
+        video_cards_fbdev
+        video_cards_glint
+        video_cards_i128
+        video_cards_i740
+        video_cards_intel
+        video_cards_mach64
+        video_cards_mga
+        video_cards_neomagic
+        video_cards_nouveau
+        video_cards_nv
+        video_cards_r128
+        video_cards_radeon
+        video_cards_radeonsi
+        video_cards_rendition
+        video_cards_s3
+        video_cards_s3virge
+        video_cards_savage
+        video_cards_siliconmotion
+        video_cards_sisusb
+        video_cards_tdfx
+        video_cards_tga
+        video_cards_trident
+        video_cards_tseng
+        video_cards_vesa
+        video_cards_via
+        video_cards_voodoo
+        video_cards_nvidia
+        -video_cards_fglrx
+        -video_cards_geode
+        -video_cards_freedreno
+        -video_cards_omap
+        -video_cards_omapfb
 	-video_cards_qxl
+        -video_cards_sunbw2
+        -video_cards_suncg14
+        -video_cards_suncg3
+        -video_cards_suncg6
+        -video_cards_sunffb
+        -video_cards_sunleo
+        -video_cards_suntcx
+        -video_cards_tegra
 	-video_cards_virtualbox
 	-video_cards_vmware
+        input_devices_acecad
+        input_devices_aiptek
+        input_devices_elographics
+        input_devices_fpit
+        input_devices_hyperpen
+        input_devices_joystick
+        input_devices_keyboard
+        input_devices_libinput
+        input_devices_mouse
+        input_devices_mutouch
+        input_devices_penmount
+        input_devices_tslib
+        input_devices_vmmouse
+        input_devices_void
+        input_devices_synaptics
+        input_devices_wacom
 	-input_devices_evdev
 	uxa
 	sna
@@ -128,10 +187,7 @@ livecd/use:
 	xorg
 
 livecd/packages:
-#	app-accessibility/brltty
-#	app-accessibility/espeakup
 	app-doc/doxygen
-#	app-admin/bastille
 	app-admin/checksec
 	app-admin/chroot_safe
 	app-admin/chrootuid
@@ -142,7 +198,6 @@ livecd/packages:
 	app-admin/cpulimit
 	app-admin/denyhosts
 	app-admin/dio
-#	app-admin/diradm
 	app-admin/eselect
 	app-admin/evtxtools
 	app-admin/fam
@@ -150,15 +205,7 @@ livecd/packages:
 	app-admin/hardening-check
 	app-admin/hddtemp
 	app-admin/ide-smart
-#	app-admin/kedpm
-#	app-admin/keepass
-#	app-admin/keepassx
-#	app-admin/kpcli
-#	app-admin/lnav
-	app-admin/logcheck
-	app-admin/logmon
 	app-admin/logrotate
-#	app-admin/logsentry
 	app-admin/lsat
 	app-admin/makepasswd
 	app-admin/mcelog
@@ -170,7 +217,6 @@ livecd/packages:
 	app-admin/paxtest
 	app-admin/perl-cleaner
 	app-admin/pprocm
-#	app-admin/procinfo
 	app-admin/procinfo-ng
 	app-admin/psmon
 	app-admin/pwcrypt
@@ -184,15 +230,11 @@ livecd/packages:
 	app-admin/testdisk
 	app-admin/tmpwatch
 	app-admin/tripwire
-#	app-admin/usbview
 	app-admin/vault
 	app-admin/verynice
-#	app-admin/webmin
 	app-admin/whowatch
 	app-admin/xtail
 	app-admin/python-updater
-#	app-antivirus/clamav
-#	app-antivirus/clamav-unofficial-sigs
 	app-arch/alien
 	app-arch/bzip2
 	app-arch/cpio
@@ -210,18 +252,14 @@ livecd/packages:
 	app-benchmarks/bonnie++
 	app-benchmarks/dbench
 	app-benchmarks/httperf
-#	app-benchmarks/i7z
 	app-benchmarks/iozone
 	app-benchmarks/stress
-#	app-benchmarks/tiobench
 	app-cdr/bashburn
 	app-cdr/bin2iso
 	app-cdr/cdrdao
-#	app-cdr/cdrkit
 	app-cdr/cdrtools
 	app-cdr/dvd+rw-tools
 	app-cdr/nrg2iso
-#	app-cdr/xcdroast
 	app-crypt/aescrypt
 	app-crypt/aespipe
 	app-crypt/bcrypt
@@ -244,71 +282,33 @@ livecd/packages:
 	app-dicts/myspell-it
 	app-dicts/myspell-fr
 	app-dicts/myspell-ru
-	#stardict
 	app-doc/abs-guide
 	app-doc/autobook
-#	app-doc/cppman
-#	app-doc/devmanual
-#	app-doc/phrack-all
-#	app-editors/bluefish
-#	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/mg
 	app-editors/vim
-#	app-emacs/ebuild-mode
-#	app-emulation/cloud-init
-#	app-emulation/xen-tools
 	app-emulation/qemu
-#	app-emulation/spice
-#	app-emulation/virt-manager
-#	app-emulation/wine
-#	app-eselect/eselect-ctags
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
 	app-forensics/afl
-	app-forensics/aide
-#	app-forensics/air
-	app-forensics/autopsy
-	app-forensics/chkrootkit
-#	app-forensics/cmospwd
-	app-forensics/memdump
-#	app-forensics/rkhunter
-	app-forensics/sleuthkit
-	app-forensics/unhide
-	app-forensics/volatility
-	app-forensics/zzuf
-#	app-laptop/i8kutils
-#	app-leechcraft
 	app-misc/ca-certificates
-#	app-misc/beagle
 	app-misc/colordiff
 	app-misc/rmlint
 	app-misc/mc
-#	app-misc/pax-utils
 	app-misc/screen
-#	app-misc/splitvt
 	app-misc/tmux
 	app-misc/zisofs-tools
-	app-mobilephone/smsclient
-	app-mobilephone/smssend
-	app-mobilephone/smstools
 	app-office/dia
-#	app-office/gnucash
-#	app-office/gnumeric
 	app-office/libreoffice
 	app-office/libreoffice-l10n
-#	app-office/scribus
-#	app-pda/gtkpod
-#	app-pda/ipodslave
 	app-portage/eix
 	app-portage/genlop
 	app-portage/gentoolkit
 	app-portage/gentoolkit-dev
-	#app-portage/herdstat
 	app-portage/layman
 	app-portage/mirrorselect
 	app-portage/portage-utils
@@ -316,12 +316,10 @@ livecd/packages:
 	app-portage/repoman
 	app-portage/ufed
 	app-shells/bash
-	app-shells/dash
 	app-shells/bash-completion
 	app-shells/gentoo-bashcomp
 	app-text/dos2unix
 	app-text/gtkspell
-#	app-text/mupdf
 	app-text/stardict
 #	app-text/tetex
 	app-text/tree
@@ -355,25 +353,13 @@ livecd/packages:
 	dev-vcs/git-crypt
 	dev-vcs/subversion
 	games-util/joystick
-#	mail-client/alpine
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx
 	mail-client/mailx-support
 	mail-filter/procmail
-	mail-filter/clamassassin
-#	mail-filter/opensmtpd-extras
-	mail-filter/spamassassin
-#	mail-mta/courier
-#	mail-mta/exim
 	mail-mta/msmtp
-#	mail-mta/opensmtpd
-#	mail-mta/postfix
-#	mail-mta/ssmtp
 	media-fonts/dejavu
-#	media-gfx/blender
-#	media-gfx/digikam
-#	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/fbgrab
 	media-gfx/gimp
@@ -383,6 +369,10 @@ livecd/packages:
 	media-libs/alsa-lib
 	media-libs/alsa-oss
 	media-libs/gstreamer
+	media-libs/gst-plugins-bad
+	media-libs/gst-plugins-base
+	media-libs/gst-plugins-good
+	media-libs/gst-plugins-ugly
 	media-libs/openal
 	media-libs/libsdl
 	media-libs/libsdl2
@@ -402,122 +392,30 @@ livecd/packages:
 	media-libs/sdl2-net
 	media-libs/sdl2-ttf
 	media-libs/sdlmm
-	gst-plugins-bad
-	gst-plugins-base
-	gst-plugins-good
-	gst-plugins-ugly
 	media-sound/alsa-tools
 	media-sound/alsa-utils
 	media-sound/alsaplayer
-#	media-sound/audacious
 	media-sound/audacity
-#	media-sound/easytag
-#	media-sound/grip
-#	media-sound/hydrogen
-#	media-sound/pamix
-#	media-sound/pulseaudio
-#	media-sound/rhythmbox
-#	media-tv/w_scan
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
-#	media-video/smplayer
-#	media-video/vlc
-#	media-video/xine-ui
-#	net-analyzer/alive
-	net-analyzer/amap
-	net-analyzer/angst
-#	net-analyzer/argus
-#	net-analyzer/argus-clients
-	net-analyzer/arpoison
-	net-analyzer/arptools
-	net-analyzer/arpwatch
-	net-analyzer/authforce
-	net-analyzer/bing
-	net-analyzer/bmon
-	net-analyzer/braa
-#	net-analyzer/bro
-	net-analyzer/bwm-ng
-	net-analyzer/cbm
-	net-analyzer/cryptcat
-	net-analyzer/cutter
-	net-analyzer/dhcp_probe
-	net-analyzer/dhcpdump
-	net-analyzer/dnstracer
-#	net-analyzer/dosdetector
-	net-analyzer/driftnet
-	net-analyzer/dsniff
-#	net-analyzer/egressor
-#	net-analyzer/etherape
-	net-analyzer/ettercap
 	net-analyzer/fail2ban
-	net-analyzer/ffp
-	net-analyzer/firewalk
 	net-analyzer/fping
-	net-analyzer/fragroute
-	net-analyzer/ftester
-#	net-analyzer/fwlogwatch
-#	net-analyzer/gnu-netcat
-	net-analyzer/hping
-	net-analyzer/httping
-	net-analyzer/hunt
-	net-analyzer/hydra
-	net-analyzer/ifmetric
 	net-analyzer/ifstat
 	net-analyzer/ifstatus
 	net-analyzer/iftop
-	net-analyzer/ike-scan
-	net-analyzer/ipguard
 	net-analyzer/iptraf-ng
-	net-analyzer/iptstate
-#	net-analyzer/ipv6-toolkit
-	net-analyzer/isic
 	net-analyzer/knocker
-#	net-analyzer/lft
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
-	net-analyzer/masscan
-#	net-analyzer/metasploit
-#	net-analyzer/monitoring-plugins
-#	net-analyzer/nagios
-#	net-analyzer/namebench
-	net-analyzer/nessus
-#	net-analyzer/net-snmp
-#	net-analyzer/netcat
-#	net-analyzer/netcat6
-#	net-analyzer/netwox
-	net-analyzer/ngrep
-	net-analyzer/nikto
-	net-analyzer/nipper
-#	net-analyzer/nmbscan
 	net-analyzer/nmap
-#	net-analyzer/ntop
 	net-analyzer/ntopng
-	net-analyzer/openvas
-	net-analyzer/p0f
-	net-analyzer/packit
-#	net-analyzer/portbunny
-	net-analyzer/portsentry
-	net-analyzer/rrdtool
-#	net-analyzer/sarg
-	net-analyzer/scanlogd
-	net-analyzer/scanssh
-	net-analyzer/scli
-#	net-analyzer/snort
-	net-analyzer/ssldump
-	net-analyzer/sslscan
-#	net-analyzer/sslsniff
-	net-analyzer/synscan
 	net-analyzer/tcpdump
 	net-analyzer/tcptraceroute
-#	uint16_t not found???
-	net-analyzer/testssl
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
 	net-analyzer/mtr
-	net-analyzer/wireshark
-#	net-dialup/globespan-adsl
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
@@ -525,29 +423,18 @@ livecd/packages:
 	net-dns/bind-tools
 	net-dns/ddclient
 	net-dns/dnsmasq
-#	net-dns/dnstop
-#	net-dns/pdns
 	net-dns/pdnsd
 #	net-firewall/arptables
 #	net-firewall/conntrack-tools
 	net-firewall/ebtables
-#	net-firewall/fwanalog
-#	net-firewall/fwbuilder
 	net-firewall/fwipsec
 	net-firewall/fwknop
 	net-firewall/ipsec-tools
-#	net-firewall/ipset
-#	net-firewall/ipt_netflow
 	net-firewall/iptables
 	net-firewall/itval
 	net-firewall/nfacct
 #	net-firewall/nftables
-#	net-firewall/nufw
 	net-firewall/psad
-#	net-firewall/pftop
-#	net-firewall/shapecfg
-#	net-firewall/ufw
-#	net-firewall/ufw-frontends
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 #	net-fs/samba
@@ -562,16 +449,12 @@ livecd/packages:
 	net-irc/irssi-fish
 	net-irc/weechat
 #	net-irc/znc
-#	net-mail/dovecot
 	net-misc/bridge-utils
-#	net-misc/connman
 	net-misc/curl
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
-#	net-misc/mosh
 	net-misc/ndisc6
-#	net-misc/netkit-rsh
 	net-misc/ntp
 #	net-misc/openntpd
 	net-misc/openssh
@@ -581,9 +464,7 @@ livecd/packages:
 	net-misc/rdesktop
 	net-misc/rsync
 	net-misc/socat
-#	net-misc/spice-gtk
 	net-misc/sstp-client
-#	net-misc/telnet-bsd
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
@@ -608,25 +489,12 @@ livecd/packages:
 	net-proxy/tsocks
 #	net-proxy/ziproxy
 #	net-voip/
-#	net-wireless/aircrack-ng
-#	net-wireless/airpwn
-	net-wireless/airsnort
-	net-wireless/airtraf
 	net-wireless/b43-fwcutter
-#	net-wireless/cpyrit-opencl
 #	net-wireless/bcm43xx-fwcutter
-	net-wireless/horst
 	net-wireless/hostap-utils
 	net-wireless/hostapd
 	net-wireless/iw
-#	net-wireless/kismet
-#	net-wireless/lorcon
-	net-wireless/mdk
-	net-wireless/mfoc
-	net-wireless/pyrit
 	net-wireless/rfkill
-	net-wireless/wepattack
-	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 #	sci-*/
@@ -748,7 +616,7 @@ livecd/packages:
 	sys-fs/sshfs
 	sys-fs/squashfs-tools
 	sys-fs/sysfsutils
-#	sys-fs/xfsprogs
+	sys-fs/xfsprogs
 	sys-kernel/genkernel
 	sys-kernel/linux-docs
 	sys-kernel/linux-headers
@@ -784,22 +652,17 @@ livecd/packages:
 	www-client/w3m
 #	www-misc/
 #	www-plugins/
-	www-servers/apache
 	www-servers/fnord
-#	www-servers/lighttpd
 	www-servers/nginx
-#	www-servers/tomcat
 	x11-apps/appres
 	x11-apps/editres
 	x11-apps/mesa-progs
 	x11-apps/xauth
 	x11-apps/xbacklight
 	x11-apps/xcalc
-#	x11-apps/xclipboard
 	x11-apps/xcmsdb
 	x11-apps/xconsole
 	x11-apps/xcursorgen
-#	x11-apps/xdm
 	x11-apps/xdriinfo
 	x11-apps/xev
 	x11-apps/xf86dga
@@ -808,9 +671,7 @@ livecd/packages:
 	x11-apps/xgamma
 	x11-apps/xhost
 	x11-apps/xinit
-#	x11-apps/xinput
 	x11-apps/xkbcomp
-#	x11-apps/xkbevd
 	x11-apps/xkbprint
 	x11-apps/xkbutils
 	x11-apps/xmodmap
@@ -818,10 +679,6 @@ livecd/packages:
 	x11-apps/xrdb
 	x11-apps/xset
 	x11-apps/xsetroot
-#	x11-apps/xstdcmap
-#	x11-apps/xtrap
-#	x11-apps/xvfb-run
-#	x11-apps/xvidtune
 	x11-apps/xvinfo
 	x11-apps/xwd
 	x11-apps/xwininfo
