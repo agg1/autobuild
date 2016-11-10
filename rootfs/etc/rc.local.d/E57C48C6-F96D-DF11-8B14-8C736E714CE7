@@ -88,14 +88,8 @@ sync
 eject /dev/sr0
 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
+
+hdparm -Y /dev/sda
+
 /usr/local/bin/locketc.sh
 #/usr/local/bin/sleep.sh
-
-echo 'Section "Device"'				>> /etc/X11/xorg.conf
-echo 'Identifier "radeon0"'			>> /etc/X11/xorg.conf
-echo 'Driver "radeon"'				>> /etc/X11/xorg.conf
-echo 'Option "SwapbuffersWait" "false"'		>> /etc/X11/xorg.conf
-echo 'Option "AccelMethod" "glamor"'		>> /etc/X11/xorg.conf
-echo 'EndSection'				>> /etc/X11/xorg.conf
-echo >>  /etc/X11/xorg.conf
-
