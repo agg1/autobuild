@@ -4,6 +4,7 @@ prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,size=22G / || true
+	mount -o remount,exec,dev,suid /home || true
 	mount -o remount,exec,dev,suid,size=22G /tmp/ || true
 	mount -o remount,exec,dev,suid,size=22G /var/tmp/ || true
 	umount /etc || true
@@ -65,10 +66,10 @@ prepare_portage() {
 	mount --bind /home/tmp/snapshots /var/tmp/catalyst/snapshots
 	mount --bind /home/tmp/snapshot_cache /var/tmp/catalyst/snapshot_cache
 
-	[ ! -e /etc/portage.orig ] && cp -pR /etc/portage /etc/portage.orig
-	rm -rf /etc/portage
-	cp -pr /home/catalyst/etc/portage /etc/portage
-	rm -f /etc/portage/make.profile
+	#[ ! -e /etc/portage.orig ] && cp -pR /etc/portage /etc/portage.orig
+	#rm -rf /etc/portage
+	#cp -pr /home/catalyst/etc/portage /etc/portage
+	#rm -f /etc/portage/make.profile
 	rm -f /home/catalyst/etc/portage/make.profile
 	ln -sf ../../usr/portage/profiles/hardened/linux/amd64/no-multilib /etc/portage/make.profile
 	ln -sf ../../usr/portage/profiles/hardened/linux/amd64/no-multilib /home/catalyst/etc/portage/make.profile
