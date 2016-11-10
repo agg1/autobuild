@@ -10,6 +10,7 @@ portage_overlay: /usr/local/portage
 
 livecd/use:
 	-*
+        -awt
 	-avahi
 	-consolekit
 	-jit
