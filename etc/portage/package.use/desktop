@@ -1,4 +1,4 @@
-app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl -curl -sdl -spice -vnc -vte ncurses usb arm i386 x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64
+app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl -curl -sdl -spice -vnc -vte ncurses usb arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64
 app-office/libreoffice python_single_target_python3_4
 media-gfx/blender boost
 media-libs/gd zlib fontconfig
