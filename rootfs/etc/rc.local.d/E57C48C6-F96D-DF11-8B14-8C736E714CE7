@@ -10,7 +10,7 @@ hostname testing
 #/usr/local/bin/firmware.sh
 modprobe i915
 
-#ifconfig enp0s25 10.0.0.2/8
+ifconfig enp0s25 10.0.0.3/8
 
 # load sound modules
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
@@ -18,26 +18,7 @@ modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
 # add static arp entry for build server wake on lan
 arp -s 10.0.0.1 ec:08:6b:05:bb:56
 
-# default users and groups
-groupadd -g 44444440 fw01
-groupadd -g 6666666 public
-groupadd -g 9999999 documents
-groupadd -g 66669999 user
-groupadd -g 99996666 office
-groupadd -g 77777777 gamer
-groupadd -g 35 games
-groupadd -g 1000 testing
-
-#useradd -M -u 44444440 -g fw01 fw01
-
-sync
-sleep 1
-
-#useradd -M -u 66669999 -g user -G portage,wheel,wanout,lanout,public,documents user
-#useradd -M -u 99996666 -g office -G wanout,lanout,public,documents office
-#useradd -M -u 77777777 -g gamer -G games,input,audio,video,wanout,public gamer
-useradd -u 1000 -g testing -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video testing
-
+#passwords
 echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
 echo 'testing:$6$rounds=5000000$FC6t9/mD$XU9jIy1vrhXgvaJnM0Okgl1Dx7MhDcV8iaUtHp6DnPZQ9Scf6pauPIhB6m6Z8BsGYgAgT.E5Ch6/7bxvbmWmb.' | chpasswd -e
 
@@ -73,23 +54,19 @@ iptables -A OUTPUT -p UDP -m owner --gid-owner $(id -g ddclient) -d 127.0.0.1 --
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
 
-cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
-/etc/init.d/ddclient restart
-
-/usr/local/bin/squid.sh
-/usr/local/bin/privoxy.sh
 /usr/local/bin/tor.sh
-#/usr/local/bin/pdnsd.sh
+/usr/local/bin/privoxy.sh
+/usr/local/bin/squid.sh
 
 # set time, move to crontab
 sg lanout -c "ntpdate 172.16.2.1"
 
-sync
-eject /dev/sr0
-
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
 hdparm -Y /dev/sda
+
+sync
+eject /dev/sr0
 
 /usr/local/bin/locketc.sh
 #/usr/local/bin/sleep.sh
