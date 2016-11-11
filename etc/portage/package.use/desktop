@@ -13,6 +13,7 @@ media-sound/alsa-tools -gtk -X
 media-video/ffmpeg gpl postproc
 media-video/transcode vorbis dvd mp3 ogg
 net-analyzer/linkchecker -X
+net-proxy/privoxy acl fast-redirects force image-blocking stats editor external-filters graceful-termination lfs png-images toggle whitelists
 mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened gtk2
 x11-base/xorg-server xorg suid glamor
