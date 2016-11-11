@@ -1,6 +1,6 @@
-net-fs/samba system-mitkrb5
-sys-libs/talloc python
-sys-libs/tevent python
-sys-libs/tdb python
-sys-libs/ntdb python
-dev-libs/libverto libev
+#net-fs/samba system-mitkrb5
+#sys-libs/talloc python
+#sys-libs/tevent python
+#sys-libs/tdb python
+#sys-libs/ntdb python
+#dev-libs/libverto libev
