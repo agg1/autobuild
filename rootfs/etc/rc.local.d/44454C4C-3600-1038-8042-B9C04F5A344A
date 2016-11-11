@@ -32,6 +32,8 @@ mount /dev/disk/by-label/DISTFILES /home/distfiles
 #mount /dev/disk/by-label/TMP /home/tmp
 
 sync
+echo 3 > /proc/sys/vm/drop_caches
+
 eject /dev/sr0
 
 /usr/local/bin/locketc.sh

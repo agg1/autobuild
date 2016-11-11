@@ -66,6 +66,8 @@ echo "nameserver 127.0.0.1" > /etc/resolv.conf
 hdparm -Y /dev/sda
 
 sync
+echo 3 > /proc/sys/vm/drop_caches
+
 eject /dev/sr0
 
 /usr/local/bin/locketc.sh

@@ -31,14 +31,24 @@ chmod 755 /
 mount -o remount,dirsync,sync / 2>/dev/null
 mount -o remount,ro /mnt/livecd/ 2>/dev/null
 
+sync
+
 # adjust caching
 echo 65536 > /proc/sys/vm/min_free_kbytes
 echo 30 > /proc/sys/vm/swappiness
 echo 3 > /proc/sys/vm/drop_caches
 echo 2 > /proc/sys/kernel/randomize_va_space
 echo 32 > /proc/sys/vm/mmap_rnd_bits
-#echo 3000 > /proc/sys/vm/dirty_expire_centisecs
-#echo 500 > /proc/sys/vm/dirty_writeback_centisecs
+echo 536870912 > /proc/sys/vm/dirty_background_bytes
+echo 1073741824 > /proc/sys/vm/dirty_bytes
+# default 3000
+echo 1000 > /proc/sys/vm/dirty_expire_centisecs
+# default 500
+echo 200 > /proc/sys/vm/dirty_writeback_centisecs
+# default 12h
+echo 1800 > /proc/sys/vm/dirtytime_expire_seconds
+# 10 /proc/sys/vm/dirty_background_ratio
+# 20 /proc/sys/vm/dirty_ratio
 
 # adjust powersafe settings
 echo -1 > /sys/module/usbcore/parameters/autosuspend
