@@ -80,6 +80,9 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-fswrite: filename eq "/var/log/squid/cache.log" then permit
 	linux64-fswrite: filename eq "/var/lib/squid/netdb.state" then permit
 	linux64-fswrite: filename match "/tmp/stdio:/var/lib/squid*" then permit
+	linux64-fsread: filename match "/var/log/squid*" then permit
+	linux64-fswrite: filename match "/var/log/squid*" then permit
+	linux64-rename: permit
 	linux64-ftruncate: permit
 	linux64-futex: permit
 	linux64-getdents: permit
