@@ -486,4 +486,5 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-unknown-307: permit
 	linux64-unknown-317: permit
 	linux64-unknown-318: permit
+	linux64-unknown-319: permit
 	linux64-kill: permit
