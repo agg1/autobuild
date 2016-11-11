@@ -9,6 +9,7 @@ hostname testing
 # make /lib/firmware writeable and modprobe radeon
 #/usr/local/bin/firmware.sh
 modprobe i915
+modprobe psmouse
 
 ifconfig enp0s25 10.0.0.3/8
 
