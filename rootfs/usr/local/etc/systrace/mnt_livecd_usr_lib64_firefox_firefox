@@ -1,5 +1,11 @@
 Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-uname: permit
+	linux64-fsread: filename match "/usr/share/alsa*" then permit
+	linux64-fsread: filename eq "/etc/asound.conf" then permit
+	linux64-fsread: filename eq "$HOME/.asoundrc" then permit
+	linux64-fsread: filename match "/usr/lib64/alsa*" then permit
+	linux64-fsread: filename match "/dev/snd*" then permit
+	linux64-fswrite: filename match "/dev/snd*" then permit
 	linux64-execve: filename match "/usr/lib64/firefox/firefox*" then permit
 	linux64-execve: filename match "/mnt/livecd/usr/lib64/firefox/firefox*" then permit
 	linux64-execve: filename eq "/mnt/livecd/usr/lib64/firefox/plugin-container" then permit
