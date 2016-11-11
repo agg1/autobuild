@@ -8,6 +8,7 @@ groupadd -g 9999999 documents
 groupadd -g 66669999 user
 groupadd -g 99996666 office
 groupadd -g 77777777 gamer
+groupadd -g 1000 testing
 groupadd -g 35 games
 
 useradd -N -M -u 44444440 -g fw01 fw01
@@ -15,6 +16,10 @@ useradd -N -M -u 66669999 -g user user
 useradd -N -M -u 99996666 -g office office
 useradd -N -M -u 77777777 -g gamer gamer
 useradd -u 1000 -g testing testing
+
+sync
+echo 3 > /proc/sys/vm/drop_caches
+sleep 3
 
 usermod -G portage,wheel,wanout,lanout,public,documents -a user
 usermod -G wanout,lanout,public,documents -a office
