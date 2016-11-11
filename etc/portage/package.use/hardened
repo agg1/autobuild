@@ -11,16 +11,17 @@ app-text/xmlto text
 app-text/libwpd tools
 dev-cpp/cairomm svg
 dev-lang/php -truetype embed
+dev-libs/glib -mime
 dev-libs/libxml2 python
 dev-libs/libpcre pcre16
 dev-vcs/git -gtk
 net-analyzer/fail2ban python_single_target_python3_4
-net-analyzer/nmap ncat
+net-analyzer/nmap ncat nping
 net-firewall/fwknop iptables server
 net-misc/curl curl_ssl_gnutls
 net-misc/youtube-dl python_single_target_python3_4
 net-p2p/transmission -gtk -ayatana
-sys-apps/net-tools hostname
+sys-apps/net-tools hostname arp
 sys-block/open-iscsi tcp
 sys-devel/gdb client server
 sys-devel/llvm clang
