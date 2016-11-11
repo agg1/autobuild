@@ -110,7 +110,6 @@ livecd/use:
 	video
 	gallium
 	glamor
-	xvfb
 	xcb
 	X
         video_cards_amdgpu
