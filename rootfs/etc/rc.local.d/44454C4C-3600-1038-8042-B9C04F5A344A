@@ -27,8 +27,8 @@ chmod 600 /etc/ssh/sshd_config
 fscky -y /dev/disk/by-label/HOME
 fscky -y /dev/disk/by-label/DISTFILES
 #fscky -y /dev/disk/by-label/TMP
-mount /dev/disk/by-label/HOME /home/
-mount /dev/disk/by-label/DISTFILES /home/distfiles
+mount -o sync /dev/disk/by-label/HOME /home/
+mount -o sync /dev/disk/by-label/DISTFILES /home/distfiles
 #mount /dev/disk/by-label/TMP /home/tmp
 
 sync
