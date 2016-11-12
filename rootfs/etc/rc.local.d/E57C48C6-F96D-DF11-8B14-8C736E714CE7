@@ -11,17 +11,17 @@ hostname testing
 modprobe i915
 modprobe psmouse
 
-ifconfig enp0s25 10.0.0.3/8
-
 # load sound modules
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
+
+#passwords
+echo 'testing:$6$rounds=5000000$FC6t9/mD$XU9jIy1vrhXgvaJnM0Okgl1Dx7MhDcV8iaUtHp6DnPZQ9Scf6pauPIhB6m6Z8BsGYgAgT.E5Ch6/7bxvbmWmb.' | chpasswd -e
 
 # add static arp entry for build server wake on lan
 arp -s 10.0.0.1 ec:08:6b:05:bb:56
 
-#passwords
-echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
-echo 'testing:$6$rounds=5000000$FC6t9/mD$XU9jIy1vrhXgvaJnM0Okgl1Dx7MhDcV8iaUtHp6DnPZQ9Scf6pauPIhB6m6Z8BsGYgAgT.E5Ch6/7bxvbmWmb.' | chpasswd -e
+# 
+ifconfig enp0s25 10.0.0.3/8
 
 # reset and start firewall
 /etc/rc.local.d/rc.fwstop

@@ -11,19 +11,19 @@ mkdir -p /media/lvm/lvcatalyst /media/lvm/lvdocuments /media/lvm/lvgames /media/
 rmmod radeon; modprobe radeon; umount /mnt/livecd/lib64/firmware
 modprobe psmouse
 
-ifconfig enp0s25 10.0.0.2/8
-
 # load sound modules
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
+
+# passwords
+echo 'user:$6$rounds=5000000$9bDJfEHwH//FUm$P8sRwdeLLzTJk1eyRVr.op8.uSOz40YnwDtF.9euiM/yCCOmxDREPPN7FdlVJCRuzYEas6DoqthBrzt28wkL9.' | chpasswd -e
+echo 'office:$6$rounds=5000000$2Cx9OWSpoHAZec3$CCBDiJtMVzBQeDKW0ruSHHivcUCTsdla1UqVYNNFcyJAMlD5d7Y7ligq3fTeruA7unxIzC0LGmiG5cplk9I0G0' | chpasswd -e
+echo 'gamer:$6$rounds=5000000$WPAMyx3hYH/nmSgR$m9oeDutTavXkMLJOTyAWWBkS99mit.ZNjsHScwk8VnBIZ7UPRXT0uE332IEolbsFjXtuvDrq9YdWtONGAWj6i/' | chpasswd -e
 
 # add static arp entry for build server wake on lan
 arp -s 10.0.0.1 ec:08:6b:05:bb:56
 
-# passwords
-echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
-echo 'user:$6$rounds=5000000$9bDJfEHwH//FUm$P8sRwdeLLzTJk1eyRVr.op8.uSOz40YnwDtF.9euiM/yCCOmxDREPPN7FdlVJCRuzYEas6DoqthBrzt28wkL9.' | chpasswd -e
-echo 'office:$6$rounds=5000000$2Cx9OWSpoHAZec3$CCBDiJtMVzBQeDKW0ruSHHivcUCTsdla1UqVYNNFcyJAMlD5d7Y7ligq3fTeruA7unxIzC0LGmiG5cplk9I0G0' | chpasswd -e
-echo 'gamer:$6$rounds=5000000$WPAMyx3hYH/nmSgR$m9oeDutTavXkMLJOTyAWWBkS99mit.ZNjsHScwk8VnBIZ7UPRXT0uE332IEolbsFjXtuvDrq9YdWtONGAWj6i/' | chpasswd -e
+# 
+ifconfig enp0s25 10.0.0.2/8
 
 # reset and start firewall
 /etc/rc.local.d/rc.fwstop
