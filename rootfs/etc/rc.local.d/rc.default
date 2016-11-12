@@ -33,7 +33,8 @@ echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuy
 chmod 700 /mnt/cdrom /mnt/gentoo /mnt/key
 chmod 600 /mnt/image.squashfs
 chmod 755 /
-mount -o remount,dirsync,sync / 2>/dev/null
+mount -o remount,noexec /run 2>/dev/null
+mount -o remount,sync / 2>/dev/null
 mount -o remount,ro /mnt/livecd/ 2>/dev/null
 
 sync
