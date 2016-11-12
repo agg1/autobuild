@@ -190,6 +190,7 @@ livecd/use:
 
 livecd/packages:
 	app-doc/doxygen
+	app-admin/apache-tools
 	app-admin/checksec
 	app-admin/chroot_safe
 	app-admin/chrootuid
@@ -466,6 +467,7 @@ livecd/packages:
 	net-misc/rsync
 	net-misc/socat
 	net-misc/sstp-client
+	net-misc/telnet-bsd
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
