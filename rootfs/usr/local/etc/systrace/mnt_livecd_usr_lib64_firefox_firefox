@@ -137,53 +137,6 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-fsread: filename match "*/usr/lib64/libEGL.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/libGL.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/libICE.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAMDGPUAsmParser.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAMDGPUAsmPrinter.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAMDGPUCodeGen.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAMDGPUDesc.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAMDGPUInfo.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAMDGPUUtils.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAnalysis.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAsmParser.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMAsmPrinter.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMBPFAsmPrinter.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMBPFCodeGen.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMBPFDesc.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMBPFInfo.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMBitReader.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMBitWriter.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMCodeGen.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMCore.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMCppBackendCodeGen.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMCppBackendInfo.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMExecutionEngine.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMIRReader.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMInstCombine.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMInstrumentation.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMLinker.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMMC.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMMCDisassembler.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMMCJIT.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMMCParser.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMObjCARCOpts.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMObject.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMOption.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMProfileData.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMRuntimeDyld.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMScalarOpts.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMSelectionDAG.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMSupport.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMTarget.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMTransformUtils.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMVectorize.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86AsmParser.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86AsmPrinter.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86CodeGen.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86Desc.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86Disassembler.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86Info.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMX86Utils.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/libLLVMipo.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/libSM.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/libSystem.B.dylib" then permit
 	linux64-fsread: filename match "*/usr/lib64/libX11-xcb.so*" then permit
