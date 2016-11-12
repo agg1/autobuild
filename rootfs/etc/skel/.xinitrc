@@ -4,6 +4,7 @@ export force_s3tc_enable=true
 export vblank_mode=0
 #SDL_VIDEODRIVER=fbcon SDL_FBDEV=/dev/fb1
 #xrandr --output LVDS --off
+feh --bg-scale skull.jpg
 xrdb ~/.Xdefaults
 setxkbmap -layout us,de -option "grp:alt_shift_toggle,grp_led:scroll,compose:ralt"
 #gpg-agent --daemon
