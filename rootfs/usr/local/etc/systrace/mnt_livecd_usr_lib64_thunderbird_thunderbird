@@ -17,9 +17,16 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-connect: sockaddr match "inet-*:587" then permit
 	linux64-connect: sockaddr match "inet-*:993" then permit
 	linux64-connect: sockaddr match "inet-*:995" then permit
-	linux64-connect: sockaddr match "inet-*:80" then permit
-	linux64-connect: sockaddr match "inet-*:443" then permit
-	linux64-connect: sockaddr match "inet-*:8118" then permit
+        linux64-connect: sockaddr match "inet-*:443" then permit
+        linux64-connect: sockaddr match "inet-*:80" then permit
+        linux64-connect: sockaddr match "inet-*:8080" then permit
+        linux64-connect: sockaddr match "inet-*:8118" then permit
+        linux64-connect: sockaddr match "inet-*:8228" then permit
+        linux64-connect: sockaddr match "inet-*:8338" then permit
+        linux64-connect: sockaddr match "inet-*:8448" then permit
+        linux64-connect: sockaddr match "inet-*:9050" then permit
+        linux64-connect: sockaddr match "inet-*:9051" then permit
+        linux64-connect: sockaddr match "inet-*:3128" then permit
 	linux64-connect: sockaddr match "inet-*:53" then permit
 	linux64-connect: sockaddr eq "family(0)" then deny
 	linux64-connect: sockaddr match "inet-*:0" then deny
