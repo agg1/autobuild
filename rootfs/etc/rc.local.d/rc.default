@@ -28,6 +28,7 @@ useradd -u 1000 -g testing testing
 
 sync
 echo 3 > /proc/sys/vm/drop_caches
+sleep 2
 
 usermod -G portage,wheel,wanout,lanout,public,documents -a user
 usermod -G wanout,lanout,public,documents -a office
