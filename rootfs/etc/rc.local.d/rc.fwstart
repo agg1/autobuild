@@ -1,9 +1,5 @@
 #!/bin/sh
 
-groupadd -g 3333333 lanout 2>/dev/null
-groupadd -g 8888888 wanout 2>/dev/null
-
-# lock down network
 LANUSERS=""
 WANUSERS=""
 LANGROUPS="3333333"

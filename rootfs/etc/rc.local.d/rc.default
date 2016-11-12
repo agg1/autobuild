@@ -9,6 +9,7 @@ chmod 755 /
 mount -o remount,noexec /run 2>/dev/null
 mount -o remount,sync / 2>/dev/null
 mount -o remount,ro /mnt/livecd/ 2>/dev/null
+mount -o remount,hidepid=2 /proc/
 # umount
 umount /mnt/cdrom 2>/dev/null
 umount /sys/fs/cgroup/openrc 2>/dev/null
@@ -16,41 +17,10 @@ umount /sys/fs/cgroup 2>/dev/null
 umount /sys/fs/fuse/connections 2>/dev/null
 umount /dev/mqueue 2>/dev/null
 umount /dev/shm 2>/dev/null
-# protect /procfs
-mount -o remount,hidepid=2 /proc/
+
 # create default mount points and swapon
 mkdir -p /etc/cfg /media/backup /media/catalyst /media/cdrom /media/iscsi /media/nfs /media/sshfs /media/stick
 swapon -L SWAP 2>/dev/null
-
-# default user and groups
-groupadd -g 44444440 fw01
-groupadd -g 6666666 public
-groupadd -g 9999999 documents
-groupadd -g 66669999 user
-groupadd -g 99996666 office
-groupadd -g 77777777 gamer
-groupadd -g 1000 testing
-groupadd -g 35 games
-
-useradd -N -M -u 44444440 -g fw01 fw01
-useradd -N -M -u 66669999 -g user user
-useradd -N -M -u 99996666 -g office office
-useradd -N -M -u 77777777 -g gamer gamer
-useradd -u 1000 -g testing testing
-
-sync
-echo 3 > /proc/sys/vm/drop_caches
-sleep 2
-
-usermod -G portage,wheel,wanout,lanout,public,documents -a user
-usermod -G wanout,lanout,public,documents -a office
-usermod -G games,input,audio,video,wanout,public -a gamer
-usermod -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video -a testing
-
-# passwords
-echo 'root:$6$rounds=5000000$Ba/xs5f3VIo9$WzQQnpPal2FGbW3gJUeHQBcaNC3hs9Lf.aiEuyk9j1pRW0u0hH8heA9Ss88QU3IQOzzqI4xoSmN4m3BgJge0e0' | chpasswd -e
-
-sync
 
 # adjust caching
 echo 65536 > /proc/sys/vm/min_free_kbytes
@@ -91,4 +61,27 @@ for i in $(ifconfig -a | sed 's/[ \t].*//;/^$/d' | sed 's/://g' | grep -v '^lo$'
 	ifconfig ${i} txqueuelen 2000
 done
 
-#echo hpet > /sys/devices/system/clocksource/clocksource0/current_clocksource
+# default user and groups
+groupadd -g 3333333 lanout
+groupadd -g 8888888 wanout
+groupadd -g 44444440 fw01
+groupadd -g 6666666 public
+groupadd -g 9999999 documents
+groupadd -g 66669999 user
+groupadd -g 99996666 office
+groupadd -g 77777777 gamer
+groupadd -g 1000 testing
+groupadd -g 35 games
+useradd -N -M -u 44444440 -g fw01 fw01
+useradd -N -M -u 66669999 -g user user
+useradd -N -M -u 99996666 -g office office
+useradd -N -M -u 77777777 -g gamer gamer
+useradd -u 1000 -g testing testing
+
+usermod -a -G portage,wheel,wanout,lanout,public,documents user
+usermod -a -G wanout,lanout,public,documents office
+usermod -a -G games,input,audio,video,wanout,public gamer
+usermod -a -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video testing
+
+# root password
+echo 'root:$6$rounds=5000000$jU.tb/NbYjI$bTSQSGVNzuq2DCMwrT6FT.BjChkqHQTf8e3nnVYXK88/t9isZ1eCOBPkoN6n.tgGAN8z//dWgOIlIvQ5/EfLt1' | chpasswd -e
