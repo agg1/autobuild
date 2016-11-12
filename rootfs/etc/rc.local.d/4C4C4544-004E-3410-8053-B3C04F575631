@@ -66,6 +66,7 @@ cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
 
 # set time, move to crontab
 sg lanout -c "ntpdate 172.16.2.1"
+hwclock --systohc
 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
