@@ -1,0 +1,5 @@
+snippets.cdn.mozilla.net:HSTS	0	17117	1510450671104,1,0
+www.mozilla.org:HSTS	0	17117	1510450670082,1,0
+accounts.firefox.com:HPKP	0	17117	1478914978804,1,0,WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=
+www.google-analytics.com:HSTS	0	17117	1489801072948,1,1
+accounts.firefox.com:HSTS	0	17117	1494466678802,1,1
