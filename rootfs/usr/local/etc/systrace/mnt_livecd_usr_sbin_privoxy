@@ -72,3 +72,4 @@ Policy: /mnt/livecd/usr/sbin/privoxy, Emulation: linux64
 	linux64-socket: permit
 	linux64-wait4: permit
 	linux64-write: permit
+	linux64-restart_syscall: permit
