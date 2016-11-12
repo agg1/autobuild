@@ -1,0 +1,129 @@
+Policy: /mnt/livecd/sbin/dhclient, Emulation: linux64
+	linux64-arch_prctl: permit
+	linux64-bind: permit
+	linux64-brk: permit
+	linux64-chdir: filename eq "/" then permit
+	linux64-clone: permit
+	linux64-close: permit
+	linux64-connect: sockaddr eq "/dev/log" then permit
+	linux64-dup: permit
+	linux64-dup2: permit
+	linux64-dup3: permit
+	linux64-execve: filename eq "/bin/chmod" then permit
+	linux64-execve: filename eq "/bin/hostname" then permit
+	linux64-execve: filename eq "/bin/ifconfig" then permit
+	linux64-execve: filename eq "/bin/route" then permit
+	linux64-execve: filename eq "/bin/sleep" then permit
+	linux64-execve: filename eq "/sbin/dhclient-script" then permit
+	linux64-exit_group: permit
+	linux64-fchmodat: permit
+	linux64-fcntl: cmd eq "F_DUPFD" then permit
+	linux64-fcntl: cmd eq "F_GETFD" then permit
+	linux64-fcntl: cmd eq "F_GETFL" then permit
+	linux64-fcntl: cmd eq "F_SETFD" then permit
+	linux64-fcntl: cmd eq "F_SETFL" then permit
+	linux64-fsread: filename eq "/bin/chmod" then permit
+	linux64-fsread: filename eq "/bin/hostname" then permit
+	linux64-fsread: filename eq "/bin/ifconfig" then permit
+	linux64-fsread: filename eq "/bin/resolvconf" then permit
+	linux64-fsread: filename eq "/bin/route" then permit
+	linux64-fsread: filename eq "/bin/sleep" then permit
+	linux64-fsread: filename eq "/etc/dhcp/dhclient-enter-hooks" then permit
+	linux64-fsread: filename eq "/etc/dhcp/dhclient-exit-hooks" then permit
+	linux64-fsread: filename eq "/etc/dhcp/dhclient.conf" then permit
+	linux64-fsread: filename eq "/etc/ld.so.cache" then permit
+	linux64-fsread: filename eq "/etc/ld.so.preload" then permit
+	linux64-fsread: filename eq "/etc/localtime" then permit
+	linux64-fsread: filename eq "/etc/nsswitch.conf" then permit
+	linux64-fsread: filename eq "/etc/ntp.conf" then permit
+	linux64-fsread: filename eq "/etc/passwd" then permit
+	linux64-fsread: filename eq "/etc/resolv.conf" then permit
+	linux64-fsread: filename eq "/etc/services" then permit
+	linux64-fsread: filename eq "/lib64/libc.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libncurses.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libnsl.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libnss_compat.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_db.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_files.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_nis.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libreadline.so.6" then permit
+	linux64-fsread: filename eq "/proc/net" then permit
+	linux64-fsread: filename eq "/proc/net/appletalk" then permit
+	linux64-fsread: filename eq "/proc/net/ax25" then permit
+	linux64-fsread: filename eq "/proc/net/dev" then permit
+	linux64-fsread: filename eq "/proc/net/if_inet6" then permit
+	linux64-fsread: filename eq "/proc/net/ipx" then permit
+	linux64-fsread: filename eq "/proc/net/nr" then permit
+	linux64-fsread: filename eq "/proc/net/rose" then permit
+	linux64-fsread: filename eq "/proc/net/unix" then permit
+	linux64-fsread: filename eq "/proc/net/x25" then permit
+	linux64-fsread: filename eq "/proc/sys/net/ash" then permit
+	linux64-fsread: filename eq "/root" then permit
+	linux64-fsread: filename eq "/sbin/chmod" then permit
+	linux64-fsread: filename eq "/sbin/dhclient-script" then permit
+	linux64-fsread: filename eq "/sbin/hostname" then permit
+	linux64-fsread: filename eq "/sbin/ifconfig" then permit
+	linux64-fsread: filename eq "/sbin/resolvconf" then permit
+	linux64-fsread: filename eq "/sbin/route" then permit
+	linux64-fsread: filename eq "/sbin/sleep" then permit
+	linux64-fsread: filename eq "/usr/bin/resolvconf" then permit
+	linux64-fsread: filename eq "/usr/sbin/chmod" then permit
+	linux64-fsread: filename eq "/usr/sbin/hostname" then permit
+	linux64-fsread: filename eq "/usr/sbin/ifconfig" then permit
+	linux64-fsread: filename eq "/usr/sbin/resolvconf" then permit
+	linux64-fsread: filename eq "/usr/sbin/route" then permit
+	linux64-fsread: filename eq "/usr/sbin/sleep" then permit
+	linux64-fsread: filename eq "/usr/share/locale/C/LC_MESSAGES/libdns.cat" then permit
+	linux64-fsread: filename eq "/usr/share/locale/C/LC_MESSAGES/libdst.cat" then permit
+	linux64-fsread: filename eq "/usr/share/locale/C/LC_MESSAGES/libisc.cat" then permit
+	linux64-fsread: filename eq "/usr/share/locale/C/libdns.cat" then permit
+	linux64-fsread: filename eq "/usr/share/locale/C/libdst.cat" then permit
+	linux64-fsread: filename eq "/usr/share/locale/C/libisc.cat" then permit
+	linux64-fsread: filename eq "/var/db/services.db" then permit
+	linux64-fsread: filename match "/var/lib/dhcp*" then permit
+	linux64-fsread: filename eq "/var/run/dhclient.pid" then permit
+	linux64-fsread: filename eq "/var/run/dhcp/dhcpclient.pid" then permit
+	linux64-fstat: permit
+	linux64-fswrite: filename eq "/dev/null" then permit
+	linux64-fswrite: filename eq "/dev/tty" then permit
+	linux64-fswrite: filename eq "/etc/ntp.conf" then permit
+	linux64-fswrite: filename eq "/etc/resolv.conf" then permit
+	linux64-fswrite: filename match "/var/lib/dhcp*" then permit
+	linux64-fswrite: filename eq "/var/run/dhclient.pid" then permit
+	linux64-fswrite: filename eq "/var/run/dhcp/dhcpclient.pid" then permit
+	linux64-fsync: permit
+	linux64-getcwd: permit
+	linux64-getegid: permit
+	linux64-geteuid: permit
+	linux64-getgid: permit
+	linux64-getpgrp: permit
+	linux64-getpid: permit
+	linux64-getppid: permit
+	linux64-getrlimit: permit
+	linux64-getsockopt: permit
+	linux64-getuid: permit
+	linux64-ioctl: permit
+	linux64-lseek: permit
+	linux64-mmap: prot eq "PROT_READ" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_EXEC" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mprotect: prot eq "PROT_NONE" then permit
+	linux64-mprotect: prot eq "PROT_READ" then permit
+	linux64-munmap: permit
+	linux64-nanosleep: permit
+	linux64-pipe: permit
+	linux64-read: permit
+	linux64-recvmsg: permit
+	linux64-rt_sigaction: permit
+	linux64-rt_sigprocmask: permit
+	linux64-rt_sigreturn: permit
+	linux64-select: permit
+	linux64-sendto: true then permit
+	linux64-setsid: permit
+	linux64-setsockopt: permit
+	linux64-socket: permit
+	linux64-sysinfo: permit
+	linux64-umask: permit
+	linux64-uname: permit
+	linux64-wait4: permit
+	linux64-write: permit
