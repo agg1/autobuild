@@ -15,7 +15,7 @@ modprobe psmouse
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
 
 #passwords
-echo 'testing:$6$rounds=5000000$FC6t9/mD$XU9jIy1vrhXgvaJnM0Okgl1Dx7MhDcV8iaUtHp6DnPZQ9Scf6pauPIhB6m6Z8BsGYgAgT.E5Ch6/7bxvbmWmb.' | chpasswd -e
+echo 'testing:$6$rounds=5000000$FqWx07raWC/PI$YkhqxZpSWo.MSGdSkoBLEsdAvRxtcltUqNCXIxcQ/ravE7AKQ/ehQdBjWLwtDm3.4RlwJh96RrDC0a7fEG5ui1' | chpasswd -e
 
 # add static arp entry for build server wake on lan
 arp -s 10.0.0.1 ec:08:6b:05:bb:56
