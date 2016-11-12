@@ -6,6 +6,6 @@ export vblank_mode=0
 #xrandr --output LVDS --off
 xrdb ~/.Xdefaults
 setxkbmap -layout us,de -option "grp:alt_shift_toggle,grp_led:scroll,compose:ralt"
-gpg-agent --daemon
+#gpg-agent --daemon
 umask 0007
 exec i3
