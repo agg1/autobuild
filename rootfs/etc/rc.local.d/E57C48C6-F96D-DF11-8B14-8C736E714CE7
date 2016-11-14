@@ -20,9 +20,6 @@ echo 'testing:$6$rounds=5000000$FqWx07raWC/PI$YkhqxZpSWo.MSGdSkoBLEsdAvRxtcltUqN
 # add static arp entry for build server wake on lan
 arp -s 10.0.0.1 ec:08:6b:05:bb:56
 
-# 
-ifconfig enp0s25 10.0.0.3/8
-
 # reset and start firewall
 /etc/rc.local.d/rc.fwstop
 /etc/rc.local.d/rc.fwstart
@@ -49,19 +46,22 @@ iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
 # ddclient
 iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) --dport 53 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --uid-owner $(id -u ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --uid-owner $(id -u ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
 iptables -A OUTPUT -p UDP -m owner --gid-owner $(id -g ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
 
+# enable network and sync time
+/usr/local/bin/dhclient enp0s25
+/usr/local/bin/timesync.sh
+#ifconfig enp0s25 10.0.0.3/8
+
+# start proxies
 /usr/local/bin/tor.sh
 /usr/local/bin/privoxy.sh
 /usr/local/bin/squid.sh
-
-# set time, move to crontab
-sg lanout -c "ntpdate 172.16.2.1"
-hwclock --systohc
 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
