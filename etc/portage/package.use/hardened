@@ -1,29 +1,29 @@
 net-misc/openssh -bindist
 dev-libs/openssl -bindist
 app-misc/rmlint -X
-app-text/asciidoc python_single_target_python2_7
-app-text/enchant hunspell
-app-text/poppler cxx lcms utils
-app-text/texlive extra
-app-text/texlive-core xetex
-app-text/lcdf-typetools kpathsea
-app-text/xmlto text
-app-text/libwpd tools
-dev-cpp/cairomm svg
-dev-lang/php -truetype embed
-dev-libs/glib -mime
-dev-libs/libxml2 python
-dev-libs/libpcre pcre16
-dev-vcs/git -gtk
-net-analyzer/fail2ban python_single_target_python3_4
+#app-text/asciidoc python_single_target_python2_7
+#app-text/enchant hunspell
+#app-text/poppler cxx lcms utils
+#app-text/texlive extra
+#app-text/texlive-core xetex
+#app-text/lcdf-typetools kpathsea
+#app-text/xmlto text
+#app-text/libwpd tools
+#dev-cpp/cairomm svg
+#dev-lang/php -truetype embed
+dev-libs/glib -mime -utils
+#dev-libs/libxml2 python
+#dev-libs/libpcre pcre16
+dev-vcs/git -gtk gpg curl subversion cvs webdav
+#net-analyzer/fail2ban python_single_target_python3_4
 net-analyzer/nmap ncat nping
-net-firewall/fwknop iptables server
+#net-firewall/fwknop iptables server
 net-misc/curl curl_ssl_gnutls
-net-misc/youtube-dl python_single_target_python3_4
+#net-misc/youtube-dl python_single_target_python3_4
 net-p2p/transmission -gtk -ayatana
 sys-apps/net-tools hostname arp
-sys-block/open-iscsi tcp
-sys-devel/gdb client server
-sys-devel/llvm clang
-sys-fs/cryptsetup openssl
-sys-fs/squashfs-tools lzo xz
+#sys-block/open-iscsi tcp
+#sys-devel/gdb client server
+#sys-devel/llvm clang
+#sys-fs/cryptsetup openssl
+#sys-fs/squashfs-tools lzo xz
