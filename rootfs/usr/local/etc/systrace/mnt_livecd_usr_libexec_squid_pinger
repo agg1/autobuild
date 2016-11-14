@@ -31,8 +31,8 @@ Policy: /mnt/livecd/usr/libexec/squid/pinger, Emulation: linux64
 	linux64-setuid: permit
 	linux64-select: permit
 	linux64-recvfrom: permit
-	linux64-sendto: sockaddr eq "inet-[::1]:0" then deny
-	linux64-sendto: sockaddr eq "inet-[127.0.0.1]:0" then deny
-	linux64-sendto: true then deny
+	linux64-sendto: sockaddr eq "inet-[::1]:0" then permit
+	linux64-sendto: sockaddr eq "inet-[127.0.0.1]:0" then permit
+	linux64-sendto: true then permit
 	linux64-exit: permit
 	linux64-exit_group: permit

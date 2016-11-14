@@ -114,6 +114,7 @@ Policy: /mnt/livecd/sbin/dhclient, Emulation: linux64
 	linux64-pipe: permit
 	linux64-read: permit
 	linux64-recvmsg: permit
+	linux64-recvfrom: permit
 	linux64-rt_sigaction: permit
 	linux64-rt_sigprocmask: permit
 	linux64-rt_sigreturn: permit
