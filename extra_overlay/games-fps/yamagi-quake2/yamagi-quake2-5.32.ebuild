@@ -10,8 +10,8 @@ MY_P="quake2-${PV}"
 DESCRIPTION="Yamagi Quake 2 source port"
 HOMEPAGE="http://deponie.yamagi.org/quake2/"
 SRC_URI="http://deponie.yamagi.org/quake2/${MY_P}.tar.xz
-	http://deponie.yamagi.org/quake2/quake2-rogue-2.03.tar.xz
-	http://deponie.yamagi.org/quake2/quake2-xatrix-2.04.tar.xz"
+	http://deponie.yamagi.org/quake2/quake2-rogue-2.02.tar.xz
+	http://deponie.yamagi.org/quake2/quake2-xatrix-2.03.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,8 +27,8 @@ DEPEND="sys-libs/zlib
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
-ROGUE="${WORKDIR}/quake2-rogue-2.03"
-XATRIX="${WORKDIR}/quake2-xatrix-2.04"
+ROGUE="${WORKDIR}/quake2-rogue-2.02"
+XATRIX="${WORKDIR}/quake2-xatrix-2.03"
 
 #src_unpack() {
 #}
@@ -64,7 +64,7 @@ src_compile() {
 src_install() {
 	local q2dir=$(games_get_libdir)/${PN}
 
-	dodoc README.md
+	dodoc README
 
 	dodir "${q2dir}"
 	cp -rf "${S}/rel-lib/"* "${D}/${q2dir}"/
