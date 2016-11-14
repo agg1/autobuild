@@ -1,8 +1,11 @@
 #!/bin/bash
 
 export MAKEOPTS="-j16"
-export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=12 "
+export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --with-bdeps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=12 "
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS=""
+export CFLAGS="-O2 -pipe -march=core2 -mtune=core2"
+export CXXFLAGS="${CFLAGS} "
+export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 export PROFILE_IS_HARDENED=1
-export USE="${USE} hardened urandom ipv6 livecd loop-aes -kdbus -bindist -branding -consolekit -policykit -pam -dbus -gvfs -gtk3 -gnome-keyring -systemd -pulseaudio -udev"
+export USE="-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline"
