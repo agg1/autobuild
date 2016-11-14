@@ -9,30 +9,14 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-*
-        -awt
-	-avahi
-	-consolekit
-	-jit
-	-policykit
-	-pam
-	-systemd
-	-kdbus
-	-dbus
-	-pulseaudio
-	-bindist
-	-branding
-	-gvfs
-	-gnome-keyring
-	-gtk3
-	-jit
-	-libnotify
-	-orc
-	-udev
-	-udisks
-	crypt
-	xml
-	sound
+	X
+	doc
+	gtk
+#	cairo
+	xcb
+#	zlib
+#	iconv
+#	sqlite
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -61,132 +45,130 @@ livecd/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
-	bzip2
-	cryptsetup
-	hardened
-	ipv6
-	livecd
-	loop-aes
-	extra-ciphers
+#	fontconfig
+#	truetype
+	djvu
 	jpeg
-	keyscrub
-	lvm1
-	midi
-	fluidsynth
+	jpeg2k
 	mng
-	modules
-	ncurses
-	nls
-	nptl
-	nptlonly
-	threads
-	gmp
-	xml
 	png
-	readline
-	socks5
-	ssl
-	system-mitkrb5
-	fontconfig
-	truetype
-	zlib
-	iconv
-	unicode
-	urandom
-	usb
-	doc
-	static-libs
-	python_targets_python2_7
-	python_targets_python3_4
-	sqlite
-	mmx
-	sse
-	sse2
-	cairo
-	gtk
-#	opencl
-#	llvm
-	opengl
+	svg
+	tiff
+	fluidsynth
+	midi
+	gstreamer
+	a52
+	aac
+	lame
+	ladspa
+	ogg
+	openal
+	mp3
+	mp4
+	mpeg
+	theora
+	cdda
+	css
+	dvb
+	dvd
+	oss
+	sdl
+	scanner
+	joystick
+	sound
 	video
+	egl
+	gles
+	gles2
+	gles3
+	opengl
 	gallium
 	glamor
-	xcb
-	X
-        video_cards_amdgpu
-        video_cards_apm
-        video_cards_ast
-        video_cards_chips
-        video_cards_cirrus
-        video_cards_dummy
-        video_cards_epson
-        video_cards_fbdev
-        video_cards_glint
-        video_cards_i128
-        video_cards_i740
-        video_cards_intel
-        video_cards_mach64
-        video_cards_mga
-        video_cards_neomagic
-        video_cards_nouveau
-        video_cards_nv
-        video_cards_r128
-        video_cards_radeon
-        video_cards_radeonsi
-        video_cards_rendition
-        video_cards_s3
-        video_cards_s3virge
-        video_cards_savage
-        video_cards_siliconmotion
-        video_cards_sisusb
-        video_cards_tdfx
-        video_cards_tga
-        video_cards_trident
-        video_cards_tseng
-        video_cards_vesa
-        video_cards_via
-        video_cards_voodoo
-        video_cards_nvidia
-        -video_cards_fglrx
-        -video_cards_geode
-        -video_cards_freedreno
-        -video_cards_omap
-        -video_cards_omapfb
-	-video_cards_qxl
-        -video_cards_sunbw2
-        -video_cards_suncg14
-        -video_cards_suncg3
-        -video_cards_suncg6
-        -video_cards_sunffb
-        -video_cards_sunleo
-        -video_cards_suntcx
-        -video_cards_tegra
-	-video_cards_virtualbox
-	-video_cards_vmware
-        input_devices_acecad
-        input_devices_aiptek
-        input_devices_elographics
-        input_devices_fpit
-        input_devices_hyperpen
-        input_devices_joystick
-        input_devices_keyboard
-        input_devices_libinput
-        input_devices_mouse
-        input_devices_mutouch
-        input_devices_penmount
-        input_devices_tslib
-        input_devices_vmmouse
-        input_devices_void
-        input_devices_synaptics
-        input_devices_wacom
-	-input_devices_evdev
 	uxa
 	sna
 	dri
 	dri2
 	dri3
+    vaapi
+    vdpau
+    xa
 	xv
 	xvmc
-	xorg
+	video_cards_amdgpu
+	video_cards_apm
+	video_cards_ast
+	video_cards_chips
+	video_cards_cirrus
+	video_cards_dummy
+	video_cards_epson
+	video_cards_fbdev
+	video_cards_glint
+	video_cards_i128
+	video_cards_i740
+	video_cards_intel
+	video_cards_mach64
+	video_cards_mga
+	video_cards_neomagic
+	video_cards_nouveau
+	video_cards_nv
+	video_cards_r128
+	video_cards_radeon
+	video_cards_radeonsi
+	video_cards_rendition
+	video_cards_s3
+	video_cards_s3virge
+	video_cards_savage
+	video_cards_siliconmotion
+	video_cards_sisusb
+	video_cards_tdfx
+	video_cards_tga
+	video_cards_trident
+	video_cards_tseng
+	video_cards_vesa
+	video_cards_via
+	video_cards_voodoo
+	video_cards_nvidia
+	-video_cards_fglrx
+	-video_cards_geode
+	-video_cards_freedreno
+	-video_cards_omap
+	-video_cards_omapfb
+	-video_cards_qxl
+	-video_cards_sunbw2
+	-video_cards_suncg14
+	-video_cards_suncg3
+	-video_cards_suncg6
+	-video_cards_sunffb
+	-video_cards_sunleo
+	-video_cards_suntcx
+	-video_cards_tegra
+	-video_cards_virtualbox
+	-video_cards_vmware
+	input_devices_acecad
+	input_devices_aiptek
+	input_devices_elographics
+	input_devices_fpit
+	input_devices_hyperpen
+	input_devices_joystick
+	input_devices_keyboard
+	input_devices_libinput
+	input_devices_mouse
+	input_devices_mutouch
+	input_devices_penmount
+	input_devices_tslib
+	input_devices_vmmouse
+	input_devices_void
+	input_devices_synaptics
+	input_devices_wacom
+	-input_devices_evdev
+	mmx
+	sse
+	sse2
+#	python_targets_python2_7
+#	python_targets_python3_4
+	ntfsprogs
+	ntfsdecrypt
+	libusb
 
 livecd/packages:
 	app-doc/doxygen
@@ -195,24 +177,15 @@ livecd/packages:
 	app-admin/chroot_safe
 	app-admin/chrootuid
 	app-admin/chrpath
-	app-admin/clog
-	app-admin/conky
-	app-admin/conkyforecast
 	app-admin/cpulimit
 	app-admin/denyhosts
-	app-admin/dio
 	app-admin/eselect
-	app-admin/evtxtools
 	app-admin/fam
-	app-admin/fetchlog
-	app-admin/hardening-check
 	app-admin/hddtemp
 	app-admin/ide-smart
 	app-admin/logrotate
 	app-admin/lsat
 	app-admin/makepasswd
-	app-admin/mcelog
-	app-admin/mktwpol
 	app-admin/multilog-watch
 	app-admin/pass
 	app-admin/passook
@@ -224,7 +197,6 @@ livecd/packages:
 	app-admin/psmon
 	app-admin/pwcrypt
 	app-admin/pwgen
-	app-admin/quickswitch
 	app-admin/sshguard
 	app-admin/superadduser
 	app-admin/syslog-ng
@@ -232,11 +204,8 @@ livecd/packages:
 	app-admin/sysstat
 	app-admin/testdisk
 	app-admin/tmpwatch
-	app-admin/tripwire
-	app-admin/vault
 	app-admin/verynice
 	app-admin/whowatch
-	app-admin/xtail
 	app-admin/python-updater
 	app-arch/alien
 	app-arch/bzip2
@@ -287,10 +256,13 @@ livecd/packages:
 	app-dicts/myspell-ru
 	app-doc/abs-guide
 	app-doc/autobook
+	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/mg
+	app-editors/nano
 	app-editors/vim
+	app-editors/wxmedit
 	app-emulation/qemu
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
@@ -322,9 +294,9 @@ livecd/packages:
 	app-shells/bash-completion
 	app-shells/gentoo-bashcomp
 	app-text/dos2unix
+	app-text/ghostscript-gpl
 	app-text/gtkspell
 	app-text/stardict
-#	app-text/tetex
 	app-text/tree
 	app-text/wgetpaste
 	app-text/xpdf
@@ -338,12 +310,10 @@ livecd/packages:
 	dev-libs/openssl
 #	dev-libs/libressl
 	dev-python/pycrypto
-#	dev-util/anjuta
 	dev-util/ccache
 	dev-util/catalyst
 	dev-util/cloc
 	dev-util/cmake
-	dev-util/codeblocks
 	dev-util/indent
 #	dev-util/kdbg
 	dev-util/ltrace
@@ -356,6 +326,8 @@ livecd/packages:
 	dev-vcs/git-crypt
 	dev-vcs/subversion
 	games-util/joystick
+	lxde-base/lxdm
+	lxde-base/lxde-meta
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx
@@ -376,6 +348,7 @@ livecd/packages:
 	media-libs/gst-plugins-base
 	media-libs/gst-plugins-good
 	media-libs/gst-plugins-ugly
+	media-libs/gst-plugins-vaapi
 	media-libs/openal
 	media-libs/libsdl
 	media-libs/libsdl2
@@ -402,6 +375,7 @@ livecd/packages:
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
+	net-analyzer/arpwatch
 	net-analyzer/fail2ban
 	net-analyzer/fping
 	net-analyzer/ifstat
@@ -411,6 +385,7 @@ livecd/packages:
 	net-analyzer/knocker
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
+	net-analyzer/netcat6
 	net-analyzer/nmap
 	net-analyzer/ntopng
 	net-analyzer/tcpdump
@@ -426,9 +401,8 @@ livecd/packages:
 	net-dns/bind-tools
 	net-dns/ddclient
 	net-dns/dnsmasq
-	net-dns/pdnsd
-#	net-firewall/arptables
-#	net-firewall/conntrack-tools
+	net-firewall/arptables
+	net-firewall/conntrack-tools
 	net-firewall/ebtables
 	net-firewall/fwipsec
 	net-firewall/fwknop
@@ -436,21 +410,21 @@ livecd/packages:
 	net-firewall/iptables
 	net-firewall/itval
 	net-firewall/nfacct
-#	net-firewall/nftables
+	net-firewall/nftables
 	net-firewall/psad
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 	net-ftp/filezilla
 	net-ftp/ftp
 	net-ftp/ncftp
-#	net-ftp/vsftpd
+	net-ftp/oftpd
 	net-im/pidgin
 	net-irc/anope
 	net-irc/hexchat
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/weechat
-#	net-irc/znc
+	net-irc/znc
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
@@ -490,7 +464,6 @@ livecd/packages:
 	net-proxy/squid
 	net-proxy/torsocks
 	net-proxy/tsocks
-#	net-proxy/ziproxy
 #	net-voip/
 	net-wireless/b43-fwcutter
 #	net-wireless/bcm43xx-fwcutter
@@ -501,8 +474,7 @@ livecd/packages:
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 #	sci-*/
-#	sci-visualization/gnuplot
-#	sys-apps/apmd
+	sci-visualization/gnuplot
 	sys-apps/arrayprobe
 	sys-apps/acl
 	sys-apps/attr
@@ -539,18 +511,16 @@ livecd/packages:
 	sys-apps/memtester
 	sys-apps/miscfiles
 	sys-apps/mlocate
-#	sys-apps/netplug
 	sys-apps/net-tools
 	sys-apps/pciutils
 	sys-apps/pcmciautils
-#	sys-apps/pcsc-lite
-#	sys-apps/pmount
+	sys-apps/pcsc-lite
+	sys-apps/pmount
 	sys-apps/portage
 	sys-apps/sdparm
 	sys-apps/sed
 	sys-apps/setserial
 	sys-apps/sg3_utils
-#	sys-apps/slocate
 	sys-apps/smartmontools
 	sys-apps/systrace
 	sys-apps/texinfo
@@ -563,7 +533,7 @@ livecd/packages:
 	sys-block/fio
 	sys-block/gparted
 #	sys-block/iscsitarget
-#	sys-block/mpt-status
+	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
@@ -623,14 +593,8 @@ livecd/packages:
 	sys-kernel/genkernel
 	sys-kernel/linux-docs
 	sys-kernel/linux-headers
-	sys-libs/db
-	sys-libs/gdbm
-	sys-libs/gpm
-	sys-libs/libkudzu
-	sys-libs/libsmbios
+#	sys-libs
 	sys-power/acpid
-#	sys-power/cpupower
-#	sys-process/acct
 	sys-process/at
 	sys-process/atop
 	sys-process/audit
@@ -638,8 +602,6 @@ livecd/packages:
 	sys-process/ftop
 	sys-process/htop
 	sys-process/lsof
-	sys-process/memwatch
-	sys-process/nmon
 	sys-process/procps
 	sys-process/psmisc
 #	virtual/opengl
@@ -647,11 +609,8 @@ livecd/packages:
 	virtual/pkgconfig
 #	www-apache/
 #	www-apps/
-#	www-client/chromium
 	www-client/firefox
 	www-client/links
-	# broken libcss
-#	www-client/netsurf
 	www-client/w3m
 #	www-misc/
 #	www-plugins/
@@ -683,14 +642,14 @@ livecd/packages:
 	x11-apps/xset
 	x11-apps/xsetroot
 	x11-apps/xvinfo
-	x11-apps/xwd
-	x11-apps/xwininfo
 	x11-base/xorg-drivers
 	x11-base/xorg-server
 	x11-base/xorg-x11
 #	x11-drivers/
+	x11-libs/libva
 	x11-misc/i3status
 	x11-misc/openbox-menu
+	x11-misc/pcmanfm
 	x11-misc/xautolock
 	x11-misc/xtrlock
 	x11-misc/zim

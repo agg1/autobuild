@@ -9,58 +9,10 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-*
-        -awt
-	-avahi
-	-consolekit
-	-doc
-	-jit
-	-policykit
-	-pam
-	-systemd
-	-kdbus
-	-dbus
-	-pulseaudio
-	-bindist
-	-branding
-	-gvfs
-	-gnome-keyring
-	-gtk
-	-gtk3
-	-jit
-	-orc
-	-udev
-        -udisks
 	-X
-	crypt
+	-doc
+	-gtk
 	minimal
-	bzip2
-	cryptsetup
-	hardened
-	ipv6
-	livecd
-	loop-aes
-	extra-ciphers
-	keyscrub
-	lvm1
-	modules
-	ncurses
-	nls
-	nptl
-	nptlonly
-	threads
-	readline
-	ssl
-	system-mitkrb5
-	unicode
-	urandom
-	usb
-	static-libs
-	python_targets_python2_7
-	python_targets_python3_4
-	mmx
-	sse
-	sse2
 
 livecd/packages:
 	net-misc/dhcp

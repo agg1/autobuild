@@ -28,63 +28,11 @@ boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
 boot/kernel/gentoo/use:
-	-*
-        -awt
-	-avahi
-	-consolekit
-	-doc
-	-jit
-	-policykit
-	-pam
-	-systemd
-	-kdbus
-	-dbus
-	-pulseaudio
-	-bindist
-	-branding
-	-gvfs
-	-gnome-keyring
-	-gtk
-	-gtk3
-	-jit
-	-orc
-	-udev
-        -udisks
 	-X
-	crypt
-	bzip2
-	cryptsetup
-	fbcon
-	hardened
-	ipv6
-	livecd
-	loop-aes
-	extra-ciphers
-	keyscrub
-	lvm1
-	midi
-	mng
-	modules
-	ncurses
-	nls
-	nptl
-	threads
-	gmp
-	xml
-	nptlonly
-	readline
-	socks5
-	ssl
-	system-mitkrb5
-	unicode
-	urandom
-	usb
-	static-libs
-	python_targets_python2_7
-	python_targets_python3_4
-	mmx
-	sse
-	sse2
+	-doc
+	-gtk
+	ntfsprogs
+	ntfsdecrypt
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware
@@ -106,5 +54,6 @@ livecd/rm:
 	/var/tmp/genkernel/initramfs*
 	/var/tmp/genkernel
 	/root/.bash_history
+	/usr/src/linux
 
 #livecd/empty:

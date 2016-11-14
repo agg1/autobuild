@@ -9,26 +9,10 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 stage4/use:
-	-consolekit
-	-policykit
-	-pam
-	-systemd
-	-kdbus
-	-dbus
-	-pulseaudio
-	-bindist
-	-branding
-	-gvfs
-	-jit
-	-orc
-	bzip2
-	hardened
-	ipv6
-	keyscrub
-	loop-aes
-	extra-ciphers
-	lvm1
-	urandom
+	-X
+	-doc
+	-gtk
+	minimal
 
 stage4/packages:
 	sys-devel/bc

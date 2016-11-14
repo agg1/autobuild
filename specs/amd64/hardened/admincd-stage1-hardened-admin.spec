@@ -9,63 +9,11 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-*
-	-awt
-	-avahi
-	-consolekit
-	-doc
-	-jit
-	-policykit
-	-pam
-	-systemd
-	-kdbus
-	-dbus
-	-pulseaudio
-	-bindist
-	-branding
-	-gvfs
-	-gnome-keyring
-	-gtk
-	-gtk3
-	-jit
-	-orc
-	-udev
-        -udisks
 	-X
-	crypt
-	bzip2
-	cryptsetup
-	fbcon
-	hardened
-	ipv6
-	livecd
-	loop-aes
-	extra-ciphers
-	keyscrub
-	lvm1
-	midi
-	mng
-	modules
-	ncurses
-	nls
-	nptl
-	nptlonly
-	threads
-	gmp
-	xml
-	readline
-	socks5
-	ssl
-	system-mitkrb5
-	unicode
-	urandom
-	usb
-	static-libs
-	python_targets_python2_7
-	python_targets_python3_4
-	mmx
-	sse
-	sse2
+	-doc
+	-gtk
+	ntfsprogs
+	ntfsdecrypt
 
 livecd/packages:
 	app-admin/eselect
@@ -94,20 +42,22 @@ livecd/packages:
 	app-benchmarks/dbench
 	app-benchmarks/iozone
 	app-benchmarks/stress
+	app-cdr/bashburn
+	app-cdr/bin2iso
+	app-cdr/cdrdao
+	app-cdr/cdrtools
+	app-cdr/dvd+rw-tools
+	app-cdr/nrg2iso
 	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
 	app-crypt/md5deep
 	app-crypt/pinentry
-#	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/mg
+	app-editors/nano
 	app-editors/vim
-#	app-emacs/ebuild-mode
-#	app-emulation/cloud-init
-#	app-emulation/xen-tools
-#	app-eselect/eselect-ctags
 	app-eselect/eselect-vi
 	app-misc/ca-certificates
 	app-misc/colordiff
@@ -178,10 +128,7 @@ livecd/packages:
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
-	net-misc/WendzelNNTPd
 	net-misc/yatb
-	net-proxy/dante
-	net-proxy/tsocks
 	net-wireless/b43-fwcutter
 ### Masked (~amd64)
 #	net-wireless/bcm43xx-fwcutter
@@ -244,6 +191,7 @@ livecd/packages:
 	sys-block/aoetools
 	sys-block/fio
 #	sys-block/iscsitarget
+	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
