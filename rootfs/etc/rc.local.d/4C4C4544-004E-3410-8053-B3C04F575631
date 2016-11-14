@@ -23,9 +23,6 @@ echo 'gamer:$6$rounds=5000000$WPAMyx3hYH/nmSgR$m9oeDutTavXkMLJOTyAWWBkS99mit.ZNj
 # add static arp entry for build server wake on lan
 arp -s 10.0.0.1 ec:08:6b:05:bb:56
 
-# 
-ifconfig enp0s25 10.0.0.2/8
-
 # reset and start firewall
 /etc/rc.local.d/rc.fwstop
 /etc/rc.local.d/rc.fwstart
@@ -52,22 +49,34 @@ iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
 # ddclient
 iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
+iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) --dport 53 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --uid-owner $(id -u ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --uid-owner $(id -u ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
 iptables -A OUTPUT -p UDP -m owner --gid-owner $(id -g ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
 
-cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
-/etc/init.d/ddclient restart
+# mount lvm
+/usr/local/bin/mountlvm.sh
 
+# lauch qemu fw01
+/usr/local/bin/fw01.sh
+
+# wait for fw01 blob to boot
+sleep 120
+
+# enable network and sync time
+ifconfig enp0s25 10.0.0.2/8
+/usr/local/bin/dhclient enp0s26u1u2u1u4
+/usr/local/bin/timesync.sh
+
+# start proxies
 /usr/local/bin/tor.sh
 /usr/local/bin/privoxy.sh
 /usr/local/bin/squid.sh
 
-# set time, move to crontab
-sg lanout -c "ntpdate 172.16.2.1"
-hwclock --systohc
+cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
+/etc/init.d/ddclient restart
 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
@@ -75,7 +84,11 @@ echo 'Section "Device"'                         >> /etc/X11/xorg.conf
 echo 'Identifier "radeon0"'                     >> /etc/X11/xorg.conf
 echo 'Driver "radeon"'                          >> /etc/X11/xorg.conf
 echo 'Option "SwapbuffersWait" "false"'         >> /etc/X11/xorg.conf
+echo 'Option "TearFree" "false"'		>> /etc/X11/xorg.conf
+echo 'Option "EXAVSync" "false"'		>> /etc/X11/xorg.conf
 echo 'Option "AccelMethod" "glamor"'            >> /etc/X11/xorg.conf
+echo 'Option "ColorTiling" "true"'		>> /etc/X11/xorg.conf
+echo 'Option "ColorTiling2D" "true"'		>> /etc/X11/xorg.conf
 echo 'EndSection'                               >> /etc/X11/xorg.conf
 echo >>  /etc/X11/xorg.conf
 
