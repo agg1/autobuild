@@ -1,6 +1,6 @@
 #!/bin/sh -e
 # Copyright aggi 2016
-
+PTREE=/home/seeds/gentoo/portage-hardened.tar
 source /home/catalyst/autobuild.sh
 prepare_system
 
@@ -15,3 +15,5 @@ export PKDIR="/home/packages-admin"
 build_livecd_admin
 export PKDIR="/home/packages-desktop"
 build_livecd_desktop
+
+archive_digests
