@@ -85,3 +85,7 @@ usermod -a -G portage,wheel,wanout,lanout,public,documents,games,input,audio,vid
 
 # root password
 echo 'root:$6$rounds=5000000$jU.tb/NbYjI$bTSQSGVNzuq2DCMwrT6FT.BjChkqHQTf8e3nnVYXK88/t9isZ1eCOBPkoN6n.tgGAN8z//dWgOIlIvQ5/EfLt1' | chpasswd -e
+
+# relocate portage configuration from /mnt/livecd to /etc
+rm -rf /etc/portage
+cp -pr /mnt/livecd/etc/portage /etc/portage
