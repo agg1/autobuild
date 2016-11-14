@@ -11,6 +11,7 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-close: permit
 	linux64-connect: sockaddr eq "/dev/log" then permit
 	linux64-connect: sockaddr eq "inet-[127.0.0.1]:8118" then permit
+	linux64-connect: sockaddr match "inet-*" then permit
 	linux64-dup: permit
 	linux64-dup2: permit
 	linux64-dup3: permit
@@ -105,7 +106,6 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-prctl: permit
 	linux64-read: permit
 	linux64-recvfrom: permit
-	linux64-rename: filename eq "/var/cache/squid/swap.state.new" and filename[1] eq "/var/cache/squid/swap.state" then permit
 	linux64-rt_sigaction: permit
 	linux64-rt_sigprocmask: permit
 	linux64-select: permit
@@ -134,3 +134,5 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-rt_sigreturn: permit
 	linux64-tgkill: permit
 	linux64-getppid: permit
+	linux64-getgid: permit
+

@@ -24,3 +24,4 @@ Policy: /mnt/livecd/usr/libexec/squid/log_file_daemon, Emulation: linux64
 	linux64-write: permit
 	linux64-exit: permit
 	linux64-exit_group: permit
+	linux64-rename: permit
