@@ -16,7 +16,7 @@ RESTRICT="test"
 CFLAGS="${CFLAGS} -mcpu=core2 -march=core2 -mtune=core2"
 CXXFLAGS="${CXXFLAGS} -mcpu=core2 -march=core2 -mtune=core2"
 
-RDEPEND="games-fps/wxLauncher
+RDEPEND="games-util/wxLauncher
 	media-libs/openal
 	dev-libs/jansson
 	dev-lang/lua
