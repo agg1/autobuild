@@ -652,7 +652,7 @@ livecd/packages:
 	x11-misc/pcmanfm
 	x11-misc/xautolock
 	x11-misc/xtrlock
-	x11-misc/zim
+#	x11-misc/zim
 #	x11-plugins/
 #	x11-proto/
 	x11-terms/xterm
