@@ -2,12 +2,12 @@ export QEMU_AUDIO_DRV=alsa QEMU_AUDIO_TIMER_PERIOD=250
 
 VMNAME=fw01
 CPUNUM=1
-MEM=512M
+MEM=128M
 DISKDRIVER="virtio"
 #CDISO="-cdrom /home/images/install59.iso"
 #OSDISK="-hda /home/virtual/fw01.img"
 OSDISK="-hda /dev/mapper/vghome-lvfw01"
-NETDRIVER=virtio-net-pci
+#NETDRIVER=virtio-net-pci
 SOUNDHW=" "
 MONITOR="-monitor none"
 RUNAS="-runas fw01"
@@ -47,7 +47,7 @@ qemu-system-x86_64 \
 -nodefconfig -nodefaults \
 -M pc \
 -name ${VMNAME} \
--rtc base=utc,clock=host \
+-rtc base=utc,clock=rt \
 -cpu qemu64 \
 -smp cpus=${CPUNUM},sockets=1,cores=${CPUNUM},threads=1 \
 -m ${MEM} ${HUGEMEM} \
