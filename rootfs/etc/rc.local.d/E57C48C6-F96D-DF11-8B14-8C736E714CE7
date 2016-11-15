@@ -30,7 +30,7 @@ iptables -A OUTPUT -m owner --gid-owner 250 -j ACCEPT
 # proxy connect chain
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g privoxy) -d 127.0.0.1 -j ACCEPT
-iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
+#iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
 # disallow proxy to lan traffic
 iptables -A OUTPUT -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
 iptables -A OUTPUT -m owner --gid-owner $(id -g privoxy) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
@@ -43,7 +43,7 @@ iptables -I OUTPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -I INPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -I OUTPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
-iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
+#iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
 # ddclient
 iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) --dport 53 -j ACCEPT
@@ -67,15 +67,15 @@ echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
 hdparm -Y /dev/sda
 
-echo 'Section "Device"'                         >> /etc/X11/xorg.conf
-echo 'Identifier "intel0"'                      >> /etc/X11/xorg.conf
-echo 'Driver "intel"'                           >> /etc/X11/xorg.conf
-echo 'Option "SwapbuffersWait" "false"'         >> /etc/X11/xorg.conf
-echo 'Option "TearFree" "false"'                >> /etc/X11/xorg.conf
-echo 'Option "VSync" "false"'                   >> /etc/X11/xorg.conf
-echo 'Option "TripleBuffer" "false"'            >> /etc/X11/xorg.conf
-echo 'Option "AccelMethod" "sna"'               >> /etc/X11/xorg.conf
-echo 'EndSection'                               >> /etc/X11/xorg.conf
+echo 'Section "Device"'				>> /etc/X11/xorg.conf
+echo 'Identifier "intel0"'			>> /etc/X11/xorg.conf
+echo 'Driver "intel"'				>> /etc/X11/xorg.conf
+echo 'Option "SwapbuffersWait" "false"'		>> /etc/X11/xorg.conf
+echo 'Option "TearFree" "false"'		>> /etc/X11/xorg.conf
+echo 'Option "VSync" "false"'			>> /etc/X11/xorg.conf
+echo 'Option "TripleBuffer" "false"'		>> /etc/X11/xorg.conf
+echo 'Option "AccelMethod" "sna"'		>> /etc/X11/xorg.conf
+echo 'EndSection'				>> /etc/X11/xorg.conf
 echo >>  /etc/X11/xorg.conf
 
 sync

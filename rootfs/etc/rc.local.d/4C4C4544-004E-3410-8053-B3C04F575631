@@ -33,7 +33,7 @@ iptables -A OUTPUT -m owner --gid-owner 250 -j ACCEPT
 # proxy connect chain
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g privoxy) -d 127.0.0.1 -j ACCEPT
-iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
+#iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
 # disallow proxy to lan traffic
 iptables -A OUTPUT -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
 iptables -A OUTPUT -m owner --gid-owner $(id -g privoxy) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
@@ -46,7 +46,7 @@ iptables -I OUTPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -I INPUT 1 -p UDP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -I OUTPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -I INPUT 1 -p TCP -d 127.0.0.1 --dport 53 -j ACCEPT
-iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
+#iptables -t nat -I PREROUTING 1 -p UDP ! -d 127.0.0.1 --dport 53 -j DNAT --to 127.0.0.1
 # ddclient
 iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) -d 127.0.0.1 --dport 53 -j ACCEPT
 iptables -A OUTPUT -p UDP -m owner --uid-owner $(id -u ddclient) --dport 53 -j ACCEPT
@@ -80,17 +80,22 @@ cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
-echo 'Section "Device"'                         >> /etc/X11/xorg.conf
-echo 'Identifier "radeon0"'                     >> /etc/X11/xorg.conf
-echo 'Driver "radeon"'                          >> /etc/X11/xorg.conf
-echo 'Option "SwapbuffersWait" "false"'         >> /etc/X11/xorg.conf
-echo 'Option "TearFree" "false"'		>> /etc/X11/xorg.conf
-echo 'Option "EXAVSync" "false"'		>> /etc/X11/xorg.conf
-echo 'Option "AccelMethod" "glamor"'            >> /etc/X11/xorg.conf
-echo 'Option "ColorTiling" "true"'		>> /etc/X11/xorg.conf
-echo 'Option "ColorTiling2D" "true"'		>> /etc/X11/xorg.conf
-echo 'EndSection'                               >> /etc/X11/xorg.conf
+echo 'Section "Device"'				>> /etc/X11/xorg.conf
+echo 'Identifier "radeon0"'			>> /etc/X11/xorg.conf
+echo 'Driver "radeon"'				>> /etc/X11/xorg.conf
+echo 'Option "SwapbuffersWait" "false"'		>> /etc/X11/xorg.conf
+echo 'Option "TearFree" "off"'			>> /etc/X11/xorg.conf
+echo 'Option "EXAVSync" "off"'			>> /etc/X11/xorg.conf
+echo 'Option "AccelMethod" "glamor"'		>> /etc/X11/xorg.conf
+echo 'Option "ColorTiling" "on"'		>> /etc/X11/xorg.conf
+echo 'Option "ColorTiling2D" "on"'		>> /etc/X11/xorg.conf
+echo 'Option "EnablePageFlip" "off"'		>> /etc/X11/xorg.conf
+echo 'Option "ShadowPrimary" "off"'		>> /etc/X11/xorg.conf
+echo 'Option "DRI" "3"'				>> /etc/X11/xorg.conf
+echo 'EndSection'				>> /etc/X11/xorg.conf
 echo >>  /etc/X11/xorg.conf
+
+echo high > /sys/class/drm/card0/device/power_dpm_force_performance_level
 
 sync
 echo 3 > /proc/sys/vm/drop_caches
