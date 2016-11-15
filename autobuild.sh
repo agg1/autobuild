@@ -4,10 +4,9 @@ prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,sync,size=22G / || true
-	mount -o remount,sync,exec,dev,suid /home || true
+	mount -o remount,exec,dev,suid /home || true
 	mount -o remount,sync,exec,dev,suid,size=22G /tmp/ || true
 	mount -o remount,sync,exec,dev,suid,size=22G /var/tmp/ || true
-	umount /etc || true
 
 	NEWDA="$(date +%Y%m%d-%s)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -53,9 +52,6 @@ prepare_portage() {
 	cd /usr/
 	tar -xf ${PTREE}
 	cd ${CADIR}
-
-	#/usr/local/bin/writable.sh /usr/local/portage
-	#cp -pR /home/catalyst/extra_overlay/* /usr/local/portage
 
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /var/tmp/catalyst/builds
