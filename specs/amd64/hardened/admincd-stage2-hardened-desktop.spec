@@ -28,14 +28,11 @@ boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
 boot/kernel/gentoo/use:
+	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	X
 	doc
 	gtk
-#	cairo
 	xcb
-#	zlib
-#	iconv
-#	sqlite
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -64,8 +61,6 @@ boot/kernel/gentoo/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
-#	fontconfig
-#	truetype
 	djvu
 	jpeg
 	jpeg2k
@@ -183,13 +178,19 @@ boot/kernel/gentoo/use:
 	mmx
 	sse
 	sse2
-#	python_targets_python2_7
-#	python_targets_python3_4
 	ntfsprogs
 	ntfsdecrypt
 	libusb
-        curl_ssl_gnutls
-	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	curl_ssl_openssl
+	zlib
+#       cairo
+#       zlib
+#       iconv
+#       sqlite
+#       python_targets_python2_7
+#       python_targets_python3_4
+#       fontconfig
+#       truetype
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware
