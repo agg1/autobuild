@@ -193,7 +193,7 @@ build_livecd_minimal() {
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
 	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
-	cp -pR /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 	rm -f ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/kerncache/${RELDA} ${SDDIR}/kerncache/latest
 }
@@ -218,7 +218,7 @@ build_livecd_admin() {
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
 	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
-	cp -pR /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 	rm -f ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/kerncache/${RELDA} ${SDDIR}/kerncache/latest
 }
@@ -243,7 +243,7 @@ build_livecd_desktop() {
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
 	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
 
-	cp -pR /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 	rm -f ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/kerncache/${RELDA} ${SDDIR}/kerncache/latest
 }
@@ -264,7 +264,7 @@ update_livecd_minimal() {
 	rm -f ${SDDIR}/minimal/latest
 	ln -sf ${SDDIR}/minimal/${RELDA} ${SDDIR}/minimal/latest
 
-	cp -pR /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 	rm -f ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/kerncache/${RELDA} ${SDDIR}/kerncache/latest
 }
@@ -285,7 +285,7 @@ update_livecd_admin() {
 	rm -f ${SDDIR}/admin/latest
 	ln -sf ${SDDIR}/admin/${RELDA} ${SDDIR}/admin/latest
 
-	cp -pR /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 	rm -f ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/kerncache/${RELDA} ${SDDIR}/kerncache/latest
 }
@@ -305,7 +305,7 @@ update_livecd_desktop() {
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
 	rm -f ${SDDIR}/desktop/latest
 
-	cp -pR /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 	rm -f ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/kerncache/${RELDA} ${SDDIR}/kerncache/latest
 	ln -sf ${SDDIR}/desktop/${RELDA} ${SDDIR}/desktop/latest
