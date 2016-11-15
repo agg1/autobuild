@@ -33,6 +33,8 @@ boot/kernel/gentoo/use:
 	-gtk
 	ntfsprogs
 	ntfsdecrypt
+        curl_ssl_gnutls
+	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware

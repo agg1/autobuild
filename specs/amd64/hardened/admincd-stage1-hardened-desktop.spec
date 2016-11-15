@@ -89,9 +89,9 @@ livecd/use:
 	dri
 	dri2
 	dri3
-    vaapi
-    vdpau
-    xa
+	vaapi
+	vdpau
+	xa
 	xv
 	xvmc
 	video_cards_amdgpu
@@ -169,6 +169,8 @@ livecd/use:
 	ntfsprogs
 	ntfsdecrypt
 	libusb
+        curl_ssl_gnutls
+	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 
 livecd/packages:
 	app-doc/doxygen
