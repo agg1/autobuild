@@ -1,5 +1,7 @@
 #!/bin/sh
 echo "### locketc()"
+rm -f /etc/.readonly 2>/dev/null
+
 if [ -e /etc/.readonly ] ; then
 	echo "already locked"
 else
