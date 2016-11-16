@@ -95,7 +95,7 @@ echo 'Option "DRI" "3"'				>> /etc/X11/xorg.conf
 echo 'EndSection'				>> /etc/X11/xorg.conf
 echo >>  /etc/X11/xorg.conf
 
-echo high > /sys/class/drm/card0/device/power_dpm_force_performance_level
+#echo high > /sys/class/drm/card0/device/power_dpm_force_performance_level
 
 sync
 echo 3 > /proc/sys/vm/drop_caches
