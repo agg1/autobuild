@@ -95,7 +95,7 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename match "$HOME/.drirc*" then permit
 	linux64-fsread: filename match "$HOME/.fonts*" then permit
 	linux64-fsread: filename match "$HOME/gnupg*" then permit
-	linux64-fsread: filename match "$HOME/.gtkrc-2.0*" then permit
+	linux64-fsread: filename match "$HOME/.gtkrc*" then permit
 	linux64-fsread: filename match "$HOME/.icons*" then permit
 	linux64-fsread: filename match "$HOME/.local/share*" then permit
 	linux64-fswrite: filename match "$HOME/.local/share*" then permit
