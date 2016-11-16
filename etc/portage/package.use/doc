@@ -21,6 +21,7 @@ x11-libs/libSM -doc
 x11-libs/libxcb -doc
 x11-libs/libXdmcp -doc
 dev-libs/icu -doc
+dev-libs/libusb -doc
 dev-lang/nasm -doc
 dev-util/cmake -doc
 dev-util/ninja -doc
