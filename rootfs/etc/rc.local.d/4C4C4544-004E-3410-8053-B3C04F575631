@@ -68,6 +68,7 @@ sleep 120
 # enable network and sync time
 ifconfig enp0s25 10.0.0.2/8
 /usr/local/bin/dhclient enp0s26u1u2u1u5
+sleep 5
 /usr/local/bin/timesync.sh
 
 # start proxies
@@ -95,10 +96,10 @@ echo 'Option "DRI" "3"'				>> /etc/X11/xorg.conf
 echo 'EndSection'				>> /etc/X11/xorg.conf
 echo >>  /etc/X11/xorg.conf
 
-# auto high
+# auto high, when set to auto with xorg started powersafe kicks in
 echo auto > /sys/class/drm/card0/device/power_dpm_force_performance_level
-# battery balanced performance
-echo battery > /sys/class/drm/card0/device/power_dpm_state
+# battery balanced performance, with xorg running powersafe kicks in regardless of state set, framebuffer sets mode to high
+echo performance > /sys/class/drm/card0/device/power_dpm_state
 
 sync
 echo 3 > /proc/sys/vm/drop_caches
