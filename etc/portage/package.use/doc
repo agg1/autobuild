@@ -6,6 +6,7 @@ dev-python/six -doc
 dev-python/Babel -doc
 dev-python/sphinx -latex
 dev-tex/xcolor -doc
+x11-libs/libvdpau -doc dri
 x11-libs/libXaw -doc
 x11-libs/libXmu -doc
 x11-libs/libX11 -doc
