@@ -29,6 +29,7 @@ boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
 boot/kernel/gentoo/use:
 	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+        -wayland
 	X
 	doc
 	gtk

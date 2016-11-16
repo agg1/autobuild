@@ -58,7 +58,6 @@ livecd/packages:
 	app-crypt/pinentry
 	app-editors/hexcurse
 	app-editors/hexedit
-	app-editors/mg
 	app-editors/nano
 	app-editors/vim
 	app-eselect/eselect-vi
