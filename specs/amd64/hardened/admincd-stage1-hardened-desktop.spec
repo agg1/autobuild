@@ -9,12 +9,17 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-udev
 	-wayland
+	gnutls
+	sasl
+	clang
 	X
 	doc
 	gtk
 	xcb
+	xkb
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -43,11 +48,13 @@ livecd/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
+	icu
 	djvu
 	jpeg
 	jpeg2k
 	mng
 	png
+	apng
 	svg
 	tiff
 	fluidsynth
@@ -55,14 +62,18 @@ livecd/use:
 	gstreamer
 	a52
 	aac
+	flac
 	lame
 	ladspa
 	ogg
 	openal
+	vorbis
+	mad
 	mp3
 	mp4
 	mpeg
 	theora
+	ffmpeg
 	x264
 	cdda
 	css
@@ -70,6 +81,7 @@ livecd/use:
 	dvd
 	oss
 	sdl
+	cups
 	scanner
 	joystick
 	sound
@@ -165,15 +177,10 @@ livecd/use:
 	ntfsdecrypt
 	libusb
 	curl_ssl_openssl
-	zlib
-#	cairo
-#	zlib
-#	iconv
-#	sqlite
-#	python_targets_python2_7
-#	python_targets_python3_4
-#	fontconfig
-#	truetype
+	cairo
+	imlib
+	sqlite
+	xetex
 
 livecd/packages:
 	app-doc/doxygen
@@ -191,7 +198,6 @@ livecd/packages:
 	app-admin/logrotate
 	app-admin/lsat
 	app-admin/makepasswd
-	app-admin/multilog-watch
 	app-admin/pass
 	app-admin/passook
 	app-admin/passwordsafe
@@ -353,7 +359,6 @@ livecd/packages:
 	media-libs/gst-plugins-base
 	media-libs/gst-plugins-good
 	media-libs/gst-plugins-ugly
-	media-libs/gst-plugins-vaapi
 	media-libs/openal
 	media-libs/libsdl
 	media-libs/libsdl2
