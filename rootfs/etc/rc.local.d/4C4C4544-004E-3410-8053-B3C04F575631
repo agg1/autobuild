@@ -56,18 +56,18 @@ iptables -A OUTPUT -p UDP -m owner --gid-owner $(id -g ddclient) -d 127.0.0.1 --
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 443 -j ACCEPT
 iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100 --dport 80 -j ACCEPT
 
-# mount lvm
+echo "MOUNT LVM"
 /usr/local/bin/mountlvm.sh
 
-# lauch qemu fw01
+echo "LAUNCH FW01"
 /usr/local/bin/fw01.sh
 
-# wait for fw01 blob to boot
+echo "WAItINT 120s for FW01"
 sleep 120
 
 # enable network and sync time
 ifconfig enp0s25 10.0.0.2/8
-/usr/local/bin/dhclient enp0s26u1u2u1u4
+/usr/local/bin/dhclient enp0s26u1u2u1u5
 /usr/local/bin/timesync.sh
 
 # start proxies
@@ -95,7 +95,10 @@ echo 'Option "DRI" "3"'				>> /etc/X11/xorg.conf
 echo 'EndSection'				>> /etc/X11/xorg.conf
 echo >>  /etc/X11/xorg.conf
 
-#echo high > /sys/class/drm/card0/device/power_dpm_force_performance_level
+# auto high
+echo auto > /sys/class/drm/card0/device/power_dpm_force_performance_level
+# battery balanced performance
+echo battery > /sys/class/drm/card0/device/power_dpm_state
 
 sync
 echo 3 > /proc/sys/vm/drop_caches
