@@ -262,6 +262,7 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-fsread: filename eq "/etc/fstab" then deny
 	linux64-fsread: filename match "/etc/fonts*" then permit
 	linux64-fsread: filename match "/etc/dconf/profile/user*" then permit
+	linux64-fsread: filename match "/etc/udev*" then permit
 	linux64-fsread: filename match "/etc/*" then deny
 	linux64-fsread: filename eq "/etc" then deny
 	linux64-fsread: filename match "*/usr/share/fonts*" then permit
