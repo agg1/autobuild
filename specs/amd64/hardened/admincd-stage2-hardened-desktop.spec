@@ -28,9 +28,10 @@ boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
 boot/kernel/gentoo/use:
-	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
 	-wayland
+	smp
 	gnutls
 	sasl
 	clang
@@ -69,6 +70,8 @@ boot/kernel/gentoo/use:
 	alsa_pcm_plugins_softvol
 	icu
 	djvu
+	bmp
+	gif
 	jpeg
 	jpeg2k
 	mng
@@ -93,8 +96,10 @@ boot/kernel/gentoo/use:
 	mpeg
 	theora
 	ffmpeg
+	xvid
 	x264
 	cdda
+	cddb
 	css
 	dvb
 	dvd

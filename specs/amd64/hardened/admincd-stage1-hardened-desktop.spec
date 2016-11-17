@@ -9,9 +9,10 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
 	-wayland
+	smp
 	gnutls
 	sasl
 	clang
@@ -50,6 +51,8 @@ livecd/use:
 	alsa_pcm_plugins_softvol
 	icu
 	djvu
+	bmp
+	gif
 	jpeg
 	jpeg2k
 	mng
@@ -74,8 +77,10 @@ livecd/use:
 	mpeg
 	theora
 	ffmpeg
+	xvid
 	x264
 	cdda
+	cddb
 	css
 	dvb
 	dvd
@@ -314,6 +319,7 @@ livecd/packages:
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
+	# broken with EGL dependency
 	dev-libs/DirectFB
 	dev-libs/gmp
 	dev-libs/libxml2
@@ -513,7 +519,8 @@ livecd/packages:
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less
-	sys-apps/lshw
+	# build error
+#	sys-apps/lshw
 	sys-apps/lsb-release
 	sys-apps/man-db
 	sys-apps/man-pages
