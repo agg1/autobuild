@@ -9,5 +9,5 @@ export CXXFLAGS="${CFLAGS} "
 export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 export PROFILE_IS_HARDENED=1
 export ACCEPT_KEYWORDS="~amd64"
-export USE="-awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz readline static-libs"
+export USE="-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz readline static-libs"
 # zlib issue
