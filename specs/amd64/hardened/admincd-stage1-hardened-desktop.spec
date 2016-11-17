@@ -388,7 +388,6 @@ livecd/packages:
 	media-sound/alsa-tools
 	media-sound/alsa-utils
 	media-sound/alsaplayer
-	media-sound/audacity
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
