@@ -1,3 +1,5 @@
+*/* ~amd64
+
 ### overrrides package.keywords
 =sys-devel/gcc-config-1.8-r1 ~amd64
 
