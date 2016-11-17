@@ -3,10 +3,10 @@
 prepare_system() {
 	echo "### prepare_system()"
 
-	mount -o remount,sync,size=22G / || true
+	mount -o remount,size=22G / || true
 	mount -o remount,exec,dev,suid /home || true
-	mount -o remount,sync,exec,dev,suid,size=22G /tmp/ || true
-	mount -o remount,sync,exec,dev,suid,size=22G /var/tmp/ || true
+	mount -o remount,exec,dev,suid,size=22G /tmp/ || true
+	mount -o remount,exec,dev,suid,size=22G /var/tmp/ || true
 
 	NEWDA="$(date +%Y%m%d-%s)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -48,6 +48,10 @@ prepare_portage() {
 
 	/usr/local/bin/writable.sh /usr/portage
 	touch /usr/portage/.prepared
+
+	/usr/local/bin/writable.sh /usr/local/portage
+	rm -rf /usr/local/portage/*
+	cp -pR /home/catalyst/extra_overlay/* /usr/local/portage
 
 	cd /usr/
 	tar -xf ${PTREE}
