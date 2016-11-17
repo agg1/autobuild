@@ -1,12 +1,15 @@
 #!/bin/sh -e
 
+[ -e /mnt/livecd/.writeable ] && echo "already prepared" && exit 1
+
 [ ! -e /home/seeds/portage/latest/portage-latest.tar.bz2 ] && echo "latest portage tree not found" && exit 1
+
+mount -o remount,rw /etc 2> /dev/null
+mount -o remount,exec /tmp 2> /dev/null
+mount -o remount,exec /var/tmp 2> /dev/null
 
 /usr/local/bin/writable.sh /mnt/livecd
 cd /usr ; tar -xf /home/seeds/portage/latest/portage-latest.tar.bz2
-
-mount -o remount,exec /tmp
-mount -o remount,exec /var/tmp
 
 mkdir -p /usr/portage/distfiles
 mount --bind /home/distfiles /usr/portage/distfiles
