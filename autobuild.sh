@@ -62,6 +62,7 @@ prepare_portage() {
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p /var/tmp/catalyst/snapshots
 	mkdir -p /var/tmp/catalyst/snapshot_cache
+	rm -rf /home/tmp/*
 	mkdir -p /home/tmp/builds/hardened
 	mkdir -p /home/tmp/packages/hardened
 	mkdir -p /home/tmp/snapshots
