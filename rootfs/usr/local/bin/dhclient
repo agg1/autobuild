@@ -1,3 +1,7 @@
 IFACE=$1
 [ -z "${IFACE}" ] && echo "interface error" && exit 1
 sg lanout -c "systrace -d /usr/local/etc/systrace -ia /sbin/dhclient -- -pf /var/run/dhclient.pid ${IFACE}"&
+sleep 3
+/usr/local/bin/timesync.sh
+sleep 1
+pkill -SIGHUP tor 2>/dev/null
