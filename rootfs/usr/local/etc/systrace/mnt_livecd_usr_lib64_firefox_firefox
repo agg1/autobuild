@@ -356,7 +356,6 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-mprotect: prot eq "PROT_READ|PROT_EXEC" then permit
 	linux64-mprotect: prot eq "PROT_NONE" then permit
 	linux64-mprotect: prot eq "PROT_READ" then permit
-	linux64-mmap: prot eq "PROT_READ|PROT_WRITE|PROT_EXEC" then permit
 	linux64-mmap: prot eq "PROT_READ|PROT_WRITE" then permit
 	linux64-mmap: prot eq "PROT_READ" then permit
 	linux64-mmap: prot eq "PROT_READ|PROT_EXEC" then permit
