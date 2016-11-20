@@ -11,3 +11,5 @@
 # ~* testing on any architecture
 # ** always visible
 
+net-analyzer/nessus-client **
+net-analyzer/ndsad **
