@@ -22,18 +22,22 @@ livecd/use:
 	zlib
 
 livecd/packages:
+	app-admin/checksec
 	app-admin/eselect
+	app-admin/genromfs
+	app-admin/grubconfig
 	app-admin/hddtemp
+	app-admin/ide-smart
 	app-admin/passook
 	app-admin/perl-cleaner
-	app-admin/pwgen
 	app-admin/python-updater
+	app-admin/superadduser
 	app-admin/syslog-ng
-	app-admin/sysstat
 	app-admin/testdisk
+	app-benchmarks/bonnie++
+	app-benchmarks/stress-ng
 	app-arch/bzip2
 	app-arch/cpio
-	app-arch/dpkg
 	app-arch/gzip
 	app-arch/mt-st
 	app-arch/p7zip
@@ -42,39 +46,36 @@ livecd/packages:
 	app-arch/tar
 	app-arch/unrar
 	app-arch/unzip
-	app-backup/duplicity
-	app-benchmarks/bonnie
-	app-benchmarks/bonnie++
-	app-benchmarks/dbench
-	app-benchmarks/iozone
-	app-benchmarks/stress
-	app-cdr/bashburn
-	app-cdr/bin2iso
 	app-cdr/cdrdao
 	app-cdr/cdrtools
 	app-cdr/dvd+rw-tools
-	app-cdr/nrg2iso
 	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
 	app-crypt/md5deep
 	app-crypt/pinentry
-	app-editors/hexcurse
-	app-editors/hexedit
 	app-editors/nano
 	app-editors/vim
 	app-eselect/eselect-vi
 	app-misc/ca-certificates
-	app-misc/colordiff
 	app-misc/mc
 	app-misc/pax-utils
 	app-misc/screen
 	app-misc/tmux
 	app-misc/zisofs-tools
+	app-portage/cfg-update
 	app-portage/eix
+	app-portage/esearch
+	app-portage/genlop
 	app-portage/gentoolkit
+	app-portage/gentoolkit-dev
+	app-portage/layman
+	app-portage/metagen
 	app-portage/mirrorselect
 	app-portage/portage-utils
+	app-portage/porthole
+	app-portage/repoman
+	app-portage/ufed
 	app-shells/bash-completion
 	app-shells/gentoo-bashcomp
 	app-text/tree
@@ -96,6 +97,7 @@ livecd/packages:
 	media-gfx/fbgrab
 	net-analyzer/gnu-netcat
 	net-analyzer/iptraf-ng
+	net-analyzer/macchanger
 	net-analyzer/netcat6
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
@@ -108,14 +110,11 @@ livecd/packages:
 	net-dialup/pptpclient
 	net-dialup/rp-pppoe
 	net-dns/bind-tools
-	net-dns/dnsmasq
 	net-firewall/iptables
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 	net-ftp/ftp
 	net-ftp/ncftp
-	net-irc/irssi
-	net-irc/irssi-fish
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
@@ -124,7 +123,6 @@ livecd/packages:
 	net-misc/ndisc6
 	net-misc/ntp
 	net-misc/openssh
-	net-misc/openvpn
 	net-misc/rdate
 	net-misc/rsync
 	net-misc/telnet-bsd
@@ -133,7 +131,6 @@ livecd/packages:
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
-	net-misc/yatb
 	net-wireless/b43-fwcutter
 ### Masked (~amd64)
 #	net-wireless/bcm43xx-fwcutter
@@ -192,7 +189,7 @@ livecd/packages:
 	sys-apps/usbutils
 	sys-apps/util-linux
 	sys-apps/which
-	sys-apps/x86info
+	sys-boot/syslinux
 	sys-block/aoetools
 	sys-block/fio
 #	sys-block/iscsitarget
@@ -238,6 +235,7 @@ livecd/packages:
 	sys-fs/reiserfsprogs
 	sys-fs/sshfs
 	sys-fs/squashfs-tools
+	sys-fs/sysfsutils
 	sys-fs/xfsprogs
 	sys-kernel/genkernel
 	sys-kernel/linux-headers
@@ -246,9 +244,8 @@ livecd/packages:
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
-	sys-power/acpid
-	sys-process/htop
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
+	virtual/pkgconfig
 	www-client/links

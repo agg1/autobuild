@@ -90,6 +90,7 @@ boot/kernel/gentoo/use:
 	ogg
 	openal
 	vorbis
+	wav
 	mad
 	mp3
 	mp4
@@ -98,6 +99,7 @@ boot/kernel/gentoo/use:
 	ffmpeg
 	xvid
 	x264
+	v4l
 	cdda
 	cddb
 	css
