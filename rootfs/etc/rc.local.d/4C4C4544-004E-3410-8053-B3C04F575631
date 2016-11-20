@@ -15,8 +15,7 @@ modprobe psmouse
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
 
 # passwords
-echo 'user:$6$rounds=5000000$9bDJfEHwH//FUm$P8sRwdeLLzTJk1eyRVr.op8.uSOz40YnwDtF.9euiM/yCCOmxDREPPN7FdlVJCRuzYEas6DoqthBrzt28wkL9.' | chpasswd -e
-echo 'user:$6$rounds=5000000$80Xhu/No$eRqjXrW8ZGVdenePhNZugz7XLPwzzMXKx.caJQN/CRLs5QNMP1bDrZh4.4RdOc5/XcODq/cyP4w4a1V76FFqm0' | chpasswd -e
+echo 'user:$6$rounds=5000000$Tvgfi/XBW3RR/g$0ssQsohZrtcrJ/dMzoYEvRER9ZRRI//rDw5.qC5I1qpT/HFbg.EaTgFmXBwTx1Md7VZMbsXtUeJEgBscgc3dE.' | chpasswd -e
 echo 'office:$6$rounds=5000000$2Cx9OWSpoHAZec3$CCBDiJtMVzBQeDKW0ruSHHivcUCTsdla1UqVYNNFcyJAMlD5d7Y7ligq3fTeruA7unxIzC0LGmiG5cplk9I0G0' | chpasswd -e
 echo 'gamer:$6$rounds=5000000$WPAMyx3hYH/nmSgR$m9oeDutTavXkMLJOTyAWWBkS99mit.ZNjsHScwk8VnBIZ7UPRXT0uE332IEolbsFjXtuvDrq9YdWtONGAWj6i/' | chpasswd -e
 
