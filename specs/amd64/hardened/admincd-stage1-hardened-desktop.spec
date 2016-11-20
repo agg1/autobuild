@@ -71,6 +71,7 @@ livecd/use:
 	ogg
 	openal
 	vorbis
+	wav
 	mad
 	mp3
 	mp4
@@ -79,6 +80,7 @@ livecd/use:
 	ffmpeg
 	xvid
 	x264
+	v4l
 	cdda
 	cddb
 	css
@@ -189,42 +191,42 @@ livecd/use:
 	xetex
 
 livecd/packages:
-	app-doc/doxygen
 	app-admin/apache-tools
 	app-admin/checksec
 	app-admin/chroot_safe
 	app-admin/chrootuid
 	app-admin/chrpath
 	app-admin/cpulimit
-	app-admin/denyhosts
-	app-admin/eselect
-	app-admin/fam
+	app-admin/diradm
+	app-admin/eselec
+	app-admin/evtxtoolst
+	app-admin/genromfs
+	app-admin/grubconfig
 	app-admin/hddtemp
 	app-admin/ide-smart
 	app-admin/logrotate
+	app-admin/logsentry
+	app-admin/mcelog
 	app-admin/lsat
-	app-admin/makepasswd
 	app-admin/pass
 	app-admin/passook
 	app-admin/passwordsafe
 	app-admin/paxtest
-	app-admin/perl-cleaner
-	app-admin/pprocm
 	app-admin/procinfo-ng
-	app-admin/psmon
-	app-admin/pwcrypt
-	app-admin/pwgen
+	app-admin/perl-cleaner
+	app-admin/python-updater
 	app-admin/sshguard
 	app-admin/superadduser
 	app-admin/syslog-ng
 	app-admin/syslog-summary
-	app-admin/sysstat
 	app-admin/testdisk
 	app-admin/tmpwatch
-	app-admin/verynice
+	app-admin/mktwpol
+	app-admin/tripwire
 	app-admin/whowatch
-	app-admin/python-updater
-	app-arch/alien
+	app-antivirus/clamav
+	app-antivirus/clamav-unofficial-sigs
+#	app-arch/alien
 	app-arch/bzip2
 	app-arch/cpio
 	app-arch/dpkg
@@ -233,30 +235,41 @@ livecd/packages:
 	app-arch/p7zip
 	app-arch/pbzip2
 	app-arch/rar
+#	app-arch/rpm
+	app-arch/sharutils
 	app-arch/tar
 	app-arch/unrar
 	app-arch/unzip
-	app-backup/duplicity
-	app-benchmarks/bonnie
+	app-backup/amanda
+	app-backup/bacula
 	app-benchmarks/bonnie++
-	app-benchmarks/dbench
 	app-benchmarks/httperf
-	app-benchmarks/iozone
-	app-benchmarks/stress
+	app-benchmarks/stress-ng
 	app-cdr/bashburn
 	app-cdr/bin2iso
+	app-cdr/burncdda
+	app-cdr/ccd2iso
 	app-cdr/cdrdao
 	app-cdr/cdrtools
+	app-cdr/cuetools
 	app-cdr/dvd+rw-tools
+	app-cdr/graveman
 	app-cdr/nrg2iso
+	app-cdr/pburn
+	app-cdr/poweriso
+	app-cdr/xdvdfs-tools
 	app-crypt/aescrypt
 	app-crypt/aespipe
 	app-crypt/bcrypt
 	app-crypt/bcwipe
+	app-crypt/efitools
 	app-crypt/gnupg
 	app-crypt/hashalot
+	app-crypt/johntheripper
 	app-crypt/md5deep
+	app-crypt/md6sum
 	app-crypt/pinentry
+	app-crypt/signify
 	app-dicts/aspell-de
 	app-dicts/aspell-de-alt
 	app-dicts/aspell-en
@@ -273,6 +286,8 @@ livecd/packages:
 	app-dicts/myspell-ru
 	app-doc/abs-guide
 	app-doc/autobook
+	app-doc/devmanual
+	app-doc/doxygen
 	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
@@ -280,28 +295,54 @@ livecd/packages:
 	app-editors/nano
 	app-editors/vim
 	app-editors/wxmedit
+#	app-emulation/fuse
+#	app-emulation/fuse-utils
+	app-emulation/spice
 	app-emulation/qemu
+	app-emulation/wine
+	app-emulation/xen-tools
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
 	app-forensics/afl
+	app-forensics/afflib
+	app-forensics/autopsy
+	app-forensics/chkrootkit
+	app-forensics/cmospwd
+	app-forensics/examiner
+	app-forensics/foremost
+	app-forensics/mac-robber
+	app-forensics/magicrescue
+	app-forensics/memdump
+	app-forensics/rdd
+	app-forensics/scalpel
+	app-forensics/sleuthkit
+	app-forensics/unhide
+	app-forensics/volatility
+	app-forensics/zzuf
+	app-misc/banner
 	app-misc/ca-certificates
-	app-misc/colordiff
 	app-misc/rmlint
+	app-misc/splitvt
 	app-misc/mc
 	app-misc/screen
 	app-misc/tmux
+	app-misc/xmind
 	app-misc/zisofs-tools
 	app-office/dia
+	app-office/dia2code
 	app-office/libreoffice
 	app-office/libreoffice-l10n
+	app-portage/cfg-update
 	app-portage/eix
+	app-portage/esearch
 	app-portage/genlop
 	app-portage/gentoolkit
 	app-portage/gentoolkit-dev
 	app-portage/layman
+	app-portage/metagen
 	app-portage/mirrorselect
 	app-portage/portage-utils
 	app-portage/porthole
@@ -310,6 +351,9 @@ livecd/packages:
 	app-shells/bash
 	app-shells/bash-completion
 	app-shells/gentoo-bashcomp
+	app-shells/zsh
+	app-shells/zsh-completions
+	app-shells/gentoo-zsh-completions
 	app-text/dos2unix
 	app-text/ghostscript-gpl
 	app-text/gtkspell
@@ -317,7 +361,14 @@ livecd/packages:
 	app-text/tree
 	app-text/wgetpaste
 	app-text/xpdf
+	app-text/docx2txt
+	app-text/html2text
+	app-text/odt2txt
+	app-text/rfcutil
 	app-vim/gentoo-syntax
+	dev-db/mysql
+	dev-db/sqlite
+	dev-db/postgresql
 	dev-lang/perl
 	dev-lang/python
 	# broken with EGL dependency
@@ -350,15 +401,23 @@ livecd/packages:
 	mail-client/thunderbird
 	mail-client/mailx
 	mail-client/mailx-support
+	mail-filter/clamassassin
+	mail-filter/spamassassin
+	mail-filter/opensmtpd-extras
 	mail-filter/procmail
-	mail-mta/msmtp
+	mail-mta/opensmtpd
+	#mail-mta/msmtp
 	media-fonts/dejavu
+	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/fbgrab
 	media-gfx/gimp
 	media-gfx/gtkam
+	media-gfx/imagemagick
 	media-gfx/inkscape
+	media-gfx/gqview
 	media-gfx/xsane
+	media-gfx/xv
 	media-libs/alsa-lib
 	media-libs/alsa-oss
 	media-libs/gstreamer
@@ -369,7 +428,6 @@ livecd/packages:
 	media-libs/openal
 	media-libs/libsdl
 	media-libs/libsdl2
-	media-libs/libtxc_dxtn
 	media-libs/mesa
 	media-libs/sdl-gfx
 	media-libs/sdl-image
@@ -388,12 +446,20 @@ livecd/packages:
 	media-sound/alsa-tools
 	media-sound/alsa-utils
 	media-sound/alsaplayer
+	media-sound/aumix
+	media-sound/cdparanoia
+	media-sound/mpc
+	media-sound/mpd
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
+	media-video/smplayer
+	media-video/vlc
+	dev-ruby/rdoc
 	net-analyzer/arpwatch
 	net-analyzer/fail2ban
 	net-analyzer/fping
+	net-analyzer/gnu-netcat
 	net-analyzer/ifstat
 	net-analyzer/ifstatus
 	net-analyzer/iftop
@@ -401,15 +467,22 @@ livecd/packages:
 	net-analyzer/knocker
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
+	net-analyzer/metasploit
+	net-analyzer/monitoring-plugins
+	net-analyzer/nagios
+	net-analyzer/nessus
 	net-analyzer/netcat6
 	net-analyzer/nmap
 	net-analyzer/ntopng
+	net-analyzer/snort
+	net-analyzer/oinkmaster
 	net-analyzer/tcpdump
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
 	net-analyzer/mtr
+	net-analyzer/wireshark
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
@@ -434,6 +507,7 @@ livecd/packages:
 	net-ftp/ftp
 	net-ftp/ncftp
 	net-ftp/oftpd
+	net-ftp/vsftpd
 	net-im/pidgin
 	net-irc/anope
 	net-irc/hexchat
@@ -441,12 +515,24 @@ livecd/packages:
 	net-irc/irssi-fish
 	net-irc/weechat
 	net-irc/znc
+	net-mail/dovecot
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
 	net-misc/ndisc6
+	net-misc/netkit-bootparamd
+	net-misc/netkit-bootpd
+	net-misc/netkit-fingerd
+	net-misc/netkit-routed
+	net-misc/netkit-rsh
+	net-misc/netkit-rusers
+	net-misc/netkit-rwall
+	net-misc/netkit-rwho
+	net-misc/netkit-talk
+	net-misc/netkit-telnetd
+	net-misc/netkit-timed
 	net-misc/ntp
 #	net-misc/openntpd
 	net-misc/openssh
@@ -456,8 +542,8 @@ livecd/packages:
 	net-misc/rdesktop
 	net-misc/rsync
 	net-misc/socat
+	net-misc/spice-gtk
 	net-misc/sstp-client
-	net-misc/telnet-bsd
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
@@ -470,26 +556,47 @@ livecd/packages:
 	net-misc/yatb
 	net-misc/youtube-dl
 	net-misc/youtube-viewer
-#	net-nds/ypserv
-#	net-nds/openldap
+	net-nds/adtool
+	net-nds/openldap
+	net-nds/ypserv
 #	net-news/
 	net-p2p/transmission
 	net-print/cups
+	net-print/cups-pdf
 	net-proxy/dante
 	net-proxy/privoxy
 	net-proxy/squid
 	net-proxy/torsocks
 	net-proxy/tsocks
-#	net-voip/
+	net-voip/ekiga
+	net-voip/gnugk
+	net-wireless/aircrack-ng
+	net-wireless/airsnort
+	net-wireless/airtraf
 	net-wireless/b43-fwcutter
 #	net-wireless/bcm43xx-fwcutter
+	net-wireless/horst
 	net-wireless/hostap-utils
 	net-wireless/hostapd
 	net-wireless/iw
+	net-wireless/mdk
+	net-wireless/mfoc
+	net-wireless/pyrit
 	net-wireless/rfkill
+	net-wireless/wepattack
+	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 #	sci-*/
+	sci-mathematics/octave
+	sci-calculators/pcalc
+	sci-calculators/qalculator
+	sci-calculators/qalculate-bases
+	sci-calculators/qalculate-currency
+	sci-calculators/qalculate-gtk
+	sci-calculators/qalculate-units
+	sci-calculators/units
+	sci-calculators/wcalc
 	sci-visualization/gnuplot
 	sys-apps/arrayprobe
 	sys-apps/acl
@@ -520,7 +627,7 @@ livecd/packages:
 	sys-apps/keyutils
 	sys-apps/less
 	# build error
-#	sys-apps/lshw
+	sys-apps/lshw
 	sys-apps/lsb-release
 	sys-apps/man-db
 	sys-apps/man-pages
@@ -544,11 +651,9 @@ livecd/packages:
 	sys-apps/usbutils
 	sys-apps/util-linux
 	sys-apps/which
-	sys-apps/x86info
+	sys-auth/skey
 	sys-block/aoetools
-	sys-block/disktype
 	sys-block/fio
-	sys-block/gparted
 #	sys-block/iscsitarget
 	sys-block/mpt-status
 	sys-block/mtx
@@ -610,7 +715,11 @@ livecd/packages:
 	sys-kernel/genkernel
 	sys-kernel/linux-docs
 	sys-kernel/linux-headers
-#	sys-libs
+	sys-libs/db
+	sys-libs/gdbm
+	sys-libs/gpm
+	sys-libs/libkudzu
+	sys-libs/libsmbios
 	sys-power/acpid
 	sys-process/at
 	sys-process/atop
@@ -621,13 +730,15 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
-#	virtual/opengl
-#	virtual/jdk
+	virtual/opengl
+	virtual/jre
+	virtual/jdk
 	virtual/pkgconfig
 #	www-apache/
 #	www-apps/
 	www-client/firefox
 	www-client/links
+	www-client/netsurf
 	www-client/w3m
 #	www-misc/
 #	www-plugins/
@@ -669,7 +780,6 @@ livecd/packages:
 	x11-misc/pcmanfm
 	x11-misc/xautolock
 	x11-misc/xtrlock
-#	x11-misc/zim
 #	x11-plugins/
 #	x11-proto/
 	x11-terms/xterm
