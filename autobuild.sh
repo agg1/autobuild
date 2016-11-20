@@ -92,34 +92,6 @@ sync_portage() {
 	#emerge --sync
 }
 
-fetch_distfiles() {
-	echo "### fetch_distfiles()"
-
-	mkdir -p /var/tmp/catalyst/builds/hardened
-
-	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-20160908.tar.bz2* /var/tmp/catalyst/builds/hardened
-	#cp livecd-stage3
-
-	iptables -P OUTPUT ACCEPT
-	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONF} -C version_stamp=$STAMP
-	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
-	#\ source_subpath=hardened/stage3-amd64-hardened+nomultilib-20160908.tar.bz2
-	iptables -P OUTPUT DROP
-
-	rm -f /var/tmp/catalyst/builds/hardened/*
-}
-
-#fetch_all() {
-#	echo "### fetch_all()"
-#	PKLIST=$(equery l -p --format='$category/$name' '*')
-#	emerge -f $PKLIST
-#	chown portage:portage /usr/portage/distfiles/*
-#	chmod 644 /usr/portage/distfiles/*
-#
-#	equery l -p '*'
-#	equery l -o '*'
-#}
-
 clean_portage() {
 	echo "### clean_portage()"
 
