@@ -10,8 +10,14 @@ export PORTAGE_COMPRESS="bzip2"
 export PORTAGE_COMPRESS_FLAGS="-1"
 export PROFILE_IS_HARDENED=1
 
+# check that bind mounts are set and portage trees are in place
 [ ! -e /usr/writeable ] && /usr/local/bin/prepareusrupdate.sh /media/stick/container/seeds/portage/20161118-1479508385/portage-latest.tar.bz2
-[ ! -e /usr/writeable ] && mkdir -p /usr/portage/packages ; mount --bind /media/stick/container/packages-desktop /usr/portage/packages
+if [ ! -e /usr/writeable ] ; then
+	mkdir -p /usr/portage/distfiles
+	mkdir -p /usr/portage/packages
+	mount --bind /media/stick/container/packages-desktop /usr/portage/packages
+	mount --bind /home/distfiles /usr/portage/distfiles
+fi
 
 cd /usr/src
 tar -xf /home/distfiles/linux-4.6.tar.xz
@@ -20,4 +26,5 @@ cp /media/stick/container/catalyst/etc/portage/kconfig /usr/src/linux/.config
 #export KBUILD_OUTPUT=
 
 rm -f /etc/portage/package.use/._cfg*
-${EMERGE} $(cat pkg.app-admin.txt | grep -v '^#')
+cd /media/stick/container/catalyst
+${EMERGE} $(cat pkg.list | grep -v '^#')
