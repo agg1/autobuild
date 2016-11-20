@@ -1,5 +1,6 @@
 # break circular dependencies with doc USE_FLAG set
 app-doc/doxygen -doc dot
+dev-python/ipython -doc
 dev-python/jinja -doc
 dev-python/pygments -doc
 dev-python/six -doc
@@ -26,3 +27,20 @@ dev-lang/nasm -doc
 dev-util/cmake -doc
 dev-util/ninja -doc
 media-libs/fontconfig -doc
+dev-ruby/racc -doc
+dev-ruby/json -doc
+dev-ruby/mustache -doc
+dev-ruby/rdoc -doc
+dev-ruby/rake -doc
+dev-ruby/rdiscount -doc
+dev-ruby/rack -doc
+dev-ruby/robots -doc
+dev-ruby/msgpack -doc
+dev-ruby/pg -doc
+dev-ruby/sqlite3 -doc
+dev-ruby/postgres_ext -doc
+dev-ruby/metasploit-concern -doc
+dev-ruby/metasploit-model -doc
+dev-ruby/metasploit_data_models -doc
+dev-ruby/actionpack -doc
+net-voip/gnugk -doc
