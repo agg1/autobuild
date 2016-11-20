@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 libressl ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
 	-doc
@@ -18,7 +18,7 @@ livecd/use:
 	sasl
 	ntfsprogs
 	ntfsdecrypt
-	curl_ssl_openssl
+	curl_ssl_libressl
 	zlib
 
 livecd/packages:
@@ -87,8 +87,7 @@ livecd/packages:
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
-	dev-libs/openssl
-#	dev-libs/libressl
+	dev-libs/libressl
 	dev-python/pycrypto
 	dev-util/catalyst
 	dev-util/pkgconfig
