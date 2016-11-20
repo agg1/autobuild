@@ -6,6 +6,7 @@ hostname testing
 chmod 700 /mnt/cdrom /mnt/gentoo /mnt/key
 chmod 600 /mnt/image.squashfs
 chmod 755 /
+mount -o remount,noexec /dev/ 2>/dev/null
 mount -o remount,noexec /run 2>/dev/null
 mount -o remount,sync / 2>/dev/null
 mount -o remount,ro /mnt/livecd/ 2>/dev/null
