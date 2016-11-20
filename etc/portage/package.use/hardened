@@ -13,4 +13,5 @@ sys-apps/net-tools hostname arp
 sys-apps/pcsc-lite libusb -python -udev
 app-misc/rmlint -X
 app-text/ghostscript-gpl -gtk
-
+app-emulation/wine staging -oss
+sys-libs/zlib minizip
