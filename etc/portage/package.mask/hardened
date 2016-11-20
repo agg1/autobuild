@@ -11,3 +11,7 @@ gnome-base/gvfs
 >=x11-libs/gtk+-3.0
 >x11-misc/xtrlock-2.3
 x11-drivers/xf86-input-evdev
+>=app-office/homebank-5.0.0
+>=net-ftp/vsftpd-3.0.0
+app-arch/alien
+app-arch/rpm
