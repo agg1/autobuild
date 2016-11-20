@@ -42,12 +42,12 @@ fetch_catalyst() {
 fetch_emerge() {
 	echo "### fetch_emerge()"
 	
-	find /etc/portage | grep '._cfg' | xargs -0 /bin/rm -f
+	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 	PKLIST=$(equery l -p --format='$category/$name' '*')
 	for p in $PKLIST ; do 
 		emerge --nodeps --noreplace -f $p || echo $p >> fetch-error.log
 	done
-	find /etc/portage | grep '._cfg' | xargs -0 /bin/rm -f
+	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 
 	chown root:portage /usr/portage/distfiles/*
 	chmod 644 /usr/portage/distfiles/*
