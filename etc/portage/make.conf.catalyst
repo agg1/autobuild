@@ -18,6 +18,6 @@ MAKEOPTS="-j16"
 ACCEPT_LICENSE="-* @FREE"
 #FEATURES="userfetch userpriv candy"
 ACCEPT_KEYWORDS="~amd64"
-USE="${USE} -awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl libressl curl_ssl_gnutls socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs"
+USE="${USE} -awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs"
 # crypt cryptsetup modules fbcon gmp xml ncurses lvm1
 PROFILE_IS_HARDENED=1
