@@ -12,16 +12,23 @@ if [ ! -e /usr/writeable ] ; then
 	mount --bind /home/distfiles /usr/portage/distfiles
 fi
 
-# fetch with ftp, should suffice usually but might miss some distfiles if not done regularly
-fetch_ftp() {
-	echo "### fetch_ftp()"
-	
-	cd /home/distfiles
-	FTPLIST=$(sg portage -c 'ncftpls -u ftp -p ftp ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/')
-	for f in $FTPLIST ; do
-		sg portage -c "ncftpget -u ftp -p ftp -F ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/$f"
-		#sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/$f"
-	done
+## fetch with ftp, should suffice usually but might miss some distfiles if not done regularly
+#fetch_ftp() {
+#	echo "### fetch_ftp()"
+#	
+#	cd /home/distfiles
+#	FTPLIST=$(sg portage -c 'ncftpls -u ftp -p ftp ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/')
+#	for f in $FTPLIST ; do
+#		echo $f
+#		sg portage -c "ncftpget -u ftp -p ftp -F ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/$f"
+#		sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/$f"
+#	done
+#}
+
+# 
+fetch_wget() {
+	echo "### fetch_wget()"
+	sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/*"
 }
 
 # fetch with catalyst, only those distfiles are fetched which will be included with dvd release
@@ -38,6 +45,7 @@ fetch_catalyst() {
 	rm -f /var/tmp/catalyst/builds/hardened/*
 }
 
+### WEEKLY
 # fetch with emerge, might miss some distfiles if use flag or other restrictions apply
 fetch_emerge() {
 	echo "### fetch_emerge()"
@@ -45,7 +53,7 @@ fetch_emerge() {
 	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 	PKLIST=$(equery l -p --format='$category/$name' '*')
 	for p in $PKLIST ; do 
-		emerge --nodeps --noreplace -f $p || echo $p >> fetch-error.log
+		emerge --ignore-default-opts --jobs=1 --nodeps --noreplace -f $p || echo $p >> fetch-error.log
 	done
 	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 
