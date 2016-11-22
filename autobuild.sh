@@ -41,6 +41,7 @@ prepare_system() {
 	mkdir -p ${SDDIR}/minimal/${RELDA}
 	mkdir -p ${SDDIR}/portage/${RELDA}
 	mkdir -p ${SDDIR}/kerncache/${RELDA}
+	mkdir -p ${SDDIR}/logs/${RELDA}
 }
 
 prepare_portage() {
@@ -121,7 +122,7 @@ build_seed_boot() {
 	echo "### build_seed_boot()"
 
 	clean_stage
-	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-20160908.tar.bz2* /var/tmp/catalyst/builds/hardened
+	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-libressl.tar.bz2* /var/tmp/catalyst/builds/hardened
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONB} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
@@ -135,7 +136,7 @@ build_seed_init() {
 	echo "### build_seed_init()"
 
 	clean_stage
-	cp ${SDDIR}/boot/${LATEST}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/boot/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
@@ -149,7 +150,7 @@ build_livecd_minimal() {
 	echo "### build_livecd_minimal()"
 
 	clean_stage
-	cp ${SDDIR}/init/${LATEST}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/init/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
@@ -170,7 +171,7 @@ build_livecd_admin() {
 	echo "### build_livecd_admin()"
 
 	clean_stage
-	cp ${SDDIR}/init/${LATEST}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/init/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
@@ -191,7 +192,7 @@ build_livecd_desktop() {
 	echo "### build_livecd_desktop()"
 
 	clean_stage
-	cp ${SDDIR}/init/${LATEST}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/init/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
