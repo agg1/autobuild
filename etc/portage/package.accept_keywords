@@ -1,4 +1,14 @@
-*/* ~amd64
+#*/* ~amd64
+
+#requied to hook in libressl which is still associated with ~testing
+#glady few packages rely on libressl in seed stage
+dev-libs/libressl ~amd64
+net-misc/iputils ~amd64
+net-misc/openssh ~amd64
+net-misc/wget ~amd64
+dev-lang/python ~amd64
+dev-lang/python-exec ~amd64
+app-eselect/eselect-python ~amd64
 
 ### overrrides package.keywords
 =sys-devel/gcc-config-1.8-r1 ~amd64
