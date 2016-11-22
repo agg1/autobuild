@@ -9,15 +9,13 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl libressl curl_ssl_libressl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
 	-doc
 	-gtk
-	gnutls
-	sasl
+	-ntfsdecrypt
 	ntfsprogs
-	ntfsdecrypt
 	zlib
 
 livecd/packages:
@@ -58,7 +56,7 @@ livecd/packages:
 	app-misc/ca-certificates
 	app-misc/mc
 	app-misc/pax-utils
-	app-misc/screen
+#	app-misc/screen
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
@@ -91,6 +89,8 @@ livecd/packages:
 	dev-util/pkgconfig
 	dev-util/shc
 	dev-vcs/git
+	mail-client/mailx
+	mail-mta/msmtp
 	media-gfx/fbgrab
 	net-analyzer/gnu-netcat
 	net-analyzer/iptraf-ng

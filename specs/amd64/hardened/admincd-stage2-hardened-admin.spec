@@ -28,15 +28,13 @@ boot/kernel/gentoo/sources: vanilla-sources
 boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
 
 boot/kernel/gentoo/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl libressl curl_ssl_libressl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
 	-doc
 	-gtk
-	gnutls
-	sasl
+	-ntfsdecrypt
 	ntfsprogs
-	ntfsdecrypt
 	zlib
 
 #boot/kernel/gentoo/packages:
