@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 libressl ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl libressl curl_ssl_libressl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
 	-doc
@@ -18,7 +18,6 @@ livecd/use:
 	sasl
 	ntfsprogs
 	ntfsdecrypt
-	curl_ssl_libressl
 	zlib
 
 livecd/packages:
@@ -56,7 +55,6 @@ livecd/packages:
 	app-crypt/pinentry
 	app-editors/nano
 	app-editors/vim
-	app-eselect/eselect-vi
 	app-misc/ca-certificates
 	app-misc/mc
 	app-misc/pax-utils
@@ -102,7 +100,6 @@ livecd/packages:
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
-#	net-dialup/globespan-adsl
 	net-analyzer/nmap
 	net-dialup/mingetty
 	net-dialup/minicom
@@ -131,17 +128,13 @@ livecd/packages:
 	net-misc/wget
 	net-misc/whois
 	net-wireless/b43-fwcutter
-### Masked (~amd64)
-#	net-wireless/bcm43xx-fwcutter
 	net-wireless/iw
 	net-wireless/rfkill
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-#	sys-apps/apmd
 	sys-apps/arrayprobe
 	sys-apps/acl
 	sys-apps/attr
-#	sys-apps/busybox
 	sys-apps/cciss_vol_status
 	sys-apps/chname
 	sys-apps/coreutils
@@ -191,7 +184,6 @@ livecd/packages:
 	sys-boot/syslinux
 	sys-block/aoetools
 	sys-block/fio
-#	sys-block/iscsitarget
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
