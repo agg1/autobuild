@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 libressl ssl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl libressl curl_ssl_libressl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-wayland
 	smp
@@ -183,7 +183,6 @@ livecd/use:
 	ntfsprogs
 	ntfsdecrypt
 	libusb
-	curl_ssl_libressl
 	cairo
 	imlib
 	sqlite
@@ -198,8 +197,8 @@ livecd/packages:
 	app-admin/chrpath
 	app-admin/cpulimit
 	app-admin/diradm
-	app-admin/eselec
-	app-admin/evtxtoolst
+	app-admin/eselect
+	app-admin/evtxtools
 	app-admin/genromfs
 	app-admin/grubconfig
 	app-admin/hddtemp
@@ -226,7 +225,6 @@ livecd/packages:
 	app-admin/whowatch
 	app-antivirus/clamav
 	app-antivirus/clamav-unofficial-sigs
-#	app-arch/alien
 	app-arch/bzip2
 	app-arch/cpio
 	app-arch/dpkg
@@ -235,7 +233,6 @@ livecd/packages:
 	app-arch/p7zip
 	app-arch/pbzip2
 	app-arch/rar
-#	app-arch/rpm
 	app-arch/sharutils
 	app-arch/tar
 	app-arch/unrar
@@ -295,8 +292,6 @@ livecd/packages:
 	app-editors/nano
 	app-editors/vim
 	app-editors/wxmedit
-#	app-emulation/fuse
-#	app-emulation/fuse-utils
 	app-emulation/spice
 	app-emulation/qemu
 	app-emulation/wine
@@ -383,7 +378,6 @@ livecd/packages:
 	dev-util/cloc
 	dev-util/cmake
 	dev-util/indent
-#	dev-util/kdbg
 	dev-util/ltrace
 	dev-util/pkgconfig
 	dev-util/shc
@@ -533,7 +527,6 @@ livecd/packages:
 	net-misc/netkit-telnetd
 	net-misc/netkit-timed
 	net-misc/ntp
-#	net-misc/openntpd
 	net-misc/openssh
 	net-misc/openvpn
 	net-misc/radvd
@@ -558,7 +551,6 @@ livecd/packages:
 	net-nds/adtool
 	net-nds/openldap
 	net-nds/ypserv
-#	net-news/
 	net-p2p/transmission
 	net-print/cups
 	net-print/cups-pdf
@@ -573,7 +565,6 @@ livecd/packages:
 	net-wireless/airsnort
 	net-wireless/airtraf
 	net-wireless/b43-fwcutter
-#	net-wireless/bcm43xx-fwcutter
 	net-wireless/horst
 	net-wireless/hostap-utils
 	net-wireless/hostapd
@@ -586,7 +577,6 @@ livecd/packages:
 	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-#	sci-*/
 	sci-mathematics/octave
 	sci-calculators/pcalc
 	sci-calculators/qalculator
@@ -600,7 +590,6 @@ livecd/packages:
 	sys-apps/arrayprobe
 	sys-apps/acl
 	sys-apps/attr
-#	sys-apps/busybox
 	sys-apps/cciss_vol_status
 	sys-apps/chname
 	sys-apps/coreutils
@@ -653,7 +642,6 @@ livecd/packages:
 	sys-auth/skey
 	sys-block/aoetools
 	sys-block/fio
-#	sys-block/iscsitarget
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
@@ -686,8 +674,6 @@ livecd/packages:
 	sys-devel/llvm
 	sys-devel/make
 	sys-devel/patch
-#	sys-fabric/
-#	sys-freebsd/
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
 	sys-fs/ddrescue
@@ -733,14 +719,10 @@ livecd/packages:
 	virtual/jre
 	virtual/jdk
 	virtual/pkgconfig
-#	www-apache/
-#	www-apps/
 	www-client/firefox
 	www-client/links
 	www-client/netsurf
 	www-client/w3m
-#	www-misc/
-#	www-plugins/
 	www-servers/fnord
 	www-servers/nginx
 	x11-apps/appres
@@ -772,17 +754,12 @@ livecd/packages:
 	x11-base/xorg-drivers
 	x11-base/xorg-server
 	x11-base/xorg-x11
-#	x11-drivers/
 	x11-libs/libva
 	x11-misc/i3status
 	x11-misc/openbox-menu
 	x11-misc/pcmanfm
 	x11-misc/xautolock
 	x11-misc/xtrlock
-#	x11-plugins/
-#	x11-proto/
 	x11-terms/xterm
 	x11-wm/i3
 	x11-wm/openbox
-#	xfce-base/
-#	xfce-extra/
