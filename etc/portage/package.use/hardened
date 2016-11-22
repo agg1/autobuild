@@ -1,5 +1,6 @@
+#*/* ssl openssl libressl curl_ssl_libressl -gcrypt
+#dev-libs/openssl -bindist
 net-misc/openssh -bindist
-dev-libs/openssl -bindist
 dev-libs/glib -mime -utils
 dev-libs/libxml2 python
 dev-vcs/git -gtk gpg curl subversion cvs webdav
@@ -15,3 +16,8 @@ app-misc/rmlint -X
 app-text/ghostscript-gpl -gtk
 app-emulation/wine staging -oss
 sys-libs/zlib minizip
+net-print/cups -ssl
+sys-block/partimage -ssl
+mail-mta/nullmailer -ssl
+net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
+net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle

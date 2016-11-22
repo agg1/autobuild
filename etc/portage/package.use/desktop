@@ -24,3 +24,8 @@ net-analyzer/metasploit -java
 dev-ruby/activerecord postgres
 net-libs/opal sip sipim
 net-wireless/aircrack-ng -airdrop-ng
+net-misc/asterisk -calendar
+app-editors/emacs -ssl
+app-emulation/wine staging -oss -ssl
+net-analyzer/wireshark -ssl
+net-irc/weechat -ssl
