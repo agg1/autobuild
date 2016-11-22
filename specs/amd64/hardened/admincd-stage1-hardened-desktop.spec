@@ -9,12 +9,10 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde hardened urandom ipv6 ssl libressl curl_ssl_libressl socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-wayland
 	smp
-	gnutls
-	sasl
 	clang
 	X
 	doc
@@ -181,7 +179,7 @@ livecd/use:
 	sse
 	sse2
 	ntfsprogs
-	ntfsdecrypt
+	-ntfsdecrypt
 	libusb
 	cairo
 	imlib
@@ -295,14 +293,14 @@ livecd/packages:
 	app-emulation/spice
 	app-emulation/qemu
 	app-emulation/wine
-	app-emulation/xen-tools
+#	app-emulation/xen-tools
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
 	app-forensics/afl
-	app-forensics/afflib
+#	app-forensics/afflib
 	app-forensics/autopsy
 	app-forensics/chkrootkit
 	app-forensics/cmospwd
@@ -322,7 +320,7 @@ livecd/packages:
 	app-misc/rmlint
 	app-misc/splitvt
 	app-misc/mc
-	app-misc/screen
+#	app-misc/screen
 	app-misc/tmux
 	app-misc/xmind
 	app-misc/zisofs-tools
@@ -463,7 +461,7 @@ livecd/packages:
 	net-analyzer/metasploit
 	net-analyzer/monitoring-plugins
 	net-analyzer/nagios
-	net-analyzer/nessus
+#	net-analyzer/nessus
 	net-analyzer/netcat6
 	net-analyzer/nmap
 	net-analyzer/ntopng
@@ -496,17 +494,17 @@ livecd/packages:
 	net-firewall/psad
 	net-fs/cifs-utils
 	net-fs/nfs-utils
-	net-ftp/filezilla
+#	net-ftp/filezilla
 	net-ftp/ftp
 	net-ftp/ncftp
 	net-ftp/oftpd
-	net-ftp/vsftpd
+#	net-ftp/vsftpd
 	net-im/pidgin
 	net-irc/anope
-	net-irc/hexchat
+#	net-irc/hexchat
 	net-irc/irssi
 	net-irc/irssi-fish
-	net-irc/weechat
+#	net-irc/weechat
 	net-irc/znc
 	net-mail/dovecot
 	net-misc/bridge-utils
@@ -533,13 +531,13 @@ livecd/packages:
 	net-misc/rdate
 	net-misc/rdesktop
 	net-misc/rsync
-	net-misc/socat
+#	net-misc/socat
 	net-misc/spice-gtk
 	net-misc/sstp-client
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
-	net-misc/vpnc
+#	net-misc/vpnc
 	net-misc/wakeonlan
 	net-misc/wol
 	net-misc/wget
@@ -556,25 +554,25 @@ livecd/packages:
 	net-print/cups-pdf
 	net-proxy/dante
 	net-proxy/privoxy
-	net-proxy/squid
+#	net-proxy/squid
 	net-proxy/torsocks
 	net-proxy/tsocks
-	net-voip/ekiga
-	net-voip/gnugk
+#	net-voip/ekiga
+#	net-voip/gnugk
 	net-wireless/aircrack-ng
 	net-wireless/airsnort
 	net-wireless/airtraf
 	net-wireless/b43-fwcutter
 	net-wireless/horst
 	net-wireless/hostap-utils
-	net-wireless/hostapd
+#	net-wireless/hostapd
 	net-wireless/iw
 	net-wireless/mdk
 	net-wireless/mfoc
-	net-wireless/pyrit
+#	net-wireless/pyrit
 	net-wireless/rfkill
-	net-wireless/wepattack
-	net-wireless/wepdecrypt
+#	net-wireless/wepattack
+#	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 	sci-mathematics/octave
@@ -610,7 +608,7 @@ livecd/packages:
 	sys-apps/groff
 	sys-apps/hdparm
 	sys-apps/hwsetup
-	sys-apps/ipmitool
+#	sys-apps/ipmitool
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less
