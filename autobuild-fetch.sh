@@ -25,12 +25,28 @@ fi
 #	done
 #}
 
-# 
+# same as fetch_ftp() but directory listing is only done once with it
 fetch_wget() {
 	echo "### fetch_wget()"
 	sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/*"
 }
 
+### DAILY
+# sync gentoo git repositories
+fetch_portage() {
+	# 5d3f2c71155c8d813976a376507a8dbf31be6a8c
+	echo "### fetch_portage()"
+
+	GLIST=$(find /home/source/portage -maxdepth 2 -type d )
+	for g in $GLIST ; do
+		[ ! -e ${g}/.git ] && continue
+		echo "syncing ${g}"
+		cd ${g} ; git reset --hard ; git clean -f ; git fsck
+		sg wanout -c 'git pull --rebase'
+	done
+}
+
+### WEEKLY
 # fetch with catalyst, only those distfiles are fetched which will be included with dvd release
 fetch_catalyst() {
 	echo "### fetch_catalyst()"
@@ -39,7 +55,8 @@ fetch_catalyst() {
 	cp /media/stick/container/seeds/init/20161117-1479426114/stage3-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
 
 	iptables -P OUTPUT ACCEPT
-	catalyst -v -F -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c /media/stick/container/catalyst/catalystrc -C version_stamp=latest source_subpath=hardened/hardened/stage3-amd64-latest.tar.bz2
+	catalyst -v -c /media/stick/container/catalyst/catalystrc -s latest
+	catalyst -v -F -f /media/stick/container/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c /media/stick/container/catalyst/catalystrc -C version_stamp=latest source_subpath=hardened/stage3-amd64-latest.tar.bz2
 	iptables -P OUTPUT DROP
 
 	rm -f /var/tmp/catalyst/builds/hardened/*
@@ -57,7 +74,7 @@ fetch_emerge() {
 	done
 	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 
-	chown root:portage /usr/portage/distfiles/*
+	chown portage:portage /usr/portage/distfiles/*
 	chmod 644 /usr/portage/distfiles/*
 }
 
