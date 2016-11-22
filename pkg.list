@@ -338,3 +338,9 @@ www-servers/tomcat
 #x11-wm/
 #xfce-base/
 #xfce-extra/
+#sys-block/iscsitarget
+#net-misc/openntpd
+#app-arch/alien
+#app-arch/rpm
+#app-emulation/fuse
+#app-emulation/fuse-utils
