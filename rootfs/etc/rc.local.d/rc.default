@@ -63,6 +63,8 @@ for i in $(ifconfig -a | sed 's/[ \t].*//;/^$/d' | sed 's/://g' | grep -v '^lo$'
 done
 
 # default user and groups
+LSHELL=/bin/sh
+[ -e /bin/zsh ] && LSHELL=/bin/zsh
 groupadd -g 3333333 lanout
 groupadd -g 8888888 wanout
 groupadd -g 44444440 fw01
@@ -74,11 +76,10 @@ groupadd -g 77777777 gamer
 groupadd -g 1000 testing
 groupadd -g 35 games
 useradd -N -M -u 44444440 -g fw01 fw01
-useradd -N -M -u 66669999 -g user user
-useradd -N -M -u 99996666 -g office office
-useradd -N -M -u 77777777 -g gamer gamer
-useradd -u 1000 -g testing testing
-
+useradd -s $LSHELL -N -M -u 66669999 -g user user
+useradd -s $LSHELL -N -M -u 99996666 -g office office
+useradd -s $LSHELL -N -M -u 77777777 -g gamer gamer
+useradd -s $LSHELL -u 1000 -g testing testing
 usermod -a -G portage,wheel,wanout,lanout,public,documents user
 usermod -a -G wanout,lanout,public,documents office
 usermod -a -G games,input,audio,video,wanout,public gamer
