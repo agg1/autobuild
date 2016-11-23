@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
 	-doc
@@ -56,7 +56,6 @@ livecd/packages:
 	app-misc/ca-certificates
 	app-misc/mc
 	app-misc/pax-utils
-#	app-misc/screen
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
@@ -69,7 +68,6 @@ livecd/packages:
 	app-portage/metagen
 	app-portage/mirrorselect
 	app-portage/portage-utils
-	app-portage/porthole
 	app-portage/repoman
 	app-portage/ufed
 	app-shells/bash-completion
@@ -109,12 +107,10 @@ livecd/packages:
 	net-firewall/iptables
 	net-fs/cifs-utils
 	net-fs/nfs-utils
-	net-ftp/ftp
 	net-ftp/ncftp
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
-	net-misc/dhcpcd
 	net-misc/iputils
 	net-misc/ndisc6
 	net-misc/ntp
@@ -155,7 +151,6 @@ livecd/packages:
 	sys-apps/groff
 	sys-apps/hdparm
 	sys-apps/hwsetup
-	sys-apps/ipmitool
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less
@@ -188,7 +183,6 @@ livecd/packages:
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
-	sys-block/partimage
 	sys-block/tw_cli
 	sys-boot/grub
 	sys-devel/autoconf
