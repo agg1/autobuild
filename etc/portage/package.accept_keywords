@@ -1,4 +1,4 @@
-*/* ~amd64
+#*/* ~amd64
 
 #requied to hook in libressl which is still associated with ~testing
 #glady few packages rely on libressl in seed stage
