@@ -82,16 +82,6 @@ prepare_portage() {
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}/portage/${RELDA}
 }
 
-sync_sources() {
-	echo "### sync_sources()"
-}
-
-sync_portage() {
-	echo "### sync_portage()"
-	sg wanout -c "emaint -A sync"
-	#emerge --sync
-}
-
 clean_portage() {
 	echo "### clean_portage()"
 
