@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-wayland
 	smp
@@ -293,14 +293,12 @@ livecd/packages:
 	app-emulation/spice
 	app-emulation/qemu
 	app-emulation/wine
-#	app-emulation/xen-tools
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
 	app-forensics/afl
-#	app-forensics/afflib
 	app-forensics/autopsy
 	app-forensics/chkrootkit
 	app-forensics/cmospwd
@@ -494,8 +492,6 @@ livecd/packages:
 	net-firewall/psad
 	net-fs/cifs-utils
 	net-fs/nfs-utils
-#	net-ftp/filezilla
-	net-ftp/ftp
 	net-ftp/ncftp
 	net-ftp/oftpd
 #	net-ftp/vsftpd
@@ -504,13 +500,11 @@ livecd/packages:
 #	net-irc/hexchat
 	net-irc/irssi
 	net-irc/irssi-fish
-#	net-irc/weechat
 	net-irc/znc
 	net-mail/dovecot
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
-	net-misc/dhcpcd
 	net-misc/iputils
 	net-misc/ndisc6
 	net-misc/netkit-bootparamd
@@ -600,7 +594,6 @@ livecd/packages:
 	sys-apps/ethtool
 	sys-apps/file
 	sys-apps/findutils
-	sys-apps/flashrom
 	sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
@@ -608,7 +601,6 @@ livecd/packages:
 	sys-apps/groff
 	sys-apps/hdparm
 	sys-apps/hwsetup
-#	sys-apps/ipmitool
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less
@@ -644,7 +636,6 @@ livecd/packages:
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
-	sys-block/partimage
 	sys-block/tw_cli
 	sys-boot/grub
 	sys-boot/syslinux
