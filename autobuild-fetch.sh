@@ -12,6 +12,13 @@ if [ ! -e /usr/writeable ] ; then
 	mount --bind /home/distfiles /usr/portage/distfiles
 fi
 
+# 
+sync_portage() {
+        echo "### sync_portage()"
+        sg wanout -c "emaint -A sync"
+        #emerge --sync
+}
+
 ## fetch with ftp, should suffice usually but might miss some distfiles if not done regularly
 #fetch_ftp() {
 #	echo "### fetch_ftp()"
