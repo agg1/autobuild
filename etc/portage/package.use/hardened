@@ -1,6 +1,8 @@
-#*/* ssl openssl libressl curl_ssl_libressl -gcrypt
+#*/* ssl openssl libressl curl_ssl_libressl -gcrypt -gnutls -gcrypt -nettle
 #dev-libs/openssl -bindist
 net-misc/openssh -bindist
+net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
+sys-fs/cryptsetup -python -gcrypt openssl libressl
 dev-libs/glib -mime -utils
 dev-libs/libxml2 python
 dev-vcs/git -gtk gpg curl subversion cvs webdav
