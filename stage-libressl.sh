@@ -9,7 +9,7 @@ mkdir -p /tmp/stage3/usr/portage/distfiles
 mount --bind /dev /tmp/stage3/dev
 mount --bind /proc /tmp/stage3/proc
 mount --bind /usr/portage /tmp/stage3/usr/portage
-mount --bind /usr/portage/distfiles /tmp/stage3/usr/portage/distfiles
+mount --bind /home/distfiles /tmp/stage3/usr/portage/distfiles
 
 chroot /tmp/stage3
 
@@ -29,12 +29,12 @@ echo "dev-lang/eselect-python ~amd64" >> /etc/portage/package.accept_keywords
 #echo "=dev-lang/python-3.4.3-r7" >> /etc/portage/package.accept_keywords
 #echo "=dev-lang/python-exec-2.4.3" >> /etc/portage/package.accept_keywords
 
-emerge -C openssl
-emerge -1q libressl
-emerge -1q openssh
-emerge -1q wget
-emerge -1q =dev-lang/python-2.7.11-r2 =dev-lang/python-3.4.3-r7
-emerge -1q net-misc/iputils
+emerge -C openssl && \
+emerge -1q libressl && \
+emerge -1q openssh && \
+emerge -1q wget && \
+emerge -1q =dev-lang/python-2.7.11-r2 =dev-lang/python-3.4.3-r7 && \
+emerge -1q net-misc/iputils && \
 emerge -q @preserved-rebuild
 
 exit
