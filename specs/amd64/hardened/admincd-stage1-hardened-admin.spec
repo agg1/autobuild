@@ -51,6 +51,7 @@ livecd/packages:
 	app-crypt/hashalot
 	app-crypt/md5deep
 	app-crypt/pinentry
+	app-crypt/signify
 	app-editors/nano
 	app-editors/vim
 	app-misc/ca-certificates
