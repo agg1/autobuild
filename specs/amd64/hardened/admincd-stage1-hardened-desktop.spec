@@ -86,7 +86,7 @@ livecd/use:
 	dvd
 	oss
 	sdl
-	cups
+	-cups
 	scanner
 	joystick
 	sound
@@ -120,6 +120,8 @@ livecd/use:
 	video_cards_i128
 	video_cards_i740
 	video_cards_intel
+	video_cards_i915
+	video_cards_i965
 	video_cards_mach64
 	video_cards_mga
 	video_cards_neomagic
@@ -219,7 +221,7 @@ livecd/packages:
 	app-admin/testdisk
 	app-admin/tmpwatch
 	app-admin/mktwpol
-	app-admin/tripwire
+#	app-admin/tripwire
 	app-admin/whowatch
 	app-antivirus/clamav
 	app-antivirus/clamav-unofficial-sigs
@@ -283,16 +285,15 @@ livecd/packages:
 	app-doc/autobook
 	app-doc/devmanual
 	app-doc/doxygen
-	app-editors/emacs
+#	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
-	app-editors/emacs
 	app-editors/nano
 	app-editors/vim
 	app-editors/wxmedit
 	app-emulation/spice
 	app-emulation/qemu
-	app-emulation/wine
+#	app-emulation/wine
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
@@ -357,13 +358,14 @@ livecd/packages:
 	app-text/odt2txt
 	app-text/rfcutil
 	app-vim/gentoo-syntax
-	dev-db/mysql
+#	dev-db/mysql
 	dev-db/sqlite
 	dev-db/postgresql
 	dev-lang/perl
 	dev-lang/python
 	# broken with EGL dependency
 	dev-libs/DirectFB
+	dev-libs/libbsd
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
@@ -392,10 +394,10 @@ livecd/packages:
 	mail-client/mailx-support
 	mail-filter/clamassassin
 	mail-filter/spamassassin
-	mail-filter/opensmtpd-extras
+#	mail-filter/opensmtpd-extras
 	mail-filter/procmail
-	mail-mta/opensmtpd
-	#mail-mta/msmtp
+#	mail-mta/opensmtpd
+	mail-mta/msmtp
 	media-fonts/dejavu
 	media-gfx/fbida
 	media-gfx/feh
@@ -444,7 +446,6 @@ livecd/packages:
 	media-video/mplayer
 	media-video/smplayer
 	media-video/vlc
-	dev-ruby/rdoc
 	net-analyzer/arpwatch
 	net-analyzer/fail2ban
 	net-analyzer/fping
@@ -456,7 +457,7 @@ livecd/packages:
 	net-analyzer/knocker
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
-	net-analyzer/metasploit
+#	net-analyzer/metasploit
 	net-analyzer/monitoring-plugins
 	net-analyzer/nagios
 #	net-analyzer/nessus
@@ -471,7 +472,7 @@ livecd/packages:
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
 	net-analyzer/mtr
-	net-analyzer/wireshark
+#	net-analyzer/wireshark
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
@@ -527,7 +528,7 @@ livecd/packages:
 	net-misc/rsync
 #	net-misc/socat
 	net-misc/spice-gtk
-	net-misc/sstp-client
+#	net-misc/sstp-client
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
@@ -544,8 +545,8 @@ livecd/packages:
 	net-nds/openldap
 	net-nds/ypserv
 	net-p2p/transmission
-	net-print/cups
-	net-print/cups-pdf
+#	net-print/cups
+#	net-print/cups-pdf
 	net-proxy/dante
 	net-proxy/privoxy
 #	net-proxy/squid
@@ -553,7 +554,7 @@ livecd/packages:
 	net-proxy/tsocks
 #	net-voip/ekiga
 #	net-voip/gnugk
-	net-wireless/aircrack-ng
+#	net-wireless/aircrack-ng
 	net-wireless/airsnort
 	net-wireless/airtraf
 	net-wireless/b43-fwcutter
