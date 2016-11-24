@@ -20,5 +20,5 @@ x11-drivers/xf86-input-evdev
 >=net-ftp/vsftpd-3.0.0
 app-arch/alien
 app-arch/rpm
-net-libs/neon
 dev-lang/ruby
+#net-libs/neon
