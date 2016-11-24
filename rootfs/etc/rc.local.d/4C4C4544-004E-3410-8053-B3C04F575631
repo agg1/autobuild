@@ -61,7 +61,7 @@ iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100
 #echo "LAUNCH FW01"
 /usr/local/bin/fw01.sh
 
-#echo "WAItINT 120s for FW01"
+#echo "WAITING 120s for FW01"
 sleep 120
 
 # enable network and sync time
