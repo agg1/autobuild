@@ -1,6 +1,8 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 
+rm -f build.log
+
 LATEST=20161117-1479426114
 PTREE=/home/seeds/gentoo/portage-hardened.tar
 
