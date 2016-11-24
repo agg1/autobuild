@@ -220,7 +220,7 @@ livecd/packages:
 	app-admin/syslog-summary
 	app-admin/testdisk
 	app-admin/tmpwatch
-	app-admin/mktwpol
+#	app-admin/mktwpol
 #	app-admin/tripwire
 	app-admin/whowatch
 	app-antivirus/clamav
@@ -308,7 +308,7 @@ livecd/packages:
 	app-forensics/mac-robber
 	app-forensics/magicrescue
 	app-forensics/memdump
-	app-forensics/rdd
+#	app-forensics/rdd
 	app-forensics/scalpel
 	app-forensics/sleuthkit
 	app-forensics/unhide
@@ -541,7 +541,7 @@ livecd/packages:
 	net-misc/yatb
 	net-misc/youtube-dl
 	net-misc/youtube-viewer
-	net-nds/adtool
+#	net-nds/adtool
 	net-nds/openldap
 	net-nds/ypserv
 	net-p2p/transmission
