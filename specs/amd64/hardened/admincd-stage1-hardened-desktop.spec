@@ -240,7 +240,7 @@ livecd/packages:
 	app-backup/amanda
 	app-backup/bacula
 	app-benchmarks/bonnie++
-	app-benchmarks/httperf
+#	app-benchmarks/httperf
 	app-benchmarks/stress-ng
 	app-cdr/bashburn
 	app-cdr/bin2iso
@@ -262,7 +262,7 @@ livecd/packages:
 	app-crypt/efitools
 	app-crypt/gnupg
 	app-crypt/hashalot
-	app-crypt/johntheripper
+#	app-crypt/johntheripper
 	app-crypt/md5deep
 	app-crypt/md6sum
 	app-crypt/pinentry
@@ -570,7 +570,7 @@ livecd/packages:
 #	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-	sci-mathematics/octave
+#	sci-mathematics/octave
 	sci-calculators/pcalc
 	sci-calculators/qalculator
 	sci-calculators/qalculate-bases
