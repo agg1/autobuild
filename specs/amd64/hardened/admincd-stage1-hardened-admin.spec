@@ -230,6 +230,7 @@ livecd/packages:
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
+	sys-power/acpid
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
