@@ -220,11 +220,7 @@ livecd/packages:
 	app-admin/syslog-summary
 	app-admin/testdisk
 	app-admin/tmpwatch
-#	app-admin/mktwpol
-#	app-admin/tripwire
 	app-admin/whowatch
-	app-antivirus/clamav
-	app-antivirus/clamav-unofficial-sigs
 	app-arch/bzip2
 	app-arch/cpio
 	app-arch/dpkg
@@ -237,10 +233,7 @@ livecd/packages:
 	app-arch/tar
 	app-arch/unrar
 	app-arch/unzip
-	app-backup/amanda
-	app-backup/bacula
 	app-benchmarks/bonnie++
-#	app-benchmarks/httperf
 	app-benchmarks/stress-ng
 	app-cdr/bashburn
 	app-cdr/bin2iso
@@ -262,7 +255,6 @@ livecd/packages:
 	app-crypt/efitools
 	app-crypt/gnupg
 	app-crypt/hashalot
-#	app-crypt/johntheripper
 	app-crypt/md5deep
 	app-crypt/md6sum
 	app-crypt/pinentry
@@ -285,41 +277,22 @@ livecd/packages:
 	app-doc/autobook
 	app-doc/devmanual
 	app-doc/doxygen
-#	app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/nano
 	app-editors/vim
 	app-editors/wxmedit
-	app-emulation/spice
 	app-emulation/qemu
-#	app-emulation/wine
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
-	app-forensics/afl
-	app-forensics/autopsy
-	app-forensics/chkrootkit
-	app-forensics/cmospwd
-	app-forensics/examiner
-	app-forensics/foremost
-	app-forensics/mac-robber
-	app-forensics/magicrescue
-	app-forensics/memdump
-#	app-forensics/rdd
-	app-forensics/scalpel
-	app-forensics/sleuthkit
-	app-forensics/unhide
-	app-forensics/volatility
-	app-forensics/zzuf
 	app-misc/banner
 	app-misc/ca-certificates
 	app-misc/rmlint
 	app-misc/splitvt
 	app-misc/mc
-#	app-misc/screen
 	app-misc/tmux
 	app-misc/xmind
 	app-misc/zisofs-tools
@@ -358,7 +331,6 @@ livecd/packages:
 	app-text/odt2txt
 	app-text/rfcutil
 	app-vim/gentoo-syntax
-#	dev-db/mysql
 	dev-db/sqlite
 	dev-db/postgresql
 	dev-lang/perl
@@ -392,11 +364,7 @@ livecd/packages:
 	mail-client/thunderbird
 	mail-client/mailx
 	mail-client/mailx-support
-	mail-filter/clamassassin
-	mail-filter/spamassassin
-#	mail-filter/opensmtpd-extras
 	mail-filter/procmail
-#	mail-mta/opensmtpd
 	mail-mta/msmtp
 	media-fonts/dejavu
 	media-gfx/fbida
@@ -457,22 +425,14 @@ livecd/packages:
 	net-analyzer/knocker
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
-#	net-analyzer/metasploit
-	net-analyzer/monitoring-plugins
-	net-analyzer/nagios
-#	net-analyzer/nessus
 	net-analyzer/netcat6
 	net-analyzer/nmap
 	net-analyzer/ntopng
-	net-analyzer/snort
-	net-analyzer/oinkmaster
 	net-analyzer/tcpdump
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
-	net-analyzer/mtr
-#	net-analyzer/wireshark
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
@@ -495,14 +455,11 @@ livecd/packages:
 	net-fs/nfs-utils
 	net-ftp/ncftp
 	net-ftp/oftpd
-#	net-ftp/vsftpd
 	net-im/pidgin
 	net-irc/anope
-#	net-irc/hexchat
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/znc
-	net-mail/dovecot
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
@@ -526,13 +483,9 @@ livecd/packages:
 	net-misc/rdate
 	net-misc/rdesktop
 	net-misc/rsync
-#	net-misc/socat
-	net-misc/spice-gtk
-#	net-misc/sstp-client
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
-#	net-misc/vpnc
 	net-misc/wakeonlan
 	net-misc/wol
 	net-misc/wget
@@ -541,44 +494,16 @@ livecd/packages:
 	net-misc/yatb
 	net-misc/youtube-dl
 	net-misc/youtube-viewer
-#	net-nds/adtool
 	net-nds/openldap
 	net-nds/ypserv
 	net-p2p/transmission
-#	net-print/cups
-#	net-print/cups-pdf
 	net-proxy/dante
 	net-proxy/privoxy
-#	net-proxy/squid
 	net-proxy/torsocks
 	net-proxy/tsocks
-#	net-voip/ekiga
-#	net-voip/gnugk
-#	net-wireless/aircrack-ng
-	net-wireless/airsnort
-	net-wireless/airtraf
 	net-wireless/b43-fwcutter
-	net-wireless/horst
-	net-wireless/hostap-utils
-#	net-wireless/hostapd
-	net-wireless/iw
-	net-wireless/mdk
-	net-wireless/mfoc
-#	net-wireless/pyrit
-	net-wireless/rfkill
-#	net-wireless/wepattack
-#	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
-#	sci-mathematics/octave
-	sci-calculators/pcalc
-	sci-calculators/qalculator
-	sci-calculators/qalculate-bases
-	sci-calculators/qalculate-currency
-	sci-calculators/qalculate-gtk
-	sci-calculators/qalculate-units
-	sci-calculators/units
-	sci-calculators/wcalc
 	sci-visualization/gnuplot
 	sys-apps/arrayprobe
 	sys-apps/acl
