@@ -120,13 +120,12 @@ livecd/packages:
 	net-misc/rsync
 	net-misc/telnet-bsd
 	net-misc/vconfig
-	net-misc/wakeonlan
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
 	net-wireless/b43-fwcutter
-	net-wireless/iw
-	net-wireless/rfkill
+#	net-wireless/iw
+#	net-wireless/rfkill
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 	sys-apps/arrayprobe
@@ -140,11 +139,10 @@ livecd/packages:
 	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/dmidecode
-	sys-apps/dstat
 	sys-apps/ethtool
 	sys-apps/file
 	sys-apps/findutils
-	sys-apps/flashrom
+#	sys-apps/flashrom
 	sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
