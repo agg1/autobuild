@@ -1,4 +1,5 @@
 app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl -curl -sdl -spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64
+dev-qt/qtcore -ssl
 media-libs/gd truetype fontconfig
 media-libs/gst-plugins-bad -gtk opengl -egl -gles2
 media-libs/gst-plugins-base -gtk opengl -egl -gles2
@@ -15,7 +16,6 @@ x11-base/xorg-server xorg suid glamor
 x11-libs/libfm gtk -automount
 x11-libs/wxGTK X doc -gstreamer opengl sdl tiff -aqua -debug -odbc -pch
 dev-libs/DirectFB -egl gles2 gstreamer opengl
-games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
 dev-lang/php gd
 net-libs/webkit -gles2
 net-libs/webkit-gtk -gles2
@@ -29,3 +29,4 @@ app-editors/emacs -ssl
 app-emulation/wine staging -oss -ssl
 net-analyzer/wireshark -ssl
 net-irc/weechat -ssl
+games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
