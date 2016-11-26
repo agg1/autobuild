@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-wayland
 	smp
@@ -291,10 +291,8 @@ livecd/packages:
 	app-misc/xmind
 	app-misc/zisofs-tools
 	app-office/dia
-	app-office/dia2code
 	app-office/libreoffice
 	app-office/libreoffice-l10n
-	app-office/lyx
 	app-portage/cfg-update
 	app-portage/eix
 	app-portage/esearch
@@ -406,7 +404,6 @@ livecd/packages:
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
-	media-video/smplayer
 	media-video/vlc
 	net-analyzer/arpwatch
 	net-analyzer/fail2ban
