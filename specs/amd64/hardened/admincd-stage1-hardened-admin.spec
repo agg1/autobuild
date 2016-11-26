@@ -54,7 +54,6 @@ livecd/packages:
 	app-editors/nano
 	app-editors/vim
 	app-misc/ca-certificates
-	app-misc/mc
 	app-misc/pax-utils
 	app-misc/tmux
 	app-misc/zisofs-tools
@@ -78,9 +77,6 @@ livecd/packages:
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
-	dev-libs/gmp
-	dev-libs/libxml2
-	dev-libs/mpfr
 	dev-libs/libressl
 	dev-python/pycrypto
 	dev-util/catalyst
@@ -90,14 +86,12 @@ livecd/packages:
 	mail-client/mailx
 	mail-mta/msmtp
 	net-analyzer/gnu-netcat
-	net-analyzer/iptraf-ng
 	net-analyzer/macchanger
 	net-analyzer/netcat6
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
-	net-analyzer/nmap
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
@@ -111,7 +105,6 @@ livecd/packages:
 	net-misc/curl
 	net-misc/dhcp
 	net-misc/iputils
-	net-misc/ndisc6
 	net-misc/ntp
 	net-misc/openssh
 	net-misc/rdate
@@ -149,7 +142,6 @@ livecd/packages:
 	sys-apps/hdparm
 	sys-apps/hwsetup
 	sys-apps/iproute2
-	sys-apps/keyutils
 	sys-apps/less
 	sys-apps/lsb-release
 	sys-apps/lshw
@@ -220,8 +212,6 @@ livecd/packages:
 	sys-fs/xfsprogs
 	sys-kernel/genkernel
 	sys-kernel/linux-headers
-	sys-libs/db
-	sys-libs/gdbm
 	sys-libs/gpm
 	sys-libs/libkudzu
 	sys-libs/libsmbios
