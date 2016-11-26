@@ -2,8 +2,8 @@ defaults.pcm.card 0
 defaults.pcm.device 0
 #defaults.pcm.subdevice 0
 defaults.ctl.card 0
-period_size=2048
-buffer_size=4096
+period_size=512
+buffer_size=1024
 
 pcm.device{
 	format S16_LE
