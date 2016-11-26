@@ -352,6 +352,7 @@ www-servers/tomcat
         app-antivirus/clamav-unofficial-sigs
 #       app-benchmarks/httperf
         app-cdr/graveman
+        app-crypt/efitools
 #       app-crypt/johntheripper
 #       app-editors/emacs
 #       app-editors/emacs
