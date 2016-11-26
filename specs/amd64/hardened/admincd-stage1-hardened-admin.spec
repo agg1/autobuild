@@ -28,7 +28,6 @@ livecd/packages:
 	app-admin/passook
 	app-admin/perl-cleaner
 	app-admin/python-updater
-	app-admin/superadduser
 	app-admin/syslog-ng
 	app-admin/testdisk
 	app-benchmarks/bonnie++
@@ -90,7 +89,6 @@ livecd/packages:
 	dev-vcs/git
 	mail-client/mailx
 	mail-mta/msmtp
-	media-gfx/fbgrab
 	net-analyzer/gnu-netcat
 	net-analyzer/iptraf-ng
 	net-analyzer/macchanger
@@ -143,7 +141,7 @@ livecd/packages:
 	sys-apps/file
 	sys-apps/findutils
 #	sys-apps/flashrom
-	sys-apps/fxload
+#	sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
 	sys-apps/grep
@@ -160,8 +158,6 @@ livecd/packages:
 	sys-apps/man-pages-posix
 	sys-apps/memtester
 	sys-apps/miscfiles
-	sys-apps/mlocate
-	sys-apps/netplug
 	sys-apps/pciutils
 	sys-apps/pcmciautils
 	sys-apps/portage
@@ -176,14 +172,15 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/which
 	sys-boot/syslinux
-	sys-block/aoetools
-	sys-block/fio
+#	sys-block/aoetools
+#	sys-block/fio
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
 	sys-block/parted
 	sys-block/tw_cli
 	sys-boot/grub
+	sys-boot/syslinux
 	sys-devel/autoconf
 	sys-devel/autoconf-wrapper
 	sys-devel/automake

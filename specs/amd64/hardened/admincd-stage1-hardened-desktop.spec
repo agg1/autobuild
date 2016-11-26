@@ -518,7 +518,7 @@ livecd/packages:
 	sys-apps/ethtool
 	sys-apps/file
 	sys-apps/findutils
-	sys-apps/fxload
+#	sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
 	sys-apps/grep
@@ -554,8 +554,8 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/which
 	sys-auth/skey
-	sys-block/aoetools
-	sys-block/fio
+#	sys-block/aoetools
+#	sys-block/fio
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
