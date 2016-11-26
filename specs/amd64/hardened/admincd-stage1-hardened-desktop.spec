@@ -486,7 +486,6 @@ livecd/packages:
 	net-misc/tightvnc
 	net-misc/tor
 	net-misc/vconfig
-	net-misc/wakeonlan
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
