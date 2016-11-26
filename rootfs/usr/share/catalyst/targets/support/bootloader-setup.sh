@@ -302,7 +302,7 @@ case ${clst_hostarch} in
 					do
 						echo "label ${x}-${y}" >> ${icfg}
 						echo "  kernel ${x}" >> ${icfg}
-						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox docache" >> ${icfg}
+						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox" >> ${icfg}
 						echo >> ${icfg}
 
 						echo "   ${x}" >> ${kmsg}
@@ -317,7 +317,7 @@ case ${clst_hostarch} in
 				else
 					echo "label ${x}" >> ${icfg}
 					echo "  kernel ${x}" >> ${icfg}
-					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox docache" >> ${icfg}
+					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox" >> ${icfg}
 					echo >> ${icfg}
 
 					echo "   ${x}" >> ${kmsg}
