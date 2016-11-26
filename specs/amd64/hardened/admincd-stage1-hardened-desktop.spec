@@ -272,9 +272,6 @@ livecd/packages:
 	app-dicts/myspell-it
 	app-dicts/myspell-fr
 	app-dicts/myspell-ru
-	app-doc/abs-guide
-	app-doc/autobook
-	app-doc/devmanual
 	app-doc/doxygen
 	app-editors/hexcurse
 	app-editors/hexedit
@@ -287,10 +284,8 @@ livecd/packages:
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
-	app-misc/banner
 	app-misc/ca-certificates
 	app-misc/rmlint
-	app-misc/splitvt
 	app-misc/mc
 	app-misc/tmux
 	app-misc/xmind
@@ -518,7 +513,6 @@ livecd/packages:
 	sys-apps/ethtool
 	sys-apps/file
 	sys-apps/findutils
-#	sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
 	sys-apps/grep
@@ -554,8 +548,6 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/which
 	sys-auth/skey
-#	sys-block/aoetools
-#	sys-block/fio
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
