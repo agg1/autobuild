@@ -299,6 +299,7 @@ livecd/packages:
 	app-office/dia2code
 	app-office/libreoffice
 	app-office/libreoffice-l10n
+	app-office/lyx
 	app-portage/cfg-update
 	app-portage/eix
 	app-portage/esearch
@@ -368,7 +369,6 @@ livecd/packages:
 	media-fonts/dejavu
 	media-gfx/fbida
 	media-gfx/feh
-	media-gfx/fbgrab
 	media-gfx/gimp
 	media-gfx/gtkam
 	media-gfx/imagemagick
