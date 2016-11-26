@@ -252,7 +252,6 @@ livecd/packages:
 	app-crypt/aespipe
 	app-crypt/bcrypt
 	app-crypt/bcwipe
-	app-crypt/efitools
 	app-crypt/gnupg
 	app-crypt/hashalot
 	app-crypt/md5deep
