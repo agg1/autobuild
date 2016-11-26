@@ -27,6 +27,7 @@ app-mobilephone/gammu
 app-mobilephone/smsclient
 app-mobilephone/smssend
 app-mobilephone/smstools
+app-office/dia2code
 #app-office/openerp
 #app-office/planner
 #app-office/gnumeric
@@ -36,7 +37,6 @@ app-mobilephone/smstools
 #app-officeext/ooo2gd
 #app-office/texmaker
 #app-office/texmacs
-app-office/dia2code
 app-office/grisbi
 app-office/homebank
 app-office/lyx
@@ -421,4 +421,11 @@ www-servers/tomcat
         sci-calculators/qalculate-units
         sci-calculators/units
         sci-calculators/wcalc
+        app-misc/splitvt
+        app-misc/banner
+        app-doc/abs-guide
+        app-doc/autobook
+        app-doc/devmanual
+#       sys-block/aoetools
+#       sys-block/fio
 
