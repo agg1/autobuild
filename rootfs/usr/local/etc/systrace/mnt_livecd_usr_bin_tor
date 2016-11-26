@@ -41,11 +41,11 @@ Policy: /mnt/livecd/usr/bin/tor, Emulation: linux64
 	linux64-fsread: filename eq "/proc/sys/kernel/random/uuid" then permit
 	linux64-fsread: filename eq "/sys/devices/system/cpu" then permit
 	linux64-fsread: filename eq "/sys/devices/system/cpu/online" then permit
-	linux64-fsread: filename eq "/usr/lib/gcc/x86_64-pc-linux-gnu/5.4.0/libgcc_s.so.1" then permit
-	linux64-fsread: filename eq "/usr/lib64/libcrypto.so.1.0.0" then permit
 	linux64-fsread: filename eq "/usr/lib64/libevent-2.1.so.5" then permit
 	linux64-fsread: filename eq "/usr/lib64/libseccomp.so.2" then permit
-	linux64-fsread: filename eq "/usr/lib64/libssl.so.1.0.0" then permit
+	linux64-fsread: filename match "/usr/lib64/libssl.so*" then permit
+	linux64-fsread: filename match "/usr/lib64/libcrypto.so*" then permit
+	linux64-fsread: filename match "/lib64/libresolv.so*" then permit
 	linux64-fsread: filename eq "/usr/local/etc/tor/torrc" then permit
 	linux64-fsread: filename match "/usr/share/tor*" then permit
 	linux64-fsread: filename match "/var/lib/tor*" then permit
