@@ -164,8 +164,6 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/which
 	sys-boot/syslinux
-#	sys-block/aoetools
-#	sys-block/fio
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
