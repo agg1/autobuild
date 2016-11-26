@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -python -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
 	-doc
@@ -94,7 +94,6 @@ livecd/packages:
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
-	net-dialup/rp-pppoe
 	net-dns/bind-tools
 	net-firewall/iptables
 	net-fs/cifs-utils
@@ -104,11 +103,11 @@ livecd/packages:
 	net-misc/curl
 	net-misc/dhcp
 	net-misc/iputils
+	net-misc/netkit-telnetd
 	net-misc/ntp
 	net-misc/openssh
 	net-misc/rdate
 	net-misc/rsync
-	net-misc/telnet-bsd
 	net-misc/vconfig
 	net-misc/wol
 	net-misc/wget
