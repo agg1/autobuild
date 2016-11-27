@@ -1,6 +1,9 @@
 #!/bin/sh -e
 # Copyright aggi 2016
-PTREE=/home/seeds/gentoo/portage-hardened.tar
+
+export LATEST=20161126-1480193160
+export PTREE=/home/seeds/gentoo/portage-hardened.tar
+
 source /home/catalyst/autobuild.sh
 prepare_system
 
