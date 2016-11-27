@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cryptsetup open /dev/md127 home --type plain --cipher aes-xts-plain64 --key-size 512 --hash sha512
+cryptsetup open /dev/md0 home --type plain --cipher aes-xts-plain64 --key-size 512 --hash sha512
 pvscan -a ay --cache
 
 /sbin/vgs | grep vghome
