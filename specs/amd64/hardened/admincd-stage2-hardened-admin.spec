@@ -55,7 +55,6 @@ livecd/rm:
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
 	/var/tmp/genkernel
-	/root/.bash_history
 	/usr/src/linux
 
 #livecd/empty:
