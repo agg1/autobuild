@@ -264,3 +264,6 @@ livecd/empty:
 	/var/state
 	/var/tmp
 	/usr/src/linux
+
+livecd/fsscript: /home/catalyst/finalize_target.sh
+
