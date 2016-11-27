@@ -9,7 +9,6 @@ mkdir -p /media/lvm/lvcatalyst /media/lvm/lvdocuments /media/lvm/lvgames /media/
 # make /lib/firmware writeable and modprobe radeon
 /usr/local/bin/firmware.sh
 rmmod radeon; modprobe radeon; umount /mnt/livecd/lib64/firmware
-modprobe psmouse
 
 # load sound modules
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss

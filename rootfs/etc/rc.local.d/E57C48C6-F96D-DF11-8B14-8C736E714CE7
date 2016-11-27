@@ -9,7 +9,6 @@ hostname testing
 # make /lib/firmware writeable and modprobe radeon
 #/usr/local/bin/firmware.sh
 modprobe i915
-modprobe psmouse
 
 # load sound modules
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
