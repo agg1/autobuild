@@ -403,7 +403,6 @@ livecd/packages:
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
-	media-video/vlc
 	net-analyzer/arpwatch
 	net-analyzer/fail2ban
 	net-analyzer/fping
