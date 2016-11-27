@@ -428,4 +428,4 @@ www-servers/tomcat
         app-doc/devmanual
 #       sys-block/aoetools
 #       sys-block/fio
-
+        media-video/vlc
