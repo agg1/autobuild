@@ -63,8 +63,8 @@ for i in $(ifconfig -a | sed 's/[ \t].*//;/^$/d' | sed 's/://g' | grep -v '^lo$'
 done
 
 # default user and groups
-LSHELL=/bin/sh
-[ -e /bin/zsh ] && LSHELL=/bin/zsh
+LSHELL=/bin/bash
+#[ -e /bin/zsh ] && LSHELL=/bin/zsh
 groupadd -g 3333333 lanout
 groupadd -g 8888888 wanout
 groupadd -g 44444440 fw01
