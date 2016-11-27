@@ -12,7 +12,7 @@ livecd/volid: Hardened Admin Live System
 livecd/type: generic-livecd
 livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
-livecd/gk_mainargs: --lvm --dmraid --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
+livecd/gk_mainargs: --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp memory_corruption_check=1
 # ubsan_handle=OEAINVBSLF
