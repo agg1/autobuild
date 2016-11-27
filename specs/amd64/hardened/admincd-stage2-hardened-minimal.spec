@@ -184,7 +184,7 @@ livecd/rm:
 	/usr/share/misc/*.old
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
-	/root/.bash_history
+	/var/db/pkg/*
 
 livecd/empty:
 	/etc/cron.daily
