@@ -80,10 +80,10 @@ useradd -s $LSHELL -N -M -u 66669999 -g user user
 useradd -s $LSHELL -N -M -u 99996666 -g office office
 useradd -s $LSHELL -N -M -u 77777777 -g gamer gamer
 useradd -s $LSHELL -u 1000 -g testing testing
-usermod -a -G portage,wheel,wanout,lanout,public,documents user
-usermod -a -G wanout,lanout,public,documents office
-usermod -a -G games,input,audio,video,wanout,public gamer
-usermod -a -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video testing
+usermod -a -G portage,wheel,wanout,lanout,public,documents,cdrom user
+usermod -a -G wanout,lanout,public,documents,cdrom office
+usermod -a -G games,input,audio,video,wanout,public,cdrom gamer
+usermod -a -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video,cdrom testing
 
 # root password
 echo 'root:$6$rounds=5000000$jU.tb/NbYjI$bTSQSGVNzuq2DCMwrT6FT.BjChkqHQTf8e3nnVYXK88/t9isZ1eCOBPkoN6n.tgGAN8z//dWgOIlIvQ5/EfLt1' | chpasswd -e
