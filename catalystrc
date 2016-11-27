@@ -11,3 +11,4 @@ export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 export PROFILE_IS_HARDENED=1
 export ACCEPT_KEYWORDS="~amd64"
 export USE="-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs"
+export GK_SHARE="/etc/portage/genkernel"
