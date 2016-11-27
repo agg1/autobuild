@@ -58,3 +58,6 @@ livecd/rm:
 	/usr/src/linux
 
 #livecd/empty:
+
+livecd/fsscript: /home/catalyst/finalize_target.sh
+
