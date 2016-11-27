@@ -243,7 +243,6 @@ livecd/packages:
 	app-cdr/cdrtools
 	app-cdr/cuetools
 	app-cdr/dvd+rw-tools
-	app-cdr/graveman
 	app-cdr/nrg2iso
 	app-cdr/pburn
 	app-cdr/poweriso
