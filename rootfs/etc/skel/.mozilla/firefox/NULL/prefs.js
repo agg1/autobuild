@@ -106,6 +106,8 @@ user_pref("pdfjs.previousHandler.preferredAction", 4);
 user_pref("places.history.expiration.transient_current_max_pages", 41809);
 user_pref("plugin.disable_full_page_plugin_for_types", "application/pdf");
 user_pref("privacy.donottrackheader.enabled", true);
+user_pref("security.OCSP.enabled", 0);
+user_pref("security.disable_button.openCertManager", false);
 user_pref("services.sync.clients.lastSync", "0");
 user_pref("services.sync.clients.lastSyncLocal", "0");
 user_pref("services.sync.declinedEngines", "");
