@@ -91,3 +91,5 @@ echo 'root:$6$rounds=5000000$jU.tb/NbYjI$bTSQSGVNzuq2DCMwrT6FT.BjChkqHQTf8e3nnVY
 # relocate portage configuration from /mnt/livecd to /etc
 rm -rf /etc/portage
 cp -pr /mnt/livecd/etc/portage /etc/portage
+
+[ -e /etc/init.d/verynice ] && /etc/init.d/verynice restart
