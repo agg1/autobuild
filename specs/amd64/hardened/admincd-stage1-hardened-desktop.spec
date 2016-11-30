@@ -220,6 +220,7 @@ livecd/packages:
 	app-admin/syslog-summary
 	app-admin/testdisk
 	app-admin/tmpwatch
+	app-admin/verynice
 	app-admin/whowatch
 	app-arch/bzip2
 	app-arch/cpio
