@@ -4,8 +4,6 @@
 
 hostname darkstar
 
-mkdir -p /media/lvm/lvcatalyst /media/lvm/lvdocuments /media/lvm/lvgames /media/lvm/lvimages /media/lvm/lvmovies /media/lvm/lvmusic /media/lvm/lvsource /media/lvm/lvseeds /media/lvm/lvwindows
-
 # make /lib/firmware writeable and modprobe radeon
 /usr/local/bin/firmware.sh
 rmmod radeon; modprobe radeon; umount /mnt/livecd/lib64/firmware
