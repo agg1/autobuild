@@ -31,8 +31,6 @@ boot/kernel/gentoo/use:
 	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-wayland
-	-qt4
-	-qt5
 	smp
 	clang
 	X
@@ -85,6 +83,7 @@ boot/kernel/gentoo/use:
 	a52
 	aac
 	flac
+	gsm
 	lame
 	ladspa
 	ogg
@@ -95,10 +94,12 @@ boot/kernel/gentoo/use:
 	mp3
 	mp4
 	mpeg
+	speex
 	theora
 	ffmpeg
 	xvid
 	x264
+	h323
 	v4l
 	cdda
 	cddb
@@ -107,7 +108,7 @@ boot/kernel/gentoo/use:
 	dvd
 	oss
 	sdl
-	cups
+	-cups
 	scanner
 	joystick
 	sound
@@ -210,6 +211,7 @@ boot/kernel/gentoo/use:
 	truetype
 	xetex
 	fortran
+	gcj
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware
