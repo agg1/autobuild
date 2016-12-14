@@ -4,13 +4,15 @@ export GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://f
 unset EMERGE_DEFAULT_OPTS
 
 # check that bind mounts are set and portage trees are in place
-[ ! -e /usr/writeable ] && /usr/local/bin/prepareusrupdate.sh /media/stick/container/seeds/portage/20161118-1479508385/portage-latest.tar.bz2
-if [ ! -e /usr/writeable ] ; then
+[ ! -e /usr/.writeable ] && /usr/local/bin/prepareusrupdate.sh /media/stick/container/seeds/portage/20161118-1479508385/portage-latest.tar.bz2
+if [ ! -e /usr/.writeable ] ; then
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /usr/portage/packages
 	mount --bind /media/stick/container/packages-desktop /usr/portage/packages
 	mount --bind /home/distfiles /usr/portage/distfiles
 fi
+
+cd /home/distfiles
 
 # 
 sync_portage() {
@@ -59,7 +61,7 @@ fetch_catalyst() {
 	echo "### fetch_catalyst()"
 	
 	mkdir -p /var/tmp/catalyst/builds/hardened
-	cp /media/stick/container/seeds/init/20161117-1479426114/stage3-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
+	cp /media/stick/container/seeds/init/20161126-1480193160/stage3-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
 
 	iptables -P OUTPUT ACCEPT
 	catalyst -v -c /media/stick/container/catalyst/catalystrc -s latest
