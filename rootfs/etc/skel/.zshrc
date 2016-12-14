@@ -1,4 +1,10 @@
-export TERM=xterm-color
+export TERM=xterm-256color
+export EDITOR=/usr/bin/vi
+export PINENTRY_USER_DATA="USE_CURSES=1"
+GPG_TTY=$(tty)
+export GPG_TTY
+/usr/bin/gpg-agent --homedir ~/.gnupg --use-standard-socket --daemon --pinentry-program /usr/bin/pinentry-curses 2>/dev/null || true
+
 xrdb ~/.Xdefaults
 rehash
 ttyctl -f
@@ -6,12 +12,22 @@ setopt nohup
 alias ll='ls -Flisah --color=auto'
 alias ls='ls --color=auto'
 
+# vi mode
+#bindkey -v
+# emacs mode
+bindkey -e
+#
+bindkey "^[[3~"  delete-char
+bindkey "^[3;5~" delete-char
+bindkey '^D' delete-char-or-list
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "^[[5~" up-line-or-history       # [PageUp] - Up a line of history
 bindkey "^[[6~" down-line-or-history     # [PageDown] - Down a line of history
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
 
 autoload -U colors && colors
 autoload -Uz compinit promptinit

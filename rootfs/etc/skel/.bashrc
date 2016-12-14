@@ -24,6 +24,8 @@ export LC_NUMERIC="en_US.utf-8"
 export LC_TIME="en_US.utf-8"
 export LC_ALL=
 
+export EDITOR=/usr/bin/vi
+
 set +o history
 umask 0007
 if [ -z "$RUNX" -a ! -e ${HOME}/.nox ] ; then
