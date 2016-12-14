@@ -6,10 +6,13 @@ media-libs/gst-plugins-base -gtk opengl -egl -gles2
 media-libs/gst-plugins-good -gtk opengl -egl -gles2
 media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
 media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
-media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland
+media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl
 media-sound/alsa-tools -gtk -X
 net-analyzer/linkchecker -X
 net-proxy/privoxy acl fast-redirects force image-blocking stats editor external-filters graceful-termination lfs png-images toggle whitelists
+net-mail/notmuch mutt
+dev-libs/gmime smime
+mail-client/mutt smtp imap pop gpg sidebar mbox smime idn
 mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened gtk2
 x11-base/xorg-server xorg suid glamor
@@ -27,6 +30,7 @@ net-wireless/aircrack-ng -airdrop-ng
 net-misc/asterisk -calendar
 app-editors/emacs -ssl
 app-emulation/wine staging -oss -ssl
-net-analyzer/wireshark -ssl
-net-irc/weechat -ssl
+net-analyzer/wireshark -ssl tfshark
+dev-java/* -doc
+#net-irc/weechat -ssl
 games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
