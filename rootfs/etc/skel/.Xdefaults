@@ -7,6 +7,7 @@ UXTerm*eightBitInput: false
 UXTerm*metaSendsEscape: true
 UXTerm*backarrowKey: false
 UXTerm*ttyModes: erase ^?
+UXTerm*termName: xterm-256color
 UXTerm*reverseVideo: off
 UXTerm*background:  #000000
 UXTerm*foreground:  #9f9f9f
@@ -16,6 +17,7 @@ UXTerm*color2:      #aece92
 UXTerm*color3:      #968a38
 !UXTerm*color4:      #414171
 UXTerm*color4:      #1d1d30
+!UXTerm*color4:      #204060
 UXTerm*color5:      #963c59
 UXTerm*color6:      #418179
 UXTerm*color7:      #bebebe

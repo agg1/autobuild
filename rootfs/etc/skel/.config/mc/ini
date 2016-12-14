@@ -111,7 +111,7 @@ clipboard_paste=
 
 [Colors]
 base_color=
-xterm=
+xterm-256color=
 color_terminals=
 
 [Panels]

@@ -1,0 +1,6 @@
+ao=alsa
+panscan=0.50
+vf=yadif=1,pp=al:f
+double=yes
+stop-xscreensaver=yes
+fs=1
