@@ -47,7 +47,7 @@ qemu-system-x86_64 \
 -nodefconfig -nodefaults \
 -M pc \
 -name ${VMNAME} \
--rtc base=utc,clock=rt \
+-rtc base=utc,clock=vm \
 -cpu qemu64 \
 -smp cpus=${CPUNUM},sockets=1,cores=${CPUNUM},threads=1 \
 -m ${MEM} ${HUGEMEM} \
