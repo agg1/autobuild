@@ -1,6 +1,8 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 
+export RELDA=test
+export CKERN=true
 export LATEST=20161126-1480193160
 export PTREE=/home/seeds/gentoo/portage-hardened.tar
 
