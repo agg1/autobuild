@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -python -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-wayland
 	smp
@@ -64,6 +64,7 @@ livecd/use:
 	a52
 	aac
 	flac
+	gsm
 	lame
 	ladspa
 	ogg
@@ -74,10 +75,12 @@ livecd/use:
 	mp3
 	mp4
 	mpeg
+	speex
 	theora
 	ffmpeg
 	xvid
 	x264
+	h323
 	v4l
 	cdda
 	cddb
@@ -188,6 +191,8 @@ livecd/use:
 	sqlite
 	truetype
 	xetex
+	fortran
+	gcj
 
 livecd/packages:
 	app-admin/apache-tools
@@ -205,8 +210,8 @@ livecd/packages:
 	app-admin/ide-smart
 	app-admin/logrotate
 	app-admin/logsentry
-	app-admin/mcelog
 	app-admin/lsat
+	app-admin/mcelog
 	app-admin/pass
 	app-admin/passook
 	app-admin/passwordsafe
@@ -220,8 +225,12 @@ livecd/packages:
 	app-admin/syslog-summary
 	app-admin/testdisk
 	app-admin/tmpwatch
+	app-admin/mktwpol
+	app-admin/tripwire
 	app-admin/verynice
 	app-admin/whowatch
+	app-antivirus/clamav
+	app-antivirus/clamav-unofficial-sigs
 	app-arch/bzip2
 	app-arch/cpio
 	app-arch/dpkg
@@ -234,6 +243,7 @@ livecd/packages:
 	app-arch/tar
 	app-arch/unrar
 	app-arch/unzip
+	app-backup/bareos
 	app-benchmarks/bonnie++
 	app-benchmarks/stress-ng
 	app-cdr/bashburn
@@ -252,6 +262,7 @@ livecd/packages:
 	app-crypt/aespipe
 	app-crypt/bcrypt
 	app-crypt/bcwipe
+	app-crypt/efitools
 	app-crypt/gnupg
 	app-crypt/hashalot
 	app-crypt/md5deep
@@ -277,20 +288,38 @@ livecd/packages:
 	app-editors/hexedit
 	app-editors/nano
 	app-editors/vim
-	app-editors/wxmedit
+	app-editors/wxmedita
 	app-emulation/qemu
+	app-emulation/spice
+	app-emulation/wine
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
 	app-eselect/eselect-timezone
 	app-eselect/eselect-vi
+	app-forensics/afl
+	app-forensics/chkrootkit
+	app-forensics/foremost
+	app-forensics/mac-robber
+	app-forensics/magicrescue
+	app-forensics/ovaldi
+	app-forensics/sleuthkit
+	app-forensics/unhide
+	app-forensics/zzuf
+	app-misc/abook
+	app-misc/banner
 	app-misc/ca-certificates
 	app-misc/rmlint
 	app-misc/mc
 	app-misc/tmux
 	app-misc/xmind
 	app-misc/zisofs-tools
+	app-mobilephone/anyremote
+	app-mobilephone/gammu
+	app-mobilephone/smsclient
+	app-mobilephone/smstools
 	app-office/dia
+	app-office/homebank
 	app-office/libreoffice
 	app-office/libreoffice-l10n
 	app-portage/cfg-update
@@ -324,13 +353,31 @@ livecd/packages:
 	app-text/odt2txt
 	app-text/rfcutil
 	app-vim/gentoo-syntax
+	app-vim/vim-spell-cs
+	app-vim/vim-spell-da
+	app-vim/vim-spell-de
+	app-vim/vim-spell-el
+	app-vim/vim-spell-en
+	app-vim/vim-spell-es
+	app-vim/vim-spell-fr
+	app-vim/vim-spell-he
+	app-vim/vim-spell-hu
+	app-vim/vim-spell-it
+	app-vim/vim-spell-nl
+	app-vim/vim-spell-pl
+	app-vim/vim-spell-pt
+	app-vim/vim-spell-ru
+	dev-db/unixODBC
 	dev-db/sqlite
+	dev-db/pgadmin3
 	dev-db/postgresql
+	dev-db/redis
 	dev-lang/perl
 	dev-lang/python
 	# broken with EGL dependency
 	dev-libs/DirectFB
 	dev-libs/libbsd
+	dev-libs/libusb-compat
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
@@ -340,6 +387,7 @@ livecd/packages:
 	dev-util/catalyst
 	dev-util/cloc
 	dev-util/cmake
+	dev-util/codeblocks
 	dev-util/indent
 	dev-util/ltrace
 	dev-util/pkgconfig
@@ -357,8 +405,13 @@ livecd/packages:
 	mail-client/thunderbird
 	mail-client/mailx
 	mail-client/mailx-support
+	mail-filter/dovecot-antispam
+	mail-filter/dovecot_deleted_to_trash
+	mail-filter/clamassassin
 	mail-filter/procmail
-	mail-mta/msmtp
+	mail-filter/spamassassin
+	mail-filter/opensmtpd-extras
+	mail-mta/opensmtpd
 	media-fonts/dejavu
 	media-gfx/fbida
 	media-gfx/feh
@@ -404,32 +457,104 @@ livecd/packages:
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
+#	media-video/vlc
+	net-analyzer/aimsniff
+	net-analyzer/angst
+	net-analyzer/argus
+	net-analyzer/argus-clients
+	net-analyzer/arpoison
+	net-analyzer/arp-scan
+	net-analyzer/arptools
 	net-analyzer/arpwatch
+	net-analyzer/barnyard2
+	net-analyzer/braa
+	net-analyzer/cryptcat
+	net-analyzer/cutter
+	net-analyzer/dhcp_probe
+	net-analyzer/dhcpdump
+	net-analyzer/dnstracer
+	net-analyzer/dosdetector
+	net-analyzer/driftnet
+	net-analyzer/egressor
+	net-analyzer/ettercap
 	net-analyzer/fail2ban
+	net-analyzer/ffp
+	net-analyzer/firewalk
 	net-analyzer/fping
+	net-analyzer/fragroute
 	net-analyzer/gnu-netcat
+	net-analyzer/hping
+	net-analyzer/hunt
+	net-analyzer/ifmetric
 	net-analyzer/ifstat
 	net-analyzer/ifstatus
 	net-analyzer/iftop
+	net-analyzer/ike-scan
+	net-analyzer/ipaudit
+	net-analyzer/ipcad
+	net-analyzer/ipguard
 	net-analyzer/iptraf-ng
+	net-analyzer/iptstate
+	net-analyzer/ipv6-toolkit
 	net-analyzer/knocker
+	net-analyzer/labrea
+	net-analyzer/lft
 	net-analyzer/linkchecker
 	net-analyzer/macchanger
+	net-analyzer/masscan
+	net-analyzer/mbrowse
+	net-analyzer/mping
+	net-analyzer/mrtg
+	net-analyzer/mtr
+	net-analyzer/nagios
+	net-analyzer/nagios-check_glsa2
+	net-analyzer/nagios-plugin-check_raid
+	net-analyzer/monitoring-plugins
+	net-analyzer/nagios-plugins-snmp
+	net-analyzer/nbtscan
 	net-analyzer/netcat6
+	net-analyzer/netperf
+	net-analyzer/net-snmp
+	net-analyzer/netwag
+	net-analyzer/netwox
+	net-analyzer/ngrep
+	net-analyzer/nipper
 	net-analyzer/nmap
+	net-analyzer/nmbscan
 	net-analyzer/ntopng
+	net-analyzer/p0f
+	net-analyzer/packit
+	net-analyzer/portsentry
+	net-analyzer/postal
+	net-analyzer/ripe-atlas-tools
+	net-analyzer/rrdtool
+	net-analyzer/sbd
+	net-analyzer/scanlogd
+	net-analyzer/scanssh
+	net-analyzer/scli
+	net-analyzer/suricata
+	net-analyzer/oinkmaster
+	net-analyzer/snort
 	net-analyzer/tcpdump
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
+	net-analyzer/upnpscan
+	net-analyzer/wapiti
+	net-analyzer/wireshark
+	net-dialup/freeradius
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
+	net-dialup/pptpd
+	net-dialup/pppconfig
 	net-dialup/rp-pppoe
 	net-dns/bind-tools
 	net-dns/ddclient
 	net-dns/dnsmasq
+	net-dns/dnstop
+	net-dns/libidn
 	net-firewall/arptables
 	net-firewall/conntrack-tools
 	net-firewall/ebtables
@@ -441,19 +566,31 @@ livecd/packages:
 	net-firewall/nfacct
 	net-firewall/nftables
 	net-firewall/psad
+	net-firewall/shapecfg
 	net-fs/cifs-utils
 	net-fs/nfs-utils
 	net-ftp/ncftp
 	net-ftp/oftpd
+	net-ftp/vsftpd
+	net-im/bitlbee
 	net-im/pidgin
 	net-irc/anope
+	net-irc/hexchat
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/znc
+	net-mail/dovecot
+	net-mail/isync
+	net-mail/notmuch
+	net-mail/notmuchfs
+	net-mail/muchsync
+	net-misc/asterisk
 	net-misc/bridge-utils
 	net-misc/curl
 	net-misc/dhcp
 	net-misc/iputils
+	net-misc/mosh
+	net-misc/mrouted
 	net-misc/ndisc6
 	net-misc/netkit-bootparamd
 	net-misc/netkit-bootpd
@@ -467,15 +604,21 @@ livecd/packages:
 	net-misc/netkit-telnetd
 	net-misc/netkit-timed
 	net-misc/ntp
+#	net-misc/openntpd
 	net-misc/openssh
 	net-misc/openvpn
+	net-misc/quagga
 	net-misc/radvd
 	net-misc/rdate
 	net-misc/rdesktop
 	net-misc/rsync
+	net-misc/spice-gtk
+	net-misc/sstp-client
 	net-misc/tightvnc
 	net-misc/tor
+	net-misc/urlview
 	net-misc/vconfig
+	net-misc/vpnc
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
@@ -483,16 +626,36 @@ livecd/packages:
 	net-misc/yatb
 	net-misc/youtube-dl
 	net-misc/youtube-viewer
+	net-nds/adtool
 	net-nds/openldap
 	net-nds/ypserv
 	net-p2p/transmission
+	net-print/cups
+	net-print/cups-pdf
+	net-print/gutenprint
 	net-proxy/dante
 	net-proxy/privoxy
+	net-proxy/squid
 	net-proxy/torsocks
 	net-proxy/tsocks
+	net-voip/gnugk
+	net-voip/linphone
+	net-voip/yate
+	net-wireless/aircrack-ng
+	net-wireless/airsnort
+	net-wireless/airtraf
 	net-wireless/b43-fwcutter
+	net-wireless/horst
+	net-wireless/iw
+	net-wireless/mdk
+	net-wireless/pyrit
+	net-wireless/cpyrit-opencl
+	net-wireless/wepattack
+	net-wireless/wepdecrypt
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
+	sci-mathematics/octave
+	sci-mathematics/octave-epstk
 	sci-visualization/gnuplot
 	sys-apps/arrayprobe
 	sys-apps/acl
@@ -544,6 +707,9 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/which
 	sys-auth/skey
+	sys-block/aoetools
+	sys-block/vblade
+	sys-block/fio
 	sys-block/mpt-status
 	sys-block/mtx
 	sys-block/open-iscsi
@@ -616,13 +782,15 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
-	virtual/opengl
+	dev-java/ant
+	dev-java/icedtea
+	dev-java/icedtea-web
 	virtual/jre
 	virtual/jdk
+	virtual/opengl
 	virtual/pkgconfig
 	www-client/firefox
-	www-client/links
-	www-client/netsurf
+	www-client/lynx
 	www-client/w3m
 	www-servers/fnord
 	www-servers/nginx
