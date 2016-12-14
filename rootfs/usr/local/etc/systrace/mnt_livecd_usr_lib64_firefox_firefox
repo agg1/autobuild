@@ -19,6 +19,8 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-fsread: filename match "/sys*" then deny
 	linux64-connect: sockaddr match "inet-*:443" then permit
 	linux64-connect: sockaddr match "inet-*:80" then permit
+	linux64-connect: sockaddr match "inet-*:21" then permit
+	linux64-connect: sockaddr match "inet-*:8021" then permit
 	linux64-connect: sockaddr match "inet-*:8080" then permit
 	linux64-connect: sockaddr match "inet-*:8118" then permit
 	linux64-connect: sockaddr match "inet-*:8228" then permit
@@ -71,7 +73,6 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-fsread: filename match "*/usr/lib64/nsbrowser*" then permit
 	linux64-fsread: filename match "*/usr/lib64/nsbrowser/plugins*" then permit
 	linux64-fsread: filename match "*/usr/lib64/nsbrowser/plugins/gmp-gmpopenh264*" then permit
-	linux64-fsread: filename match "*/usr/lib/gcc/*/libgcc_s.so*" then permit
 	linux64-fsread: filename match "*/usr/lib/gcc/*/libstdc++.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64" then permit
 	linux64-fsread: filename match "*/usr/lib64/charset.alias" then permit
@@ -93,7 +94,6 @@ Policy: /mnt/livecd/usr/lib64/firefox/firefox, Emulation: linux64
 	linux64-fsread: filename match "*/usr/lib64/firefox/libffi.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/firefox/libfontconfig.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/firefox/libfreetype.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/firefox/libgcc_s.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/firefox/libgdk-x11-2.0.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/firefox/libgdk_pixbuf-2.0.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/firefox/libgio-2.0.so*" then permit

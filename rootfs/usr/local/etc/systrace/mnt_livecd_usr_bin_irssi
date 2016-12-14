@@ -1,0 +1,165 @@
+Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
+	linux64-arch_prctl: permit
+	linux64-brk: permit
+	linux64-clone: permit
+	linux64-close: permit
+	linux64-bind: sockaddr eq "inet-[0.0.0.1]:0" then permit
+	linux64-bind: sockaddr eq "family(16)" then deny
+	linux64-connect: sockaddr match "inet-*" then permit
+	linux64-connect: sockaddr match "/tmp/tmux*" then permit
+	linux64-sendmsg: sockaddr eq "<unknown>" then permit
+	linux64-sendto: sockaddr eq "family(16)" then permit
+	linux64-dup3: permit
+	linux64-dup: permit
+	linux64-epoll_ctl: permit
+	linux64-epoll_wait: permit
+	linux64-eventfd2: permit
+	linux64-execve: filename eq "/usr/bin/tmux" then permit
+	linux64-execve: filename eq "/usr/local/bin/tmux" then permit
+	linux64-exit_group: permit
+	linux64-exit: permit
+	linux64-fcntl: cmd eq "F_GETFD" then permit
+	linux64-fcntl: cmd eq "F_GETFL" then permit
+	linux64-fcntl: cmd eq "F_SETFD" then permit
+	linux64-fcntl: cmd eq "F_SETFL" then permit
+	linux64-fcntl: cmd eq "F_SETLK" then permit
+	linux64-chmod: filename match "$HOME/.irssi/nicklist-*" and mode eq "700" then permit
+	linux64-fsread: filename match "$HOME/.irssi/nicklist-*" then permit
+	linux64-fswrite: filename match "$HOME/.irssi/nicklist-*" then permit
+	linux64-mknod: filename match "$HOME/.irssi/nicklist-*" and mode eq "600" then permit
+	linux64-fsread: filename eq "/bin/pwd" then permit
+	linux64-fsread: filename eq "/bin/zsh" then deny
+	linux64-fsread: filename eq "/dev/null" then permit
+	linux64-fsread: filename match "/dev/pts*" then deny
+	linux64-fsread: filename eq "/dev" then deny
+	linux64-fsread: filename eq "/dev/urandom" then permit
+	linux64-fsread: filename eq "/etc/host.conf" then permit
+	linux64-fsread: filename eq "/etc/hosts" then permit
+	linux64-fsread: filename eq "/etc/ld.so.cache" then permit
+	linux64-fsread: filename eq "/etc/ld.so.preload" then permit
+	linux64-fsread: filename eq "/etc/localtime" then permit
+	linux64-fsread: filename eq "/etc/nsswitch.conf" then permit
+	linux64-fsread: filename eq "/etc/passwd" then deny
+	linux64-fsread: filename match "/etc/perl/*" then permit
+	linux64-fsread: filename eq "/etc/protocols" then permit
+	linux64-fsread: filename eq "/etc/resolv.conf" then permit
+	linux64-fsread: filename eq "/etc/socks/socks.conf" then permit
+	linux64-fsread: filename match "/etc/ssl/certs*" then permit
+	linux64-fsread: filename match "/etc/terminfo*" then permit
+	linux64-fsread: filename eq "/home" then permit
+	linux64-fsread: filename eq "$HOME" then permit
+	linux64-fsread: filename eq "$HOME/.config" then permit
+	linux64-fsread: filename match "$HOME/.config/irssi*" then permit
+	linux64-fsread: filename match "$HOME/Encode/*" then permit
+	linux64-fsread: filename match "$HOME/.irssi/*" then permit
+	linux64-fsread: filename match "$HOME/.irssilogs/*" then permit
+	linux64-fsread: filename eq "$HOME/.irssilogs" then permit
+	linux64-fsread: filename eq "/home/user/Irssi/Silc.pm" then permit
+	linux64-fsread: filename eq "/home/user/.irssi/startup" then permit
+	linux64-fsread: filename eq "/home/user/.irssi" then permit
+	linux64-fsread: filename eq "/home/user/.terminfo" then permit
+	linux64-fsread: filename eq "/home/user" then permit
+	linux64-fsread: filename eq "/lib64/libcrypt.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libc.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libdl.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libm.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libncurses.so.6" then permit
+	linux64-fsread: filename eq "/lib64/libnsl.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libnss_db.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_dns.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_files.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_compat.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libnss_nis.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libpcre.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libpthread.so.0" then permit
+	linux64-fsread: filename eq "/lib64/libresolv.so.2" then permit
+	linux64-fsread: filename eq "/lib64/libutil.so.1" then permit
+	linux64-fsread: filename eq "/lib64/libz.so.1" then permit
+	linux64-fsread: filename eq "/usr/bin/irssi" then permit
+	linux64-fsread: filename eq "/usr/lib64/charset.alias" then permit
+	linux64-fsread: filename eq "/usr/lib64/gconv/CP1252.so" then permit
+	linux64-fsread: filename eq "/usr/lib64/gconv/gconv-modules.cache" then permit
+	linux64-fsread: filename match "/usr/lib64/irssi/modules*" then permit
+	linux64-fsread: filename eq "/usr/lib64/libcrypto.so.38" then permit
+	linux64-fsread: filename eq "/usr/lib64/libevent-2.1.so.5" then permit
+	linux64-fsread: filename eq "/usr/lib64/libglib-2.0.so.0" then permit
+	linux64-fsread: filename eq "/usr/lib64/libgmodule-2.0.so.0" then permit
+	linux64-fsread: filename eq "/usr/lib64/libperl.so.5.24" then permit
+	linux64-fsread: filename eq "/usr/lib64/libsocks.so.0" then permit
+	linux64-fsread: filename eq "/usr/lib64/libssl.so.39" then permit
+	linux64-fsread: filename eq "/usr/lib64/libz.so.1" then permit
+	linux64-fsread: filename match "/usr/lib64/locale*" then permit
+	linux64-fsread: filename match "/usr/lib64/perl5/*" then permit
+	linux64-fsread: filename eq "/usr/lib64" then permit
+	linux64-fsread: filename eq "/usr/lib64/tls/libz.so.1" then permit
+	linux64-fsread: filename eq "/usr/lib64/tls" then permit
+	linux64-fsread: filename eq "/usr/lib64/tls/x86_64/libz.so.1" then permit
+	linux64-fsread: filename eq "/usr/lib64/tls/x86_64" then permit
+	linux64-fsread: filename eq "/usr/lib64/x86_64/libz.so.1" then permit
+	linux64-fsread: filename eq "/usr/lib64/x86_64" then permit
+	linux64-fsread: filename match "/usr/local/etc/certs*" then permit
+	linux64-fsread: filename match "/usr/local/lib64/perl5*" then permit
+	linux64-fsread: filename match "/usr/share/irssi/scripts*" then deny
+	linux64-fsread: filename match "/usr/share/irssi/themes*" then permit
+	linux64-fsread: filename match "/usr/share/irssi/help*" then permit
+	linux64-fsread: filename eq "/usr/share/lib/locale/LC_TIME/default" then permit
+	linux64-fsread: filename match "/usr/share/locale*" then permit
+	linux64-fsread: filename match "/usr/share/terminfo*" then permit
+	linux64-fsread: filename eq "/usr/share/terminfo" then permit
+	linux64-fsread: filename eq "/var/db/protocols.db" then permit
+	linux64-fsread: filename eq "/proc/self/exe" then deny
+	linux64-fsread: filename match "/proc/self/fd*" then deny
+	linux64-fstat: permit
+	linux64-fswrite: filename match "$HOME/.config/irssi/blow.ini" then permit
+	linux64-fswrite: filename match "$HOME/.config/irssi/config" then permit log
+	linux64-fswrite: filename match "$HOME/.config/irssi/config.autosave" then permit log
+	linux64-fswrite: filename match "$HOME/.irssi/autoop" then permit
+	linux64-fswrite: filename match "$HOME/.irssi/default.theme" then permit
+	linux64-fswrite: filename match "$HOME/.irssilogs/*" then permit
+	linux64-fswrite: filename match "$HOME/.irssilogs/url" then permit
+	linux64-fswrite: filename match "$HOME/.irssi/" then permit
+	linux64-fswrite: filename match "/tmp/yaccenv-client-*" then permit
+	linux64-futex: permit
+	linux64-getcwd: permit
+	linux64-getdents: permit
+	linux64-getegid: permit
+	linux64-geteuid: permit
+	linux64-getgid: permit
+	linux64-getgroups: permit
+	linux64-getpeername: permit
+	linux64-getrlimit: permit
+	linux64-getsockname: permit
+	linux64-getsockopt: permit
+	linux64-getuid: permit
+	linux64-ioctl: permit
+	linux64-lseek: permit
+	linux64-mmap: prot eq "PROT_NONE" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_EXEC" then permit
+	linux64-mmap: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mmap: prot eq "PROT_READ" then permit
+	linux64-mprotect: prot eq "PROT_NONE" then permit
+	linux64-mprotect: prot eq "PROT_READ|PROT_WRITE" then permit
+	linux64-mprotect: prot eq "PROT_READ" then permit
+	linux64-munmap: permit
+	linux64-pipe: permit
+	linux64-poll: permit
+	linux64-prctl: permit
+	linux64-read: permit
+	linux64-recvfrom: permit
+	linux64-recvmsg: permit
+	linux64-rt_sigaction: permit
+	linux64-rt_sigprocmask: permit
+	linux64-rt_sigreturn: permit
+	linux64-select: permit
+	linux64-setrlimit: permit
+	linux64-set_robust_list: permit
+	linux64-setsockopt: permit
+	linux64-set_tid_address: permit
+	linux64-signalfd4: permit
+	linux64-socket: permit
+	linux64-umask: permit
+	linux64-uname: permit
+	linux64-unknown-307: permit
+	linux64-unknown-318: permit
+	linux64-wait4: permit
+	linux64-write: permit

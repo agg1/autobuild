@@ -12,7 +12,6 @@ Policy: /mnt/livecd/usr/libexec/squid/log_file_daemon, Emulation: linux64
 	linux64-mprotect: prot eq "PROT_NONE" then permit
 	linux64-fsread: filename eq "/lib64/libc.so.6" then permit
 	linux64-fsread: filename eq "/lib64/libm.so.6" then permit
-	linux64-fsread: filename eq "/usr/lib/gcc/x86_64-pc-linux-gnu/5.4.0/libgcc_s.so.1" then permit
 	linux64-arch_prctl: permit
 	linux64-mprotect: prot eq "PROT_READ" then permit
 	linux64-munmap: permit

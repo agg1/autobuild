@@ -111,7 +111,6 @@ Policy: /mnt/livecd/usr/bin/hexchat, Emulation: linux64
 	linux64-fsread: filename eq "/usr/bin" then permit
 	linux64-fsread: filename eq "/usr/include" then permit
 	linux64-fsread: filename eq "/usr/lib" then permit
-	linux64-fsread: filename match "/usr/lib/gcc/*/libgcc_s.so*" then permit
 	linux64-fsread: filename match "/usr/lib/gcc/*/libstdc++.so*" then permit
 	linux64-fsread: filename eq "/usr/lib64" then permit
 	linux64-fsread: filename match "*/usr/lib64/charset.alias" then permit

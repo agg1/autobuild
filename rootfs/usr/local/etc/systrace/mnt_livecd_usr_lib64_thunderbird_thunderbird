@@ -184,7 +184,6 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename match "*/usr/bin/locale" then permit
 	linux64-fsread: filename match "*/usr/bin/pinentry" then permit
 	linux64-fsread: filename match "*/usr/bin/thunderbird" then permit
-	linux64-fsread: filename match "/usr/lib/gcc/*/libgcc_s.so*" then permit
 	linux64-fsread: filename match "/usr/lib/gcc/*/libstdc++.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64" then permit
 	linux64-fsread: filename match "*/usr/lib64/charset.alias" then permit
@@ -310,7 +309,6 @@ Policy: /mnt/livecd/usr/lib64/thunderbird/thunderbird, Emulation: linux64
 	linux64-fsread: filename match "*/usr/lib64/thunderbird/libffi.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/thunderbird/libfontconfig.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/thunderbird/libfreetype.so*" then permit
-	linux64-fsread: filename match "*/usr/lib64/thunderbird/libgcc_s.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/thunderbird/libgdk-x11-2.0.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/thunderbird/libgdk_pixbuf-2.0.so*" then permit
 	linux64-fsread: filename match "*/usr/lib64/thunderbird/libgio-2.0.so*" then permit
