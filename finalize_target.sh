@@ -1,4 +1,4 @@
 #!/bin/sh
 
-find /usr/lib64 -name '*.pyc' -delete
-find /usr/lib64 -name '*.pyo' -delete
+find /usr/lib/ -name '*.pyc' -delete
+find /usr/lib/ -name '*.pyo' -delete
