@@ -1,5 +1,15 @@
 app-admin/sudo
+#app-arch/alien
+#app-arch/rpm
+app-backup/amanda
+#app-backup/bacula
+#app-benchmarks/httperf
+#app-cdr/graveman
+#app-crypt/johntheripper
 #app-doc/cppman
+app-doc/abs-guide
+app-doc/autobook
+app-doc/devmanual
 app-doc/elisp-manual
 app-doc/linkers-and-loaders
 app-doc/linux-device-drivers
@@ -9,24 +19,29 @@ app-doc/selfhtml
 app-doc/tldp-howto
 app-doc/phrack-all
 #app-dicts/stardict*
+#app-editors/emacs
 #app-emacs/
+#app-emulation/fuse
+#app-emulation/fuse-utils
 #app-emulation/ganeti
+#app-forensics/autopsy
+#app-forensics/cmospwd
+app-forensics/examiner
+app-forensics/memdump
 #app-forensics/openscap
-app-forensics/ovaldi
 app-forensics/pasco
 #app-forensics/libewf
 #app-forensics/rdd
 #app-forensics/rkhunter
+#app-forensics/rdd
+app-forensics/scalpel
+app-forensics/volatility
 app-forensics/yasat
 # patch required to drop dbus dependency
 #app-leechcraft/leechcraft-meta
 #app-misc/jail
 #app-misc/pax-utils
-app-mobilephone/anyremote
-app-mobilephone/gammu
-app-mobilephone/smsclient
-app-mobilephone/smssend
-app-mobilephone/smstools
+#app-mobilephone/smssend
 app-office/dia2code
 #app-office/openerp
 #app-office/planner
@@ -37,10 +52,8 @@ app-office/dia2code
 #app-officeext/ooo2gd
 #app-office/texmaker
 #app-office/texmacs
-app-office/grisbi
-app-office/homebank
-app-office/lyx
-app-office/plan
+#app-office/grisbi
+#app-office/lyx
 app-officeext/barcode
 app-officeext/dmaths
 app-officeext/sun-templates
@@ -54,13 +67,8 @@ app-officeext/texmaths
 dev-cpp/clucene
 dev-cpp/lucene++
 #dev-db/
-dev-db/mysql
-dev-db/sqlite
-dev-db/postgresql
-dev-db/redis
-dev-db/pgadmin3
+#dev-db/mysql
 #dev-db/sqlitestudio
-dev-db/unixODBC
 #dev-dotnet/
 #dev-embedded/
 #dev-erlang/
@@ -84,7 +92,7 @@ dev-lang/swig
 #dev-tcltk/
 #dev-tex/
 #dev-texlive/
-dev-util/codeblocks
+#dev-util/
 #dev-vcs/
 #games-action/
 #games-arcade/
@@ -136,131 +144,68 @@ media-sound/mumble
 #media-sound/rhythmbox
 #media-tv/
 #media-tv/w_scan
-net-analyzer/aimsniff
-net-analyzer/alive
-net-analyzer/amap
-net-analyzer/angst
-net-analyzer/argus
-net-analyzer/argus-clients
-net-analyzer/arpoison
-net-analyzer/arp-scan
-net-analyzer/arptools
-net-analyzer/arpwatch
+#net-analyzer/amap
 net-analyzer/authforce
-net-analyzer/barnyard2
 net-analyzer/bing
 net-analyzer/bmon
-net-analyzer/braa
-net-analyzer/bro
+#net-analyzer/bro
 #net-analyzer/bsnmp
 net-analyzer/bwm-ng
 net-analyzer/calamaris
 net-analyzer/cnet
-net-analyzer/cryptcat
-net-analyzer/cutter
-net-analyzer/dhcp_probe
-net-analyzer/dhcpdump
-net-analyzer/dnstracer
-#net-analyzer/dosdetector
-net-analyzer/driftnet
-net-analyzer/dsniff
-net-analyzer/egressor
+#net-analyzer/dsniff
 net-analyzer/ethloop
-net-analyzer/ettercap
-net-analyzer/ffp
-net-analyzer/firewalk
-net-analyzer/fragroute
 net-analyzer/ftester
 net-analyzer/fwlogwatch
-net-analyzer/hping
-net-analyzer/httping
-net-analyzer/hunt
-net-analyzer/hydra
-#net-analyzer/icinga
-#net-analyzer/icinga-web
-#net-analyzer/icinga2
-net-analyzer/ifmetric
+#net-analyzer/httping
+#net-analyzer/hydra
 net-analyzer/ifstat
-net-analyzer/ike-scan
-net-analyzer/ipaudit
-net-analyzer/ipcad
-net-analyzer/ipguard
+#net-analyzer/ipgen
 net-analyzer/iplog
 net-analyzer/ipsumdump
-net-analyzer/iptstate
-net-analyzer/ipv6-toolkit
 net-analyzer/isic
-net-analyzer/lft
-net-analyzer/libnasl
-net-analyzer/masscan
-net-analyzer/mbrowse
-net-analyzer/mping
-net-analyzer/mrtg
-#net-analyzer/nagios-plugins-snmp
-#net-analyzer/nagios-check_fail2ban
-net-analyzer/nagircbot
+#net-analyzer/metasploit
+#net-analyzer/nagircbot
 #net-analyzer/nagvis
-net-analyzer/nrpe
+#net-analyzer/nrpe
 #net-analyzer/namebench
-net-analyzer/nbtscan
 #net-analyzer/ndsad
 #blocks nessus-core
+#net-analyzer/nessus
+#net-analyzer/nessus-bin
 #net-analyzer/nessus-client
-net-analyzer/net-snmp
-net-analyzer/netperf
+#net-analyzer/nessus-core
+#net-analyzer/nessus-libraries
+#net-analyzer/nessus-plugins
+#net-analyzer/libnasl
 net-analyzer/nettop
 net-analyzer/netwatch
-net-analyzer/netwag
-net-analyzer/netwox
-net-analyzer/ngrep
-net-analyzer/nikto
-net-analyzer/nipper
-net-analyzer/nmbscan
-net-analyzer/openvas
-net-analyzer/ospd
-net-analyzer/p0f
-net-analyzer/packit
+#net-analyzer/nikto
+#net-analyzer/openvas
+#net-analyzer/ospd
 #net-analyzer/portbunny
 net-analyzer/portmon
-net-analyzer/portsentry
-net-analyzer/ripe-atlas-tools
-net-analyzer/rrdtool
 net-analyzer/sarg
-net-analyzer/sbd
-net-analyzer/scanlogd
-net-analyzer/scanssh
-net-analyzer/scli
-net-analyzer/suricata
-net-analyzer/ssldump
-net-analyzer/sslscan
-net-analyzer/sslsniff
+#net-analyzer/ssldump
+#net-analyzer/sslscan
+#net-analyzer/sslsniff
 net-analyzer/synscan
 #net-analyzer/tcpreplay
-net-analyzer/testssl
-net-analyzer/thc-ipv6
-net-analyzer/upnpscan
-net-analyzer/wapiti
-net-dialup/freeradius
-net-dialup/freeradius-client
-net-dialup/pptpd
-net-dialup/pppconfig
-net-dialup/wvdial
-net-dns/dnstop
+#net-analyzer/testssl
+#net-analyzer/thc-ipv6
+#net-dialup/wvdial
 net-dns/pdnsd
 #net-firewall/fwbuilder
 #net-firewall/ipset
 #net-firewall/ipt_netflow
 #https://bugs.gentoo.org/show_bug.cgi?id=583608
 #net-firewall/nufw
-net-firewall/shapecfg
 #net-firewall/xtables-addon
 #net-fs/
 #net-im/silc-server
 #net-im/skype
 #net-misc/connman
-net-misc/asterisk
-net-misc/mosh
-net-misc/mrouted
+#net-misc/socat
 #net-nds/lat
 #conflict with nfs-utils
 #net-nds/portmap
@@ -272,24 +217,24 @@ net-misc/mrouted
 #net-p2p/
 #net-print/
 #broken
-#net-print/gutenprint
-#net-proxy/
-#borken
 #net-proxy/ziproxy
-#net-voip/
 #net-voip/blink
-#net-voip/linphone
-net-voip/yate
+#net-voip/ekiga
 #net-wireless/airpwn
-#net-wireless/cpyrit-opencl
+#net-wireless/hostap-utils
+#net-wireless/hostapd
 #net-wireless/kismet
 #net-wireless/kismet-ubertooth
 #net-wireless/lorcon
+net-wireless/mfoc
+net-wireless/rfkill
 #perl-core/
 #ros-meta/
 #sci-astronomy/
 #sci-biology/
-#sci-calculators/
+sci-calculators/pcalc
+sci-calculators/units
+sci-calculators/wcalc
 #sci-chemistry/
 #sci-electronics/
 #sci-geosciences/
@@ -324,6 +269,7 @@ sys-process/nmon
 #www-client/
 #www-misc/
 #www-plugins/
+#www-servers/
 www-servers/apache
 www-servers/tomcat
 #x11-apps/
@@ -339,93 +285,3 @@ www-servers/tomcat
 #xfce-base/
 #xfce-extra/
 #sys-block/iscsitarget
-#net-misc/openntpd
-#app-arch/alien
-#app-arch/rpm
-#app-emulation/fuse
-#app-emulation/fuse-utils
-#       app-admin/mktwpol
-#       app-admin/tripwire
-        app-antivirus/clamav
-        app-backup/amanda
-        app-backup/bacula
-        app-antivirus/clamav-unofficial-sigs
-#       app-benchmarks/httperf
-        app-cdr/graveman
-        app-crypt/efitools
-#       app-crypt/johntheripper
-#       app-editors/emacs
-#       app-editors/emacs
-#       app-emulation/wine
-        app-emulation/spice
-        app-forensics/afl
-        app-forensics/autopsy
-        app-forensics/chkrootkit
-        app-forensics/cmospwd
-        app-forensics/examiner
-        app-forensics/foremost
-        app-forensics/mac-robber
-        app-forensics/magicrescue
-        app-forensics/memdump
-#       app-forensics/rdd
-        app-forensics/scalpel
-#       app-forensics/sleuthkit
-        app-forensics/unhide
-        app-forensics/volatility
-        app-forensics/zzuf
-#       dev-db/mysql
-        mail-filter/clamassassin
-        mail-filter/spamassassin
-#       mail-filter/opensmtpd-extras
-#       mail-mta/opensmtpd
-#       net-analyzer/metasploit
-        net-analyzer/monitoring-plugins
-        net-analyzer/nagios
-#       net-analyzer/nessus
-        net-analyzer/snort
-        net-analyzer/oinkmaster
-        net-analyzer/mtr
-#       net-analyzer/wireshark
-#       net-ftp/vsftpd
-#       net-irc/hexchat
-        net-mail/dovecot
-#       net-misc/socat
-        net-misc/spice-gtk
-#       net-misc/sstp-client
-#       net-misc/vpnc
-#       net-nds/adtool
-#       net-print/cups
-#       net-print/cups-pdf
-#       net-proxy/squid
-#       net-voip/ekiga
-#       net-voip/gnugk
-#       net-wireless/aircrack-ng
-        net-wireless/airsnort
-        net-wireless/airtraf
-        net-wireless/horst
-        net-wireless/hostap-utils
-#       net-wireless/hostapd
-        net-wireless/iw
-        net-wireless/mdk
-        net-wireless/mfoc
-#       net-wireless/pyrit
-        net-wireless/rfkill
-#       net-wireless/wepattack
-#       net-wireless/wepdecrypt
-#       sci-mathematics/octave
-        sci-calculators/pcalc
-        sci-calculators/qalculator
-        sci-calculators/qalculate-bases
-        sci-calculators/qalculate-currency
-        sci-calculators/qalculate-gtk
-        sci-calculators/qalculate-units
-        sci-calculators/units
-        sci-calculators/wcalc
-        app-misc/splitvt
-        app-misc/banner
-        app-doc/abs-guide
-        app-doc/autobook
-        app-doc/devmanual
-#       sys-block/aoetools
-#       sys-block/fio
-        media-video/vlc
