@@ -27,5 +27,7 @@ app-arch/rpm
 dev-lang/ruby
 dev-java/icedtea-bin
 >=virtual/jdk-1.8.0
-#>app-crypt/gnupg-1.4.20
+>=www-client/firefox-46.0.0
+>=mail-client/thunderbird-46.0.0
 #net-libs/neon
+#>app-crypt/gnupg-2.4.20
