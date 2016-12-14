@@ -1,4 +1,4 @@
-net-misc/openssh -bindist
+net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 dev-libs/glib -mime -utils
@@ -21,3 +21,5 @@ sys-block/partimage -ssl
 mail-mta/nullmailer -ssl
 net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
 net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
+#net-wireless/hostapd -ssl
+#app-crypt/pinentry -gtk ncurses
