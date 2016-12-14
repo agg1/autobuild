@@ -1,7 +1,11 @@
 >=sys-devel/gcc-5.0.0
->dev-util/catalyst-3.0_rc1
+>sys-libs/glibc-2.22
+>sys-devel/binutils-2.25.1
+>=sys-kernel/vanilla-sources-5.0
 >sys-kernel/genkernel-3.4.52.4
+>sys-devel/binutils-config-5
 >sys-devel/gcc-config-1.8-r1
+>dev-util/catalyst-3.0_rc1
 dev-libs/openssl
 dev-libs/nettle
 net-libs/gnutls
@@ -26,6 +30,7 @@ app-arch/alien
 app-arch/rpm
 dev-lang/ruby
 dev-java/icedtea-bin
+>=x11-base/xorg-server-1.19.0
 >=virtual/jdk-1.8.0
 >=www-client/firefox-46.0.0
 >=mail-client/thunderbird-46.0.0
