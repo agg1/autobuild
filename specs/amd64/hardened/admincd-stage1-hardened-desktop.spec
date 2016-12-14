@@ -288,7 +288,7 @@ livecd/packages:
 	app-editors/hexedit
 	app-editors/nano
 	app-editors/vim
-	app-editors/wxmedita
+	app-editors/wxmedit
 	app-emulation/qemu
 	app-emulation/spice
 	app-emulation/wine
