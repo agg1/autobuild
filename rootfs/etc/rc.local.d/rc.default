@@ -46,6 +46,9 @@ echo -1 > /sys/module/usbcore/parameters/autosuspend
 #echo 30 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 #echo 20 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
 
+# prevent loading kernel modules
+echo 1 > /proc/sys/kernel/modules_disabled
+
 # enable core dumps
 sysctl -w kernel.core_uses_pid=1
 sysctl -w kernel.core_pattern="/tmp/core-%e-%s-%u-%g-%p-%t"
@@ -92,4 +95,7 @@ echo 'root:$6$rounds=5000000$jU.tb/NbYjI$bTSQSGVNzuq2DCMwrT6FT.BjChkqHQTf8e3nnVY
 rm -rf /etc/portage
 cp -pr /mnt/livecd/etc/portage /etc/portage
 
+[ -e /etc/init.d/cronie ] && /etc/init.d/cronie restart
 [ -e /etc/init.d/verynice ] && /etc/init.d/verynice restart
+
+touch /var/log/strace ; chmod 640 /var/log/strace ; chgrp wheel /var/log/strace

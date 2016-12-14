@@ -27,11 +27,11 @@ arp -s 10.0.0.1 ec:08:6b:05:bb:56
 iptables -A OUTPUT -m owner --gid-owner 250 -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8,127.0.0.1 -j DROP
 iptables -A OUTPUT -m owner --gid-owner 250 -j ACCEPT
 # proxy connect chain
-#iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 127.0.0.1 -j ACCEPT
+iptables -I OUTPUT 1 -m owner --gid-owner $(id -g squid) -d 127.0.0.1 -j ACCEPT
 iptables -I OUTPUT 1 -m owner --gid-owner $(id -g privoxy) -d 127.0.0.1 -j ACCEPT
 #iptables -I OUTPUT 1 -m owner --gid-owner $(id -g tor) -d 127.0.0.1 -j ACCEPT
 # disallow proxy to lan traffic
-#iptables -A OUTPUT -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
+iptables -A OUTPUT -m owner --gid-owner $(id -g squid) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
 iptables -A OUTPUT -m owner --gid-owner $(id -g privoxy) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
 iptables -A OUTPUT -m owner --gid-owner $(id -g tor) -d 192.168.0.0/16,172.16.0.0/16,10.0.0.0/8 -j DROP
 # allow outgoing tor
@@ -65,7 +65,6 @@ sleep 120
 ifconfig enp0s25 10.0.0.2/8
 /usr/local/bin/dhclient enp0s26u1u2u1u5
 sleep 5
-/usr/local/bin/timesync.sh
 
 # start proxies
 /usr/local/bin/tor.sh
