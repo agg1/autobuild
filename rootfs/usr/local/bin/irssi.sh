@@ -3,7 +3,7 @@
 export AWL_NOTITLE=1
 export AWL_SSIZE=$(/bin/stty size)
 #T3=$(pgrep -u $USER -x irssi)
-T3=$(tmux list-sessions -F '#{session_name}' | grep main)
+T3=$(tmux list-sessions -F '#{session_name}' | grep irc)
 
 #ctrl-b
 #1..N switch window
@@ -42,13 +42,13 @@ irssi_repair() {
 }
 
 if [ -z "$T3" ]; then
-	tmux new-session -E -d -s main tail -f /var/log/strace;
-	#tmux new-session -E -d -s main tail;
-	tmux new-window -t main -n irssi \
+	tmux new-session -E -d -s irc tail -f /var/log/strace;
+	#tmux new-session -E -d -s irc tail;
+	tmux new-window -t irc -n irssi \
 	sg wanout -c "systrace -d /usr/local/etc/systrace -ia /usr/bin/irssi -- --config ~/.config/irssi/config";
 #    irssi_nickpane
 else
-    tmux attach-session -d -t main;
+    tmux attach-session -d -t irc;
 #    irssi_repair
 fi
 
