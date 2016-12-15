@@ -525,7 +525,6 @@ livecd/packages:
 	net-analyzer/p0f
 	net-analyzer/packit
 	net-analyzer/portsentry
-	net-analyzer/postal
 	net-analyzer/ripe-atlas-tools
 	net-analyzer/rrdtool
 	net-analyzer/sbd
