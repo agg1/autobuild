@@ -248,9 +248,9 @@ sci-calculators/wcalc
 sci-calculators/tiemu
 sci-calculators/tilp2
 #sec-policy/
-#sys-apps/netplug
+#sys-apps/
 #sys-auth/skey
-#sys-block/iscsitarget
+#sys-block/
 #sys-boot/
 #sys-cluster/
 #sys-devel/
@@ -271,7 +271,6 @@ sys-process/nmon
 #www-plugins/
 #www-servers/
 www-servers/apache
-www-servers/tomcat
 #x11-apps/
 #x11-base/
 #x11-drivers/
@@ -284,4 +283,3 @@ www-servers/tomcat
 #x11-wm/
 #xfce-base/
 #xfce-extra/
-#sys-block/iscsitarget
