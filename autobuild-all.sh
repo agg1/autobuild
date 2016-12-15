@@ -9,8 +9,8 @@ prepare_system
 clean_portage
 prepare_portage
 
-#build_seed_boot
-#build_seed_init
+build_seed_boot
+build_seed_init
 export PKDIR="/home/packages-minimal" ; rm -rf ${PKDIR}/*
 build_livecd_minimal
 export PKDIR="/home/packages-admin" ; rm -rf ${PKDIR}/*
