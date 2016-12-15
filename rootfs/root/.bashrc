@@ -27,7 +27,7 @@ export LC_ALL=
 export EDITOR=/usr/bin/vi
 
 set +o history
-umask 0007
+#umask 0007
 if [ -z "$RUNX" -a ! -e ${HOME}/.nox ] ; then
 	export RUNX=1
 	exec /usr/local/bin/runx.sh
