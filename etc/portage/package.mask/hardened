@@ -34,6 +34,6 @@ dev-lang/ruby
 >=mail-client/thunderbird-46.0.0
 >=virtual/jdk-1.8.0
 >=virtual/jre-1.8.0
-#dev-java/icedtea-bin
+dev-java/icedtea-bin
 #net-libs/neon
 #>app-crypt/gnupg-2.4.20
