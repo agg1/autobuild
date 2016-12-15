@@ -32,7 +32,7 @@ for g in $LANGROUPS ; do
 done
 
 # allow for remote administration with ssh, fail2ban is mandatory if this is allowed with a public IP
-iptables -I INPUT 1 -p tcp --sport 22222:22222 --dport 2222 -j ACCEPT
+iptables -I INPUT 1 -p tcp --sport 22221:22222 --dport 2222 -j ACCEPT
 # WoL port
 iptables -I INPUT 1 -p udp --dport 9999 -j ACCEPT
 # deny x11 forwarding
