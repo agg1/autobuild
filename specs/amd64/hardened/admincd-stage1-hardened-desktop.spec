@@ -192,7 +192,6 @@ livecd/use:
 	truetype
 	xetex
 	fortran
-	gcj
 
 livecd/packages:
 	app-admin/apache-tools
@@ -781,7 +780,7 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
-	dev-java/ant
+	#dev-java/ant
 	#dev-java/icedtea
 	#dev-java/icedtea-web
 	#virtual/jre
