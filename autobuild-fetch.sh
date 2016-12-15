@@ -61,11 +61,13 @@ fetch_catalyst() {
 	echo "### fetch_catalyst()"
 	
 	mkdir -p /var/tmp/catalyst/builds/hardened
-	cp /media/stick/container/seeds/init/20161126-1480193160/stage3-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
+	#cp /media/stick/container/seeds/init/20161126-1480193160/stage3-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
+	cp /media/stick/container/seeds/gentoo/stage3-amd64-hardened+nomultilib-libressl.tar.bz2* /var/tmp/catalyst/builds/hardened
+	#cp /media/stick/container/seeds/desktop/20161126-1480193160/livecd-stage1-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
 
 	iptables -P OUTPUT ACCEPT
 	catalyst -v -c /media/stick/container/catalyst/catalystrc -s latest
-	catalyst -v -F -f /media/stick/container/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c /media/stick/container/catalyst/catalystrc -C version_stamp=latest source_subpath=hardened/stage3-amd64-latest.tar.bz2
+	catalyst -v -c /media/stick/container/catalyst/catalystrc -F -f /media/stick/container/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -C version_stamp=latest source_subpath=hardened/stage3-amd64-hardened+nomultilib-libressl.tar.bz2
 	iptables -P OUTPUT DROP
 
 	rm -f /var/tmp/catalyst/builds/hardened/*
