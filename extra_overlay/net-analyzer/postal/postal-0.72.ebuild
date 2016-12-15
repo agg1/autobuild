@@ -34,6 +34,5 @@ src_prepare() {
 src_configure() {
 	econf \
 		--disable-stripping \
-		$(use_enable ssl openssl) \
-		$(use_enable gnutls)
+		$(use_enable ssl openssl)
 }
