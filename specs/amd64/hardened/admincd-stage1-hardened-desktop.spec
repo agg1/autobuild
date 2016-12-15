@@ -90,7 +90,6 @@ livecd/use:
 	dvd
 	oss
 	sdl
-	-cups
 	scanner
 	joystick
 	sound
@@ -783,9 +782,9 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
-	#dev-java/ant
-	dev-java/icedtea
-	dev-java/icedtea-web
+	dev-java/ant
+	#dev-java/icedtea
+	#dev-java/icedtea-web
 	virtual/jre
 	virtual/jdk
 	virtual/opengl
