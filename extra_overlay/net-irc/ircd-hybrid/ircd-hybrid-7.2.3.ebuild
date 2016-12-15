@@ -11,7 +11,7 @@ MAX_TOPIC_LENGTH=390
 ENABLE_SMALL_NETWORK=0
 ENABLE_EFNET=0
 
-IUSE="debug ssl static zlib contrib"
+IUSE="debug ssl libressl static zlib contrib"
 
 DESCRIPTION="IRCD-Hybrid - High Performance Internet Relay Chat"
 HOMEPAGE="http://ircd-hybrid.com/"
@@ -22,7 +22,10 @@ KEYWORDS="~alpha ~amd64 ~ppc ~x86"
 
 RDEPEND="
 	zlib? ( >=sys-libs/zlib-1.1.4-r2 )
-	ssl? ( >=dev-libs/openssl-0.9.7d )"
+    ssl? (                                                                                                    
+        !libressl? ( dev-libs/openssl )                                                                       
+        libressl? ( dev-libs/libressl )                                                                       
+    )"
 
 DEPEND="${RDEPEND}
 	>=sys-devel/flex-2.5.4a-r5
@@ -37,6 +40,7 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	epatch "${FILESDIR}"/7.2.3-default-config.patch
+	epatch "${FILESDIR}/ircd-hybrid-7.2.3-rand.patch"
 }
 
 src_compile() {
