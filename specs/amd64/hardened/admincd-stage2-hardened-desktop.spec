@@ -109,7 +109,6 @@ boot/kernel/gentoo/use:
 	dvd
 	oss
 	sdl
-	-cups
 	scanner
 	joystick
 	sound
