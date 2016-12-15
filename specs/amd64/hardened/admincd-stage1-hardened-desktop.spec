@@ -574,6 +574,7 @@ livecd/packages:
 	net-im/pidgin
 	net-irc/anope
 	net-irc/hexchat
+	net-irc/ircd-hybrid
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/znc
