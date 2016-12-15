@@ -211,7 +211,6 @@ boot/kernel/gentoo/use:
 	truetype
 	xetex
 	fortran
-	gcj
 
 #boot/kernel/gentoo/packages:
 #	sys-kernel/linux-firmware
