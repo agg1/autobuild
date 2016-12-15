@@ -4,6 +4,7 @@ prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,size=22G / || true
+	mount -o remount,exec /etc || true
 	mount -o remount,exec,dev,suid /home || true
 	mount -o remount,exec,dev,suid,size=22G /tmp/ || true
 	mount -o remount,exec,dev,suid,size=22G /var/tmp/ || true
