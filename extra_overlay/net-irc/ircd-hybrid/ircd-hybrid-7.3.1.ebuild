@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-irc/ircd-hybrid/ircd-hybrid-7.2.3.ebuild,v 1.2 2008/02/25 15:30:06 armin76 Exp $
 
+#EAPI=5
+
 inherit eutils multilib toolchain-funcs
 
 # Additional configuration options
@@ -11,7 +13,7 @@ MAX_TOPIC_LENGTH=390
 ENABLE_SMALL_NETWORK=0
 ENABLE_EFNET=0
 
-IUSE="debug ssl static zlib contrib"
+IUSE="debug ssl libressl static zlib contrib"
 
 DESCRIPTION="IRCD-Hybrid - High Performance Internet Relay Chat"
 HOMEPAGE="http://ircd-hybrid.com/"
@@ -22,7 +24,10 @@ KEYWORDS="~alpha ~amd64 ~ppc ~x86"
 
 RDEPEND="
 	zlib? ( >=sys-libs/zlib-1.1.4-r2 )
-	ssl? ( >=dev-libs/openssl-0.9.7d )"
+	ssl? (
+		!libressl? ( dev-libs/openssl )
+		libressl? ( dev-libs/libressl )
+	)"
 
 DEPEND="${RDEPEND}
 	>=sys-devel/flex-2.5.4a-r5
@@ -37,6 +42,7 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 #	epatch "${FILESDIR}"/7.2.3-default-config.patch
+	epatch "${FILESDIR}/ircd-hybrid-7.3.1-rand.patch"
 }
 
 src_compile() {
@@ -89,7 +95,7 @@ src_compile() {
 	emake || die "emake failed"
 
 	# Build respond binary for using rsa keys instead of plain text oper passwords.
-	use ssl && $(tc-getCC) ${CFLAGS} -o respond tools/rsa_respond/respond.c -lcrypto
+	#use ssl && $(tc-getCC) ${CFLAGS} -o respond tools/rsa_respond/respond.c -lcrypto
 
 	# Build contrib Modules if requested by useflag contrib
 	if use contrib; then
@@ -107,15 +113,15 @@ src_install() {
 	insinto /usr/share/ircd-hybrid-7/messages
 	doins messages/*.lang || die "doins failed"
 
-	mv "${D}"/usr/{modules,$(get_libdir)/ircd-hybrid-7}
+	#mv "${D}"/usr/{modules,$(get_libdir)/ircd-hybrid-7}
 	mv "${D}"/usr/bin/{,ircd-}mkpasswd
 	mv "${D}"/etc/ircd/{example,ircd}.conf
 
-	sed -i \
-		-e s:/usr/local/ircd/modules:/usr/$(get_libdir)/ircd-hybrid-7/modules: \
-		"${D}"/etc/ircd/ircd.conf
+	#sed -i \
+	#	-e s:/usr/local/ircd/modules:/usr/$(get_libdir)/ircd-hybrid-7/modules: \
+	#	"${D}"/etc/ircd/ircd.conf
 
-	use ssl && dosbin "${S}"/respond
+	use ssl && dosbin "${S}"/tools/respond
 
 	dodoc BUGS ChangeLog Hybrid-team RELNOTES TODO
 	docinto doc
