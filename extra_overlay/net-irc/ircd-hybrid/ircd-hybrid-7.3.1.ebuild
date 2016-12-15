@@ -2,13 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-irc/ircd-hybrid/ircd-hybrid-7.2.3.ebuild,v 1.2 2008/02/25 15:30:06 armin76 Exp $
 
-#EAPI=5
-
 inherit eutils multilib toolchain-funcs
 
 # Additional configuration options
 MAX_NICK_LENGTH=30
-MAX_CLIENTS=512
+MAX_CLIENTS=8192
 MAX_TOPIC_LENGTH=390
 ENABLE_SMALL_NETWORK=0
 ENABLE_EFNET=0
@@ -41,7 +39,6 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-#	epatch "${FILESDIR}"/7.2.3-default-config.patch
 	epatch "${FILESDIR}/ircd-hybrid-7.3.1-rand.patch"
 }
 
@@ -105,21 +102,12 @@ src_compile() {
 }
 
 src_install() {
-	dodir /usr/$(get_libdir)/ircd-hybrid-7
 	keepdir /var/run/ircd /var/log/ircd
 
 	make DESTDIR="${D}" install || die "make install failed"
 
-	insinto /usr/share/ircd-hybrid-7/messages
-	doins messages/*.lang || die "doins failed"
-
-	#mv "${D}"/usr/{modules,$(get_libdir)/ircd-hybrid-7}
 	mv "${D}"/usr/bin/{,ircd-}mkpasswd
 	mv "${D}"/etc/ircd/{example,ircd}.conf
-
-	#sed -i \
-	#	-e s:/usr/local/ircd/modules:/usr/$(get_libdir)/ircd-hybrid-7/modules: \
-	#	"${D}"/etc/ircd/ircd.conf
 
 	use ssl && dosbin "${S}"/tools/respond
 
