@@ -11,7 +11,7 @@ prepare_system() {
 
 	export LATEST="${LATEST:-latest}"
 	export NEWDA="$(date +%Y%m%d-%s)"
-	export MAKEOPTS="${MAKEOPTS:--j12}"
+	export MAKEOPTS="${MAKEOPTS:--j16}"
 	export STAMP="${STAMP:-latest}"
 	export TARGT=""
 	export CCONF="${CCONF:-/home/catalyst/catalyst.conf}"
@@ -55,6 +55,9 @@ prepare_portage() {
 	/usr/local/bin/writable.sh /usr/local/portage
 	rm -rf /usr/local/portage/*
 	cp -pR /home/catalyst/extra_overlay/* /usr/local/portage
+
+	mv /etc/portage /etc/portage.orig
+	cp -pR /home/catalyst/etc/portage /etc
 
 	cd /usr/
 	tar -xf ${PTREE}
