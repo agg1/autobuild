@@ -47,15 +47,22 @@ prepare_system() {
 
 prepare_portage() {
 	echo "### prepare_portage()"
+
+	# catalyst bug workaround since portage_confdir/etc/portage is ignored
+	if [ ! -d /etc/portage.orig ] ; then
+		mv /etc/portage /etc/portage.orig
+		cp -pR /home/catalyst/etc/portage /etc
+	else
+		rm -rf /etc/portage
+		cp -pR /home/catalyst/etc/portage /etc
+	fi
+
 	[ -e /usr/portage/.prepared ] && return
 
 	/usr/local/bin/writable.sh /usr/portage
 	/usr/local/bin/writable.sh /usr/local/portage
 	rm -rf /usr/local/portage/*
 	cp -pR /home/catalyst/extra_overlay/* /usr/local/portage
-
-	mv /etc/portage /etc/portage.orig
-	cp -pR /home/catalyst/etc/portage /etc
 
 	cd /usr/
 	tar -xf ${PTREE}
