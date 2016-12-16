@@ -4,7 +4,7 @@ prepare_system() {
 	echo "### prepare_system()"
 
 	mount -o remount,size=22G / || true
-	mount -o remount,exec /etc || true
+	mount -o remount,exec,rw /etc || true
 	mount -o remount,exec,dev,suid /home || true
 	mount -o remount,exec,dev,suid,size=22G /tmp/ || true
 	mount -o remount,exec,dev,suid,size=22G /var/tmp/ || true
@@ -50,8 +50,6 @@ prepare_portage() {
 	[ -e /usr/portage/.prepared ] && return
 
 	/usr/local/bin/writable.sh /usr/portage
-	touch /usr/portage/.prepared
-
 	/usr/local/bin/writable.sh /usr/local/portage
 	rm -rf /usr/local/portage/*
 	cp -pR /home/catalyst/extra_overlay/* /usr/local/portage
@@ -84,6 +82,8 @@ prepare_portage() {
 
 	catalyst -v -c ${CCONF} -s $STAMP
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}/portage/${RELDA}
+
+	touch /usr/portage/.prepared
 }
 
 clean_portage() {
