@@ -11,7 +11,7 @@ prepare_system() {
 
 	export LATEST="${LATEST:-latest}"
 	export NEWDA="$(date +%Y%m%d-%s)"
-	export MAKEOPTS="${MAKEOPTS:--j16}"
+	export MAKEOPTS="${MAKEOPTS:--j12}"
 	export STAMP="${STAMP:-latest}"
 	export TARGT=""
 	export CCONF="${CCONF:-/home/catalyst/catalyst.conf}"
@@ -48,14 +48,16 @@ prepare_system() {
 prepare_portage() {
 	echo "### prepare_portage()"
 
+	# in fact package.use among other things is ignored with catalyst
+	# below workaround does not fix it
 	# catalyst bug workaround since portage_confdir/etc/portage is ignored
-	if [ ! -d /etc/portage.orig ] ; then
-		mv /etc/portage /etc/portage.orig
-		cp -pR /home/catalyst/etc/portage /etc
-	else
-		rm -rf /etc/portage
-		cp -pR /home/catalyst/etc/portage /etc
-	fi
+	#if [ ! -d /etc/portage.orig ] ; then
+	#	mv /etc/portage /etc/portage.orig
+	#	cp -pR /home/catalyst/etc/portage /etc
+	#else
+	#	rm -rf /etc/portage
+	#	cp -pR /home/catalyst/etc/portage /etc
+	#fi
 
 	[ -e /usr/portage/.prepared ] && return
 
