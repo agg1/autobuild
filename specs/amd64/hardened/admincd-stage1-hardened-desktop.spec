@@ -562,7 +562,7 @@ livecd/packages:
 	net-firewall/iptables
 	net-firewall/itval
 	net-firewall/nfacct
-	net-firewall/nftables
+	#net-firewall/nftables
 	net-firewall/psad
 	net-firewall/shapecfg
 	net-fs/cifs-utils
