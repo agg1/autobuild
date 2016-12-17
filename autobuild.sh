@@ -52,13 +52,13 @@ prepare_portage() {
 	# in fact package.use among other things is ignored with catalyst
 	# below workaround does not fix it
 	# catalyst bug workaround since portage_confdir/etc/portage is ignored
-	#if [ ! -d /etc/portage.orig ] ; then
-	#	mv /etc/portage /etc/portage.orig
-	#	cp -pR /home/catalyst/etc/portage /etc
-	#else
-	#	rm -rf /etc/portage
-	#	cp -pR /home/catalyst/etc/portage /etc
-	#fi
+	if [ ! -d /etc/portage.orig ] ; then
+		mv /etc/portage /etc/portage.orig
+		cp -pR /home/catalyst/etc/portage /etc
+	else
+		rm -rf /etc/portage
+		cp -pR /home/catalyst/etc/portage /etc
+	fi
 
 	[ -e /usr/portage/.prepared ] && return
 
