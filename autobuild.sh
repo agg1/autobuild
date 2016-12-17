@@ -48,6 +48,7 @@ prepare_system() {
 prepare_portage() {
 	echo "### prepare_portage()"
 
+	# strangely it seems that without overriding make.conf in /etc/portage --jobs=N is ignored
 	# in fact package.use among other things is ignored with catalyst
 	# below workaround does not fix it
 	# catalyst bug workaround since portage_confdir/etc/portage is ignored
