@@ -540,7 +540,7 @@ livecd/packages:
 	net-analyzer/tcpdump
 	net-analyzer/upnpscan
 	net-analyzer/wapiti
-	net-analyzer/wireshark
+	#net-analyzer/wireshark
 	net-dialup/freeradius
 	net-dialup/mingetty
 	net-dialup/minicom
