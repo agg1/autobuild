@@ -290,7 +290,7 @@ livecd/packages:
 	app-editors/wxmedit
 	app-emulation/qemu
 	app-emulation/spice
-	app-emulation/wine
+	#app-emulation/wine
 	app-eselect/eselect-mesa
 	app-eselect/eselect-opengl
 	app-eselect/eselect-opencl
@@ -456,7 +456,7 @@ livecd/packages:
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
-#	media-video/vlc
+	#media-video/vlc
 	net-analyzer/aimsniff
 	net-analyzer/angst
 	net-analyzer/argus
@@ -603,7 +603,7 @@ livecd/packages:
 	net-misc/netkit-telnetd
 	net-misc/netkit-timed
 	net-misc/ntp
-#	net-misc/openntpd
+	#net-misc/openntpd
 	net-misc/openssh
 	net-misc/openvpn
 	net-misc/quagga
@@ -680,7 +680,6 @@ livecd/packages:
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less
-	# build error
 	sys-apps/lshw
 	sys-apps/lsb-release
 	sys-apps/man-db
