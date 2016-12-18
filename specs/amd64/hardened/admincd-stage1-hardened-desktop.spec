@@ -218,6 +218,7 @@ livecd/packages:
 	app-admin/procinfo-ng
 	app-admin/perl-cleaner
 	app-admin/python-updater
+	#app-admin/qtpass
 	app-admin/sshguard
 	app-admin/superadduser
 	app-admin/syslog-ng
@@ -261,8 +262,9 @@ livecd/packages:
 	app-crypt/aespipe
 	app-crypt/bcrypt
 	app-crypt/bcwipe
-	app-crypt/efitools
+	#app-crypt/efitools
 	app-crypt/gnupg
+	app-crypt/gpa
 	app-crypt/hashalot
 	app-crypt/md5deep
 	app-crypt/md6sum
