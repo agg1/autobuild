@@ -580,6 +580,7 @@ livecd/packages:
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/znc
+	net-libs/libotr
 	net-mail/dovecot
 	net-mail/isync
 	net-mail/notmuch
