@@ -54,6 +54,7 @@ livecd/packages:
 	app-editors/vim
 	app-misc/ca-certificates
 	app-misc/pax-utils
+	app-misc/pwsafe
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
