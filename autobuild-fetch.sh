@@ -24,7 +24,7 @@ sync_portage() {
 ## fetch with ftp, should suffice usually but might miss some distfiles if not done regularly
 #fetch_ftp() {
 #	echo "### fetch_ftp()"
-#	
+#
 #	cd /home/distfiles
 #	FTPLIST=$(sg portage -c 'ncftpls -u ftp -p ftp ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/')
 #	for f in $FTPLIST ; do
@@ -59,7 +59,7 @@ fetch_portage() {
 # fetch with catalyst, only those distfiles are fetched which will be included with dvd release
 fetch_catalyst() {
 	echo "### fetch_catalyst()"
-	
+
 	mkdir -p /var/tmp/catalyst/builds/hardened
 	#cp /media/stick/container/seeds/init/20161126-1480193160/stage3-amd64-latest.tar.bz2* /var/tmp/catalyst/builds/hardened
 	cp /media/stick/container/seeds/gentoo/stage3-amd64-hardened+nomultilib-libressl.tar.bz2* /var/tmp/catalyst/builds/hardened
@@ -77,7 +77,7 @@ fetch_catalyst() {
 # fetch with emerge, might miss some distfiles if use flag or other restrictions apply
 fetch_emerge() {
 	echo "### fetch_emerge()"
-	
+
 	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 	PKLIST=$(equery l -p --format='$category/$name' '*')
 	for p in $PKLIST ; do 
