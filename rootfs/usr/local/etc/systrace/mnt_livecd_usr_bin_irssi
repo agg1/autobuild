@@ -33,6 +33,7 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-fsread: filename match "/dev/pts*" then deny
 	linux64-fsread: filename eq "/dev" then deny
 	linux64-fsread: filename eq "/dev/urandom" then permit
+	linux64-fsread: filename eq "/dev/random" then permit
 	linux64-fsread: filename eq "/etc/host.conf" then permit
 	linux64-fsread: filename eq "/etc/hosts" then permit
 	linux64-fsread: filename eq "/etc/ld.so.cache" then permit
@@ -83,8 +84,12 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-fsread: filename eq "/usr/lib64/libcrypto.so.38" then permit
 	linux64-fsread: filename eq "/usr/lib64/libevent-2.1.so.5" then permit
 	linux64-fsread: filename eq "/usr/lib64/libglib-2.0.so.0" then permit
+	linux64-fsread: filename eq "/usr/lib64/libgcrypt.so.20" then permit
+	linux64-fsread: filename eq "/usr/lib64/libgpg-error.so.0" then permit
 	linux64-fsread: filename eq "/usr/lib64/libgmodule-2.0.so.0" then permit
+	linux64-fsread: filename eq "/usr/lib64/libotr.so.5" then permit
 	linux64-fsread: filename eq "/usr/lib64/libperl.so.5.24" then permit
+	linux64-fsread: filename eq "/usr/lib64/libpthread.so.0" then permit
 	linux64-fsread: filename eq "/usr/lib64/libsocks.so.0" then permit
 	linux64-fsread: filename eq "/usr/lib64/libssl.so.39" then permit
 	linux64-fsread: filename eq "/usr/lib64/libz.so.1" then permit
@@ -109,6 +114,13 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-fsread: filename eq "/var/db/protocols.db" then permit
 	linux64-fsread: filename eq "/proc/self/exe" then deny
 	linux64-fsread: filename match "/proc/self/fd*" then deny
+	linux64-fsread: filename eq "/proc/version" then deny
+	linux64-fsread: filename eq "/etc/gcrypt/fips_enabled" then permit
+	linux64-fsread: filename eq "/proc/sys/crypto/fips_enabled" then permit
+	linux64-fsread: filename eq "/etc/gcrypt/hwf.deny" then permit
+	linux64-fsread: filename match "$HOME/.irssi/otr*" then permit
+	linux64-fswrite: filename match "$HOME/.irssi/otr*" then permit
+	linux64-fswrite: filename eq "/dev/null" then permit
 	linux64-fstat: permit
 	linux64-fswrite: filename match "$HOME/.config/irssi/blow.ini" then permit
 	linux64-fswrite: filename match "$HOME/.config/irssi/config" then permit log
@@ -163,3 +175,6 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-unknown-318: permit
 	linux64-wait4: permit
 	linux64-write: permit
+	linux64-tgkill: permit
+	linux64-getrusage: permit
+	linux64-clock_gettime: permit
