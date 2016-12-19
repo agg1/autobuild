@@ -263,6 +263,7 @@ livecd/packages:
 	app-crypt/bcrypt
 	app-crypt/bcwipe
 	#app-crypt/efitools
+	#app-crypt/gcr
 	app-crypt/gnupg
 	app-crypt/gpa
 	app-crypt/hashalot
@@ -579,8 +580,10 @@ livecd/packages:
 	net-irc/ircd-hybrid
 	net-irc/irssi
 	net-irc/irssi-fish
+	net-irc/irssi-otr
 	net-irc/znc
 	net-libs/libotr
+	net-libs/tox
 	net-mail/dovecot
 	net-mail/isync
 	net-mail/notmuch
