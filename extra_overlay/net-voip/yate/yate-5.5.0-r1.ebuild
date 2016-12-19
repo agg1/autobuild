@@ -45,6 +45,7 @@ DEPEND="doc? ( || ( app-doc/doxygen dev-util/kdoc ) )
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-dont-mess-with-cflags.patch
+	epatch "${FILESDIR}"/yate-hotfix.patch
 	eautoreconf
 	./yate-config.sh || die
 }
