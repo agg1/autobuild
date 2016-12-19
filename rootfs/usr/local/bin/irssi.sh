@@ -42,10 +42,9 @@ irssi_repair() {
 }
 
 if [ -z "$T3" ]; then
-	tmux new-session -E -d -s irc tail -f /var/log/strace;
-	#tmux new-session -E -d -s irc tail;
-	tmux new-window -t irc -n irssi \
-	sg wanout -c "systrace -d /usr/local/etc/systrace -ia /usr/bin/irssi -- --config ~/.config/irssi/config";
+	tmux new-session -E -d -s irc tail -f /var/log/strace
+	tmux new-window -t irc -n irssi sg wanout -c \
+	"systrace -d /usr/local/etc/systrace -ia /usr/bin/irssi -- --config ~/.config/irssi/config"
 #    irssi_nickpane
 else
     tmux attach-session -d -t irc;
