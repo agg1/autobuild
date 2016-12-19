@@ -69,7 +69,7 @@ sleep 5
 # start proxies
 /usr/local/bin/tor.sh
 /usr/local/bin/privoxy.sh
-#/usr/local/bin/squid.sh
+/usr/local/bin/squid.sh
 
 cp -pf /usr/local/etc/ddclient/ddclient.conf /etc/ddclient/ddclient.conf
 /etc/init.d/ddclient restart
@@ -100,6 +100,9 @@ sync
 echo 3 > /proc/sys/vm/drop_caches
 
 #eject /dev/sr0
+
+#echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+echo powersave > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 
 /usr/local/bin/locketc.sh
 #/usr/local/bin/sleep.sh
