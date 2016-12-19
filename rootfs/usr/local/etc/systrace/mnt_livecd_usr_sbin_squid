@@ -57,7 +57,9 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-fsread: filename eq "/proc/sys/kernel/ngroups_max" then permit
 	linux64-fsread: filename eq "/root/stdio:/var/lib/squid/netdb.state" then permit
 	linux64-fsread: filename eq "/run/squid.pid" then permit
-	linux64-fsread: filename eq "/usr/lib/gcc/x86_64-pc-linux-gnu/5.4.0/libstdc++.so.6" then permit
+	linux64-fsread: filename match "/lib64/libresolv.so.2" then permit
+	linux64-fsread: filename match "/usr/lib/gcc/x86_64-pc-linux-gnu/*/libstdc++.so.6" then permit
+    linux64-fsread: filename match "/usr/lib/gcc/x86_64-pc-linux-gnu/*/libgcc_s.so.1" then permit             
 	linux64-fsread: filename eq "/usr/lib64/libltdl.so.7" then permit
 	linux64-fsread: filename eq "/usr/lib64/libnettle.so.6" then permit
 	linux64-fsread: filename match "/usr/lib64/libcrypto.so*" then permit
@@ -134,4 +136,5 @@ Policy: /mnt/livecd/usr/sbin/squid, Emulation: linux64
 	linux64-tgkill: permit
 	linux64-getppid: permit
 	linux64-getgid: permit
+	linux64-unknown-318: permit
 
