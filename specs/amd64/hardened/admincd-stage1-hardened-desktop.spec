@@ -575,6 +575,8 @@ livecd/packages:
 	net-ftp/vsftpd
 	net-im/bitlbee
 	net-im/pidgin
+	net-im/toxic
+	net-im/utox
 	net-irc/anope
 	net-irc/hexchat
 	net-irc/ircd-hybrid
