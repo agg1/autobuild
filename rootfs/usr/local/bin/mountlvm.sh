@@ -1,6 +1,16 @@
 #!/bin/sh
 
-cryptsetup open /dev/md0 home --type plain --cipher aes-xts-plain64 --key-size 512 --hash sha512
+LVMDEV=""
+
+if [ -e /dev/md0 ] ; then
+    LVMDEV=/dev/md0
+elif [ -e /dev/md127 ] ; then
+	LVMDEV=/dev/md127
+else
+	echo "LVM device not found" ; exit 32
+fi
+
+cryptsetup open ${LVMDEV} home --type plain --cipher aes-xts-plain64 --key-size 512 --hash sha512
 pvscan -a ay --cache
 
 /sbin/vgs | grep vghome
