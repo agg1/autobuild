@@ -60,7 +60,7 @@ iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100
 # start proxies
 /usr/local/bin/tor.sh
 /usr/local/bin/privoxy.sh
-#/usr/local/bin/squid.sh
+/usr/local/bin/squid.sh
 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
