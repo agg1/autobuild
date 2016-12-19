@@ -27,6 +27,7 @@ dev-lang/nasm -doc
 dev-util/cmake -doc
 dev-util/ninja -doc
 media-libs/fontconfig -doc
+media-libs/libvpx -doc
 dev-ruby/racc -doc
 dev-ruby/json -doc
 dev-ruby/mustache -doc
