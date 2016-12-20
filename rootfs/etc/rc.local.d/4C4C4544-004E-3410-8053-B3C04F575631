@@ -105,4 +105,5 @@ echo 3 > /proc/sys/vm/drop_caches
 echo powersave > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 
 /usr/local/bin/locketc.sh
+/usr/local/bin/lockmodules.sh
 #/usr/local/bin/sleep.sh
