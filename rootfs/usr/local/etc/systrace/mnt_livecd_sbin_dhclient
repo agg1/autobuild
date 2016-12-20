@@ -47,6 +47,7 @@ Policy: /mnt/livecd/sbin/dhclient, Emulation: linux64
 	linux64-fsread: filename eq "/lib64/libnss_files.so.2" then permit
 	linux64-fsread: filename eq "/lib64/libnss_nis.so.2" then permit
 	linux64-fsread: filename eq "/lib64/libreadline.so.6" then permit
+	linux64-fsread: filename eq "/proc/meminfo" then deny
 	linux64-fsread: filename eq "/proc/net" then permit
 	linux64-fsread: filename eq "/proc/net/appletalk" then permit
 	linux64-fsread: filename eq "/proc/net/ax25" then permit
@@ -73,12 +74,7 @@ Policy: /mnt/livecd/sbin/dhclient, Emulation: linux64
 	linux64-fsread: filename eq "/usr/sbin/resolvconf" then permit
 	linux64-fsread: filename eq "/usr/sbin/route" then permit
 	linux64-fsread: filename eq "/usr/sbin/sleep" then permit
-	linux64-fsread: filename eq "/usr/share/locale/C/LC_MESSAGES/libdns.cat" then permit
-	linux64-fsread: filename eq "/usr/share/locale/C/LC_MESSAGES/libdst.cat" then permit
-	linux64-fsread: filename eq "/usr/share/locale/C/LC_MESSAGES/libisc.cat" then permit
-	linux64-fsread: filename eq "/usr/share/locale/C/libdns.cat" then permit
-	linux64-fsread: filename eq "/usr/share/locale/C/libdst.cat" then permit
-	linux64-fsread: filename eq "/usr/share/locale/C/libisc.cat" then permit
+	linux64-fsread: filename match "/usr/share/locale*" then permit
 	linux64-fsread: filename eq "/var/db/services.db" then permit
 	linux64-fsread: filename match "/var/lib/dhcp*" then permit
 	linux64-fsread: filename eq "/var/run/dhclient.pid" then permit
