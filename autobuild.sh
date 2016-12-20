@@ -129,15 +129,15 @@ build_seed_boot() {
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONB} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage2 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage3
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage3
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage3 || true
 
 	#catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONB} -C version_stamp=$STAMP
 
@@ -152,15 +152,15 @@ build_seed_init() {
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage2 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage3
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage3
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage3 || true
 
 	#catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONI} -C version_stamp=$STAMP
 
@@ -179,11 +179,11 @@ build_livecd_minimal() {
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
@@ -205,11 +205,11 @@ build_livecd_admin() {
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/admin/${RELDA}
@@ -232,13 +232,13 @@ build_livecd_desktop() {
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
 	# otherwise running out of RAM with 24 GB available only
 	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
@@ -262,12 +262,12 @@ update_livecd_minimal() {
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
@@ -289,12 +289,12 @@ update_livecd_admin() {
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/admin/${RELDA}
@@ -315,12 +315,12 @@ update_livecd_desktop() {
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
