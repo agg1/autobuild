@@ -220,7 +220,8 @@ src_configure() {
 	fi
 
 	# workaround for funky/broken upstream configure...
-	emake -f client.mk configure
+	SHELL="${SHELL:-${EPREFIX%/}/bin/bash}" \
+	emake -j1 -f client.mk configure
 }
 
 src_compile() {
