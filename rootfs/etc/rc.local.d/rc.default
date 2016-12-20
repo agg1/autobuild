@@ -99,3 +99,7 @@ cp -pr /mnt/livecd/etc/portage /etc/portage
 [ -e /etc/init.d/verynice ] && /etc/init.d/verynice restart
 
 touch /var/log/strace ; chmod 640 /var/log/strace ; chgrp wheel /var/log/strace
+
+chmod 600 /etc/ssh/sshd_config
+/etc/init.d/sshd restart
+

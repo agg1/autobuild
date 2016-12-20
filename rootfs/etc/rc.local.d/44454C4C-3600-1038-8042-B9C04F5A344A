@@ -15,9 +15,6 @@ ifconfig enp35s0 10.0.0.1/8; ethtool -s enp35s0 wol u
 /etc/rc.local.d/rc.fwstop
 /etc/rc.local.d/rc.fwstart
 
-chmod 600 /etc/ssh/sshd_config
-/etc/init.d/sshd restart
-
 fscky -y /dev/disk/by-label/HOME
 fscky -y /dev/disk/by-label/DISTFILES
 #fscky -y /dev/disk/by-label/TMP
