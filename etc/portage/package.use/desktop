@@ -14,7 +14,7 @@ net-mail/notmuch mutt
 dev-libs/gmime smime
 mail-client/mutt smtp imap pop gpg sidebar mbox smime idn
 mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
-www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc hardened gtk2
+www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo hardened gtk2
 x11-base/xorg-server xorg suid glamor
 x11-libs/libfm gtk -automount
 x11-libs/wxGTK X doc -gstreamer opengl sdl tiff -aqua -debug -odbc -pch
