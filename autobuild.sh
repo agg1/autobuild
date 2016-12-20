@@ -179,11 +179,11 @@ build_livecd_minimal() {
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
 
 	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
 
 	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
