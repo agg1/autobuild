@@ -6,7 +6,6 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-bind: sockaddr eq "inet-[0.0.0.1]:0" then permit
 	linux64-bind: sockaddr eq "family(16)" then deny
 	linux64-connect: sockaddr match "inet-*" then permit
-	linux64-connect: sockaddr match "/tmp/tmux*" then permit
 	linux64-sendmsg: sockaddr eq "<unknown>" then permit
 	linux64-sendto: sockaddr eq "family(16)" then permit
 	linux64-dup3: permit
@@ -14,8 +13,6 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-epoll_ctl: permit
 	linux64-epoll_wait: permit
 	linux64-eventfd2: permit
-	linux64-execve: filename eq "/usr/bin/tmux" then permit
-	linux64-execve: filename eq "/usr/local/bin/tmux" then permit
 	linux64-exit_group: permit
 	linux64-exit: permit
 	linux64-fcntl: cmd eq "F_GETFD" then permit
@@ -23,10 +20,6 @@ Policy: /mnt/livecd/usr/bin/irssi, Emulation: linux64
 	linux64-fcntl: cmd eq "F_SETFD" then permit
 	linux64-fcntl: cmd eq "F_SETFL" then permit
 	linux64-fcntl: cmd eq "F_SETLK" then permit
-	linux64-chmod: filename match "$HOME/.irssi/nicklist-*" and mode eq "700" then permit
-	linux64-fsread: filename match "$HOME/.irssi/nicklist-*" then permit
-	linux64-fswrite: filename match "$HOME/.irssi/nicklist-*" then permit
-	linux64-mknod: filename match "$HOME/.irssi/nicklist-*" and mode eq "600" then permit
 	linux64-fsread: filename eq "/bin/pwd" then permit
 	linux64-fsread: filename eq "/bin/zsh" then deny
 	linux64-fsread: filename eq "/dev/null" then permit
