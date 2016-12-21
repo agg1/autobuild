@@ -1,1 +1,2 @@
 rootfs/portage-*
+rootfs/etc/rc.local.d*
