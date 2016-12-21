@@ -185,6 +185,7 @@ livecd/rm:
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
 	/var/db/pkg/*
+	/var/elogs/*
 
 livecd/empty:
 	/etc/cron.daily
@@ -265,9 +266,9 @@ livecd/empty:
 	/var/tmp
 	/usr/src/linux
 	/var/db/pkg
+	/usr/bin/perl*
 	/usr/bin/python*
-	/usr/bin/perl/*
-	/usr/lib/perl
+	/usr/lib/perl*
 	/usr/lib/python*
 
 livecd/fsscript: /home/catalyst/finalize_target.sh
