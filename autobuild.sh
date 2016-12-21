@@ -9,6 +9,7 @@ prepare_system() {
 	mount -o remount,exec,dev,suid,size=22G /tmp/ || true
 	mount -o remount,exec,dev,suid,size=22G /var/tmp/ || true
 
+	export TARCH="${TARCH:-amd64}"
 	export LATEST="${LATEST:-latest}"
 	export NEWDA="$(date +%Y%m%d-%s)"
 	export MAKEOPTS="${MAKEOPTS:--j12}"
@@ -87,7 +88,7 @@ prepare_portage() {
 	mount --bind /home/tmp/snapshot_cache /var/tmp/catalyst/snapshot_cache
 
 	rm -f /home/catalyst/etc/portage/make.profile
-	ln -sf ../../usr/portage/profiles/hardened/linux/amd64/no-multilib /home/catalyst/etc/portage/make.profile
+	ln -sf ../../usr/portage/profiles/hardened/linux/${TARCH}/no-multilib /home/catalyst/etc/portage/make.profile
 
 	catalyst -v -c ${CCONF} -s $STAMP
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}/portage/${RELDA}
@@ -125,98 +126,98 @@ build_seed_boot() {
 	echo "### build_seed_boot()"
 
 	clean_stage
-	cp ${SDDIR}/gentoo/stage3-amd64-hardened+nomultilib-libressl.tar.bz2* /var/tmp/catalyst/builds/hardened
+	cp ${SDDIR}/gentoo/stage3-${TARCH}-hardened+nomultilib-libressl.tar.bz2* /var/tmp/catalyst/builds/hardened
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib-init.spec -c ${CCONB} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage1-nomultilib-init.spec -c ${CCONB} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage2-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage2 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage3-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage3
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-amd64-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage3 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage3 || true
 
-	#catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONB} -C version_stamp=$STAMP
+	#catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage4-nomultilib-minimal.spec -c ${CCONB} -C version_stamp=$STAMP
 
-	cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${SDDIR}/boot/${RELDA}
+	cp -p ${BDDIR}/stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/boot/${RELDA}
 }
 
 build_seed_init() {
 	echo "### build_seed_init()"
 
 	clean_stage
-	cp ${SDDIR}/boot/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/boot/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage1-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage1-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage2-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage2-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage2 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/stage3-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage3-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage3
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-amd64-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage3 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage3 || true
 
-	#catalyst -v -f /home/catalyst/specs/amd64/hardened/stage4-nomultilib-minimal.spec -c ${CCONI} -C version_stamp=$STAMP
+	#catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage4-nomultilib-minimal.spec -c ${CCONI} -C version_stamp=$STAMP
 
-	cp -p ${BDDIR}/stage*-amd64-latest.tar.bz2* ${SDDIR}/init/${RELDA}
+	cp -p ${BDDIR}/stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/init/${RELDA}
 }
 
 build_livecd_minimal() {
 	echo "### build_livecd_minimal()"
 
 	clean_stage
-	cp ${SDDIR}/init/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
-		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
 	fi
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
 
-	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
-	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/minimal/${RELDA}
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
-	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
 
-	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 }
 
 build_livecd_admin() {
 	echo "### build_livecd_admin()"
 
 	clean_stage
-	cp ${SDDIR}/init/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
-		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
 	fi
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
 
-	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
-	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/admin/${RELDA}
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/admin/${RELDA}
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
-	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
 
-	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 
 }
 
@@ -224,28 +225,28 @@ build_livecd_desktop() {
 	echo "### build_livecd_desktop()"
 
 	clean_stage
-	cp ${SDDIR}/init/${RELDA}/stage3-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
-		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
 	fi
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
 	# otherwise running out of RAM with 24 GB available only
-	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
 
-	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
-	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/desktop/${RELDA}
 	[ ! -z "${PKDIR}" ] && rm -rf ${PKDIR}/*
-	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
+	mkdir -p ${PKDIR} ; cp -pr /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
 
-	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 
 }
 
@@ -253,26 +254,26 @@ update_livecd_minimal() {
 	echo "### update_livecd_minimal()"
 
 	clean_stage
-	cp ${SDDIR}/minimal/${LATEST}/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/minimal/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
-		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
 	fi
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
 	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
 
-	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
-	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/minimal/${RELDA}
-	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
-	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/minimal/${RELDA}
+	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 
 }
 
@@ -280,52 +281,52 @@ update_livecd_admin() {
 	echo "### update_livecd_admin()"
 
 	clean_stage
-	cp ${SDDIR}/admin/${LATEST}/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/admin/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
-		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
 	fi
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
 	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
 
-	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
-	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/admin/${RELDA}
-	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
-	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/admin/${RELDA}
+	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 }
 
 update_livecd_desktop() {
 	echo "### update_livecd_desktop()"
 
 	clean_stage
-	cp ${SDDIR}/desktop/${LATEST}/livecd-stage1-amd64-latest.tar.bz2* ${BDDIR}
+	cp ${SDDIR}/desktop/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
-		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-amd64-latest
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
 	fi
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
 
-	catalyst -v -f /home/catalyst/specs/amd64/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
-	source_subpath=hardened/livecd-stage1-amd64-latest.tar.bz2
+	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
 	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-amd64-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
 
-	cp -p ${BDDIR}/livecd-stage*-amd64-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
-	cp -p ${BDDIR}/amd64-latest.iso* ${SDDIR}/desktop/${RELDA}
-	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-amd64-latest/* ${PKDIR}
-	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-amd64-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/desktop/${RELDA}
+	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
 }
 
 archive_digests() {
