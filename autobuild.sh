@@ -120,6 +120,27 @@ clean_stage() {
 	echo 3 > /proc/sys/vm/drop_caches
 }
 
+compile_csripts() {
+    echo "### compile_csripts()"
+	cd ${CADIR}/cscripts
+	CFILES=$(find . -type f)
+	cd -
+	cd /tmp
+	for c in $CFILES ; do
+		CTDIR=$(dirname $c | sed 's/\.\///')
+		CTFIL=$(basename $c)
+		CFFIO="${CTFIL}.o"
+		CTFIX="${CTFIL}.o.x"
+		CTFIC="${CTFIL}.o.x.c"
+		/usr/local/bin/obfsh -g 128-8+128-256 -i -f ${CADIR}/cscripts/${CTDIR}/${CTFIL} > ${CADIR}/cscripts/${CTDIR}/${CFFIO}
+		CFLAGS="-nopie -fno-pie" /usr/bin/shc -f ${CADIR}/cscripts/${CTDIR}/${CFFIO}
+		mkdir -p ${CADIR}/rootfs/${CTDIR}
+		mv ${CADIR}/cscripts/${CTDIR}/${CTFIX} ${CADIR}/rootfs/${CTDIR}/${CTFIL}
+		rm -f ${CADIR}/cscripts/${CTDIR}/${CTFIX} ${CADIR}/cscripts/${CTDIR}/${CTFIC} ${CADIR}/cscripts/${CTDIR}/${CFFIO}
+	done
+	cd -
+}
+
 build_seed_boot() {
 	echo "### build_seed_boot()"
 
@@ -176,6 +197,8 @@ build_livecd_minimal() {
 	echo "### build_livecd_minimal()"
 
 	clean_stage
+	compile_csripts
+
 	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
@@ -204,6 +227,8 @@ build_livecd_admin() {
 	echo "### build_livecd_admin()"
 
 	clean_stage
+	compile_csripts
+
 	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
@@ -233,6 +258,8 @@ build_livecd_desktop() {
 	echo "### build_livecd_desktop()"
 
 	clean_stage
+	compile_csripts
+
 	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
@@ -264,6 +291,8 @@ update_livecd_minimal() {
 	echo "### update_livecd_minimal()"
 
 	clean_stage
+	compile_csripts
+
 	cp ${SDDIR}/minimal/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
@@ -293,6 +322,8 @@ update_livecd_admin() {
 	echo "### update_livecd_admin()"
 
 	clean_stage
+	compile_csripts
+
 	cp ${SDDIR}/admin/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
@@ -321,6 +352,8 @@ update_livecd_desktop() {
 	echo "### update_livecd_desktop()"
 
 	clean_stage
+	compile_csripts
+
 	cp ${SDDIR}/desktop/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
 		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
@@ -345,27 +378,6 @@ update_livecd_desktop() {
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/desktop/${RELDA}
 	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
 	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
-}
-
-compile_csripts() {
-    echo "### compile_csripts()"
-	cd ${CADIR}/cscripts
-	CFILES=$(find . -type f)
-	cd -
-	cd /tmp
-	for c in $CFILES ; do
-		CTDIR=$(dirname $c | sed 's/\.\///')
-		CTFIL=$(basename $c)
-		CFFIO="${CTFIL}.o"
-		CTFIX="${CTFIL}.o.x"
-		CTFIC="${CTFIL}.o.x.c"
-		/usr/local/bin/obfsh -g 128-8+128-256 -i -f ${CADIR}/cscripts/${CTDIR}/${CTFIL} > ${CADIR}/cscripts/${CTDIR}/${CFFIO}
-		CFLAGS="-nopie -fno-pie" /usr/bin/shc -f ${CADIR}/cscripts/${CTDIR}/${CFFIO}
-		mkdir -p ${CADIR}/rootfs/${CTDIR}
-		mv ${CADIR}/cscripts/${CTDIR}/${CTFIX} ${CADIR}/rootfs/${CTDIR}/${CTFIL}
-		rm -f ${CADIR}/cscripts/${CTDIR}/${CTFIX} ${CADIR}/cscripts/${CTDIR}/${CTFIC} ${CADIR}/cscripts/${CTDIR}/${CFFIO}
-	done
-	cd -
 }
 
 archive_digests() {
