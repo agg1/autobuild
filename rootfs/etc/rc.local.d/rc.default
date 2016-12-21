@@ -89,7 +89,7 @@ usermod -a -G games,input,audio,video,wanout,public,cdrom gamer
 usermod -a -G portage,wheel,wanout,lanout,public,documents,games,input,audio,video,cdrom testing
 
 # root password
-echo 'root:$6$rounds=5000000$jU.tb/NbYjI$bTSQSGVNzuq2DCMwrT6FT.BjChkqHQTf8e3nnVYXK88/t9isZ1eCOBPkoN6n.tgGAN8z//dWgOIlIvQ5/EfLt1' | chpasswd -e
+echo 'root:$6$rounds=5000000$EdJBP/d5Vtj$tPUwU6Y4md5USKr2U6VVk0whnv/xz29gOKHItccSjuuCEnmncxwmxRAjVnX5x3kIJ3.091uJwB2oTczWtYwVP.' | chpasswd -e
 
 # relocate portage configuration from /mnt/livecd to /etc
 rm -rf /etc/portage

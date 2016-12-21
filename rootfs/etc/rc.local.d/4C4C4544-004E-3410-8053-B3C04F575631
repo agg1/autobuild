@@ -12,8 +12,8 @@ rmmod radeon; modprobe radeon; umount /mnt/livecd/lib64/firmware
 modprobe snd-mixer-oss ; modprobe snd-pcm-oss; modprobe snd-seq-oss
 
 # passwords
-echo 'user:$6$rounds=5000000$Tvgfi/XBW3RR/g$0ssQsohZrtcrJ/dMzoYEvRER9ZRRI//rDw5.qC5I1qpT/HFbg.EaTgFmXBwTx1Md7VZMbsXtUeJEgBscgc3dE.' | chpasswd -e
-echo 'office:$6$rounds=5000000$2Cx9OWSpoHAZec3$CCBDiJtMVzBQeDKW0ruSHHivcUCTsdla1UqVYNNFcyJAMlD5d7Y7ligq3fTeruA7unxIzC0LGmiG5cplk9I0G0' | chpasswd -e
+echo 'user:$6$rounds=5000000$IvhLipBnT1/No5Lg$gqR2XiNUnsjC96nnZBlb4jFiP0eV.YMZBH2h0RCt6dgmEBxeffoJD55UNURzvAW05jlimNV.A4y9H.wUS6tYg/' | chpasswd -e
+echo 'office:$6$rounds=5000000$NFdxT/Jmurg/Z$ojNCPdcHu.7fpcZuNlXf39z/q8NJaSS8uc2VzCom7R9h1Lmi1ge6Z5FI2Q0eo1kzbf4rfneRy0HhNo2IUcT7A.' | chpasswd -e
 echo 'gamer:$6$rounds=5000000$WPAMyx3hYH/nmSgR$m9oeDutTavXkMLJOTyAWWBkS99mit.ZNjsHScwk8VnBIZ7UPRXT0uE332IEolbsFjXtuvDrq9YdWtONGAWj6i/' | chpasswd -e
 
 # add static arp entry for build server wake on lan
