@@ -129,16 +129,19 @@ build_seed_boot() {
 	cp ${SDDIR}/gentoo/stage3-${TARCH}-hardened+nomultilib-libressl.tar.bz2* /var/tmp/catalyst/builds/hardened
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage1-nomultilib-init.spec -c ${CCONB} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage1 || true
+	mkdir -p ${SDDIR}/boot/${RELDA}/elogs/stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/boot/${RELDA}/elogs/stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage2-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage2 || true
+	mkdir -p ${SDDIR}/boot/${RELDA}/elogs/stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/boot/${RELDA}/elogs/stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage3-nomultilib.spec -c ${CCONB} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/boot/${RELDA}/logs/stage3
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/tmp/logs/* ${SDDIR}/boot/${RELDA}/logs/stage3 || true
+	mkdir -p ${SDDIR}/boot/${RELDA}/elogs/stage3
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/var/elogs/* ${SDDIR}/boot/${RELDA}/elogs/stage3 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/var/elogs/*
 
 	#catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage4-nomultilib-minimal.spec -c ${CCONB} -C version_stamp=$STAMP
 
@@ -152,16 +155,19 @@ build_seed_init() {
 	cp ${SDDIR}/boot/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage1-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage1 || true
+	mkdir -p ${SDDIR}/init/${RELDA}/elogs/stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/init/${RELDA}/elogs/stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/stage1-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage2-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage2 || true
+	mkdir -p ${SDDIR}/init/${RELDA}/elogs/stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/init/${RELDA}/elogs/stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/stage2-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage3-nomultilib.spec -c ${CCONI} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/init/${RELDA}/logs/stage3
-	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/tmp/logs/* ${SDDIR}/init/${RELDA}/logs/stage3 || true
+	mkdir -p ${SDDIR}/init/${RELDA}/elogs/stage3
+	cp -pR /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/var/elogs/* ${SDDIR}/init/${RELDA}/elogs/stage3 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/stage3-${TARCH}-latest/var/elogs/*
 
 	#catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/stage4-nomultilib-minimal.spec -c ${CCONI} -C version_stamp=$STAMP
 
@@ -179,12 +185,14 @@ build_livecd_minimal() {
 	fi
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
+	mkdir -p ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
+	mkdir -p ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
 
 	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/minimal/${RELDA}
@@ -205,12 +213,14 @@ build_livecd_admin() {
 	fi
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
+	mkdir -p ${SDDIR}/admin/${RELDA}/elogs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/admin/${RELDA}/elogs/livecd-stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
+	mkdir -p ${SDDIR}/admin/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/admin/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
 
 	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/admin/${RELDA}
@@ -232,14 +242,16 @@ build_livecd_desktop() {
 	fi
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
+	mkdir -p ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/*
 	# otherwise running out of RAM with 24 GB available only
 	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP
-	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
+	mkdir -p ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
 
 	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/desktop/${RELDA}
@@ -262,13 +274,15 @@ update_livecd_minimal() {
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
-	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage1 || true
+	mkdir -p ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-minimal.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
-	mkdir -p ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/minimal/${RELDA}/logs/livecd-stage2 || true
+	mkdir -p ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
 
 	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/minimal/${RELDA}
@@ -289,13 +303,15 @@ update_livecd_admin() {
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
-	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage1 || true
+	mkdir -p ${SDDIR}/admin/${RELDA}/elogs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/admin/${RELDA}/elogs/livecd-stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/*
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-admin.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
-	mkdir -p ${SDDIR}/admin/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/admin/${RELDA}/logs/livecd-stage2 || true
+	mkdir -p ${SDDIR}/admin/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/admin/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
 
 	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/admin/${RELDA}
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/admin/${RELDA}
@@ -315,13 +331,17 @@ update_livecd_desktop() {
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage1-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
-	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage1 || true
+	mkdir -p ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage1
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/* ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage1 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/var/elogs/*
+	# otherwise running out of RAM with 24 GB available only
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage1-${TARCH}-latest/
 
 	catalyst -v -f /home/catalyst/specs/${TARCH}/hardened/admincd-stage2-hardened-desktop.spec -c ${CCONF} -C version_stamp=$STAMP \
 	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
-	mkdir -p ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2
-	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/tmp/logs/* ${SDDIR}/desktop/${RELDA}/logs/livecd-stage2 || true
+	mkdir -p ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/desktop/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
 
 	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/desktop/${RELDA}
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/desktop/${RELDA}
