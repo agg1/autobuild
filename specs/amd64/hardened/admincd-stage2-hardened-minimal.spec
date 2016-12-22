@@ -62,6 +62,7 @@ livecd/unmerge:
 	sys-devel/autoconf-wrapper
 	sys-devel/automake
 	sys-devel/automake-wrapper
+	sys-devel/binutils
 	sys-devel/binutils-config
 	sys-devel/bison
 	sys-devel/flex
@@ -78,6 +79,7 @@ livecd/unmerge:
 	sys-libs/libkudzu
 	sys-kernel/genkernel
 	sys-kernel/linux-headers
+	dev-libs/boost
 
 livecd/rm:
 	/lib/firmware/*
@@ -190,6 +192,10 @@ livecd/rm:
 	/usr/lib/python*
 	/var/db/pkg/*
 	/var/elogs/*
+	/usr/include/*
+	/usr/lib/pkgconfig*
+	/usr/share/sgml*
+	/usr/share/boost-build*
 
 livecd/empty:
 	/etc/cron.daily
