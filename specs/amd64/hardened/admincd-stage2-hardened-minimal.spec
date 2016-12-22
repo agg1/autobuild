@@ -184,6 +184,10 @@ livecd/rm:
 	/usr/share/misc/*.old
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
+	/usr/bin/perl*
+	/usr/bin/python*
+	/usr/lib/perl*
+	/usr/lib/python*
 	/var/db/pkg/*
 	/var/elogs/*
 
@@ -266,9 +270,5 @@ livecd/empty:
 	/var/tmp
 	/usr/src/linux
 	/var/db/pkg
-	/usr/bin/perl*
-	/usr/bin/python*
-	/usr/lib/perl*
-	/usr/lib/python*
 
 livecd/fsscript: /home/catalyst/finalize_target.sh
