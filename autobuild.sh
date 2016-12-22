@@ -211,7 +211,7 @@ build_livecd_minimal() {
 
 	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
@@ -241,7 +241,7 @@ build_livecd_admin() {
 
 	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
@@ -272,7 +272,7 @@ build_livecd_desktop() {
 
 	cp ${SDDIR}/init/${RELDA}/stage3-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
@@ -305,7 +305,7 @@ update_livecd_minimal() {
 
 	cp ${SDDIR}/minimal/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
@@ -336,7 +336,7 @@ update_livecd_admin() {
 
 	cp ${SDDIR}/admin/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
@@ -366,7 +366,7 @@ update_livecd_desktop() {
 
 	cp ${SDDIR}/desktop/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
@@ -399,7 +399,7 @@ build_livecd_tor01() {
 
 	cp ${SDDIR}/minimal/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
 	if [ "x${CKERN}" != "x" ] ; then
-		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		mkdir -p /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest
 	fi
 
