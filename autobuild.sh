@@ -57,10 +57,16 @@ prepare_portage() {
 		cp -pR ${CADIR}/etc/portage /etc
 	fi
 
+	rm -f ${CADIR}/etc/portage/make.profile
+	ln -sf ../../usr/portage/profiles/hardened/linux/${TARCH}/no-multilib ${CADIR}/etc/portage/make.profile
+
 	[ -e /usr/portage/.prepared ] && return
 
-	/usr/local/bin/writable.sh /usr/portage
-	/usr/local/bin/writable.sh /usr/local/portage
+	if [ ! -e /usr/.writeable ] ; then
+		/usr/local/bin/writable.sh /usr/portage
+		/usr/local/bin/writable.sh /usr/local/portage
+	fi
+
 	rm -rf /usr/local/portage/*
 	cp -pR ${CADIR}/extra_overlay/* /usr/local/portage
 	cp -pR ${CADIR}/rootfs/usr/local/bin/* /usr/local/bin
@@ -74,19 +80,23 @@ prepare_portage() {
 	mkdir -p /var/tmp/catalyst/packages
 	mkdir -p /var/tmp/catalyst/snapshots
 	mkdir -p /var/tmp/catalyst/snapshot_cache
+
 	rm -rf /home/tmp/*
 	mkdir -p /home/tmp/builds/hardened
 	mkdir -p /home/tmp/packages/hardened
 	mkdir -p /home/tmp/snapshots
 	mkdir -p /home/tmp/snapshot_cache
-	mount --bind ${DFDIR} /usr/portage/distfiles
-	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
-	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
-	mount --bind /home/tmp/snapshots /var/tmp/catalyst/snapshots
-	mount --bind /home/tmp/snapshot_cache /var/tmp/catalyst/snapshot_cache
 
-	rm -f ${CADIR}/etc/portage/make.profile
-	ln -sf ../../usr/portage/profiles/hardened/linux/${TARCH}/no-multilib ${CADIR}/etc/portage/make.profile
+	cat /proc/mounts | grep /usr/portage/distfiles || \
+	mount --bind ${DFDIR} /usr/portage/distfiles
+	cat /proc/mounts | grep /var/tmp/catalyst/builds || \
+	mount --bind /home/tmp/builds /var/tmp/catalyst/builds
+	cat /proc/mounts | grep /var/tmp/catalyst/packages || \
+	mount --bind /home/tmp/packages /var/tmp/catalyst/packages
+	cat /proc/mounts | grep /var/tmp/catalyst/snapshots || \
+	mount --bind /home/tmp/snapshots /var/tmp/catalyst/snapshots
+	cat /proc/mounts | grep /var/tmp/catalyst/snapshot_cache || \
+	mount --bind /home/tmp/snapshot_cache /var/tmp/catalyst/snapshot_cache
 
 	catalyst -v -c ${CCONF} -s $STAMP
 	cp -p /var/tmp/catalyst/snapshots/portage-latest.* ${SDDIR}/portage/${RELDA}
@@ -378,6 +388,31 @@ update_livecd_desktop() {
 	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/desktop/${RELDA}
 	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
 	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+}
+
+build_livecd_tor01() {
+	echo "### build_livecd_tor01()"
+
+	clean_stage
+	compile_csripts
+
+	cp ${SDDIR}/minimal/${LATEST}/livecd-stage1-${TARCH}-latest.tar.bz2* ${BDDIR}
+	if [ "x${CKERN}" != "x" ] ; then
+		mkdir -p /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+		cp -pR ${SDDIR}/kerncache/${LATEST}/*.bz2 /var/tmp/catalyst/kerncache/livecd-stage2-${TARCH}-latest
+	fi
+
+	catalyst -v -f ${CADIR}/specs/${TARCH}/hardened/admincd-stage2-hardened-tor01.spec -c ${CCONF} -C version_stamp=$STAMP \
+	source_subpath=hardened/livecd-stage1-${TARCH}-latest.tar.bz2
+	mkdir -p ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage2
+	cp -pR /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/* ${SDDIR}/minimal/${RELDA}/elogs/livecd-stage2 || true
+	rm -rf /var/tmp/catalyst/tmp/hardened/livecd-stage2-${TARCH}-latest/var/elogs/*
+
+	cp -p ${BDDIR}/livecd-stage*-${TARCH}-latest.tar.bz2* ${SDDIR}/minimal/${RELDA}
+	cp -p ${BDDIR}/${TARCH}-latest.iso* ${SDDIR}/minimal/${RELDA}
+	cp -pR /var/tmp/catalyst/packages/hardened/livecd-stage1-${TARCH}-latest/* ${PKDIR}
+	cp -pR /var/tmp/catalyst/kerncache/hardened/livecd-stage2-${TARCH}-latest/*.bz2 ${SDDIR}/kerncache/${RELDA}
+
 }
 
 archive_digests() {
