@@ -56,7 +56,7 @@ iptables -A OUTPUT -p TCP -m owner --gid-owner $(id -g ddclient) -d 84.45.76.100
 /usr/local/bin/mountlvm.sh
 
 #echo "LAUNCH FW01"
-/usr/local/bin/fw01.sh
+/usr/local/bin/vm_fw01.sh
 
 #echo "WAITING 120s for FW01"
 sleep 120
