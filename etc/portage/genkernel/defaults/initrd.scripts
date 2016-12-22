@@ -858,7 +858,7 @@ chooseKeymap() {
 	then
 		splash 'verbose' > /dev/null &
 		cat /lib/keymaps/keymapList
-		read -t 10 -p '<< Load keymap (Enter for default): ' keymap
+		read -t 5 -p '<< Load keymap (Enter for default): ' keymap
 		case ${keymap} in
 			1|azerty) keymap=azerty ;;
 			2|be) keymap=be ;;
