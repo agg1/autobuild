@@ -67,6 +67,9 @@ prepare_portage() {
 		/usr/local/bin/writable.sh /usr/local/portage
 	fi
 
+	find /usr/lib/ -name '*.pyc' -delete
+	find /usr/lib/ -name '*.pyo' -delete
+
 	rm -rf /usr/local/portage/*
 	cp -pR ${CADIR}/extra_overlay/* /usr/local/portage
 	cp -pR ${CADIR}/rootfs/usr/local/bin/* /usr/local/bin
