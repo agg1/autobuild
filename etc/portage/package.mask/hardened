@@ -3,7 +3,7 @@
 >=sys-libs/glibc-2.23
 >=sys-devel/binutils-2.26
 >=sys-kernel/vanilla-sources-5.0
->sys-kernel/genkernel-3.4.52.4
+>=sys-kernel/genkernel-3.5.0.0
 >=sys-devel/binutils-config-6
 >sys-devel/gcc-config-1.8-r1
 >dev-util/catalyst-3.0_rc1
