@@ -5,7 +5,7 @@ PTREE=$1
 
 [ -e /usr/.writeable ] && echo "already prepared" && exit 1
 
-mount -o remount,rw /etc 2> /dev/null
+mount -o remount,rw,exec /etc 2> /dev/null
 mount -o remount,exec /tmp 2> /dev/null
 mount -o remount,exec /var/tmp 2> /dev/null
 
@@ -13,7 +13,7 @@ mount -o remount,exec /var/tmp 2> /dev/null
 cd /usr ; tar -xf ${PTREE}
 
 mkdir -p /usr/portage/distfiles
-mount --bind /home/distfiles /usr/portage/distfiles
+mount -o nosuid,nodev,noexec --bind /home/distfiles /usr/portage/distfiles
 
 #mkdir -p /usr/portage/packages
 #mount --bind /home/packages /usr/portage/packages
