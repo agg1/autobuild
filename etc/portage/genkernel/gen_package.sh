@@ -19,14 +19,18 @@ gen_minkernpackage() {
 		if [ ! -f minkernpackage/kernel-${KNAME}-${ARCH}-${KV} \
 		  -o ! -f minkernpackage/config-${KNAME}-${ARCH}-${KV} ];
 		then
-			gen_die "Cannot locate kernel binary"
+            echo "Cannot locate kernel binary ${KERNEL_BINARY}"
+            return
+			#gen_die "Cannot locate kernel binary"
 		fi
 	else
 		local tmp_kernel_binary=$(find_kernel_binary ${KERNEL_BINARY})
 		local tmp_kernel_binary2=$(find_kernel_binary ${KERNEL_BINARY_2})
 		if [ -z "${tmp_kernel_binary}" ]
 		then
-			gen_die "Cannot locate kernel binary"
+			echo "Cannot locate kernel binary ${KERNEL_BINARY}"
+			return
+			#gen_die "Cannot locate kernel binary"
 		fi
 		cd "${KERNEL_OUTPUTDIR}"
 		cp "${tmp_kernel_binary}" "${TEMP}/minkernpackage/kernel-${KNAME}-${ARCH}-${KV}" || gen_die 'Could not the copy kernel for the min kernel package!'
@@ -84,7 +88,9 @@ gen_kerncache()
 	local tmp_kernel_binary2=$(find_kernel_binary ${KERNEL_BINARY_2})
 	if [ -z "${tmp_kernel_binary}" ]
 	then
-		gen_die "Cannot locate kernel binary"
+		echo "Cannot locate kernel binary ${KERNEL_BINARY}"
+		return
+		#gen_die "Cannot locate kernel binary"
 	fi
 
 	cd "${KERNEL_OUTPUTDIR}"
