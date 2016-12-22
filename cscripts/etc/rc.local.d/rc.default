@@ -106,3 +106,5 @@ touch /var/log/strace ; chmod 640 /var/log/strace ; chgrp wheel /var/log/strace
 chmod 600 /etc/ssh/sshd_config
 /etc/init.d/sshd restart
 
+echo 3 > /proc/sys/vm/drop_caches
+
