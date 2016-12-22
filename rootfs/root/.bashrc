@@ -15,20 +15,3 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
-export LANG="en_US.utf-8"
-export LC_COLLATE="en_US.utf-8"
-export LC_CTYPE="en_US.utf-8"
-export LC_MESSAGES="en_US.utf-8"
-export LC_MONETARY="en_US.utf-8"
-export LC_NUMERIC="en_US.utf-8"
-export LC_TIME="en_US.utf-8"
-export LC_ALL=
-
-export EDITOR=/usr/bin/vi
-
-set +o history
-#umask 0007
-if [ -z "$RUNX" -a ! -e ${HOME}/.nox ] ; then
-	export RUNX=1
-	exec /usr/local/bin/runx.sh
-fi
