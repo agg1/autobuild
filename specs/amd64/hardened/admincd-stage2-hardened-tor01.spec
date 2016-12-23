@@ -58,6 +58,7 @@ livecd/unmerge:
 	sys-apps/man
 	sys-apps/man-pages
 	sys-apps/miscfiles
+	sys-apps/systrace
 	sys-apps/texinfo
 	sys-devel/autoconf
 	sys-devel/autoconf-wrapper
