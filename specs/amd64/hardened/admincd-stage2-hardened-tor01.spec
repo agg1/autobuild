@@ -10,7 +10,7 @@ portage_overlay: /usr/local/portage
 
 livecd/volid: Hardened Minimal Live System
 livecd/type: gentoo-release-minimal
-livecd/iso: amd64-latest.iso
+livecd/iso: tor01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
@@ -36,8 +36,11 @@ boot/kernel/gentoo/use:
 	minimal
 
 boot/kernel/gentoo/packages:
+	net-analyzer/macchanger
+	net-misc/ntp
 	net-misc/tor
 	sys-apps/systrace
+	sys-process/cronie
 #	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 
