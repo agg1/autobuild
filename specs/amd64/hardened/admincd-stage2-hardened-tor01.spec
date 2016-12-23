@@ -37,6 +37,7 @@ boot/kernel/gentoo/use:
 
 boot/kernel/gentoo/packages:
 	net-misc/tor
+	sys-apps/systrace
 #	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 
@@ -58,7 +59,6 @@ livecd/unmerge:
 	sys-apps/man
 	sys-apps/man-pages
 	sys-apps/miscfiles
-	sys-apps/systrace
 	sys-apps/texinfo
 	sys-devel/autoconf
 	sys-devel/autoconf-wrapper
@@ -154,6 +154,8 @@ livecd/rm:
 	/usr/lib*/*.la
 	/usr/lib*/perl5/site_perl
 	/usr/lib*/gcc-lib/*/*/libgcj*
+	/usr/local/portage*
+	/usr/local/lib/firmware*
 	/usr/sbin/archive-conf
 	/usr/sbin/dispatch-conf
 	/usr/sbin/emaint
@@ -239,7 +241,6 @@ livecd/empty:
 	/usr/lib64/nfs
 	/usr/lib64/perl5/site_perl
 	/usr/lib64/portage
-	/usr/local
 	/usr/portage
 	/usr/share/aclocal
 	/usr/share/baselayout
