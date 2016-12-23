@@ -1,2 +1,2 @@
 #!/bin/sh
-tmux new-session -E -s main
+tmux new-session -A -E -s main
