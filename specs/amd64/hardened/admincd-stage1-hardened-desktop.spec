@@ -207,6 +207,7 @@ livecd/packages:
 	app-admin/grubconfig
 	app-admin/hddtemp
 	app-admin/ide-smart
+	app-admin/lnav
 	app-admin/logrotate
 	app-admin/logsentry
 	app-admin/lsat

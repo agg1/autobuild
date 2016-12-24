@@ -24,6 +24,7 @@ livecd/packages:
 	app-admin/grubconfig
 	app-admin/hddtemp
 	app-admin/ide-smart
+	app-admin/lnav
 	app-admin/passook
 	app-admin/perl-cleaner
 	app-admin/python-updater
