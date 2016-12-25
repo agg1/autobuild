@@ -12,7 +12,7 @@ livecd/volid: Hardened Minimal Live System
 livecd/type: gentoo-release-minimal
 livecd/iso: tor01-latest.iso
 livecd/fstype: squashfs
-livecd/gk_mainargs: --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
+livecd/gk_mainargs: --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp memory_corruption_check=1
 # ubsan_handle=OEAINVBSLF
@@ -36,6 +36,7 @@ boot/kernel/gentoo/use:
 	minimal
 
 boot/kernel/gentoo/packages:
+	mail-mta/nullmailer
 	net-analyzer/fail2ban
 	net-analyzer/macchanger
 	net-firewall/ipsec-tools
@@ -43,8 +44,7 @@ boot/kernel/gentoo/packages:
 	net-misc/tor
 	sys-apps/systrace
 	sys-process/cronie
-#	sys-kernel/linux-firmware
-#	sys-block/iscsitarget
+	#sys-fs/cryptsetup
 
 livecd/unmerge:
 	app-admin/eselect
@@ -60,7 +60,6 @@ livecd/unmerge:
 	dev-libs/mpfr
 	dev-python/pycrypto
 	dev-util/pkgconfig
-	mail-mta/nullmailer
 	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/groff
@@ -210,11 +209,6 @@ livecd/rm:
 	/usr/share/boost-build*
 
 livecd/empty:
-	/etc/cron.daily
-	/etc/cron.hourly
-	/etc/cron.monthly
-	/etc/cron.weekly
-	/etc/logrotate.d
 	/etc/modules.autoload.d
 	/etc/rsync
 	/etc/runlevels/single
@@ -282,7 +276,6 @@ livecd/empty:
 	/var/empty
 	/var/lib/portage
 	/var/log
-	/var/spool
 	/var/state
 	/var/tmp
 	/usr/src/linux
