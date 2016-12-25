@@ -86,6 +86,7 @@ livecd/packages:
 	dev-vcs/git
 	mail-client/mailx
 	mail-mta/msmtp
+	net-analyzer/fail2ban
 	net-analyzer/gnu-netcat
 	net-analyzer/macchanger
 	net-analyzer/netcat6
@@ -97,6 +98,7 @@ livecd/packages:
 	net-dialup/minicom
 	net-dialup/pptpclient
 	net-dns/bind-tools
+	net-firewall/ipsec-tools
 	net-firewall/iptables
 	net-fs/cifs-utils
 	net-fs/nfs-utils

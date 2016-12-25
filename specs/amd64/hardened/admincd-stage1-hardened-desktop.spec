@@ -560,7 +560,7 @@ livecd/packages:
 	net-firewall/arptables
 	net-firewall/conntrack-tools
 	net-firewall/ebtables
-	net-firewall/fwipsec
+	#net-firewall/fwipsec
 	net-firewall/fwknop
 	net-firewall/ipsec-tools
 	net-firewall/iptables
@@ -686,6 +686,9 @@ livecd/packages:
 	sys-apps/groff
 	sys-apps/hdparm
 	sys-apps/hwsetup
+	sys-apps/i2c-tools
+	sys-apps/ipmitool
+	sys-apps/ipmiutil
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less

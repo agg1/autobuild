@@ -36,7 +36,9 @@ boot/kernel/gentoo/use:
 	minimal
 
 boot/kernel/gentoo/packages:
+	net-analyzer/fail2ban
 	net-analyzer/macchanger
+	net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/tor
 	sys-apps/systrace
