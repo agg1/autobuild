@@ -3,7 +3,7 @@ echo "### locketc()"
 rm -f /etc/.readonly 2>/dev/null
 
 if [ -e /etc/.readonly ] ; then
-	echo "already locked"
+	mount -o remount,ro,noexec,nodev,nosuid /etc 2>/dev/null
 else
 	umount /etc 2>/dev/null
 	touch /etc/.readonly
