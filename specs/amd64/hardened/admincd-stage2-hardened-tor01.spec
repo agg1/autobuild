@@ -36,6 +36,8 @@ boot/kernel/gentoo/use:
 	minimal
 
 boot/kernel/gentoo/packages:
+	app-admin/syslog-ng
+	app-admin/syslog-summary
 	mail-mta/nullmailer
 	net-analyzer/fail2ban
 	net-analyzer/macchanger
@@ -52,8 +54,6 @@ livecd/unmerge:
 	app-admin/eselect-vi
 	app-admin/perl-cleaner
 	app-admin/python-updater
-	app-admin/syslog-ng                                                                                       
-	app-admin/syslog-summary                                                                                  
 	app-arch/cpio
 	dev-libs/gmp
 	dev-libs/libxml2
