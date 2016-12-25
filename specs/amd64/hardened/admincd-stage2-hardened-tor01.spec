@@ -60,6 +60,7 @@ livecd/unmerge:
 	dev-libs/mpfr
 	dev-python/pycrypto
 	dev-util/pkgconfig
+	mail-mta/nullmailer
 	sys-apps/debianutils
 	sys-apps/diffutils
 	sys-apps/groff
