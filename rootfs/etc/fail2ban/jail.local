@@ -6,5 +6,5 @@ maxretry = 2
 enabled  = true
 filter   = sshd
 action   = iptables[name=SSH, port=ssh, protocol=tcp]
-           sendmail-whois[name=SSH, dest=office@localhost, sender=fail2ban@localhost]
+           sendmail-whois[name=SSH, dest=root@localhost, sender=fail2ban@localhost]
 logpath  = /var/log/messages
