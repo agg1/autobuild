@@ -1,0 +1,10 @@
+[ssh-iptables]
+ignoreip = 127.0.0.1
+bantime  = 1200
+findtime  = 300
+maxretry = 2
+enabled  = true
+filter   = sshd
+action   = iptables[name=SSH, port=ssh, protocol=tcp]
+           sendmail-whois[name=SSH, dest=office@localhost, sender=fail2ban@localhost]
+logpath  = /var/log/messages
