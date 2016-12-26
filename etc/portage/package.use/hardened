@@ -1,4 +1,5 @@
-app-admin/rsyslog -ssl -jemalloc rfc3195 rfc5424hmac usertools snmp
+app-admin/rsyslog -jemalloc rfc3195 rfc5424hmac usertools snmp
+dev-libs/liblogging rfc3195
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 sys-fs/cryptsetup -python -gcrypt openssl libressl
@@ -21,5 +22,6 @@ sys-block/partimage -ssl
 mail-mta/nullmailer -ssl
 net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
 net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
+net-misc/tor tor-hardening transparent-proxy
 #net-wireless/hostapd -ssl
 #app-crypt/pinentry -gtk ncurses
