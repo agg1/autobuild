@@ -41,7 +41,7 @@ boot/kernel/gentoo/packages:
 	app-admin/syslog-summary
 	mail-mta/nullmailer
 	net-analyzer/macchanger
-	net-firewall/ipsec-tools
+	#net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/tor
 	sys-apps/systrace
