@@ -2,10 +2,11 @@ export QEMU_AUDIO_DRV=alsa QEMU_AUDIO_TIMER_PERIOD=250
 
 VMNAME=tor01
 CPUNUM=1
-MEM=192M
+MEM=208M
 #DISKDRIVER="virtio"
 CDISO="-cdrom /home/virtual/tor01/tor01-latest.iso"
 OSDISK="-hda /home/virtual/tor01/tor01.cfg.img"
+SWAPDISK="-hdb /home/virtual/tor01/tor01.swap.img"
 #NETDRIVER=virtio-net-pci
 SOUNDHW=" "
 MONITOR="-monitor none"
@@ -36,6 +37,7 @@ ${SOUNDHW} \
 ${FLOPPY} \
 ${CDISO} \
 ${OSDISK} \
+${SWAPDISK} \
 -boot order=cd,menu=on ${DAEMON} ${RUNAS}
 
 #-device usb-host,vendorid=0x9710,productid=0x7830,id=usbeth1,bus=ehci1.0,port=1 \
