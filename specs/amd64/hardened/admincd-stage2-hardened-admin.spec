@@ -18,16 +18,15 @@ livecd/bootargs: dokeymap nodhcp memory_corruption_check=1
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
-#dhcpcd
-#livecd/rcadd:
+livecd/rcadd: cronie|default sshd|default default|ulogd sshguard|default
 livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
-boot/kernel: gentoo
-boot/kernel/gentoo/sources: vanilla-sources
-boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
+boot/kernel: linux
+boot/kernel/linux/sources: vanilla-sources
+boot/kernel/linux/config: /home/catalyst/etc/portage/kconfig
 
-boot/kernel/gentoo/use:
+boot/kernel/linux/use:
 	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
@@ -36,7 +35,7 @@ boot/kernel/gentoo/use:
 	-ntfsdecrypt
 	ntfsprogs
 
-#boot/kernel/gentoo/packages:
+#boot/kernel/linux/packages:
 #	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 
