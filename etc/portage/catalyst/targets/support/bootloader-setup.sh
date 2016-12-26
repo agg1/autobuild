@@ -270,7 +270,7 @@ case ${clst_hostarch} in
 			kmsg=$1/isolinux/kernels.msg
 			echo "default ${first}" > ${icfg}
 			echo "timeout 30" >> ${icfg}
-			echo "ontimeout gentoo" >> ${icfg}
+			echo "ontimeout linux" >> ${icfg}
 			echo "prompt 1" >> ${icfg}
 			echo "display boot.msg" >> ${icfg}
 			echo "F1 kernels.msg" >> ${icfg}
