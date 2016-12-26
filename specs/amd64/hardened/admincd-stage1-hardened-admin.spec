@@ -28,6 +28,7 @@ livecd/packages:
 	app-admin/passook
 	app-admin/perl-cleaner
 	app-admin/python-updater
+	app-admin/sshguard
 	app-admin/syslog-ng
 	app-admin/testdisk
 	app-benchmarks/bonnie++

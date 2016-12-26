@@ -36,10 +36,10 @@ boot/kernel/gentoo/use:
 	minimal
 
 boot/kernel/gentoo/packages:
+	app-admin/sshguard
 	app-admin/syslog-ng
 	app-admin/syslog-summary
 	mail-mta/nullmailer
-	net-analyzer/fail2ban
 	net-analyzer/macchanger
 	net-firewall/ipsec-tools
 	net-misc/ntp
