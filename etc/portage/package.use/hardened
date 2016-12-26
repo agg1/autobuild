@@ -1,3 +1,4 @@
+app-admin/rsyslog -ssl -jemalloc rfc3195 rfc5424hmac usertools snmp
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 sys-fs/cryptsetup -python -gcrypt openssl libressl
