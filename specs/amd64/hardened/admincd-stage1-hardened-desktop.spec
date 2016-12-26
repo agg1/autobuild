@@ -220,14 +220,15 @@ livecd/packages:
 	app-admin/perl-cleaner
 	app-admin/python-updater
 	#app-admin/qtpass
+	app-admin/rsyslog
 	app-admin/sshguard
 	app-admin/superadduser
-	app-admin/syslog-ng
 	app-admin/syslog-summary
 	app-admin/testdisk
 	app-admin/tmpwatch
 	app-admin/mktwpol
 	app-admin/tripwire
+	app-admin/ulogd
 	app-admin/verynice
 	app-admin/whowatch
 	app-antivirus/clamav
