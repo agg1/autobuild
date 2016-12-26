@@ -25,16 +25,16 @@ stage4/packages:
 #	netmount|default
 #	sshd|default
 
-boot/kernel: gentoo
-boot/kernel/gentoo/sources: gentoo-sources
-boot/kernel/gentoo/config: /etc/portage/kconfig
-boot/kernel/gentoo/gk_kernargs: --all-ramdisk-modules --lvm --dmraid --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf
+boot/kernel: linux
+boot/kernel/linux/sources: vanilla-sources
+boot/kernel/linux/config: /etc/portage/kconfig
+boot/kernel/linux/gk_kernargs: --all-ramdisk-modules --lvm --dmraid --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf
 
 stage4/unmerge:
 	sys-libs/pam
 	sys-auth/pambase
 	sys-kernel/genkernel
-	sys-kernel/gentoo-sources
+	sys-kernel/vanilla-sources
 
 stage4/empty:
 	/root/.ccache
@@ -57,5 +57,5 @@ stage4/rm:
 	/root/.lesshst
 	/root/.ssh/known_hosts
 	/root/.viminfo
-#	/usr/share/genkernel
+	/usr/share/genkernel
 	/usr/lib64/python*/site-packages/gentoolkit/test/eclean/testdistfiles.tar.gz
