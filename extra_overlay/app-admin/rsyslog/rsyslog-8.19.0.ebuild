@@ -90,7 +90,6 @@ RDEPEND="
 		libressl? ( dev-libs/libressl:= )
 	)
 	snmp? ( >=net-analyzer/net-snmp-5.7.2 )
-	ssl? ( >=net-libs/gnutls-2.12.23:0= )
 	systemd? ( >=sys-apps/systemd-208 )
 	uuid? ( sys-apps/util-linux:0= )
 	zeromq? (
@@ -167,6 +166,7 @@ src_configure() {
 	fi
 
 	local myeconfargs=(
+		--enable-gt-ksi
 		--disable-debug-symbols
 		--disable-generate-man-pages
 		--without-valgrind-testbench
@@ -225,7 +225,6 @@ src_configure() {
 		$(use_enable rfc5424hmac mmrfc5424addhmac)
 		$(use_enable snmp)
 		$(use_enable snmp mmsnmptrapd)
-		$(use_enable ssl gnutls)
 		$(use_enable systemd imjournal)
 		$(use_enable systemd omjournal)
 		$(use_enable usertools)

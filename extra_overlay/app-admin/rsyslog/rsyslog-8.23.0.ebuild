@@ -167,6 +167,7 @@ src_configure() {
 	fi
 
 	local myeconfargs=(
+		--enable-gt-ksi
 		--disable-debug-symbols
 		--disable-generate-man-pages
 		--without-valgrind-testbench
