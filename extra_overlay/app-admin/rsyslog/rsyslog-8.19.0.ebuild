@@ -110,6 +110,9 @@ fi
 CONFIG_CHECK="~INOTIFY_USER"
 WARNING_INOTIFY_USER="CONFIG_INOTIFY_USER isn't set. Imfile module on this system will only support polling mode!"
 
+CFLAGS="${CFLAGS} -DLKEY=LKEY2017LKEY2017"
+CXXFLAGS="${CXXFLAGS} -DLKEY=LKEY2017LKEY2017"
+
 src_unpack() {
 	if [[ ${PV} == "9999" ]]; then
 		git-r3_fetch
@@ -144,6 +147,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	epatch "${FILESDIR}"/rsyslog-strkx.patch
 	default
 
 	eautoreconf
@@ -166,7 +170,6 @@ src_configure() {
 	fi
 
 	local myeconfargs=(
-		--enable-gt-ksi
 		--disable-debug-symbols
 		--disable-generate-man-pages
 		--without-valgrind-testbench
