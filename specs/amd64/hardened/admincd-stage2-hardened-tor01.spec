@@ -14,20 +14,19 @@ livecd/iso: tor01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
-livecd/bootargs: dokeymap nodhcp memory_corruption_check=1
+livecd/bootargs: dokeymap nodhcp memory_corruption_check=1 net.ifnames=0
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
-#dhcpcd
-#livecd/rcadd:
+livecd/rcadd: cronie|default sshd|default rsyslog|default sshguard|default ulogd|default
 livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
-boot/kernel: gentoo
-boot/kernel/gentoo/sources: vanilla-sources
-boot/kernel/gentoo/config: /home/catalyst/etc/portage/kconfig
+boot/kernel: linux
+boot/kernel/linux/sources: vanilla-sources
+boot/kernel/linux/config: /home/catalyst/etc/portage/kconfig
 
-boot/kernel/gentoo/use:
+boot/kernel/linux/use:
 	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline xml static-libs
 	-udev
 	-X
@@ -35,11 +34,15 @@ boot/kernel/gentoo/use:
 	-gtk
 	minimal
 
-boot/kernel/gentoo/packages:
+boot/kernel/linux/packages:
+	app-admin/lnav
+	app-admin/logrotate
 	app-admin/sshguard
-	app-admin/syslog-ng
-	app-admin/syslog-summary
-	mail-mta/nullmailer
+	app-admin/rsyslog
+	app-admin/ulogd
+	#app-misc/tmux
+	#mail-mta/nullmailer
+	net-analyzer/iptraf-ng
 	net-analyzer/macchanger
 	#net-firewall/ipsec-tools
 	net-misc/ntp
@@ -109,7 +112,6 @@ livecd/rm:
 	/etc/make.globals
 	/etc/make.profile
 	/etc/man.conf
-	/etc/resolv.conf
 	/lib*/*.a
 	/lib*/*.la
 	/lib*/cpp
