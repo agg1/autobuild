@@ -1,4 +1,6 @@
 /var/log/strace {
+	daily
     missingok
     sharedscripts
+	dateext
 }

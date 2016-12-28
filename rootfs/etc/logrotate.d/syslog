@@ -1,11 +1,13 @@
+/var/log/syslog.encinfo
 /var/log/syslog
 {
-       rotate 17520
        hourly
+       rotate 17520
+       extension .encinfo
+       dateext
        missingok
        notifempty
-       delaycompress
-       compress
+       nocompress
        postrotate
                test -r /run/rsyslogd.pid && kill -HUP $(cat /run/rsyslogd.pid) &>/dev/null
        endscript
