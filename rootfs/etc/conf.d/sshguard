@@ -6,7 +6,7 @@
 #   See sshguard(8) for details.
 
 # Initial (empty) options.
-SSHGUARD_OPTS="-p 600 -s 300 -a 2"
+SSHGUARD_OPTS="-p 300 -s 900 -a 30"
 
 # Files to monitor
 #   -l <source>
