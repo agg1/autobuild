@@ -3,6 +3,7 @@ dev-libs/liblogging rfc3195
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 sys-fs/cryptsetup -python -gcrypt openssl libressl
+sys-process/cronie anacron
 dev-libs/glib -mime -utils
 dev-libs/libxml2 python
 dev-vcs/git -gtk gpg curl subversion cvs webdav
