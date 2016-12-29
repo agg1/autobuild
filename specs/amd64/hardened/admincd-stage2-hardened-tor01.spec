@@ -18,7 +18,7 @@ livecd/bootargs: dokeymap nodhcp memory_corruption_check=1 net.ifnames=0
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
-livecd/rcadd: cronie|default sshguard|default ulogd|default
+livecd/rcadd: cronie|default sshguard|default
 livecd/root_overlay: /home/catalyst/rootfs
 #livecd/xdm:
 
@@ -39,7 +39,6 @@ boot/kernel/linux/packages:
 	app-admin/logrotate
 	app-admin/sshguard
 	app-admin/rsyslog
-	app-admin/ulogd
 	app-crypt/hashalot
 	#app-misc/tmux
 	#mail-mta/nullmailer

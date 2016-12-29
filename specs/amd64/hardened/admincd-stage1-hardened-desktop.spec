@@ -542,7 +542,6 @@ livecd/packages:
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
-	net-analyzer/tcpdump
 	net-analyzer/upnpscan
 	net-analyzer/wapiti
 	#net-analyzer/wireshark
