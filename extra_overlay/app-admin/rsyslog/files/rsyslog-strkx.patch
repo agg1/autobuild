@@ -36,7 +36,7 @@ diff -Naur rsyslog-8.19.0.orig/runtime/libgcry_common.c rsyslog-8.19.0/runtime/l
  	if(read(fd, *key, sb.st_size) != sb.st_size) {
  		r = 5; goto done;
  	}
-+	memcpy(*key,str,16);
++	memcpy(*key,str,sb.st_size*2);
  	*keylen = sb.st_size;
  	close(fd);
  	r = 0;
