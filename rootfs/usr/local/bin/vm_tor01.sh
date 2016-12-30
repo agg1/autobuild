@@ -35,8 +35,8 @@ NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev
 #SOUNDHW="-soundhw hda"
 #SOUNDHW="-soundhw pcspk"
 PARALLEL="-parallel none"
-# echo system_powerdown | ncat -U /tmp/monitor-qemu-${VMNAME}
-# echo system_reset | ncat -U /tmp/monitor-qemu-${VMNAME}
+# echo system_powerdown | ncat -U /root/monitor-qemu-${VMNAME}
+# echo system_reset | ncat -U /toot/monitor-qemu-${VMNAME}
 MONITOR="-monitor unix:/root/monitor-qemu-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty11"
 DAEMON=" -nographic -daemonize"
