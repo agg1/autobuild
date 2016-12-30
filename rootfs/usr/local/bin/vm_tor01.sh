@@ -18,11 +18,11 @@ SLIC="-acpitable file=/home/virtual/bios/SLIC"
 BIOS="-bios /usr/share/seabios/bios.bin ${SLIC}"
 #DISKDRIVER="virtio"
 DISKDRIVER="scsi"
-#FLOPPY="-drive id=cd0,file=/media/backup1/images/virtio-win-0.1.96.iso,if=none,cache=none,aio=native,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.1"
+#FLOPPY="-drive id=cd0,file=/media/backup1/images/virtio-win-0.1.96.iso,if=none,cache=directsync,aio=native,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.1"
 #CDISO="-cdrom /home/virtual/${VMNAME}/${VMNAME}-latest.iso"
-CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,cache=none,aio=native,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
-OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=none,aio=native,discard=off,format=raw,media=disk,index=1"
-CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=none,aio=native,discard=off,format=raw,media=disk,index=2"
+CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,cache=directsync,aio=native,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
+OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=directsync,aio=native,discard=off,format=raw,media=disk,index=1"
+CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=directsync,aio=native,discard=off,format=raw,media=disk,index=2"
 #NETDRIVER=virtio-net-pci
 NETDRIVER=e1000
 NETID=01
