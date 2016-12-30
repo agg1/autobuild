@@ -1,3 +1,4 @@
+export I3SOCK=$HOME/.local/${RANDOM}
 xhost +si:localuser:$USER
 xhost +inet:10.0.0.1
 xautolock -locker xtrlock -time 5 -killtime 120&
