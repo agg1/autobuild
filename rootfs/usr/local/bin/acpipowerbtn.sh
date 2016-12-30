@@ -64,5 +64,12 @@ fi
 
 # No power managment system appears to be running.  Just initiate a plain 
 # shutdown.
-#/sbin/shutdown -h now "Power button pressed"
-echo mem > /sys/power/state
+grep pbshutdown /proc/cmdline && PBSHUTDOWN=true
+grep pbsleep /proc/cmdline && PBSLEEP=true
+if [ "x${PBSHUTDOWN}" != "x" ] ; then
+	/sbin/shutdown -h now "Power button pressed"
+elif [ "x${PBSLEEP}" != "x" ] ; then
+	echo mem > /sys/power/state
+else
+	/sbin/shutdown -h now "Power button pressed"
+fi
