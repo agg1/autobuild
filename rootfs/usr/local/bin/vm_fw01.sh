@@ -15,33 +15,6 @@ VGA="-display curses -vga std"
 SERIAL="-serial /dev/tty10"
 DAEMON=" -nographic -daemonize"
 
-# echo 'set tty com0' > /etc/boot.conf
-# /etc/ttys console on
-
-#rmmod mcs7830
-#rmmod ax88179_178a
-
-#ip link add br0 type bridge
-#ip link set enp0s26u1u1u3 master br0
-
-#ifconfig br0 down
-#brctl delbr br0
-#brctl addbr br0
-#brctl stp br0 no
-#brctl addif br0 enp0s26u1u1u3
-#ifconfig br0 up
-
-#ifconfig br1 down
-#brctl delbr br1
-#brctl addbr br1
-#brctl stp br1 no
-#brctl addif br1 enp0s26u1u1u3
-#ifconfig br0 up
-
-#ip tuntap add hn0 mode tap
-#ip link  set hn0 up
-#ip link set hn0 master br0
-
 ${TASKSET} \
 qemu-system-x86_64 \
 -nodefconfig -nodefaults \
