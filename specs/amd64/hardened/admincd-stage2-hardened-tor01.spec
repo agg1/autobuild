@@ -44,7 +44,7 @@ boot/kernel/linux/packages:
 	#net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/tor
-	net-dns/bind-tools
+	#net-dns/bind-tools
 	sys-apps/systrace
 	sys-process/cronie
 	sys-fs/cryptsetup
