@@ -42,7 +42,7 @@ irssi_repair() {
 }
 
 if [ -z "$T3" ]; then
-	tmux new-session -E -d -s irc tail -f /var/log/strace.log
+	tmux new-session -E -d -s irc
 	tmux new-window -t irc -n irssi sg wanout -c \
 	"systrace -d /usr/local/etc/systrace -ia /usr/bin/irssi -- --config ~/.config/irssi/config"
 #    irssi_nickpane
