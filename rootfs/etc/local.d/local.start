@@ -11,7 +11,7 @@ elif [ -x /etc/cfg/cfg.sh ]; then
 	umount /etc/cfg
 elif [ -x "/etc/rc.local.d/${HOSTID}" -a ! -z "${HOSTID}" ]; then
 	/etc/rc.local.d/${HOSTID}
-#elif try config download
+#elif try config download via ssh
 else
 	/etc/rc.local.d/rc.default
 	/etc/rc.local.d/rc.fwstop
