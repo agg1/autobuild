@@ -35,9 +35,11 @@ NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev
 #SOUNDHW="-soundhw hda"
 #SOUNDHW="-soundhw pcspk"
 PARALLEL="-parallel none"
-MONITOR="-monitor none"
+# echo system_powerdown | ncat -U /tmp/monitor-qemu-${VMNAME}
+# echo system_reset | ncat -U /tmp/monitor-qemu-${VMNAME}
+MONITOR="-monitor unix:/root/monitor-qemu-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty11"
-#DAEMON=" -nographic -daemonize"
+DAEMON=" -nographic -daemonize"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
 #SPICEPWD=pass{NETID}
