@@ -14,7 +14,7 @@ livecd/iso: tor01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
-livecd/bootargs: net.ifnames=0 nokeymap nodhcp memory_corruption_check=1 ubsan_handle=OEAINVBSLF
+livecd/bootargs: net.ifnames=0 nokeymap nodhcp memory_corruption_check=1 pbshutdown ubsan_handle=OEAINVBSLF
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshguard|default
 livecd/root_overlay: /home/catalyst/rootfs
@@ -44,6 +44,7 @@ boot/kernel/linux/packages:
 	#net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/tor
+	net-dns/bind-tools
 	sys-apps/systrace
 	sys-process/cronie
 	sys-fs/cryptsetup
