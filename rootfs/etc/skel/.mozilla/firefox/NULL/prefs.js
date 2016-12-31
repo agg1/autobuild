@@ -9,11 +9,14 @@
  */
 
 user_pref("accessibility.typeaheadfind", false);
+user_pref("accessibility.typeaheadfind.flashBar", 0);
+user_pref("app.update.auto", false);
 user_pref("app.update.lastUpdateTime.addon-background-update-timer", 0);
 user_pref("app.update.lastUpdateTime.blocklist-background-update-timer", 0);
 user_pref("app.update.lastUpdateTime.browser-cleanup-thumbnails", 0);
 user_pref("app.update.lastUpdateTime.experiments-update-timer", 0);
 user_pref("app.update.lastUpdateTime.xpi-signature-verification", 0);
+user_pref("app.update.staging.enabled", false);
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
 user_pref("browser.cache.disk.capacity", -1);
 user_pref("browser.cache.disk.filesystem_reported", 1);
@@ -89,11 +92,13 @@ user_pref("extensions.getAddons.databaseSchema", 5);
 user_pref("extensions.lastAppVersion", "45.6.0");
 user_pref("extensions.lastPlatformVersion", "45.6.0");
 user_pref("extensions.pendingOperations", false);
+user_pref("extensions.update.enabled", false);
 user_pref("extensions.xpiState", "{\"app-system-defaults\":{\"loop@mozilla.org\":{\"d\":\"/mnt/livecd/usr/lib64/firefox/browser/features/loop@mozilla.org.xpi\",\"e\":true,\"v\":\"1.1.14\",\"st\":1482309991000}},\"app-global\":{\"{972ce4c6-7e08-4474-a285-3208198ce6fd}\":{\"d\":\"/mnt/livecd/usr/lib64/firefox/browser/extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi\",\"e\":true,\"v\":\"45.6.0\",\"st\":1482309990000}}}");
 user_pref("gecko.mstone", "45.6.0");
 user_pref("general.smoothScroll", false);
 user_pref("layers.acceleration.disabled", true);
 user_pref("layout.spellcheckDefault", 0);
+user_pref("lightweightThemes.update.enabled", false);
 user_pref("media.gmp.storage.version.observed", 1);
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.predictor.cleaned-up", true);
@@ -122,6 +127,9 @@ user_pref("services.sync.declinedEngines", "");
 user_pref("services.sync.globalScore", 0);
 user_pref("services.sync.migrated", true);
 user_pref("services.sync.nextSync", 0);
+user_pref("services.sync.prefs.sync.app.update.mode", false);
+user_pref("services.sync.prefs.sync.browser.search.update", false);
+user_pref("services.sync.prefs.sync.extensions.update.enabled", false);
 user_pref("services.sync.tabs.lastSync", "0");
 user_pref("services.sync.tabs.lastSyncLocal", "0");
 user_pref("signon.importedFromSqlite", true);
