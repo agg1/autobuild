@@ -9,8 +9,10 @@ UXTerm*backarrowKey: false
 UXTerm*ttyModes: erase ^?
 UXTerm*termName: xterm-256color
 UXTerm*reverseVideo: off
-UXTerm*background:  #000000
-UXTerm*foreground:  #9f9f9f
+!UXTerm*background:  #000000
+!UXTerm*foreground:  #9f9f9f
+UXTerm*background:  #9f9f9f
+UXTerm*foreground:  #000000
 UXTerm*color0:      #000000
 UXTerm*color1:      #9e1828
 UXTerm*color2:      #aece92
@@ -22,11 +24,11 @@ UXTerm*color5:      #963c59
 UXTerm*color6:      #418179
 UXTerm*color7:      #bebebe
 UXTerm*color8:      #666666
-UXTerm*color9:      #cf6171
-UXTerm*color10:     #c5f779
-UXTerm*color11:     #fff796
-UXTerm*color12:     #4186be
-UXTerm*color13:     #cf9ebe
-UXTerm*color14:     #71bebe
+!UXTerm*color9:      #cf6171
+!UXTerm*color10:     #c5f779
+!UXTerm*color11:     #fff796
+!UXTerm*color12:     #4186be
+!UXTerm*color13:     #cf9ebe
+!UXTerm*color14:     #71bebe
 UXTerm*color15:     #cccccc
 !UXTerm*color15:     #ffffff
