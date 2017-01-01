@@ -9,7 +9,7 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/volid: Hardened Minimal Live System
-livecd/type: gentoo-release-minimal
+livecd/type: generic-livecd
 livecd/iso: irc01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
@@ -71,6 +71,7 @@ livecd/unmerge:
 	sys-apps/groff
 	sys-apps/man
 	sys-apps/man-pages
+	sys-apps/man-db
 	sys-apps/miscfiles
 	sys-apps/texinfo
 	sys-devel/autoconf
@@ -262,11 +263,9 @@ livecd/empty:
 	/usr/share/glib-2.0
 	/usr/share/gnuconfig
 	/usr/share/gtk-doc
-	/usr/share/i18n
 	/usr/share/info
 	/usr/share/lcms
 	/usr/share/libtool
-	/usr/share/locale
 	/usr/share/man
 	/usr/share/rfc
 	/usr/share/ss

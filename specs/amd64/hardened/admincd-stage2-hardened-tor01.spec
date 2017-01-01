@@ -66,6 +66,7 @@ livecd/unmerge:
 	sys-apps/groff
 	sys-apps/man
 	sys-apps/man-pages
+	sys-apps/man-db
 	sys-apps/miscfiles
 	sys-apps/texinfo
 	sys-devel/autoconf
