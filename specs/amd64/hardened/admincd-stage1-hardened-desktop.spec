@@ -291,6 +291,10 @@ livecd/packages:
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/nano
+	#dev-perl/DBD-SQLite
+	#dev-perl/DBI
+	#dev-perl/Params-Util
+	#app-editors/padre
 	app-editors/vim
 	app-editors/wxmedit
 	app-emulation/qemu
