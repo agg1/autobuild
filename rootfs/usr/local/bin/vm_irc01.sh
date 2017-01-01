@@ -10,7 +10,7 @@ CPU="-cpu qemu64"
 CPUNUM=1
 #CPULIST="6,7,8,9"
 #TASKSET="taskset -c ${CPULIST}"
-MEM=768M
+MEM=512M
 #HUGEMEM="-mem-path /dev/hugepages -mem-prealloc -balloon none"
 #MACHINE="-machine type=pc,accel=kvm,mem-merge=off,kernel_irqchip=on -enable-kvm"
 MACHINE="-machine type=pc"
@@ -28,7 +28,7 @@ NETDRIVER=e1000
 NETID=02
 NETMAC="02:12:34:56:78:${NETID}"
 #NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev bridge,br=br0,ifname=hn0,id=net0,helper=/bin/true"
-NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn0,id=net0,script=no,downscript=no"
+NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn1,id=net0,script=no,downscript=no"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
 #USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci2.0,port=1"
 #SOUNDHW="-soundhw ac97"
