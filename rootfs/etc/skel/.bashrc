@@ -15,16 +15,17 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
-export LANG="en_US.utf-8"
-export LC_COLLATE="en_US.utf-8"
-export LC_CTYPE="en_US.utf-8"
-export LC_MESSAGES="en_US.utf-8"
-export LC_MONETARY="en_US.utf-8"
-export LC_NUMERIC="en_US.utf-8"
-export LC_TIME="en_US.utf-8"
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
 export LC_ALL=
 
 export EDITOR=/usr/bin/vi
+export TERM=linux
 
 set +o history
 umask 0007
