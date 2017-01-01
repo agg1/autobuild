@@ -48,6 +48,7 @@ boot/kernel/linux/packages:
 	sys-apps/systrace
 	sys-process/cronie
 	sys-fs/cryptsetup
+	sys-power/acpid
 
 livecd/unmerge:
 	app-admin/eselect
