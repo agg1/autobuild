@@ -61,6 +61,7 @@ livecd/unmerge:
 	app-admin/perl-cleaner
 	app-admin/python-updater
 	app-arch/cpio
+	app-text/manpager
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
