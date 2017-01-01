@@ -1,7 +1,7 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 export LATEST="20161226-1482779549"
-export RELDA="tor01-testing"
+export RELDA="irc01-testing"
 export PTREE=/home/seeds/portage/${LATEST}/portage-latest.tar.bz2
 export CKERN="yes"
 
