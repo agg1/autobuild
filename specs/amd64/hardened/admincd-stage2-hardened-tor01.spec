@@ -202,6 +202,8 @@ livecd/rm:
 	/var/tmp/genkernel/initramfs*
 	/usr/bin/perl*
 	/usr/bin/python*
+	/usr/bin/pydoc*
+	/usr/bin/pyvenv*
 	/usr/lib/perl*
 	/usr/lib/python*
 	/var/db/pkg/*
