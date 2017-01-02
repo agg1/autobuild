@@ -1,8 +1,9 @@
 export QEMU_AUDIO_DRV=alsa QEMU_AUDIO_TIMER_PERIOD=250
 
 QEMU="qemu-system-x86_64"
-VMNAME=tor01
-VMUID=44444441
+QEMU="systrace -d /usr/local/etc/systrace -ia ${QEMU} -- "
+VMNAME=irc01
+VMUID=44444442
 RUNAS="-runas ${VMNAME}"
 CPU="-cpu qemu64"
 #CPU="-cpu host,kvm=on,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,+x2apic,-aes"
@@ -10,7 +11,7 @@ CPU="-cpu qemu64"
 CPUNUM=1
 #CPULIST="6,7,8,9"
 #TASKSET="taskset -c ${CPULIST}"
-MEM=208M
+MEM=512M
 #HUGEMEM="-mem-path /dev/hugepages -mem-prealloc -balloon none"
 #MACHINE="-machine type=pc,accel=kvm,mem-merge=off,kernel_irqchip=on -enable-kvm"
 MACHINE="-machine type=pc"
@@ -18,17 +19,17 @@ SLIC="-acpitable file=/home/virtual/bios/SLIC"
 BIOS="-bios /usr/share/seabios/bios.bin ${SLIC}"
 #DISKDRIVER="virtio"
 DISKDRIVER="scsi"
-#FLOPPY="-drive id=cd0,file=/media/backup1/images/virtio-win-0.1.96.iso,if=none,cache=directsync,aio=native,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.1"
+#FLOPPY="-drive id=cd0,file=/media/backup1/images/virtio-win-0.1.96.iso,if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.1"
 #CDISO="-cdrom /home/virtual/${VMNAME}/${VMNAME}-latest.iso"
-CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,cache=directsync,aio=native,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
-OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=directsync,aio=native,discard=off,format=raw,media=disk,index=1"
-CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=directsync,aio=native,discard=off,format=raw,media=disk,index=2"
-#NETDRIVER=virtio-net-pci
-NETDRIVER=e1000
-NETID=01
+CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
+OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=1"
+CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
+#NETDRIVER="virtio-net-pci"
+NETDRIVER=rtl8139
+NETID=02
 NETMAC="02:12:34:56:78:${NETID}"
-#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev bridge,br=br0,ifname=hn0,id=net0,helper=/bin/true"
-NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn0,id=net0,script=no,downscript=no"
+#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev user,id=net0,hostfwd=tcp::22222-:22"
+NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn1,id=net0,script=no,downscript=no"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
 #USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci2.0,port=1"
 #SOUNDHW="-soundhw ac97"
