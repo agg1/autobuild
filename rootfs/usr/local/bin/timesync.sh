@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ -e /etc/.notimesync ] && exit 0
+
 mount -o remount,rw /etc 2> /dev/null
 
 #ptbtime1.ptb.de
