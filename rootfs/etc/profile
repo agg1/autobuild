@@ -65,20 +65,5 @@ alias ls='ls --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
 
-if [ -e /etc/chome -a ! -z "$(grep -R "^${USER}$" /etc/chome 2>/dev/null)" ]; then
-	LOCKED=yes
+/usr/local/bin/unlockhome.sh
 
-	POLICY=$(/usr/sbin/e4crypt get_policy $HOME 2>/dev/null | cut -d' ' -f2)
-	if [ -e /bin/keyctl -a ! -z "$POLICY " ] ; then
-		keyctl show | grep $POLICY > /dev/null 2>&1 && unset LOCKED
-	fi
-
-	if [ x"${TMUX}" != "x" ] ; then
-		unset LOCKED
-	fi
-
-	if [ x"$LOCKED" != "x"  ] ; then
-		echo "Unlock $HOME"
-		/usr/sbin/e4crypt add_key -S 0xffff $HOME
-	fi
-fi
