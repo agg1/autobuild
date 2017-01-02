@@ -38,6 +38,8 @@ boot/kernel/linux/packages:
 	app-admin/rsyslog
 	app-crypt/hashalot
 	app-misc/tmux
+	dev-perl/TimeDate
+	dev-perl/libwww-perl
 	mail-mta/nullmailer
 	net-analyzer/iptraf-ng
 	net-analyzer/macchanger
@@ -167,7 +169,6 @@ livecd/rm:
 	/usr/bin/yacc
 	/usr/lib*/*.a
 	/usr/lib*/*.la
-	/usr/lib*/perl5/site_perl
 	/usr/lib*/gcc-lib/*/*/libgcj*
 	/usr/local/portage*
 	/usr/local/lib/firmware*
@@ -239,7 +240,6 @@ livecd/empty:
 	/usr/lib/gcc-config
 	/usr/lib/gconv
 	/usr/lib/nfs
-	/usr/lib/perl5/site_perl
 	/usr/lib/portage
 	/usr/lib64/X11/config
 	/usr/lib64/X11/doc
@@ -249,7 +249,6 @@ livecd/empty:
 	/usr/lib64/gcc-config
 	/usr/lib64/gconv
 	/usr/lib64/nfs
-	/usr/lib64/perl5/site_perl
 	/usr/lib64/portage
 	/usr/portage
 	/usr/share/aclocal
