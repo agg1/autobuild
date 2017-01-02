@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sync
+
 for i in $(ls /root/monitor-qemu-*); do
 	echo system_powerdown | ncat -U $i
 done
