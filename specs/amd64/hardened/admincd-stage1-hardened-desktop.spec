@@ -288,13 +288,11 @@ livecd/packages:
 	app-dicts/myspell-fr
 	app-dicts/myspell-ru
 	app-doc/doxygen
+	app-editors/bluefish
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/nano
-	#dev-perl/DBD-SQLite
-	#dev-perl/DBI
-	#dev-perl/Params-Util
-	#app-editors/padre
+	app-editors/padre
 	app-editors/vim
 	app-editors/wxmedit
 	app-emulation/qemu
