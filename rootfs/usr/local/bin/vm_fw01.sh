@@ -40,13 +40,13 @@ PARALLEL="-parallel none"
 # echo system_reset | ncat -U /root/monitor-qemu-${VMNAME}
 MONITOR="-monitor unix:/root/monitor-qemu-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty10"
-#DAEMON=" -nographic -daemonize"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
 #SPICEPWD=pass{NETID}
 #SPICEPORT=59${NETID}
 #SPICE="-spice port=${SPICEPORT},password=${SPICEPWD}"
 #RNG="-device virtio-rng-pci"
+DAEMON=" -nographic -daemonize"
 
 groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
@@ -67,7 +67,6 @@ ${BIOS} \
 -device nec-usb-xhci,bus=pci.0,id=ehci2 \
 ${PARALLEL} \
 ${VGA} \
-${DAEMON} \
 ${SERIAL} \
 ${MONITOR} \
 ${SOUNDHW} \
@@ -82,4 +81,4 @@ ${CFGDISK} \
 ${RNG} \
 ${SPICE} \
 -ctrl-grab \
--boot order=cd,menu=off ${DAEMON} ${RUNAS}
+-boot order=cd,menu=off ${RUNAS} ${DAEMON} &
