@@ -67,9 +67,13 @@ fi
 grep pbshutdown /proc/cmdline && PBSHUTDOWN=true
 grep pbsleep /proc/cmdline && PBSLEEP=true
 if [ "x${PBSHUTDOWN}" != "x" ] ; then
+	mount -o remount,rw,exec /etc
+	sync
 	/sbin/shutdown -h now "Power button pressed"
 elif [ "x${PBSLEEP}" != "x" ] ; then
 	echo mem > /sys/power/state
 else
+	mount -o remount,rw,exec /etc
+	sync
 	/sbin/shutdown -h now "Power button pressed"
 fi
