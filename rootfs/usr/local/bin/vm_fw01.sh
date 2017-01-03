@@ -39,10 +39,9 @@ USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehc
 #SOUNDHW="-soundhw hda"
 #SOUNDHW="-soundhw pcspk"
 PARALLEL="-parallel none"
-# echo system_powerdown | ncat -U /root/monitor-qemu-${VMNAME}
-# echo system_reset | ncat -U /root/monitor-qemu-${VMNAME}
-MONITOR="-monitor unix:/root/monitor-qemu-${VMNAME},server,nowait"
-SERIAL="-serial unix:/root/serial-qemu-${VMNAME},server,nowait"
+# echo system_powerdown | ncat -U /root/qemu-monitor-${VMNAME}
+MONITOR="-monitor unix:/root/qemu-monitor-${VMNAME},server,nowait"
+SERIAL="-serial unix:/root/qemu-serial-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty10"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
