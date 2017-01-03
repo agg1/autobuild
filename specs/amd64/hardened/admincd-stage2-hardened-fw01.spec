@@ -14,7 +14,7 @@ livecd/iso: fw01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
-livecd/bootargs: net.ifnames=0 nokeymap nodhcp memory_corruption_check=1 pbshutdown ubsan_handle=OEAINVBSLF
+livecd/bootargs: net.ifnames=0 nokeymap nodhcp memory_corruption_check=1 pbshutdown ubsan_handle=OEAINVBSLF console=ttyS0,115200 console=tty0
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshguard|default
 livecd/root_overlay: /home/catalyst/rootfs
@@ -43,9 +43,12 @@ boot/kernel/linux/packages:
 	net-analyzer/macchanger
 	net-firewall/ipsec-tools
 	net-misc/ntp
+	net-misc/openvpn
 	net-dns/bind-tools
 	net-dns/ddclient
 	net-dns/dnsmasq
+	sys-apps/iproute2
+	sys-apps/net-tools
 	sys-apps/systrace
 	sys-process/cronie
 	sys-fs/cryptsetup
