@@ -11,7 +11,7 @@ CPU="-cpu qemu64"
 CPUNUM=1
 #CPULIST="6,7,8,9"
 #TASKSET="taskset -c ${CPULIST}"
-MEM=512M
+MEM="-m 512M"
 #HUGEMEM="-mem-path /dev/hugepages -mem-prealloc -balloon none"
 #MACHINE="-machine type=pc,accel=kvm,mem-merge=off,kernel_irqchip=on -enable-kvm"
 MACHINE="-machine type=pc"
@@ -24,6 +24,9 @@ DISKDRIVER="scsi"
 CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
 OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=1"
 CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
+#USBHOST1="-device ich9-usb-uhci1,bus=pci.0,id=uhci1"
+#USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
+#USBHOST3="-device nec-usb-xhci,bus=pci.0,id=xhci1"
 #NETDRIVER="virtio-net-pci"
 NETDRIVER=rtl8139
 NETID=02
@@ -31,7 +34,7 @@ NETMAC="02:12:34:56:78:${NETID}"
 #NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev user,id=net0,hostfwd=tcp::22222-:22"
 NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn1,id=net0,script=no,downscript=no"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
-#USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci2.0,port=1"
+#USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci1.0,port=2"
 #SOUNDHW="-soundhw ac97"
 #SOUNDHW="-soundhw hda"
 #SOUNDHW="-soundhw pcspk"
@@ -47,7 +50,8 @@ VGA="-display curses -vga std"
 #SPICEPORT=59${NETID}
 #SPICE="-spice port=${SPICEPORT},password=${SPICEPWD}"
 #RNG="-device virtio-rng-pci"
-DAEMON=" -nographic -daemonize"
+RTC="-rtc base=utc,clock=vm"
+DAEMON="-nographic -daemonize"
 
 groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
@@ -57,15 +61,16 @@ ${TASKSET} \
 ${QEMU} \
 -name ${VMNAME} \
 -nodefconfig -nodefaults \
+-device ahci,id=ahci \
 ${MACHINE} \
 ${CPU} -smp cpus=${CPUNUM},sockets=1,cores=${CPUNUM},threads=1 \
 ${KVM} \
 ${BIOS} \
--m ${MEM} ${HUGEMEM} \
--rtc base=utc,clock=vm \
--device ahci,id=ahci \
--device nec-usb-xhci,bus=pci.0,id=ehci1 \
--device nec-usb-xhci,bus=pci.0,id=ehci2 \
+${MEM} ${HUGEMEM} \
+${RTC} \
+${USBHOST1} \
+${USBHOST2} \
+${USBHOST3} \
 ${PARALLEL} \
 ${VGA} \
 ${SERIAL} \
