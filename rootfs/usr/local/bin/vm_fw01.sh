@@ -26,9 +26,9 @@ OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},c
 CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
 #NETDRIVER="virtio-net-pci"
 #NETDRIVER=rtl8139
-#NETID=02
+#NETID=ff
 #NETMAC="02:12:34:56:78:${NETID}"
-#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn0,id=net0,script=no,downscript=no"
+#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn7,id=net0,script=no,downscript=no"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
 USBBRIDGE1="-device usb-host,vendorid=0x0b95,productid=0x7720,id=usbeth1,bus=ehci1.0,port=1"
 USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci2.0,port=1"
@@ -39,6 +39,7 @@ PARALLEL="-parallel none"
 # echo system_powerdown | ncat -U /root/monitor-qemu-${VMNAME}
 # echo system_reset | ncat -U /root/monitor-qemu-${VMNAME}
 MONITOR="-monitor unix:/root/monitor-qemu-${VMNAME},server,nowait"
+SERIAL="-serial unix:/root/serial-qemu-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty10"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
@@ -46,7 +47,7 @@ VGA="-display curses -vga std"
 #SPICEPORT=59${NETID}
 #SPICE="-spice port=${SPICEPORT},password=${SPICEPWD}"
 #RNG="-device virtio-rng-pci"
-DAEMON=" -nographic -daemonize"
+#DAEMON=" -nographic -daemonize"
 
 groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
@@ -81,4 +82,5 @@ ${CFGDISK} \
 ${RNG} \
 ${SPICE} \
 -ctrl-grab \
--boot order=cd,menu=off ${RUNAS} ${DAEMON} &
+-boot order=cd,menu=off ${RUNAS} ${DAEMON}
+# &

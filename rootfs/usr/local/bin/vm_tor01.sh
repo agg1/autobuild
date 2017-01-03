@@ -39,6 +39,7 @@ PARALLEL="-parallel none"
 # echo system_powerdown | ncat -U /root/monitor-qemu-${VMNAME}
 # echo system_reset | ncat -U /toot/monitor-qemu-${VMNAME}
 MONITOR="-monitor unix:/root/monitor-qemu-${VMNAME},server,nowait"
+SERIAL="-serial unix:/root/serial-qemu-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty11"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
