@@ -67,3 +67,5 @@ c6:12345:respawn:/sbin/mingetty --nohostname tty6
 c7:12345:respawn:/sbin/mingetty --nohostname tty7
 c8:12345:respawn:/sbin/mingetty --nohostname tty8
 c9:12345:respawn:/sbin/mingetty --nohostname tty9
+
+s0:12345:respawn:/sbin/agetty -L 115200 ttyS0 vt100
