@@ -1,0 +1,2 @@
+#!/bin/sh
+ntpq -pn
