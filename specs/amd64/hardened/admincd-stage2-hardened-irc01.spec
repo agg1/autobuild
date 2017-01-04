@@ -39,6 +39,7 @@ boot/kernel/linux/packages:
 	app-crypt/hashalot
 	app-misc/tmux
 	dev-perl/DBI
+	dev-perl/Log-Agent
 	dev-perl/TimeDate
 	dev-perl/libwww-perl
 	mail-mta/nullmailer
