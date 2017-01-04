@@ -16,18 +16,18 @@ irssi_nickpane() {
 irssi_repair() {
 	tmux selectw -t irssi
 	(( $(tmux lsp | wc -l) > 1 )) && tmux killp -a -t 0
-#	irssi_nickpane
+	#irssi_nickpane
 }
 
 if [ -z "$T3" ]; then
 	tmux new-session -E -d -s irc
-	sleep 1
 	tmux new-window -t irc -n irssi sg wanout -c \
-	"systrace -d /usr/local/etc/systrace -ia /usr/bin/irssi -- --config ~/.config/irssi/config"
-#    irssi_nickpane
+	"systrace -d /usr/local/etc/systrace -ia /usr/bin/irssi -- --config ${HOME}/.config/irssi/config"
+	tmux attach-session -d -t irc
+	#irssi_nickpane
 else
-    tmux attach-session -d -t irc;
-#    irssi_repair
+	tmux attach-session -d -t irc;
+	#irssi_repair
 fi
 
 exit 0
