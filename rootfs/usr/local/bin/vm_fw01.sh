@@ -11,7 +11,7 @@ CPU="-cpu qemu64"
 CPUNUM=1
 #CPULIST="6,7,8,9"
 #TASKSET="taskset -c ${CPULIST}"
-MEM="-m 208M"
+MEM="-m 176M"
 #HUGEMEM="-mem-path /dev/hugepages -mem-prealloc -balloon none"
 #MACHINE="-machine type=pc,accel=kvm,mem-merge=off,kernel_irqchip=on -enable-kvm"
 MACHINE="-machine type=pc"
@@ -50,7 +50,7 @@ VGA="-display curses -vga std"
 #SPICE="-spice port=${SPICEPORT},password=${SPICEPWD}"
 #RNG="-device virtio-rng-pci"
 RTC="-rtc base=utc,clock=vm"
-#DAEMON=" -nographic -daemonize"
+DAEMON=" -nographic -daemonize"
 
 groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
@@ -59,8 +59,7 @@ useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
 ${TASKSET} \
 ${QEMU} \
 -name ${VMNAME} \
--nodefconfig -nodefaults \
--device ahci,id=ahci \
+-nodefconfig -nodefaults -device ahci,id=ahci \
 ${MACHINE} \
 ${CPU} -smp cpus=${CPUNUM},sockets=1,cores=${CPUNUM},threads=1 \
 ${KVM} \
@@ -86,5 +85,4 @@ ${CFGDISK} \
 ${RNG} \
 ${SPICE} \
 -ctrl-grab \
--boot order=cd,menu=off ${RUNAS} ${DAEMON}
-# &
+-boot order=cd,menu=off ${RUNAS} ${DAEMON} &

@@ -59,8 +59,7 @@ useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
 ${TASKSET} \
 ${QEMU} \
 -name ${VMNAME} \
--nodefconfig -nodefaults \
--device ahci,id=ahci \
+-nodefconfig -nodefaults -device ahci,id=ahci \
 ${MACHINE} \
 ${CPU} -smp cpus=${CPUNUM},sockets=1,cores=${CPUNUM},threads=1 \
 ${KVM} \
