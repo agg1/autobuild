@@ -46,8 +46,9 @@ boot/kernel/linux/packages:
 	net-misc/ntp
 	net-misc/openvpn
 	net-dns/bind-tools
-	net-dns/ddclient
+	#net-dns/ddclient
 	net-dns/dnsmasq
+	net-misc/tor
 	sys-apps/iproute2
 	sys-apps/net-tools
 	sys-apps/systrace
