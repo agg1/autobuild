@@ -5,7 +5,7 @@ export LATEST="20161226-1482779549"
 export RELDA="tor01-testing"
 export PTREE=/home/seeds/portage/${LATEST}/portage-latest.tar.bz2
 export CKERN="yes"
-export LVSIZ="96"
+export LVSIZ="128"
 export LVHOM="10"
 export LVLOG="70"
 
