@@ -11,7 +11,7 @@ CPU="-cpu qemu64"
 CPUNUM=1
 #CPULIST="6,7,8,9"
 #TASKSET="taskset -c ${CPULIST}"
-MEM="-m 128M"
+MEM="-m 176M"
 #HUGEMEM="-mem-path /dev/hugepages -mem-prealloc -balloon none"
 #MACHINE="-machine type=pc,accel=kvm,mem-merge=off,kernel_irqchip=on -enable-kvm"
 MACHINE="-machine type=pc"
