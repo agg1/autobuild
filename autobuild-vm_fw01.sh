@@ -5,6 +5,9 @@ export LATEST="20161226-1482779549"
 export RELDA="fw01-testing"
 export PTREE=/home/seeds/portage/${LATEST}/portage-latest.tar.bz2
 export CKERN="yes"
+export LVSIZ="256"
+export LVHOM="10"
+export LVLOG="70"
 
 source /home/catalyst/autobuild.sh
 prepare_system
