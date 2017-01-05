@@ -2,8 +2,8 @@ export QEMU_AUDIO_DRV=alsa QEMU_AUDIO_TIMER_PERIOD=250
 
 QEMU="qemu-system-x86_64"
 QEMU="systrace -d /usr/local/etc/systrace -ia ${QEMU} -- "
-VMNAME=fw01
-VMUID=44444440
+VMNAME=www01
+VMUID=44444447
 RUNAS="-runas ${VMNAME}"
 CPU="-cpu qemu64"
 #CPU="-cpu host,kvm=on,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,+x2apic,-aes"
@@ -25,16 +25,16 @@ CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,c
 OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=1"
 CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
 #USBHOST1="-device ich9-usb-uhci1,bus=pci.0,id=uhci1"
-USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
+#USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
 #USBHOST3="-device nec-usb-xhci,bus=pci.0,id=xhci1"
 #NETDRIVER="virtio-net-pci"
-#NETDRIVER=rtl8139
-#NETID=ff
-#NETMAC="02:12:34:56:78:e1"
-#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn0,id=net0,script=no,downscript=no"
+NETDRIVER=rtl8139
+NETID=07
+NETMAC="02:12:34:56:78:${NETID}"
+#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev user,id=net0,hostfwd=tcp::22222-:22"
+NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn0,id=net0,script=no,downscript=no"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
-USBBRIDGE1="-device usb-host,vendorid=0x0b95,productid=0x7720,id=usbeth1,bus=ehci1.0,port=1"
-USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci1.0,port=2"
+#USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci1.0,port=2"
 #SOUNDHW="-soundhw ac97"
 #SOUNDHW="-soundhw hda"
 #SOUNDHW="-soundhw pcspk"
@@ -42,7 +42,7 @@ PARALLEL="-parallel none"
 # echo system_powerdown | ncat -U /root/qemu-monitor-${VMNAME}
 MONITOR="-monitor unix:/root/qemu-monitor-${VMNAME},server,nowait"
 SERIAL="-serial unix:/root/qemu-serial-${VMNAME},server,nowait"
-#SERIAL="-serial /dev/tty10"
+#SERIAL="-serial /dev/tty11"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
 #SPICEPWD=pass{NETID}
