@@ -2,7 +2,7 @@ app-admin/rsyslog -jemalloc rfc3195 rfc5424hmac usertools snmp
 dev-libs/liblogging rfc3195
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
-net-firewall/ipsec-tools rc5 idea nat
+net-firewall/ipsec-tools rc5 idea nat hybrid
 net-misc/openvpn socks
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 #sys-process/cronie anacron
