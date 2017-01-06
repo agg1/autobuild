@@ -1,6 +1,7 @@
 /var/log/syslog.encinfo
 /var/log/syslog
 {
+       nocreate
        hourly
        rotate 17520
        extension .encinfo
