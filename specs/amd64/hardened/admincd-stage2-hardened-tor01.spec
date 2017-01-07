@@ -40,7 +40,6 @@ boot/kernel/linux/packages:
 	#app-misc/tmux
 	#mail-mta/nullmailer
 	net-analyzer/iptraf-ng
-	net-analyzer/macchanger
 	#net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/tor

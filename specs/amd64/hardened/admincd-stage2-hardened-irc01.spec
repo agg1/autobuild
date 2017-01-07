@@ -44,7 +44,6 @@ boot/kernel/linux/packages:
 	dev-perl/libwww-perl
 	mail-mta/nullmailer
 	net-analyzer/iptraf-ng
-	net-analyzer/macchanger
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/irssi-otr
