@@ -5,4 +5,4 @@ if [ ! -z "${DNSMPID}" ] ;then
 fi
 sleep 1
 
-systrace -d /usr/local/etc/systrace -ia /usr/sbin/dnsmasq -- --user=dnsmasq --group=dnsmasq --conf-file=/etc/dnsmasq.conf --pid-file /var/run/dnsmasq.pid &
+systrace -d /usr/local/etc/systrace -ia /usr/sbin/dnsmasq -- --user=dnsmasq --group=dnsmasq --conf-file=/etc/dnsmasq.conf --pid-file=/var/run/dnsmasq.pid &
