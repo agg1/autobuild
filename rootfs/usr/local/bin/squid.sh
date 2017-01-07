@@ -1,6 +1,9 @@
 #!/bin/sh
-pkill -9 squid
-sleep 1
+SQUPID="$(cat /var/run/squid.pid)"
+if [ ! -z "${SQUPID}" ] ;then
+    kill -9 ${SQUPID}
+fi
+sleep 2
 
 mkdir -p /tmp/squid/
 chown squid:squid /tmp/squid/

@@ -1,5 +1,8 @@
 #!/bin/sh
-pkill -9 tor
+TORPID="$(cat /var/run/tor/tor.pid)"
+if [ ! -z "${TORPID}" ] ;then
+    kill -9 ${TORPID}
+fi
 sleep 1
 
 mkdir -p /var/log/tor 2>/dev/null

@@ -3,13 +3,12 @@
 IFACE=$1
 [ -z "${IFACE}" ] && echo "interface error" && exit 1
 
-DHCPID=$(ps ax | grep dhclient.pid | grep br0 | cut -d' ' -f1)
+DHCPID=$(cat /var/run/dhclient.${IFACE}.pid)
 if [ ! -z "${DHCPID}" ] ; then
 	kill -9 ${DHCPID}
 fi
+sleep 2
 
-sg lanout -c "systrace -d /usr/local/etc/systrace -ia /sbin/dhclient -- -pf /var/run/dhclient.pid ${IFACE}"&
-sleep 3
+sg lanout -c "systrace -d /usr/local/etc/systrace -ia /sbin/dhclient -- -pf /var/run/dhclient.${IFACE}.pid ${IFACE}"&
+sleep 2
 /usr/local/bin/timesync.sh
-sleep 1
-pkill -SIGHUP tor 2>/dev/null
