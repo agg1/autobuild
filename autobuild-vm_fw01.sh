@@ -14,6 +14,7 @@ prepare_system
 
 clean_portage
 prepare_portage
+umount /var/tmp/catalyst/builds || true
 
 export MACHINE="fw01"
 export MACHID=44444440
