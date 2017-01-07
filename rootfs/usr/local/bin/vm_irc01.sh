@@ -58,7 +58,7 @@ useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
 
 ${TASKSET} \
 ${QEMU} \
--name ${VMNAME} \
+-name ${VMNAME} -pidfile /var/run/qemu-${VMNAME}.pid \
 -nodefconfig -nodefaults -device ahci,id=ahci \
 ${MACHINE} \
 ${CPU} -smp cpus=${CPUNUM},sockets=1,cores=${CPUNUM},threads=1 \

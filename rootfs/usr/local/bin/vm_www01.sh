@@ -57,7 +57,7 @@ useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
 # if qemu is not spawned from root ip tuntap user <USER> can be used also, right now we do RUNAS
 
 ${TASKSET} \
-${QEMU} \
+${QEMU} -pidfile /var/run/qemu-${VMNAME}.pid \
 -name ${VMNAME} \
 -nodefconfig -nodefaults -device ahci,id=ahci \
 ${MACHINE} \
