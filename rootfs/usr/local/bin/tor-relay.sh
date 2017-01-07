@@ -1,4 +1,7 @@
 #!/bin/sh
+pkill -9 tor
+sleep 1
+
 mkdir -p /var/log/tor 2>/dev/null
 chown -R tor:tor /var/log/tor 2>/dev/null
 chmod 700 /var/log/tor

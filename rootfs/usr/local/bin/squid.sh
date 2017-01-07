@@ -1,3 +1,7 @@
+#!/bin/sh
+pkill -9 squid
+sleep 1
+
 mkdir -p /tmp/squid/
 chown squid:squid /tmp/squid/
 chmod 700 /tmp/squid/
