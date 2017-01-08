@@ -43,13 +43,14 @@ boot/kernel/linux/packages:
 	dev-perl/TimeDate
 	dev-perl/libwww-perl
 	mail-mta/nullmailer
+	net-firewall/ebtables
+	net-firewall/iptables
 	net-analyzer/iptraf-ng
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/irssi-otr
 	net-irc/znc
 	net-libs/libotr
-	#net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/tor
 	net-dns/bind-tools

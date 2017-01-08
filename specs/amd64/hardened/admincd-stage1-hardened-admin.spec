@@ -100,6 +100,7 @@ livecd/packages:
 	net-dialup/minicom
 	net-dialup/pptpclient
 	net-dns/bind-tools
+	net-firewall/ebtables
 	net-firewall/ipsec-tools
 	net-firewall/iptables
 	net-fs/cifs-utils

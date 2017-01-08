@@ -39,6 +39,8 @@ boot/kernel/linux/packages:
 	app-crypt/hashalot
 	#app-misc/tmux
 	#mail-mta/nullmailer
+	net-firewall/ebtables
+	net-firewall/iptables
 	net-analyzer/iptraf-ng
 	#net-firewall/ipsec-tools
 	net-misc/ntp
