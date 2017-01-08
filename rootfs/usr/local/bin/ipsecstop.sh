@@ -1,6 +1,6 @@
 #!/bin/sh
 
-REMOTEOIPS=$1
+REMOTEIPS=$1
 if [ -z "${REMOTEIPS}" ] ;then
         echo "no remote specified"
         exit 1
