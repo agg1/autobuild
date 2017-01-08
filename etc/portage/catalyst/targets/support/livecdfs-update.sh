@@ -94,9 +94,9 @@ echo "## PLEASE EDIT THE FSTAB at /mnt/gentoo/etc/fstab ##" >> /etc/fstab
 echo "####################################################" >> /etc/fstab
 
 # fstab tweaks
-echo "tmpfs	/					tmpfs	defaults,sync,size=80%	0 0" >> /etc/fstab
+echo "tmpfs	/						tmpfs	defaults,size=80%				0 0" >> /etc/fstab
 echo "tmpfs	/tmp					tmpfs	defaults,noexec,nodev,nosuid	0 0" >> /etc/fstab
-echo "/tmp	/var/tmp				none	bind,rw,noexec,nodev,nosuid	0 0" >> /etc/fstab
+echo "/tmp	/var/tmp				none	bind,rw,noexec,nodev,nosuid		0 0" >> /etc/fstab
 #echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}			tmpfs	defaults	0 0" >> /etc/fstab
 # If /usr/lib/X11/xkb/compiled then make it tmpfs
 #if [ -d /usr/lib/X11/xkb/compiled ]
