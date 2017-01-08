@@ -39,6 +39,7 @@ DEPEND="virtual/jpeg:*
 RDEPEND="${DEPEND}"
 
 src_configure() {
+	epatch "${FILESDIR}"/dhewm3-heapfix.patch
 	local CMAKE_USE_DIR="${S}/neo"
 	mycmakeargs=(
 		"-DDEDICATED=ON"
