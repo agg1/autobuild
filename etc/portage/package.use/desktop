@@ -34,4 +34,5 @@ net-analyzer/wireshark -ssl tfshark
 dev-java/* -doc
 #net-irc/weechat -ssl
 games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
+games-fps/dhewm3 sdl2
 games-fps/xonotic alsa sdl
