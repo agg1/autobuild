@@ -44,6 +44,7 @@ boot/kernel/linux/packages:
 	net-analyzer/iptraf-ng
 	#net-firewall/ipsec-tools
 	net-misc/ntp
+	net-misc/openvpn
 	net-misc/tor
 	#net-dns/bind-tools
 	sys-apps/systrace

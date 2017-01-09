@@ -52,6 +52,7 @@ boot/kernel/linux/packages:
 	net-irc/znc
 	net-libs/libotr
 	net-misc/ntp
+	net-misc/openvpn
 	net-misc/tor
 	net-dns/bind-tools
 	sys-apps/systrace
