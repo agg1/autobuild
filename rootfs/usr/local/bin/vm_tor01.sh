@@ -56,6 +56,19 @@ groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
 # if qemu is not spawned from root ip tuntap user <USER> can be used also, right now we do RUNAS
 
+POWEROFF=""
+TRYCOUNT=0
+while [ "x${POWEROFF}" == "x" ] ; do
+        TRYCOUNT=$(($TRYCOUNT+1))
+        if [ $TRYCOUNT -gt 150 ]; then
+                echo "failed system_powerdown for ${VMNAME} ... killing"
+                kill -9 $(cat /var/run/qemu-${VMNAME}.pid) 2>/dev/null
+                exit 1
+        fi
+        echo system_powerdown | ncat -U /root/qemu-monitor-${VMNAME} 2>/dev/null || POWEROFF="true"
+        sleep 1
+done
+
 ${TASKSET} \
 ${QEMU} -pidfile /var/run/qemu-${VMNAME}.pid \
 -name ${VMNAME} \
