@@ -1,7 +1,7 @@
 #!/bin/sh
 SQUPID="$(cat /var/run/squid.pid)"
 if [ ! -z "${SQUPID}" ] ;then
-    kill -9 ${SQUPID}
+    kill ${SQUPID}
 fi
 sleep 2
 
