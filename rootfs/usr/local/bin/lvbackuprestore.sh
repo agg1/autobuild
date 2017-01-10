@@ -10,17 +10,9 @@ mdadm --detail /dev/md127
 # check hdd
 badblocks -v -s -B -c 256 -b 4096 -w /dev/md127
 
-./hashalot -n 64 sha512 > file.home
-#cryptsetup --verify-passphrase --hash=sha512 --cipher=aes-xts-plain --key-size=512 luksFormat /dev/sdd
-#aes-xts-plain64
-cryptsetup create home /dev/md127 --type plain --cipher aes-xts-plain --key-size 512 -d file.home
-mkfs.ext4 -O metadata_csum,64bit,encrypt /dev/mapper/home
 #tune2fs -O metadata_csum,encrypt
 #fsck.ext4 --force
 
-cryptsetup open /dev/md127 home --type plain --cipher aes-xts-plain --key-size 512 -d file.home
-
-cryptsetup open /dev/md127 home --type plain --cipher aes-xts-plain64 --key-size 512 --hash sha512
 pvcreate -Z y --metadatasize 1048k --metadatacopies 2 /dev/mapper/home
 #pvs ; pvdisplay ; pvs -o+pe_start
 # after reboot
@@ -43,7 +35,8 @@ lvcreate -n lvwindows -L64G vghome
 # after reboot
 #lvscan -a --cache
 # before shutdown
-#lvchange -a an /dev/vghome/lv*
+#lvchange -a n /dev/vghome/lv*
+#lvremove /dev/vghome/lvgames
 
 # backup
 cd /media/sshfs/media/backup/container
