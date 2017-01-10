@@ -644,6 +644,7 @@ livecd/packages:
 	net-print/cups-pdf
 	net-print/gutenprint
 	net-proxy/dante
+	net-proxy/polipo
 	net-proxy/privoxy
 	net-proxy/squid
 	net-proxy/torsocks
