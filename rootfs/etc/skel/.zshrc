@@ -5,7 +5,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 /usr/bin/gpg-agent --homedir ~/.gnupg --use-standard-socket --daemon --pinentry-program /usr/bin/pinentry-curses 2>/dev/null || true
 
-xrdb ~/.Xdefaults
+xrdb ~/.Xdefaults 2>/dev/null
 rehash
 ttyctl -f
 setopt nohup
