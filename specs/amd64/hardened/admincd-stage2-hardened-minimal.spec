@@ -31,7 +31,8 @@ boot/kernel/linux/use:
 	-gtk
 	minimal
 
-#boot/kernel/linux/packages:
+boot/kernel/linux/packages:
+	sys-apps/hwsetup
 #	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 

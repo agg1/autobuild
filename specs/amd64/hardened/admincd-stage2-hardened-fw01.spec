@@ -50,6 +50,7 @@ boot/kernel/linux/packages:
 	#net-dns/ddclient
 	net-dns/dnsmasq
 	net-misc/tor
+	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/net-tools
 	sys-apps/systrace
