@@ -43,9 +43,9 @@ boot/kernel/linux/packages:
 	dev-perl/TimeDate
 	dev-perl/libwww-perl
 	mail-mta/nullmailer
+	net-analyzer/iptraf-ng
 	net-firewall/ebtables
 	net-firewall/iptables
-	net-analyzer/iptraf-ng
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/irssi-otr

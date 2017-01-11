@@ -39,10 +39,11 @@ boot/kernel/linux/packages:
 	app-crypt/hashalot
 	#app-misc/tmux
 	#mail-mta/nullmailer
-	net-firewall/ebtables
-	net-firewall/iptables
 	net-analyzer/iptraf-ng
 	#net-analyzer/tcpdump
+	net-firewall/arptables
+	net-firewall/ebtables
+	net-firewall/iptables
 	net-firewall/ipsec-tools
 	net-misc/ntp
 	net-misc/openvpn
