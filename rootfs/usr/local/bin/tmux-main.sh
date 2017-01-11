@@ -21,4 +21,4 @@
 #<prefix> } (Move the current pane right)
 #<prefix> z toggle pane zoom
 
-tmux new-session -A -E -s main
+tmux new-session -A -E -s main /bin/zsh
