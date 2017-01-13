@@ -47,7 +47,7 @@ boot/kernel/linux/packages:
 	net-misc/ntp
 	#net-misc/openvpn
 	net-misc/tor
-	net-dns/bind-tools
+	#net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace
 	sys-process/cronie

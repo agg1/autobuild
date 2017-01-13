@@ -51,7 +51,7 @@ boot/kernel/linux/packages:
 	net-proxy/polipo
 	net-proxy/privoxy
 	net-proxy/squid
-	net-dns/bind-tools
+	#net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace
 	sys-process/cronie
