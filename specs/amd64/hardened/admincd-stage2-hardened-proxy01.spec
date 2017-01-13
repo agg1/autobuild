@@ -40,7 +40,7 @@ boot/kernel/linux/packages:
 	app-crypt/hashalot
 	#app-misc/tmux
 	#mail-mta/nullmailer
-	net-analyzer/iptraf-ng
+	#net-analyzer/iptraf-ng
 	net-firewall/ebtables
 	net-firewall/iptables
 	net-firewall/ipsec-tools
@@ -51,7 +51,7 @@ boot/kernel/linux/packages:
 	net-proxy/polipo
 	net-proxy/privoxy
 	net-proxy/squid
-	#net-dns/bind-tools
+	net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace
 	sys-process/cronie
