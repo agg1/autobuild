@@ -47,6 +47,7 @@ boot/kernel/linux/packages:
 	net-analyzer/iptraf-ng
 	net-firewall/ebtables
 	net-firewall/iptables
+	net-firewall/ipsec-tools
 	net-irc/irssi
 	net-irc/irssi-fish
 	net-irc/irssi-otr

@@ -43,7 +43,7 @@ boot/kernel/linux/packages:
 	net-analyzer/iptraf-ng
 	net-firewall/ebtables
 	net-firewall/iptables
-	#net-firewall/ipsec-tools
+	net-firewall/ipsec-tools
 	net-misc/ntp
 	#net-misc/openvpn
 	net-misc/tor
