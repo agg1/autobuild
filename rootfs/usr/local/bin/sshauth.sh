@@ -14,8 +14,13 @@ if [ ! -z "${UNLOCKED}" ] ; then
         exit 0
 fi
 
+# ipsec vpn
 iptables -A unlocked -p esp -s ${CLIENTIP} -j ACCEPT
 iptables -A unlocked -p ah -s ${CLIENTIP} -j ACCEPT
 iptables -A unlocked -p udp -s ${CLIENTIP} --dport isakmp -j ACCEPT
 iptables -A unlocked -p udp -s ${CLIENTIP} --dport ipsec-nat-t -j ACCEPT
 
+# web proxies
+iptables -A unlocked -p tcp -s ${CLIENTIP} --dport 9050 -j ACCEPT
+iptables -A unlocked -p tcp -s ${CLIENTIP} --dport 8118 -j ACCEPT
+iptables -A unlocked -p tcp -s ${CLIENTIP} --dport 3128 -j ACCEPT
