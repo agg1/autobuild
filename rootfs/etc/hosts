@@ -1,5 +1,5 @@
 127.0.0.1 localhost
 84.45.76.100 myip.dnsdynamic.org
 84.45.76.100 www.dnsdynamic.org
-212.227.17.186 imap.gmx.net
-212.227.17.168 mail.gmx.net
+#212.227.17.186 imap.gmx.net
+#212.227.17.168 mail.gmx.net
