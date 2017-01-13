@@ -9,8 +9,8 @@ portage_confdir: /home/catalyst/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/volid: Hardened Minimal Live System
-livecd/type: generic-livecd
-livecd/iso: irc01-latest.iso
+livecd/type: gentoo-release-minimal
+livecd/iso: proxy01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
@@ -38,24 +38,20 @@ boot/kernel/linux/packages:
 	app-admin/sshguard
 	app-admin/rsyslog
 	app-crypt/hashalot
-	app-misc/tmux
-	dev-perl/DBI
-	dev-perl/Log-Agent
-	dev-perl/TimeDate
-	dev-perl/libwww-perl
-	mail-mta/nullmailer
+	#app-misc/tmux
+	#mail-mta/nullmailer
 	net-analyzer/iptraf-ng
 	net-firewall/ebtables
 	net-firewall/iptables
-	net-irc/irssi
-	net-irc/irssi-fish
-	net-irc/irssi-otr
-	net-irc/znc
-	net-libs/libotr
+	#net-firewall/ipsec-tools
 	net-misc/ntp
 	#net-misc/openvpn
-	#net-misc/tor
-	net-dns/bind-tools
+	net-misc/tor
+	net-proxy/dante
+	net-proxy/polipo
+	net-proxy/privoxy
+	net-proxy/squid
+	#net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace
 	sys-process/cronie
@@ -174,6 +170,7 @@ livecd/rm:
 	/usr/bin/yacc
 	/usr/lib*/*.a
 	/usr/lib*/*.la
+	/usr/lib*/perl5/site_perl
 	/usr/lib*/gcc-lib/*/*/libgcj*
 	/usr/local/portage*
 	/usr/local/lib/firmware*
@@ -211,9 +208,11 @@ livecd/rm:
 	/usr/share/misc/*.old
 	/var/tmp/gentoo.config
 	/var/tmp/genkernel/initramfs*
+	/usr/bin/perl*
 	/usr/bin/python*
 	/usr/bin/pydoc*
 	/usr/bin/pyvenv*
+	/usr/lib/perl*
 	/usr/lib/python*
 	/var/db/pkg/*
 	/var/elogs/*
@@ -245,6 +244,7 @@ livecd/empty:
 	/usr/lib/gcc-config
 	/usr/lib/gconv
 	/usr/lib/nfs
+	/usr/lib/perl5/site_perl
 	/usr/lib/portage
 	/usr/lib64/X11/config
 	/usr/lib64/X11/doc
@@ -254,6 +254,7 @@ livecd/empty:
 	/usr/lib64/gcc-config
 	/usr/lib64/gconv
 	/usr/lib64/nfs
+	/usr/lib64/perl5/site_perl
 	/usr/lib64/portage
 	/usr/portage
 	/usr/share/aclocal
@@ -271,9 +272,11 @@ livecd/empty:
 	/usr/share/glib-2.0
 	/usr/share/gnuconfig
 	/usr/share/gtk-doc
+	/usr/share/i18n
 	/usr/share/info
 	/usr/share/lcms
 	/usr/share/libtool
+	/usr/share/locale
 	/usr/share/man
 	/usr/share/rfc
 	/usr/share/ss

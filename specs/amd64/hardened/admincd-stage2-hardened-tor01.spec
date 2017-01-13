@@ -18,6 +18,7 @@ livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_c
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshguard|default
 livecd/root_overlay: /home/catalyst/rootfs
+#livecd/overlay:
 
 boot/kernel: linux
 boot/kernel/linux/sources: vanilla-sources
@@ -44,7 +45,7 @@ boot/kernel/linux/packages:
 	net-firewall/iptables
 	#net-firewall/ipsec-tools
 	net-misc/ntp
-	net-misc/openvpn
+	#net-misc/openvpn
 	net-misc/tor
 	#net-dns/bind-tools
 	sys-apps/hwsetup

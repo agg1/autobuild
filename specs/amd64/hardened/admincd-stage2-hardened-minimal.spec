@@ -18,6 +18,7 @@ livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_c
 livecd/rcdel: keymaps|boot netmount|default
 #livecd/rcadd:
 livecd/root_overlay: /home/catalyst/rootfs
+#livecd/overlay:
 
 boot/kernel: linux
 boot/kernel/linux/sources: vanilla-sources
