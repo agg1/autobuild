@@ -50,7 +50,7 @@ VGA="-display curses -vga std"
 #SPICE="-spice port=${SPICEPORT},password=${SPICEPWD}"
 #RNG="-device virtio-rng-pci"
 RTC="-rtc base=utc,clock=vm"
-DAEMON=" -nographic -daemonize"
+DAEMON="-nographic -daemonize"
 
 groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
