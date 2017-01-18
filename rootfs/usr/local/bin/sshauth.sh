@@ -19,6 +19,10 @@ iptables -A unlocked -p esp -s ${CLIENTIP} -j ACCEPT
 iptables -A unlocked -p ah -s ${CLIENTIP} -j ACCEPT
 iptables -A unlocked -p udp -s ${CLIENTIP} --dport isakmp -j ACCEPT
 iptables -A unlocked -p udp -s ${CLIENTIP} --dport ipsec-nat-t -j ACCEPT
+iptables -A unlocked -p esp -d ${CLIENTIP} -j ACCEPT
+iptables -A unlocked -p ah -d ${CLIENTIP} -j ACCEPT
+iptables -A unlocked -p udp -d ${CLIENTIP} --dport isakmp -j ACCEPT
+iptables -A unlocked -p udp -d ${CLIENTIP} --dport ipsec-nat-t -j ACCEPT
 
 # web proxies
 iptables -A unlocked -p tcp -s ${CLIENTIP} --dport 9050 -j ACCEPT
