@@ -17,3 +17,5 @@ HOME=/
 
 # sync time once an hour
 29  *  * * *	root	[ -x /usr/local/bin/timesync.sh ] && /usr/local/bin/timesync.sh
+# ensure ipsec is established
+*/10  *  * * *	root	/usr/bin/sg lanout -c "ping -c 1 -W 5 192.168.1.1"
