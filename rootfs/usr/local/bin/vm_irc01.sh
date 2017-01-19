@@ -32,7 +32,7 @@ NETDRIVER=rtl8139
 NETID=03
 NETMAC="02:12:34:56:78:${NETID}"
 #NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev user,id=net0,hostfwd=tcp::22222-:22"
-NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn1,id=net0,script=no,downscript=no"
+NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=${NETID},id=net0,script=no,downscript=no"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
 #USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci1.0,port=2"
 #SOUNDHW="-soundhw ac97"
@@ -41,7 +41,7 @@ NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev
 PARALLEL="-parallel none"
 # echo system_powerdown | ncat -U /root/qemu-monitor-${VMNAME}
 MONITOR="-monitor unix:/root/qemu-monitor-${VMNAME},server,nowait"
-SERIAL="-serial unix:/root/qemu-serial-${VMNAME},server,nowait"
+#SERIAL="-serial unix:/root/qemu-serial-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty11"
 VGA="-display curses -vga std"
 #VGA="-vga qxl -display none"
