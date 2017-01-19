@@ -6,4 +6,4 @@ if [ -z "${REMOTEIPS}" ] ;then
         exit 1
 fi
 
-racoonctl -s /var/run/racoon.sock vd ${REMOTEIPS}
+/usr/sbin/racoonctl -s /var/run/racoon.sock vd ${REMOTEIPS}

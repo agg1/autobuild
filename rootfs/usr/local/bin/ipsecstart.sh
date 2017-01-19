@@ -13,6 +13,6 @@ if [ -z "${gwif}" ] ; then
 	exit 1
 fi
 
-racoonctl -s /var/run/racoon.sock vd ${REMOTEIPS} 2>/dev/null
+/usr/sbin/racoonctl -s /var/run/racoon.sock vd ${REMOTEIPS} 2>/dev/null
 sleep 2
-racoonctl -s /var/run/racoon.sock vc ${REMOTEIPS}
+/usr/sbin/racoonctl -s /var/run/racoon.sock vc ${REMOTEIPS}
