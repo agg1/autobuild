@@ -2,9 +2,9 @@
 /var/log/syslog
 {
        nocreate
-       hourly
        rotate 17520
        extension .encinfo
+       sharedscripts
        dateext
        missingok
        notifempty
