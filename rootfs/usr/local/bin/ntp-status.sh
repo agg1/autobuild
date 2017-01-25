@@ -1,2 +1,2 @@
 #!/bin/sh
-ntpq -pn
+ntpq -pn 127.0.0.1
