@@ -45,6 +45,7 @@ boot/kernel/linux/packages:
 	net-firewall/ebtables
 	net-firewall/iptables
 	net-firewall/ipsec-tools
+	#net-misc/ipsvd
 	net-misc/ntp
 	#net-misc/openvpn
 	#net-dns/bind-tools
@@ -53,8 +54,11 @@ boot/kernel/linux/packages:
 	sys-process/cronie
 	sys-fs/cryptsetup
 	sys-power/acpid
-	www-servers/gatling
+	www-servers/lighttpd
+	#www-servers/fnord
+	#www-servers/gatling
 	dev-vcs/git
+	www-apps/ikiwiki
 
 livecd/unmerge:
 	app-admin/eselect
