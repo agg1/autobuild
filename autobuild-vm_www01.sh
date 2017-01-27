@@ -5,6 +5,7 @@ export LATEST="20161226-1482779549"
 export RELDA="www01-testing"
 export PTREE=/home/seeds/portage/${LATEST}/portage-latest.tar.bz2
 export CKERN="yes"
+export CFSIZ="128"
 export LVSIZ="128"
 export LVHOM="50"
 export LVLOG="50"
@@ -20,4 +21,5 @@ export MACHINE="www01"
 export MACHID=44444445
 export PKDIR="/tmp/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
 build_livecd_minimal_machine
+#build_livecd_minimal_machine_img
 #cp -p /home/seeds/${MACHINE}/${RELDA}/* /home/virtual/${MACHINE}
