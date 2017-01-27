@@ -802,6 +802,18 @@ livecd/packages:
 	#virtual/jdk
 	virtual/opengl
 	virtual/pkgconfig
+    www-apps/ikiwiki
+    dev-perl/Search-Xapian
+    dev-perl/Digest-SHA1
+    dev-perl/Digest-SHA
+    dev-perl/Mail-Sendmail
+    dev-perl/XML-Writer
+    dev-perl/Sort-Naturally
+    dev-perl/Text-CSV
+    dev-perl/Text-WikiFormat
+    dev-perl/HTML-Tree
+    app-text/xapian-omega
+    app-text/texlive
 	www-client/firefox
 	www-client/lynx
 	www-client/w3m
