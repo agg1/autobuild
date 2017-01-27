@@ -16,7 +16,7 @@ IUSE="libressl"
 DEPEND="dev-db/sqlite:3
 	!libressl? ( dev-libs/openssl:= )
 	libressl? ( dev-libs/libressl:= )
-	dev-libs/xapian
+	=dev-libs/xapian-1.2.24
 	net-mail/notmuch:=
 	"
 RDEPEND="${DEPEND}
