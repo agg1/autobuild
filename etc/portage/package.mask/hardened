@@ -39,3 +39,6 @@ dev-lang/ruby
 dev-java/icedtea-bin
 #net-libs/neon
 #>app-crypt/gnupg-2.4.20
+>dev-libs/xapian-1.2.24
+>dev-libs/xapian-bindings-1.2.24
+>app-text/xapian-omega-1.2.24

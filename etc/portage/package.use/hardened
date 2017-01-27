@@ -8,7 +8,7 @@ sys-fs/cryptsetup -python -gcrypt openssl libressl
 #sys-process/cronie anacron
 dev-libs/glib -mime -utils
 dev-libs/libxml2 python
-dev-vcs/git -gtk gpg curl subversion cvs webdav
+dev-vcs/git -gtk gpg curl subversion cvs webdav perl cgi
 dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl -vim-syntax
 net-analyzer/nmap ncat nping
 net-p2p/transmission -gtk -ayatana
