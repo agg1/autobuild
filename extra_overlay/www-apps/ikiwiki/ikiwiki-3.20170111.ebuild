@@ -99,6 +99,7 @@ src_prepare() {
 #	fi
 
 	epatch "${FILESDIR}"/bootmenu-plugin.patch
+	epatch "${FILESDIR}"/automator-adminpw.patch
 }
 
 src_install() {
