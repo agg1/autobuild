@@ -17,7 +17,7 @@ mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hard
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo hardened gtk2
 x11-base/xorg-server xorg suid glamor
 x11-libs/libfm gtk -automount
-x11-libs/wxGTK X doc -gstreamer opengl sdl tiff -aqua -debug -odbc -pch
+x11-libs/wxGTK X doc -gstreamer opengl sdl tiff -aqua -debug -odbc -pch -opengl
 dev-libs/DirectFB -egl gles2 gstreamer opengl
 dev-lang/php gd
 net-libs/webkit -gles2
@@ -31,6 +31,7 @@ net-misc/asterisk -calendar
 app-editors/emacs -ssl
 app-emulation/wine staging -oss -ssl
 net-analyzer/wireshark -ssl tfshark
+dev-lang/perl ithreads
 dev-java/* -doc
 #net-irc/weechat -ssl
 games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
