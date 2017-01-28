@@ -100,6 +100,7 @@ src_prepare() {
 
 	epatch "${FILESDIR}"/bootmenu-plugin.patch
 	epatch "${FILESDIR}"/automator-adminpw.patch
+	epatch "${FILESDIR}"/ikiwiki-createlink.patch
 }
 
 src_install() {
