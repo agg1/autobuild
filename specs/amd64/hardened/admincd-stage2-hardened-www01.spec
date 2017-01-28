@@ -61,13 +61,14 @@ boot/kernel/linux/packages:
 	www-apps/ikiwiki
 	dev-perl/Search-Xapian
 	dev-perl/Digest-SHA1
-	dev-perl/Digest-SHA
+	perl-core/Digest-SHA
 	dev-perl/Mail-Sendmail
 	dev-perl/XML-Writer
 	dev-perl/Sort-Naturally
 	dev-perl/Text-CSV
 	dev-perl/Text-WikiFormat
 	dev-perl/HTML-Tree
+	dev-perl/Params-Util
 	app-text/xapian-omega
 	app-text/texlive
 	media-gfx/imagemagick
