@@ -59,15 +59,17 @@ boot/kernel/linux/packages:
 	#www-servers/gatling
 	dev-vcs/git
 	www-apps/ikiwiki
+	dev-perl/CGI-Session
 	dev-perl/Search-Xapian
 	dev-perl/Digest-SHA1
-	perl-core/Digest-SHA
 	dev-perl/Mail-Sendmail
 	dev-perl/XML-Writer
 	dev-perl/Sort-Naturally
 	dev-perl/Text-CSV
 	dev-perl/Text-WikiFormat
 	dev-perl/HTML-Tree
+	dev-perl/Perl-Tidy
+	dev-perl/List-MoreUtils
 	dev-perl/Params-Util
 	app-text/xapian-omega
 	app-text/texlive
@@ -85,6 +87,7 @@ livecd/unmerge:
 	dev-libs/libxml2
 	dev-libs/mpfr
 	dev-python/pycrypto
+	dev-util/cmake
 	dev-util/pkgconfig
 	sys-apps/debianutils
 	sys-apps/diffutils
@@ -98,12 +101,12 @@ livecd/unmerge:
 	sys-devel/autoconf-wrapper
 	sys-devel/automake
 	sys-devel/automake-wrapper
-	sys-devel/binutils
-	sys-devel/binutils-config
+	#sys-devel/binutils
+	#sys-devel/binutils-config
 	sys-devel/bison
 	sys-devel/flex
-	sys-devel/gcc
-	sys-devel/gcc-config
+	#sys-devel/gcc
+	#sys-devel/gcc-config
 	sys-devel/gettext
 	sys-devel/gnuconfig
 	sys-devel/libtool
@@ -126,8 +129,8 @@ livecd/rm:
 	/etc/*.old
 	/etc/default/audioctl
 	/etc/dispatch-conf.conf
-	/etc/env.d/05binutils
-	/etc/env.d/05gcc
+	#/etc/env.d/05binutils
+	#/etc/env.d/05gcc
 	/etc/etc-update.conf
 	/etc/hosts.bck
 	/etc/issue*
@@ -148,43 +151,45 @@ livecd/rm:
 	/sbin/mkfs.cramfs
 	/sbin/mkfs.minix
 	/usr/bin/addr2line
-	/usr/bin/ar
-	/usr/bin/as
+	#/usr/bin/ar
+	#/usr/bin/as
 	/usr/bin/audioctl
-	/usr/bin/c++*
-	/usr/bin/cc
+	#/usr/bin/c++*
+	#/usr/bin/cc
+	#/usr/bin/cpp
+	#/usr/bin/g++*
+	#/usr/bin/gcc*
 	/usr/bin/cjpeg
-	/usr/bin/cpp
 	/usr/bin/djpeg
 	/usr/bin/ebuild
 	/usr/bin/emerge
 	/usr/bin/elftoaout
 	/usr/bin/f77
-	/usr/bin/g++*
 	/usr/bin/g77
-	/usr/bin/gcc*
 	/usr/bin/genkernel
 	/usr/bin/gprof
-	/usr/bin/i?86-gentoo-linux-uclibc-*
-	/usr/bin/i?86-pc-linux-*
+	#/usr/bin/i?86-gentoo-linux-uclibc-*
+	#/usr/bin/i?86-pc-linux-*
+	#/usr/x86_64-pc-linux-*
+	#/usr/bin/x86_64-pc-linux-*
 	/usr/bin/jpegtran
-	/usr/bin/ld
+	#/usr/bin/ld
 	/usr/bin/libpng*
 	/usr/bin/nm
 	/usr/bin/objcopy
 	/usr/bin/objdump
 	/usr/bin/piggyback*
 	/usr/bin/portageq
-	/usr/bin/ranlib
+	#/usr/bin/ranlib
 	/usr/bin/readelf
 	/usr/bin/repoman
 	/usr/bin/size
-	/usr/bin/strip
+	#/usr/bin/strip
 	/usr/bin/tbz2tool
 	/usr/bin/xpak
 	/usr/bin/yacc
-	/usr/lib*/*.a
-	/usr/lib*/*.la
+	#/usr/lib*/*.a
+	#/usr/lib*/*.la
 	/usr/lib*/perl5/site_perl
 	/usr/lib*/gcc-lib/*/*/libgcj*
 	/usr/local/portage*
@@ -229,7 +234,7 @@ livecd/rm:
 	/usr/lib/python*
 	/var/db/pkg/*
 	/var/elogs/*
-	/usr/include/*
+	#/usr/include/*
 	/usr/lib/pkgconfig*
 	/usr/share/sgml*
 	/usr/share/boost-build*
@@ -247,14 +252,12 @@ livecd/empty:
 	/tmp
 	/usr/diet/include
 	/usr/diet/man
-	/usr/i?86-gentoo-linux-uclibc
-	/usr/i?86-pc-linux-uclibc
 	/usr/lib/X11/config
 	/usr/lib/X11/doc
 	/usr/lib/X11/etc
 	/usr/lib/awk
 	/usr/lib/ccache
-	/usr/lib/gcc-config
+	#/usr/lib/gcc-config
 	/usr/lib/gconv
 	/usr/lib/nfs
 	/usr/lib/perl5/site_perl
@@ -264,7 +267,7 @@ livecd/empty:
 	/usr/lib64/X11/etc
 	/usr/lib64/awk
 	/usr/lib64/ccache
-	/usr/lib64/gcc-config
+	#/usr/lib64/gcc-config
 	/usr/lib64/gconv
 	/usr/lib64/nfs
 	/usr/lib64/perl5/site_perl
@@ -272,14 +275,14 @@ livecd/empty:
 	/usr/portage
 	/usr/share/aclocal
 	/usr/share/baselayout
-	/usr/share/binutils-data
+	#/usr/share/binutils-data
 	/usr/share/consolefonts/partialfonts
 	/usr/share/consoletrans
 	/usr/share/dict
 	/usr/share/doc
 	/usr/share/emacs
 	/usr/share/et
-	/usr/share/gcc-data
+	#/usr/share/gcc-data
 	/usr/share/genkernel
 	/usr/share/gettext
 	/usr/share/glib-2.0
