@@ -155,6 +155,8 @@ livecd/rm:
 	/usr/bin/gprof
 	/usr/bin/i?86-gentoo-linux-uclibc-*
 	/usr/bin/i?86-pc-linux-*
+	/usr/x86_64-pc-linux-*
+	/usr/bin/x86_64-pc-linux-*
 	/usr/bin/jpegtran
 	/usr/bin/ld
 	/usr/bin/libpng*
@@ -237,8 +239,6 @@ livecd/empty:
 	/tmp
 	/usr/diet/include
 	/usr/diet/man
-	/usr/i?86-gentoo-linux-uclibc
-	/usr/i?86-pc-linux-uclibc
 	/usr/lib/X11/config
 	/usr/lib/X11/doc
 	/usr/lib/X11/etc
