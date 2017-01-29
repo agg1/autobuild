@@ -293,6 +293,7 @@ livecd/packages:
 	app-editors/hexedit
 	app-editors/nano
 	app-editors/padre
+	dev-perl/List-MoreUtils
 	app-editors/vim
 	app-editors/wxmedit
 	app-emulation/qemu
@@ -358,6 +359,8 @@ livecd/packages:
 	app-text/html2text
 	app-text/odt2txt
 	app-text/rfcutil
+	app-text/htmltidy
+	app-text/tidy-html5
 	app-vim/gentoo-syntax
 	app-vim/vim-spell-cs
 	app-vim/vim-spell-da
@@ -802,18 +805,18 @@ livecd/packages:
 	#virtual/jdk
 	virtual/opengl
 	virtual/pkgconfig
-    www-apps/ikiwiki
-    dev-perl/Search-Xapian
-    dev-perl/Digest-SHA1
-    dev-perl/Digest-SHA
-    dev-perl/Mail-Sendmail
-    dev-perl/XML-Writer
-    dev-perl/Sort-Naturally
-    dev-perl/Text-CSV
-    dev-perl/Text-WikiFormat
-    dev-perl/HTML-Tree
-    app-text/xapian-omega
-    app-text/texlive
+	www-apps/ikiwiki
+	dev-perl/Perl-Tidy
+	dev-perl/Search-Xapian
+	dev-perl/Digest-SHA1
+	dev-perl/Mail-Sendmail
+	dev-perl/XML-Writer
+	dev-perl/Sort-Naturally
+	dev-perl/Text-CSV
+	dev-perl/Text-WikiFormat
+	dev-perl/HTML-Tree
+	app-text/xapian-omega
+	app-text/texlive
 	www-client/firefox
 	www-client/lynx
 	www-client/w3m
