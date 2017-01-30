@@ -1,15 +1,18 @@
+/var/log/strace.log
 /var/log/syslog.encinfo
 /var/log/syslog
 {
-       nocreate
-       rotate 17520
-       extension .encinfo
-       sharedscripts
-       dateext
-       missingok
-       notifempty
-       nocompress
-       postrotate
-               test -r /run/rsyslogd.pid && kill -HUP $(cat /run/rsyslogd.pid) &>/dev/null
-       endscript
+	olddir archive
+	nocreate
+	daily
+	rotate 730
+	extension .encinfo
+	sharedscripts
+	dateext
+	dateformat -%Y%m%d%s
+	missingok
+	nocompress
+	postrotate
+		test -r /run/rsyslogd.pid && kill -HUP $(cat /run/rsyslogd.pid) &>/dev/null
+	endscript
 }

@@ -1,7 +1,0 @@
-/var/log/strace.log {
-	daily
-	missingok
-	sharedscripts
-	notifempty
-	dateext
-}

@@ -5,9 +5,11 @@ HOSTID=$(dmidecode | grep -w UUID | sed "s/^.UUID\: //g")
 mount -o ro /dev/disk/by-label/CFG /etc/cfg 2>/dev/null
 if [ -x /etc/cfg/${HOSTID} -a ! -z "${HOSTID}" ]; then
 	/etc/cfg/${HOSTID}
+	sleep 1
 	umount /etc/cfg
 elif [ -x /etc/cfg/cfg.sh ]; then
 	/etc/cfg/cfg.sh
+	sleep 1
 	umount /etc/cfg
 elif [ -x "/etc/rc.local.d/${HOSTID}" -a ! -z "${HOSTID}" ]; then
 	/etc/rc.local.d/${HOSTID}
