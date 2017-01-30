@@ -360,7 +360,6 @@ livecd/packages:
 	app-text/odt2txt
 	app-text/rfcutil
 	app-text/htmltidy
-	app-text/tidy-html5
 	app-vim/gentoo-syntax
 	app-vim/vim-spell-cs
 	app-vim/vim-spell-da
