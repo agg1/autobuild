@@ -1,4 +1,4 @@
-export QEMU_AUDIO_DRV=alsa QEMU_AUDIO_TIMER_PERIOD=250
+#!/bin/sh
 
 QEMU="qemu-system-x86_64"
 QEMU="systrace -d /usr/local/etc/systrace -ia ${QEMU} -- "
