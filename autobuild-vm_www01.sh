@@ -5,8 +5,8 @@ export LATEST="20161226-1482779549"
 export RELDA="www01-testing"
 export PTREE=/home/seeds/portage/${LATEST}/portage-latest.tar.bz2
 export CKERN="yes"
-export CFSIZ="128"
-export LVSIZ="128"
+export CFSIZ="64"
+export LVSIZ="192"
 export LVHOM="50"
 export LVLOG="50"
 
