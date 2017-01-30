@@ -358,6 +358,7 @@ livecd/packages:
 	app-text/docx2txt
 	app-text/html2text
 	app-text/odt2txt
+	app-text/pandoc
 	app-text/rfcutil
 	app-text/htmltidy
 	app-vim/gentoo-syntax
