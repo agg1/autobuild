@@ -631,6 +631,7 @@ livecd/packages:
 	net-misc/tor
 	net-misc/urlview
 	net-misc/vconfig
+	net-misc/vde
 	net-misc/vpnc
 	net-misc/wol
 	net-misc/wget
