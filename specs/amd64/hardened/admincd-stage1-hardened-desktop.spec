@@ -357,11 +357,13 @@ livecd/packages:
 	app-text/xpdf
 	app-text/docx2txt
 	app-text/html2text
+	app-text/html-xml-utils
 	app-text/odt2txt
 	app-text/pandoc
 	app-text/rfcutil
 	app-text/htmltidy
 	app-vim/gentoo-syntax
+	#app-vim/html5
 	app-vim/vim-spell-cs
 	app-vim/vim-spell-da
 	app-vim/vim-spell-de
@@ -431,6 +433,7 @@ livecd/packages:
 	media-gfx/gqview
 	media-gfx/xsane
 	media-gfx/xv
+	media-libs/libextractor
 	media-libs/alsa-lib
 	media-libs/alsa-oss
 	media-libs/gstreamer
@@ -597,6 +600,7 @@ livecd/packages:
 	net-mail/notmuch
 	net-mail/notmuchfs
 	net-mail/muchsync
+	net-mail/qprint
 	net-misc/asterisk
 	net-misc/bridge-utils
 	net-misc/curl
