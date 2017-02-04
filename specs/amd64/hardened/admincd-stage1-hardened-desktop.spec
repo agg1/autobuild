@@ -399,6 +399,8 @@ livecd/packages:
 	dev-util/cloc
 	dev-util/cmake
 	dev-util/codeblocks
+	dev-util/geany
+	dev-util/geany-plugins
 	dev-util/indent
 	dev-util/ltrace
 	dev-util/pkgconfig
@@ -856,6 +858,7 @@ livecd/packages:
 	x11-base/xorg-drivers
 	x11-base/xorg-server
 	x11-base/xorg-x11
+	x11-libs/gtk+extra
 	x11-libs/libva
 	x11-misc/i3status
 	x11-misc/openbox-menu
