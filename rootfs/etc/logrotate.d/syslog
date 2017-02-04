@@ -2,7 +2,7 @@
 /var/log/syslog.encinfo
 /var/log/syslog
 {
-	olddir archive
+	olddir /var/log/archive
 	nocreate
 	daily
 	rotate 730

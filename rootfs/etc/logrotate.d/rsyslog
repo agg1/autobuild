@@ -9,7 +9,7 @@
 /var/log/debug.log
 /var/log/messages
 {
-	olddir archive
+	olddir /var/log/archive
 	rotate 730
 	daily
 	missingok
