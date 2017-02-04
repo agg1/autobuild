@@ -5,4 +5,4 @@ if [ ! -z "${NTPPID}" ] ;then
 fi
 sleep 1
 
-systrace -d /usr/local/etc/systrace -ia /usr/sbin/ntpd -- -g -p /var/run/ntpd.pid&
+systrace -d /usr/local/etc/systrace -ia /usr/sbin/ntpd -- -g -u ntp -p /var/run/ntpd.pid&
