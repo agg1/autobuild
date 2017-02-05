@@ -329,6 +329,7 @@ livecd/packages:
 	app-office/homebank
 	app-office/libreoffice
 	app-office/libreoffice-l10n
+	app-office/lyx
 	app-portage/cfg-update
 	app-portage/eix
 	app-portage/esearch
@@ -359,7 +360,8 @@ livecd/packages:
 	app-text/html2text
 	app-text/html-xml-utils
 	app-text/odt2txt
-	app-text/pandoc
+	app-text/texi2html
+	#app-text/pandoc
 	app-text/rfcutil
 	app-text/htmltidy
 	app-vim/gentoo-syntax
