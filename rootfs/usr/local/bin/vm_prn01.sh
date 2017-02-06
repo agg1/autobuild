@@ -1,11 +1,38 @@
 #!/bin/sh
 
+# HOWTO installation from ISO
+# disable DAEMON mode
+# during boot immediately press escape
+# boot: expert vga=normal fb=false
+# /etc/default/grub
+#GRUB_GFXMODE=640x480
+#GRUB_GFXPAYLOAD=keep
+#GRUB_TERMINAL=console
+# linux vga=normal fb=false nofb nomodeset video=vga16:off console=ttyS0,115200 console=tty0
+# /etc/modprobe.d/fb-blacklist.conf
+#blacklist cirrus
+#blacklist uvesafb                                                                                                       
+#blacklist drm                                                                                                           
+#blacklist bochs-drm                                                                                                     
+#blacklist bochs_drm                                                                                                     
+#blacklist drm_kms_helper                                                                                                
+# update-grub, grub-install /dev/sda
+#iptables -I OUTPUT -m owner --uid-owner 44444448 -j ACCEPT
+#iptables -I OUTPUT -j ACCEPT
+#
+#mkdir -p /home/virtual/smb/prn01
+#chown prn01:prn01 /home/virtual/smb/prn01
+#chmod 700 /home/virtual/smb/prn01
+#mkdir -p /home/virtual/smb/pub
+#touch /home/virtual/smb/pub/.keep
+#chmod 777 /home/virtual/smb/pub
+
 QEMU="qemu-system-x86_64"
 QEMU="systrace -d /usr/local/etc/systrace -ia ${QEMU} -- "
-VMNAME=proxy01
-VMUID=44444444
+VMNAME=prn01
+VMUID=44444448
 RUNAS="-runas ${VMNAME}"
-CPU="-cpu qemu64"
+CPU="-cpu qemu32"
 #CPU="-cpu host,kvm=on,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,+x2apic,-aes"
 #KVM="-enable-kvm"
 CPUNUM=1
@@ -15,27 +42,29 @@ MEM="-m 192M"
 #HUGEMEM="-mem-path /dev/hugepages -mem-prealloc -balloon none"
 #MACHINE="-machine type=pc,accel=kvm,mem-merge=off,kernel_irqchip=on -enable-kvm"
 MACHINE="-machine type=pc"
-SLIC="-acpitable file=/home/virtual/bios/SLIC"
-BIOS="-bios /usr/share/seabios/bios.bin ${SLIC}"
+#SLIC="-acpitable file=/home/virtual/bios/SLIC"
+#BIOS="-bios /usr/share/seabios/bios.bin ${SLIC}"
 #DISKDRIVER="virtio"
 DISKDRIVER="scsi"
-ISOIMG="/home/virtual/${VMNAME}/${VMNAME}-latest.iso"
+ISOIMG="/home/virtual/${VMNAME}/debian-8.7.1-i386-netinst.iso"
 OSIMG="/home/virtual/${VMNAME}/${VMNAME}.sys.img"
 CFGIMG="/home/virtual/${VMNAME}/${VMNAME}.cfg.img"
 #FLOPPY="-drive id=cd0,file=/media/backup1/images/virtio-win-0.1.96.iso,if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.1"
-#CDISO="-cdrom ${ISOIMG}"
+#CDISO="-cdrom /home/virtual/${VMNAME}/${VMNAME}-latest.iso"
 CDISO="-drive id=cd0,file=${ISOIMG},if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
 OSDISK="-drive file=${OSIMG},if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=1"
 CFGDISK="-drive file=${CFGIMG},if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
 #USBHOST1="-device ich9-usb-uhci1,bus=pci.0,id=uhci1"
-#USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
+USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
 #USBHOST3="-device nec-usb-xhci,bus=pci.0,id=xhci1"
 #NETDRIVER="virtio-net-pci"
 NETDRIVER=rtl8139
-NETID=04
-NETMAC="02:12:34:56:78:${NETID}"
+#NETID=08
+#NETMAC="02:12:34:56:78:${NETID}"
 #NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev user,id=net0,hostfwd=tcp::22222-:22"
-NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn${NETID},id=net0,script=no,downscript=no"
+#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn${NETID},id=net0,script=no,downscript=no"
+NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev user,id=net0,net=10.88.14.0/24,hostfwd=tcp:127.0.0.1:631-:631,smb=/home/virtual/smb,smbserver=10.88.14.1"
+USBBRIDGE1="-device usb-host,vendorid=0x04f9,productid=0x0270,id=usbprn1,bus=ehci1.0,port=1"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
 #USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci1.0,port=2"
 #SOUNDHW="-soundhw ac97"
@@ -53,7 +82,7 @@ VGA="-display curses -vga cirrus"
 #SPICE="-spice port=${SPICEPORT},password=${SPICEPWD}"
 #RNG="-device virtio-rng-pci"
 RTC="-rtc base=utc,clock=vm"
-DAEMON="-nographic -daemonize"
+#DAEMON="-nographic -daemonize"
 
 groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
@@ -108,4 +137,4 @@ ${CFGDISK} \
 ${RNG} \
 ${SPICE} \
 -ctrl-grab \
--boot order=cd,menu=off ${RUNAS} ${DAEMON} &
+-boot order=cd,menu=off ${RUNAS} ${DAEMON} 

@@ -19,11 +19,14 @@ SLIC="-acpitable file=/home/virtual/bios/SLIC"
 BIOS="-bios /usr/share/seabios/bios.bin ${SLIC}"
 #DISKDRIVER="virtio"
 DISKDRIVER="scsi"
+ISOIMG="/home/virtual/${VMNAME}/${VMNAME}-latest.iso"
+OSIMG="/home/virtual/${VMNAME}/${VMNAME}.sys.img"
+CFGIMG="/home/virtual/${VMNAME}/${VMNAME}.cfg.img"
 #FLOPPY="-drive id=cd0,file=/media/backup1/images/virtio-win-0.1.96.iso,if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.1"
-#CDISO="-cdrom /home/virtual/${VMNAME}/${VMNAME}-latest.iso"
-CDISO="-drive id=cd0,file=/home/virtual/${VMNAME}/${VMNAME}-latest.iso,if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
-OSDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.sys.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=1"
-CFGDISK="-drive file=/home/virtual/${VMNAME}/${VMNAME}.cfg.img,if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
+#CDISO="-cdrom ${ISOIMG}"
+CDISO="-drive id=cd0,file=${ISOIMG},if=none,cache=none,aio=threads,format=raw,media=cdrom,index=0 -device ide-drive,drive=cd0,bus=ahci.0"
+OSDISK="-drive file=${OSIMG},if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=1"
+CFGDISK="-drive file=${CFGIMG},if=${DISKDRIVER},cache=none,aio=threads,discard=off,format=raw,media=disk,index=2"
 #USBHOST1="-device ich9-usb-uhci1,bus=pci.0,id=uhci1"
 #USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
 #USBHOST3="-device nec-usb-xhci,bus=pci.0,id=xhci1"
@@ -41,9 +44,9 @@ NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev
 PARALLEL="-parallel none"
 # echo system_powerdown | ncat -U /root/qemu-monitor-${VMNAME}
 MONITOR="-monitor unix:/root/qemu-monitor-${VMNAME},server,nowait"
-#SERIAL="-serial unix:/root/qemu-serial-${VMNAME},server,nowait"
+SERIAL="-serial unix:/root/qemu-serial-${VMNAME},server,nowait"
 #SERIAL="-serial /dev/tty11"
-VGA="-display curses -vga std"
+VGA="-display curses -vga cirrus"
 #VGA="-vga qxl -display none"
 #SPICEPWD=pass{NETID}
 #SPICEPORT=59${NETID}
@@ -56,9 +59,15 @@ groupadd -g ${VMUID} ${VMNAME} 2> /dev/null || true
 useradd -N -M -u ${VMUID} -g ${VMNAME} ${VMNAME} 2>/dev/null || true
 # if qemu is not spawned from root ip tuntap user <USER> can be used also, right now we do RUNAS
 
+chown root:root ${ISOIMG}
+chown ${VMNAME}:${VMNAME} ${OSIMG}
+chown ${VMNAME}:${VMNAME} ${CFGIMG}
+chmod 600 ${OSIMG} ${CFGIMG}
+chmod 644 ${ISOIMG}
+
 POWEROFF=""
 TRYCOUNT=0
-while [ "x${POWEROFF}" == "x" ] ; do
+while [ "x${POWEROFF}" = "x" ] ; do
         TRYCOUNT=$(($TRYCOUNT+1))
         if [ $TRYCOUNT -gt 150 ]; then
                 echo "failed system_powerdown for ${VMNAME} ... killing"
