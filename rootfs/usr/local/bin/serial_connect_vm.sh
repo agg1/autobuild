@@ -4,7 +4,7 @@
 #ncat -U /root/qemu-monitor-prn01
 
 ## connect to domain socket with minicom
-#com -D unix#/root/qemu-monitor-prn01
+#minicom -D unix#/root/qemu-monitor-prn01
 
 ## forward domain socket to serial pseudo terminal
 socat gopen:/root/qemu-monitor-prn01 PTY,link=/root/qemu-monitor-prn01.line,wait-slave
