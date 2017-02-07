@@ -101,7 +101,7 @@ livecd/packages:
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
-    #net-dialup/wvdial
+	#net-dialup/wvdial
 	net-dns/bind-tools
 	net-firewall/ebtables
 	net-firewall/ipsec-tools

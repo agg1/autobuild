@@ -557,8 +557,8 @@ livecd/packages:
 	net-analyzer/upnpscan
 	net-analyzer/wapiti
 	#net-analyzer/wireshark
-    net-dialup/dial
-    net-dialup/diald
+	net-dialup/dial
+	net-dialup/diald
 	net-dialup/freeradius
 	net-dialup/mingetty
 	net-dialup/minicom
