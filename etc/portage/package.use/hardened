@@ -28,5 +28,6 @@ net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
 net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
 net-misc/tor tor-hardening transparent-proxy
 www-servers/lighttpd -minimal
+net-libs/wvstreams -ssl
 #net-wireless/hostapd -ssl
 #app-crypt/pinentry -gtk ncurses
