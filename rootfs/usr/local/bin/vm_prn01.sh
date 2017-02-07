@@ -26,6 +26,18 @@
 #mkdir -p /home/virtual/smb/pub
 #touch /home/virtual/smb/pub/.keep
 #chmod 777 /home/virtual/smb/pub
+#
+#sources.list
+#deb http://security.debian.org/ jessie/updates main
+#deb-src http://security.debian.org/ jessie/updates main
+#deb http://ftp.fau.de/debian/ jessie main
+#apt-get update; apt-get upgrade
+#apt-get install cups cups-pdf lynx openssh-server openssh-sftp-server rcconf
+#dpkg -i brother/print/*.deb
+#ssh
+#PermitRootLogin yes
+#brscan-sky
+#configure printer to send file... a voila scanner
 
 QEMU="qemu-system-x86_64"
 QEMU="systrace -d /usr/local/etc/systrace -ia ${QEMU} -- "
@@ -57,13 +69,16 @@ CFGDISK="-drive file=${CFGIMG},if=${DISKDRIVER},cache=none,aio=threads,discard=o
 #USBHOST1="-device ich9-usb-uhci1,bus=pci.0,id=uhci1"
 USBHOST2="-device ich9-usb-ehci1,bus=pci.0,id=ehci1"
 #USBHOST3="-device nec-usb-xhci,bus=pci.0,id=xhci1"
+#NETDRIVER="virtio"
 #NETDRIVER="virtio-net-pci"
 NETDRIVER=rtl8139
-#NETID=08
+NETID=08
 #NETMAC="02:12:34:56:78:${NETID}"
 #NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev user,id=net0,hostfwd=tcp::22222-:22"
 #NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,mac=${NETMAC},romfile= -netdev tap,ifname=hn${NETID},id=net0,script=no,downscript=no"
-NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev user,id=net0,net=10.88.14.0/24,hostfwd=tcp:127.0.0.1:631-:631,smb=/home/virtual/smb,smbserver=10.88.14.1"
+#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev user,id=net0,net=10.88.14.0/24,hostfwd=tcp:127.0.0.1:631-:631"
+#NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev user,id=net0,net=10.88.14.0/24,smb=/home/virtual/smb,smbserver=10.88.14.1"
+NETDEV1="-device ${NETDRIVER},netdev=net0,id=nic1,romfile= -netdev user,id=net0,net=10.88.14.0/24,hostfwd=tcp:127.0.0.1:22${NETID}-:22"
 USBBRIDGE1="-device usb-host,vendorid=0x04f9,productid=0x0270,id=usbprn1,bus=ehci1.0,port=1"
 #USBBRIDGE1="-device usb-host,hostbus=1,hostaddr=10,id=usbeth1,bus=ehci1.0,port=1"
 #USBBRIDGE2="-device usb-host,vendorid=0x0b95,productid=0x772b,id=usbeth2,bus=ehci1.0,port=2"
