@@ -96,9 +96,12 @@ livecd/packages:
 	net-analyzer/traceroute
 	net-analyzer/traceroute-nanog
 	net-analyzer/tcpdump
+	net-dialup/dial
+	net-dialup/diald
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/pptpclient
+    #net-dialup/wvdial
 	net-dns/bind-tools
 	net-firewall/ebtables
 	net-firewall/ipsec-tools
@@ -115,6 +118,7 @@ livecd/packages:
 	net-misc/openssh
 	net-misc/rdate
 	net-misc/rsync
+	net-misc/socat
 	net-misc/vconfig
 	net-misc/wol
 	net-misc/wget
@@ -167,6 +171,7 @@ livecd/packages:
 	sys-apps/texinfo
 	sys-apps/usbutils
 	sys-apps/util-linux
+	sys-apps/vbetool
 	sys-apps/which
 	sys-boot/syslinux
 	sys-block/aoetools

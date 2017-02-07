@@ -557,6 +557,8 @@ livecd/packages:
 	net-analyzer/upnpscan
 	net-analyzer/wapiti
 	#net-analyzer/wireshark
+    net-dialup/dial
+    net-dialup/diald
 	net-dialup/freeradius
 	net-dialup/mingetty
 	net-dialup/minicom
@@ -564,6 +566,7 @@ livecd/packages:
 	net-dialup/pptpd
 	net-dialup/pppconfig
 	net-dialup/rp-pppoe
+	#net-dialup/wvdial
 	net-dns/bind-tools
 	net-dns/ddclient
 	net-dns/dnsmasq
@@ -633,6 +636,7 @@ livecd/packages:
 	net-misc/rdate
 	net-misc/rdesktop
 	net-misc/rsync
+	net-misc/socat
 	net-misc/spice-gtk
 	net-misc/sstp-client
 	net-misc/tightvnc
@@ -730,6 +734,7 @@ livecd/packages:
 	sys-apps/texinfo
 	sys-apps/usbutils
 	sys-apps/util-linux
+	sys-apps/vbetool
 	sys-apps/which
 	sys-auth/skey
 	sys-block/aoetools
