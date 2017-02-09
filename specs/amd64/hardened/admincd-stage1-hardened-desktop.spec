@@ -658,6 +658,9 @@ livecd/packages:
 	net-p2p/transmission
 	net-print/cups
 	net-print/cups-pdf
+	net-print/foomatic-db
+	net-print/foomatic-db-engine
+	net-print/foomatic-db-ppds
 	net-print/gutenprint
 	net-proxy/dante
 	net-proxy/polipo
