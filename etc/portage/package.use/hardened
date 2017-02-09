@@ -19,7 +19,6 @@ sys-apps/hwids net pci udev usb
 sys-apps/net-tools hostname arp
 sys-apps/pcsc-lite libusb -python -udev
 app-misc/rmlint -X
-app-text/ghostscript-gpl -gtk cups
 sys-libs/zlib minizip
 net-print/cups -ssl
 sys-block/partimage -ssl

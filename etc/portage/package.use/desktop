@@ -33,6 +33,7 @@ app-emulation/wine staging -oss -ssl
 net-analyzer/wireshark -ssl tfshark
 dev-lang/perl ithreads
 dev-java/* -doc
+app-text/ghostscript-gpl gtk cups djvu
 media-gfx/imagemagick perl svg png
 app-office/lyx cups nls html rtf dot docbook dia svg aspell enchant qt4
 #net-irc/weechat -ssl
