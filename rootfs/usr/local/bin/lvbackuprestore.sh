@@ -23,7 +23,6 @@ vgcreate -s 16384k vghome /dev/disk/by-id/dm-name-home
 
 lvcreate -n lvhome -L24G vghome
 lvcreate -n lvdocuments -L48G vghome
-lvcreate -n lvdistfiles -L384G vghome
 lvcreate -n lvgames -L192G vghome
 lvcreate -n lvimages -L16G vghome
 lvcreate -n lvmusic -L24G vghome
@@ -31,6 +30,8 @@ lvcreate -n lvmovies -L480G vghome
 lvcreate -n lvsource -L24G vghome
 lvcreate -n lvvirtual -L48G vghome
 lvcreate -n lvwindows -L64G vghome
+lvcreate -n lvdistfiles -L384G vghome
+lvcreate -n lvbuild -L96G vghome
 
 # after reboot
 #lvscan -a --cache
