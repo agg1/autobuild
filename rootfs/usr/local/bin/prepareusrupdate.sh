@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 PTREE=$1
 [ -z "${PTREE}" -o ! -e "${PTREE}" ] && echo "latest portage tree not found" && exit 1
