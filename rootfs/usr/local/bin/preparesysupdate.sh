@@ -4,6 +4,7 @@ PTREE=$1
 [ -z "${PTREE}" -o ! -e "${PTREE}" ] && echo "latest portage tree not found" && exit 1
 
 [ -e /usr/.writeable ] && echo "already prepared" && exit 1
+[ -e /mnt/livecd/.writeable ] && echo "already prepared" && exit 1
 
 mount -o remount,rw,exec /etc 2> /dev/null
 mount -o remount,exec /tmp 2> /dev/null
