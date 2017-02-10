@@ -7,7 +7,8 @@ set noexpandtab
 
 "set colorcolumn=81
 "highlight ColorColumn ctermbg=darkgrey
-set textwidth=96
+set textwidth=120
+"set columns=120
 "set wrapmargin=80
 
 "set showbreak=""
@@ -20,7 +21,7 @@ set textwidth=96
 "\ | endif
 
 au BufWinEnter *
-\ | let w:m1=matchadd('ErrorMsg', printf('\%%>%dv.\+', 96))
+\ | let w:m1=matchadd('ErrorMsg', printf('\%%>%dv.\+', 120))
 
 set ruler
 "set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %)
@@ -34,6 +35,7 @@ else
 endif
 
 set paste
+set noautoindent
 "set viminfo='0,:0,<0,@0,f0
 
 nmap <F4> :q <CR>
