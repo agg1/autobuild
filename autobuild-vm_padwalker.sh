@@ -18,7 +18,7 @@ umount /var/tmp/catalyst/builds || true
 
 export MACHINE="padwalker"
 export MACHID=66669999
-export PKDIR="/tmp/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
 
 for i in $(ls /home/catalyst/cfg/padwalker/infiles ) ; do
 	/usr/local/bin/compilescript.sh /home/catalyst/cfg/padwalker/infiles/$i \

@@ -12,11 +12,11 @@ prepare_portage
 
 build_seed_boot
 build_seed_init
-export PKDIR="/home/packages-minimal" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/packages-minimal" ; rm -rf ${PKDIR}/*
 build_livecd_minimal
-export PKDIR="/home/packages-admin" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/packages-admin" ; rm -rf ${PKDIR}/*
 build_livecd_admin
-export PKDIR="/home/packages-desktop" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/packages-desktop" ; rm -rf ${PKDIR}/*
 build_livecd_desktop
 
 archive_digests

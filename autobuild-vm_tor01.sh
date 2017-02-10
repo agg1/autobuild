@@ -18,7 +18,7 @@ umount /var/tmp/catalyst/builds || true
 
 export MACHINE="tor01"
 export MACHID=44444442
-export PKDIR="/tmp/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
 build_livecd_minimal_machine
 #build_livecd_minimal_machine_img
 #cp -p /home/seeds/${MACHINE}/${RELDA}/* /home/virtual/${MACHINE}
