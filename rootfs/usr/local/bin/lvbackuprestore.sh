@@ -23,7 +23,7 @@ vgcreate -s 16384k vghome /dev/disk/by-id/dm-name-home
 
 lvcreate -n lvhome -L24G vghome
 lvcreate -n lvdocuments -L48G vghome
-lvcreate -n lvgames -L192G vghome
+lvcreate -n lvgames -L208G vghome
 lvcreate -n lvimages -L16G vghome
 lvcreate -n lvmusic -L24G vghome
 lvcreate -n lvmovies -L480G vghome
@@ -78,3 +78,6 @@ mkfs.ext4 -L MUSIC -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvmusic
 mkfs.ext4 -L SOURCE -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvsource
 mkfs.ext4 -L VIRTUAL -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvvirtual
 mkfs.ext4 -L WINDOWS -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvwindows
+
+mkswap -L SWAP /dev/mapper/vghome-lvswap
+mkfs.ext4 -L TMP -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvtmp
