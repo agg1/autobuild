@@ -31,7 +31,7 @@ lvcreate -n lvsource -L24G vghome
 lvcreate -n lvvirtual -L48G vghome
 lvcreate -n lvwindows -L64G vghome
 lvcreate -n lvdistfiles -L384G vghome
-lvcreate -n lvbuild -L96G vghome
+lvcreate -n lvautobuild -L448G vghome
 
 # after reboot
 #lvscan -a --cache
@@ -69,7 +69,7 @@ resize2fs -p /dev/mapper/vghome-lvhome
 #fsck -y /dev/mapper/vghome-lvhome
 
 mkfs.ext4 -L HOME -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvhome
-mkfs.ext4 -L DISTFILES -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvdistfiles
+mkfs.ext4 -L AUTOBUILD -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvautobuild
 mkfs.ext4 -L DOCUMENTS -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvdocuments
 mkfs.ext4 -L GAMES -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvgames
 mkfs.ext4 -L IMAGES -O metadata_csum,encrypt,64bit /dev/mapper/vghome-lvimages
