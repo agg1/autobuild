@@ -1,6 +1,9 @@
 #!/bin/sh
-git remote add github https://github.com/agg1/catalyst.git
-git push github master
-git remote add origin ssh://www02/home/testing/catalyst.git
+git remote add origin /media/backup/autobuild
 git push -u origin master
 
+git remote add github https://github.com/agg1/autobuild.git
+git push github master
+
+git remote add www02 ssh://www02/home/testing/autobuild.git
+git push www02 master
