@@ -4,7 +4,7 @@ CONFIG=/path/to/tidy_options.conf
 CONVDIR=$1
 AUTHOR=$2
 
-if [ -z "${CONVDIR}" -o ! -x "${CONVDIR}" ] ; then
+if [ -z "${CONVDIR}" -o ! -e "${CONVDIR}" ] ; then
 	echo "dir error" ; exit 1
 fi
 
