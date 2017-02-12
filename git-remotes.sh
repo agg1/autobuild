@@ -1,5 +1,5 @@
 #!/bin/sh
-git remote add origin /media/backup/autobuild
+git remote add origin /media/backup/git/autobuild.git
 git push -u origin master
 
 git remote add github https://github.com/agg1/autobuild.git
