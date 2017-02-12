@@ -9,7 +9,7 @@ export LVSIZ="0"
 export LVHOM="10"
 export LVLOG="70"
 
-source /home/catalyst/autobuild.sh
+source /home/autobuild/autobuild.sh
 prepare_system
 
 clean_portage
@@ -21,9 +21,9 @@ export MACHID=66669999
 export PKDIR="/home/packages/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
 
 for i in $(ls /home/catalyst/cfg/padwalker/infiles ) ; do
-	/usr/local/bin/compilescript.sh /home/catalyst/cfg/padwalker/infiles/$i \
-	/home/catalyst/cfg/padwalker/files/$i
-	chmod 700 /home/catalyst/cfg/padwalker/files/$i
+	/usr/local/bin/compilescript.sh /home/autobuild/cfg/padwalker/infiles/$i \
+	/home/autobuild/cfg/padwalker/files/$i
+	chmod 700 /home/autobuild/cfg/padwalker/files/$i
 done
 
 build_livecd_minimal_machine_img

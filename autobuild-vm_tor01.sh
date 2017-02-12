@@ -9,7 +9,7 @@ export LVSIZ="128"
 export LVHOM="10"
 export LVLOG="70"
 
-source /home/catalyst/autobuild.sh
+source /home/autobuild/autobuild.sh
 prepare_system
 
 clean_portage
@@ -18,7 +18,7 @@ umount /var/tmp/catalyst/builds || true
 
 export MACHINE="tor01"
 export MACHID=44444442
-export PKDIR="/home/packages/packages-${MACHINE}" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/packages/${MACHINE}" ; rm -rf ${PKDIR}/*
 build_livecd_minimal_machine
 #build_livecd_minimal_machine_img
 #cp -p /home/seeds/${MACHINE}/${RELDA}/* /home/virtual/${MACHINE}
