@@ -12,9 +12,9 @@ if [ ! -x /usr/bin/soffice ] ; then
 	echo "libreoffice is missing" ; exit 1
 fi
 
-if [ ! -x /usr/bin/tidy ] ; then
-	echo "tidy is missing" ; exit 1
-fi
+#if [ ! -x /usr/bin/tidy ] ; then
+#	echo "tidy is missing" ; exit 1
+#fi
 
 #for F in `find $1 -type f -name "*.doc" -or -name "*.odt"`
 find $1 -type f -name '*.odt' -print0 | while IFS= read -r -d '' F
