@@ -7,5 +7,5 @@ snapshot: latest
 source_subpath: hardened/stage3-amd64-hardened+nomultilib-libressl.tar.bz2
 update_seed: yes
 update_seed_command: --update --deep @world
-portage_confdir: /home/catalyst/etc/portage/
+portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage

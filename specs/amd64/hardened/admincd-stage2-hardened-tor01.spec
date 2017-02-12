@@ -5,7 +5,7 @@ rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/livecd-stage1-amd64-latest.tar.bz2
-portage_confdir: /home/catalyst/etc/portage/
+portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/volid: Hardened Minimal Live System
@@ -17,12 +17,12 @@ livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
 livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_check=1 pbshutdown ubsan_handle=OEAINVBSLF console=ttyS0,115200 console=tty0
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshguard|default
-livecd/root_overlay: /home/catalyst/rootfs
+livecd/root_overlay: /home/autobuild/rootfs
 #livecd/overlay:
 
 boot/kernel: linux
 boot/kernel/linux/sources: vanilla-sources
-boot/kernel/linux/config: /home/catalyst/etc/portage/kconfig
+boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
 	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
@@ -290,4 +290,4 @@ livecd/empty:
 	/usr/src/linux
 	/var/db/pkg
 
-livecd/fsscript: /home/catalyst/finalize_target.sh
+livecd/fsscript: /home/autobuild/finalize_target.sh

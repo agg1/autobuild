@@ -5,7 +5,7 @@ rel_type: hardened
 profile: hardened/linux/musl/amd64
 snapshot: latest
 source_subpath: hardened/stage3-amd64-musl-hardened-20160904
-portage_confdir: /home/catalyst/etc/portage/
+portage_confdir: /home/autobuild/etc/portage/
 #update_seed: yes
 #update_seed_command: --update --deep @world
 portage_overlay: /home/source/portage/proj/musl

@@ -5,7 +5,7 @@ rel_type: hardened
 profile: hardened/linux/amd64/no-multilib
 snapshot: latest
 source_subpath: hardened/stage3-amd64-latest.tar.bz2
-portage_confdir: /home/catalyst/etc/portage/
+portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 stage4/use:
