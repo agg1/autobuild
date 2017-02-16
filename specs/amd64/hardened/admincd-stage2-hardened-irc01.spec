@@ -21,11 +21,11 @@ livecd/root_overlay: /home/autobuild/rootfs
 #livecd/overlay:
 
 boot/kernel: linux
-boot/kernel/linux/sources: vanilla-sources
+boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs -cups
 	-udev
 	-X
 	-doc
@@ -59,6 +59,7 @@ boot/kernel/linux/packages:
 	#net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace
+	sys-apps/rng-tools
 	sys-process/cronie
 	sys-fs/cryptsetup
 	sys-power/acpid

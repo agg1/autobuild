@@ -9,7 +9,7 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs -cups
 	-udev
 	-wayland
 	-gconf
@@ -267,7 +267,7 @@ livecd/packages:
 	#app-crypt/efitools
 	#app-crypt/gcr
 	app-crypt/gnupg
-	app-crypt/gpa
+	#app-crypt/gpa
 	app-crypt/hashalot
 	app-crypt/md5deep
 	app-crypt/md6sum
@@ -364,8 +364,129 @@ livecd/packages:
 	#app-text/pandoc
 	app-text/rfcutil
 	app-text/htmltidy
+	app-vim/ackvim
+	app-vim/airline
+	app-vim/align
+	app-vim/alternate
+	app-vim/ansiesc
+	#app-vim/ant_menu
+	app-vim/autoalign
+	app-vim/bash-support
+	app-vim/bnf-syntax
+	app-vim/brainfuck-syntax
+	app-vim/breakpts
+	app-vim/bufexplorer
+	app-vim/c-support
+	app-vim/calendar
+	app-vim/cctree
+	app-vim/cfengine-syntax
+	app-vim/checkattach
+	app-vim/closetag
+	app-vim/cmdalias
+	app-vim/colorschemes
+	app-vim/colorsel
+	app-vim/csv
+	app-vim/ctrlp
+	app-vim/cvsmenu
+	app-vim/dbext
+	app-vim/detectindent
+	app-vim/dhcpd-syntax
+	app-vim/diffchar
+	app-vim/dirdiff
+	app-vim/easy-align
+	app-vim/easytags
+	app-vim/ebnf-syntax
+	app-vim/emmet
+	app-vim/eruby-syntax
+	app-vim/eselect-syntax
+	app-vim/extra-syntax
+	app-vim/foldutil
+	app-vim/fugitive
+	app-vim/fuzzyfinder
+	app-vim/genindent
 	app-vim/gentoo-syntax
+	app-vim/genutils
+	app-vim/gist
+	app-vim/git-patch-tags
+	app-vim/gitgutter
+	app-vim/gitlog
+	app-vim/gitolite-syntax
+	app-vim/gitv
+	app-vim/gnupg
+	app-vim/greputils
+	app-vim/gtk-syntax
+	app-vim/help-extra-syntax
 	#app-vim/html5
+	app-vim/increment
+	app-vim/info
+	app-vim/json
+	app-vim/l9
+	app-vim/locateopen
+	app-vim/matrix
+	app-vim/merginal
+	app-vim/minibufexpl
+	app-vim/multiplesearch
+	app-vim/multvals
+	app-vim/neocomplcache
+	app-vim/nerdcommenter
+	app-vim/nerdtree
+	app-vim/nerdtree-tabs
+	app-vim/nginx-syntax
+	app-vim/notes
+	app-vim/ntp-syntax
+	app-vim/omnicppcomplete
+	app-vim/pam-syntax
+	app-vim/pathogen
+	app-vim/pdv
+	app-vim/perl-support
+	app-vim/pgn-syntax
+	app-vim/phpdocs
+	app-vim/project
+	app-vim/pushpop
+	app-vim/pyclewn
+	app-vim/pydiction
+	app-vim/pydoc
+	app-vim/pytest
+	app-vim/python-mode
+	app-vim/rails
+	app-vim/rainbow_parentheses
+	app-vim/repeat
+	app-vim/reload
+	app-vim/recover
+	app-vim/rust-mode
+	app-vim/scala-syntax
+	app-vim/searchcomplete
+	app-vim/securemodelines
+	app-vim/selinux-syntax
+	app-vim/session
+	#app-vim/showmarks
+	app-vim/splice
+	app-vim/supertab
+	app-vim/surround
+	app-vim/syntastic
+	app-vim/tagbar
+	app-vim/taglist
+	app-vim/tcomment
+	app-vim/thlnk
+	app-vim/tmpl
+	app-vim/tt2-syntax
+	app-vim/txtfmt
+	app-vim/udev-syntax
+	app-vim/vcscommand
+	app-vim/vim-misc
+	app-vim/vimbuddy
+	app-vim/vimclojure
+	app-vim/vimcommander
+	app-vim/vimoutliner
+	#app-vim/vimpress
+	app-vim/vimpython
+	app-vim/vimtex
+	app-vim/webapi
+	app-vim/wikipedia-syntax
+	app-vim/xquery-syntax
+	app-vim/xsl-syntax
+	app-vim/yankring
+	#app-vim/youcompleteme
 	app-vim/vim-spell-cs
 	app-vim/vim-spell-da
 	app-vim/vim-spell-de
@@ -656,12 +777,15 @@ livecd/packages:
 	net-nds/openldap
 	net-nds/ypserv
 	net-p2p/transmission
-	net-print/cups
-	net-print/cups-pdf
+	#net-print/cups
+	#net-print/cups-pdf
 	net-print/foomatic-db
 	net-print/foomatic-db-engine
 	net-print/foomatic-db-ppds
+	net-print/foomatic-filters
+	#net-print/foomatic-gui
 	net-print/gutenprint
+	net-print/lprng
 	net-proxy/dante
 	net-proxy/polipo
 	net-proxy/privoxy
@@ -739,6 +863,8 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/vbetool
 	sys-apps/which
+	#sys-apps/clrngd
+	sys-apps/rng-tools
 	sys-auth/skey
 	sys-block/aoetools
 	sys-block/vblade
