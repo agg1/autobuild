@@ -3,7 +3,8 @@ export EDITOR=/usr/bin/vi
 export PINENTRY_USER_DATA="USE_CURSES=1"
 GPG_TTY=$(tty)
 export GPG_TTY
-/usr/bin/gpg-agent --homedir ~/.gnupg --use-standard-socket --daemon --pinentry-program /usr/bin/pinentry-curses 2>/dev/null || true
+#/usr/bin/gpg-agent --homedir ~/.gnupg --use-standard-socket --daemon --pinentry-program /usr/bin/pinentry-curses 2>/dev/null || true
+export GNUPGHOME=~/.gnupg
 
 xrdb ~/.Xdefaults 2>/dev/null
 rehash

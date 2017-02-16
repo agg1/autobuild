@@ -20,8 +20,9 @@ set textwidth=120
 "\ | let w:m2=matchadd('ErrorMsg', printf('\%%>%dv.\+', &textwidth), -1)
 "\ | endif
 
-au BufWinEnter *
+au BufWinEnter * if line('$') > 1 && getline(1) != ''
 \ | let w:m1=matchadd('ErrorMsg', printf('\%%>%dv.\+', 120))
+\ | endif
 
 set ruler
 "set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %)
@@ -37,6 +38,9 @@ endif
 set paste
 set noautoindent
 "set viminfo='0,:0,<0,@0,f0
+set clipboard=unnamedplus
+set shortmess=I
+let g:session_autosave = 'no'
 
 nmap <F4> :q <CR>
 "nmap <F2> :set ruler <CR>
