@@ -1,5 +1,7 @@
 #!/bin/sh -e
 
+umask 022
+
 export GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
 unset EMERGE_DEFAULT_OPTS
 

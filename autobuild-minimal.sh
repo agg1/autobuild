@@ -1,9 +1,12 @@
 #!/bin/sh -e
 # Copyright aggi 2016
-export PTREE=/home/seeds/gentoo/portage-hardened.tar
 export LATEST=minimal-testing
 export RELDA=minimal-testing
-CKERN="yes"
+export CLEAN=false
+#CKERN="yes"
+
+#cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
+#cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
 
 source /home/autobuild/autobuild.sh
 prepare_system
@@ -13,7 +16,7 @@ prepare_portage
 
 #build_seed_boot
 #build_seed_init
-export PKDIR="/home/packages/minimal" ; rm -rf ${PKDIR}/*
+export PKDIR="/home/packages/minimal/${RELDA}"
 build_livecd_minimal
 #export PKDIR="/home/packages-admin" ; rm -rf ${PKDIR}/*
 #build_livecd_admin
@@ -21,3 +24,4 @@ build_livecd_minimal
 #build_livecd_desktop
 
 #archive_digests
+#commit_seed minimal

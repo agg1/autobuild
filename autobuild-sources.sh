@@ -1,5 +1,7 @@
 #!/bin/sh
 
+umask 022
+
 for i in data infra proj repo report sites ; do
 	cd /home/source/portage/${i}
 	for r in $(ls) ; do
