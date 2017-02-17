@@ -38,7 +38,13 @@ dev-lang/ruby
 >=virtual/jre-1.8.0
 dev-java/icedtea-bin
 #net-libs/neon
-#>app-crypt/gnupg-2.4.20
+app-crypt/gpa
+>=app-crypt/gnupg-1.9.0
+app-crypt/gpgme
 >dev-libs/xapian-1.2.24
 >dev-libs/xapian-bindings-1.2.24
 >app-text/xapian-omega-1.2.24
+net-print/cups
+net-print/cups-pdf
+net-print/cups-filters
+>=app-text/ghostscript-gpl-9.00

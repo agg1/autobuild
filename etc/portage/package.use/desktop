@@ -10,9 +10,10 @@ media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -w
 media-sound/alsa-tools -gtk -X
 net-analyzer/linkchecker -X
 net-proxy/privoxy acl fast-redirects force image-blocking stats editor external-filters graceful-termination lfs png-images toggle whitelists
-net-mail/notmuch mutt
+net-mail/notmuch mutt -crypt
+dev-libs/gmime -smime
 dev-libs/gmime smime
-mail-client/mutt smtp imap pop gpg sidebar mbox smime idn
+mail-client/mutt smtp imap pop -gpg sidebar mbox smime idn
 mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo hardened gtk2
 x11-base/xorg-server xorg suid glamor
@@ -27,15 +28,16 @@ net-analyzer/metasploit -java
 dev-ruby/activerecord postgres
 net-libs/opal sip sipim
 net-wireless/aircrack-ng -airdrop-ng
-net-misc/asterisk -calendar
+net-misc/asterisk -calendar -http
 app-editors/emacs -ssl
 app-emulation/wine staging -oss -ssl
 net-analyzer/wireshark -ssl tfshark
 dev-lang/perl ithreads
 dev-java/* -doc
-app-text/ghostscript-gpl gtk cups djvu
+app-office/libreoffice -cups
+app-text/ghostscript-gpl gtk djvu -cups
 media-gfx/imagemagick perl svg png
-app-office/lyx cups nls html rtf dot docbook dia svg aspell enchant qt4
+app-office/lyx nls html rtf dot docbook dia svg aspell enchant qt4
 #net-irc/weechat -ssl
 games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
 games-fps/dhewm3 sdl2
