@@ -15,6 +15,7 @@ livecd/fstype: squashfs
 livecd/gk_mainargs: --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp memory_corruption_check=1 docache pbsleep
+# elevator=bfq
 # ubsan_handle=OEAINVBSLF
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
@@ -27,7 +28,7 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs -cups
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
 	-udev
 	-wayland
 	-gconf

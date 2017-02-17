@@ -9,7 +9,7 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs -cups
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
 	-udev
 	-wayland
 	-gconf
@@ -777,15 +777,16 @@ livecd/packages:
 	net-nds/openldap
 	net-nds/ypserv
 	net-p2p/transmission
-	#net-print/cups
-	#net-print/cups-pdf
+	net-print/cups
+	net-print/cups-filters
+	net-print/cups-pdf
 	net-print/foomatic-db
 	net-print/foomatic-db-engine
 	net-print/foomatic-db-ppds
-	net-print/foomatic-filters
+	#net-print/foomatic-filters
 	#net-print/foomatic-gui
 	net-print/gutenprint
-	net-print/lprng
+	#net-print/lprng
 	net-proxy/dante
 	net-proxy/polipo
 	net-proxy/privoxy
@@ -941,6 +942,7 @@ livecd/packages:
 	sys-process/lsof
 	sys-process/procps
 	sys-process/psmisc
+	sys-process/schedtool
 	#dev-java/ant
 	#dev-java/icedtea
 	#dev-java/icedtea-web
