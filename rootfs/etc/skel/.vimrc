@@ -1,3 +1,13 @@
+"set viminfo='0,:0,<0,@0,f0
+let skip_defaults_vim=1
+set viminfo=""
+let g:session_autosave = 'no'
+
+set paste
+set noautoindent
+set clipboard=unnamedplus
+set shortmess=I
+
 set tabstop=8
 set softtabstop=8
 set noexpandtab
@@ -34,13 +44,6 @@ else
 " set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}\ %{&ff}\ %l,%c%V\ %P
   set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}\ %{&ff}\ %l,%c%V\ 
 endif
-
-set paste
-set noautoindent
-"set viminfo='0,:0,<0,@0,f0
-set clipboard=unnamedplus
-set shortmess=I
-let g:session_autosave = 'no'
 
 nmap <F4> :q <CR>
 "nmap <F2> :set ruler <CR>
