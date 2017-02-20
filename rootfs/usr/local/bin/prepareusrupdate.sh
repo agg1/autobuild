@@ -10,10 +10,11 @@ mount -o remount,exec /tmp 2> /dev/null
 mount -o remount,exec /var/tmp 2> /dev/null
 
 /usr/local/bin/writable.sh /usr
-cd /usr ; tar -xf ${PTREE}
+#cd /usr ; tar -xf ${PTREE}
+mount --bind $(realpath ${PTREE}) /usr/portage
 
 mkdir -p /usr/portage/distfiles
-mount -o nosuid,nodev,noexec --bind /home/distfiles /usr/portage/distfiles
+mount -o nosuid,nodev,noexec --bind $(realpath /home/distfiles) /usr/portage/distfiles
 
 #mkdir -p /usr/portage/packages
 #mount --bind /home/packages /usr/portage/packages
