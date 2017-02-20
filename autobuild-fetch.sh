@@ -36,12 +36,6 @@ sync_portage() {
 #	done
 #}
 
-# same as fetch_ftp() but directory listing is only done once with it
-fetch_wget() {
-	echo "### fetch_wget()"
-	sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/*"
-}
-
 ### DAILY
 # sync gentoo git repositories
 fetch_portage() {
@@ -55,6 +49,17 @@ fetch_portage() {
 		cd ${g} ; git reset --hard ; git clean -f ; git fsck
 		sg wanout -c 'git pull --rebase'
 	done
+	chown -R root:root /home/source/portage/*
+	chmod -R g-w /home/source/portage/*
+	chmod -R o+rX /home/source/portage/*
+}
+
+### DAILY
+# same as fetch_ftp() but directory listing is only done once with it
+fetch_wget() {
+	echo "### fetch_wget()"
+	sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/*"
+	chmod 644 /home/distfiles/* ; chown root:root /home/distfiles/*
 }
 
 ### WEEKLY
@@ -76,6 +81,7 @@ fetch_catalyst() {
 	iptables -P OUTPUT DROP
 
 	rm -f /var/tmp/catalyst/builds/hardened/*
+	chmod 644 /home/distfiles/* ; chown root:root /home/distfiles/*
 }
 
 ### WEEKLY
@@ -90,8 +96,7 @@ fetch_emerge() {
 	done
 	find /etc/portage | grep '._cfg' | xargs /bin/rm -f
 
-	chown portage:portage /usr/portage/distfiles/*
-	chmod 644 /usr/portage/distfiles/*
+	chmod 644 /home/distfiles/* ; chown root:root /home/distfiles/*
 }
 
 #equery l -p '*'
