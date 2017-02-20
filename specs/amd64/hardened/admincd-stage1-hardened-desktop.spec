@@ -548,7 +548,21 @@ livecd/packages:
 	mail-filter/spamassassin
 	mail-filter/opensmtpd-extras
 	mail-mta/opensmtpd
+	#media-fonts/corefonts
+	media-fonts/croscorefonts
 	media-fonts/dejavu
+	media-fonts/freefont
+	media-fonts/freefonts
+	media-fonts/font-adobe-100dpi
+	media-fonts/font-adobe-75dpi
+	media-fonts/font-bitstream-100dpi
+	media-fonts/font-bitstream-75dpi
+	media-fonts/font-bitstream-type1
+	media-fonts/font-ibm-type1
+	media-fonts/font-schumacher-misc
+	media-fonts/ubuntu-font-family
+	media-fonts/font-xfree86-type1
+	media-fonts/ttf-bitstream-vera 
 	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/gimp
@@ -556,6 +570,7 @@ livecd/packages:
 	media-gfx/imagemagick
 	media-gfx/inkscape
 	media-gfx/gqview
+	media-gfx/sane-frontends
 	media-gfx/xsane
 	media-gfx/xv
 	media-libs/libextractor

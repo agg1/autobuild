@@ -142,8 +142,8 @@ livecd/packages:
 	sys-apps/ethtool
 	sys-apps/file
 	sys-apps/findutils
-#	sys-apps/flashrom
-#	sys-apps/fxload
+	sys-apps/flashrom
+	#sys-apps/fxload
 	sys-apps/gawk
 	sys-apps/gptfdisk
 	sys-apps/grep
