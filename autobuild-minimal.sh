@@ -2,7 +2,7 @@
 # Copyright aggi 2016
 export LATEST=minimal-testing
 export RELDA=minimal-testing
-export CLEAN=false
+#export CLEAN=false
 #CKERN="yes"
 
 #cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
