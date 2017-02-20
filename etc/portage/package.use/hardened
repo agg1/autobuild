@@ -20,7 +20,6 @@ sys-apps/net-tools hostname arp
 sys-apps/pcsc-lite libusb -python -udev
 app-misc/rmlint -X
 sys-libs/zlib minizip
-net-print/cups -ssl
 sys-block/partimage -ssl
 mail-mta/nullmailer -ssl
 net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
