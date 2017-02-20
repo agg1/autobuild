@@ -1,0 +1,10 @@
+Key-Type: RSA
+Key-Length: 8192
+Key-Usage: sign
+Subkey-Type: RSA
+Subkey-Length: 8192
+Subkey-Usage: encrypt
+Name-Real: Autobuild
+Name-Email: autobuild@padwalker.com
+Expire-Date: 0
+Preferences: SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES TWOFISH CAST5 BZIP2 ZLIB ZIP Uncompressed
