@@ -46,3 +46,4 @@ dev-ruby/metasploit_data_models -doc
 dev-ruby/actionpack -doc
 net-voip/gnugk -doc
 net-libs/libhubbub -doc
+media-libs/openjpeg -doc

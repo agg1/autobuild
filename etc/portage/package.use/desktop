@@ -12,13 +12,13 @@ net-analyzer/linkchecker -X
 net-proxy/privoxy acl fast-redirects force image-blocking stats editor external-filters graceful-termination lfs png-images toggle whitelists
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
-dev-libs/gmime smime
 mail-client/mutt smtp imap pop -gpg sidebar mbox smime idn
 mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo hardened gtk2
 x11-base/xorg-server xorg suid glamor
 x11-libs/libfm gtk -automount
 x11-libs/wxGTK X doc -gstreamer opengl sdl tiff -aqua -debug -odbc -pch -opengl
+x11-misc/xdg-user-dirs -gtk
 dev-libs/DirectFB -egl gles2 gstreamer opengl
 dev-lang/php gd
 net-libs/webkit -gles2
@@ -35,9 +35,11 @@ net-analyzer/wireshark -ssl tfshark
 dev-lang/perl ithreads
 dev-java/* -doc
 net-print/cups -ssl
-app-text/ghostscript-gpl gtk -djvu cups
+app-text/ghostscript-gpl -djvu cups
 net-print/cups-filters foomatic
 net-print/gutenprint foomaticdb
+media-libs/freetype infinality
+media-libs/libextractor -gtk
 app-office/libreoffice
 media-gfx/imagemagick perl svg png
 app-office/lyx nls html rtf dot docbook dia svg aspell enchant qt4
