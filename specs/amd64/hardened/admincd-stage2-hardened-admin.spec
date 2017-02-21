@@ -15,8 +15,6 @@ livecd/fstype: squashfs
 livecd/gk_mainargs: --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.72-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp nosound memory_corruption_check=1 pbsleep console=ttyS0,115200 console=tty0
-# ubsan_handle=OEAINVBSLF
-# ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshd|default rsyslog|default sshguard|default
 livecd/root_overlay: /home/autobuild/rootfs
