@@ -292,7 +292,7 @@ livecd/packages:
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/nano
-	app-editors/padre
+	#app-editors/padre
 	dev-perl/List-MoreUtils
 	app-editors/vim
 	app-editors/wxmedit
@@ -460,7 +460,7 @@ livecd/packages:
 	app-vim/selinux-syntax
 	app-vim/session
 	#app-vim/showmarks
-	app-vim/splice
+	#app-vim/splice
 	app-vim/supertab
 	app-vim/surround
 	app-vim/syntastic
@@ -475,7 +475,7 @@ livecd/packages:
 	app-vim/vcscommand
 	app-vim/vim-misc
 	app-vim/vimbuddy
-	app-vim/vimclojure
+	#app-vim/vimclojure
 	app-vim/vimcommander
 	app-vim/vimoutliner
 	#app-vim/vimpress
@@ -849,8 +849,8 @@ livecd/packages:
 	sys-apps/hdparm
 	sys-apps/hwsetup
 	sys-apps/i2c-tools
-	sys-apps/ipmitool
-	sys-apps/ipmiutil
+	#sys-apps/ipmitool
+	#sys-apps/ipmiutil
 	sys-apps/iproute2
 	sys-apps/keyutils
 	sys-apps/less
@@ -899,6 +899,7 @@ livecd/packages:
 	sys-devel/automake
 	sys-devel/automake-wrapper
 	sys-devel/bc
+	sys-devel/binutils
 	sys-devel/binutils-config
 	sys-devel/bison
 	sys-devel/gcc
