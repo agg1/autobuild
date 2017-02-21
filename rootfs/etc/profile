@@ -65,5 +65,7 @@ alias ls='ls --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
 
+export MINICOM="-m -c on"
+
 /usr/local/bin/unlockhome.sh
 
