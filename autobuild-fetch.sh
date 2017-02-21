@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
-umask 022
 
 export GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
 unset EMERGE_DEFAULT_OPTS
@@ -13,8 +12,6 @@ if [ ! -e /usr/.writeable ] ; then
 	mount --bind /home/packages/desktop /usr/portage/packages
 	mount --bind /home/distfiles /usr/portage/distfiles
 fi
-
-cd /home/distfiles
 
 # 
 sync_portage() {
@@ -42,6 +39,7 @@ fetch_portage() {
 	# 5d3f2c71155c8d813976a376507a8dbf31be6a8c
 	echo "### fetch_portage()"
 
+	umask 002
 	GLIST=$(find /home/source/portage -maxdepth 2 -type d )
 	for g in $GLIST ; do
 		[ ! -e ${g}/.git ] && continue
@@ -49,17 +47,20 @@ fetch_portage() {
 		cd ${g} ; git reset --hard ; git clean -f ; git fsck
 		sg wanout -c 'git pull --rebase'
 	done
-	chown -R root:root /home/source/portage/*
-	chmod -R g-w /home/source/portage/*
-	chmod -R o+rX /home/source/portage/*
+	#chown -R root:portage /home/source/portage/*
+	#chmod -R g+w /home/source/portage/*
+	#chmod -R o+rX /home/source/portage/*
 }
 
 ### DAILY
 # same as fetch_ftp() but directory listing is only done once with it
 fetch_wget() {
+
+	umask 002
 	echo "### fetch_wget()"
+	cd /home/distfiles
 	sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/*"
-	chmod 644 /home/distfiles/* ; chown root:root /home/distfiles/*
+	chmod 664 /home/distfiles/* ; chown root:portage /home/distfiles/*
 }
 
 ### WEEKLY
@@ -76,7 +77,7 @@ fetch_catalyst() {
 	iptables -P OUTPUT ACCEPT
 	catalyst -v -c /home/autobuild/catalystrc -s latest
 	catalyst -v -c /home/autobuild/catalystrc -F -f \
-	/home/autobuild/catalyst/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec \
+	/home/autobuild/specs/amd64/hardened/admincd-stage1-hardened-desktop.spec \
 	-C version_stamp=latest source_subpath=hardened/stage3-amd64-hardened+nomultilib-libressl.tar.bz2
 	iptables -P OUTPUT DROP
 
