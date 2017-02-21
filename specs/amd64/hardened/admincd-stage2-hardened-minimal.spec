@@ -32,9 +32,7 @@ boot/kernel/linux/use:
 	-gtk
 	minimal
 
-boot/kernel/linux/packages:
-	sys-apps/hwsetup
-	sys-apps/rng-tools
+#boot/kernel/linux/packages:
 #	sys-kernel/linux-firmware
 #	sys-block/iscsitarget
 

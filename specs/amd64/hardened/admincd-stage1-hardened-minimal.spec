@@ -17,6 +17,7 @@ livecd/use:
 	minimal
 
 livecd/packages:
+	net-dialup/minicom
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
@@ -24,6 +25,7 @@ livecd/packages:
 #	sys-apps/coreutils
 	sys-apps/dmidecode
 	sys-apps/gptfdisk
+	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/lsb-release
 #	sys-apps/net-tools
