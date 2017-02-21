@@ -100,6 +100,7 @@ livecd/packages:
 	net-dialup/diald
 	net-dialup/mingetty
 	net-dialup/minicom
+	net-dialup/picocom
 	net-dialup/pptpclient
 	#net-dialup/wvdial
 	net-dns/bind-tools

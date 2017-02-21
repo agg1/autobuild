@@ -17,7 +17,7 @@ livecd/use:
 	minimal
 
 livecd/packages:
-	net-dialup/minicom
+	net-dialup/picocom
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils

@@ -698,6 +698,7 @@ livecd/packages:
 	net-dialup/freeradius
 	net-dialup/mingetty
 	net-dialup/minicom
+	net-dialup/picocom
 	net-dialup/pptpclient
 	net-dialup/pptpd
 	net-dialup/pppconfig
