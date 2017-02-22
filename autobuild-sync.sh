@@ -10,6 +10,8 @@ git pull --rebase origin master
 git push --tags origin master
 
 for d in autobuild extra_overlay portage ; do
+	cd /media/backup/git/${d}.git
+	git fsck
 	cd /home/${d}
 	git fsck
 	git pull --rebase origin master
