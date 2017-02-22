@@ -86,6 +86,7 @@ livecd/packages:
 	dev-util/pkgconfig
 	dev-util/shc
 	dev-vcs/git
+	dev-vcs/git-crypt
 	mail-client/mailx
 	mail-mta/msmtp
 	net-analyzer/fail2ban
@@ -152,6 +153,7 @@ livecd/packages:
 	sys-apps/hdparm
 	sys-apps/hwsetup
 	sys-apps/iproute2
+	#sys-apps/irqbalance
 	sys-apps/less
 	sys-apps/lsb-release
 	sys-apps/lshw

@@ -853,6 +853,7 @@ livecd/packages:
 	#sys-apps/ipmitool
 	#sys-apps/ipmiutil
 	sys-apps/iproute2
+	#sys-apps/irqbalance
 	sys-apps/keyutils
 	sys-apps/less
 	sys-apps/lshw
