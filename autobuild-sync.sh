@@ -18,7 +18,7 @@ for d in autobuild extra_overlay portage ; do
 	git push --tags origin master
 done
 
-for d in autobuild extra_overlay portage ; do
+for d in autobuild extra_overlay ; do
 	cd /home/${d}
 	sg lanout -c "git push --tags www02 master || true" || true
 done
