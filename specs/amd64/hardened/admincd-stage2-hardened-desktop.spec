@@ -13,7 +13,7 @@ livecd/type: generic-livecd
 livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
-livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
+livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp memory_corruption_check=1 docache pbsleep
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshd|default rsyslog|default sshguard|default

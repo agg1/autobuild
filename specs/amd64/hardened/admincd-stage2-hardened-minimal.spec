@@ -13,7 +13,7 @@ livecd/type: gentoo-release-minimal
 livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
-livecd/cdtar: /usr/share/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
+livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_check=1 nokeymap console=ttyS0,115200 console=tty0
 # elevator=bfq
 # ubsan_handle=OEAINVBSLF
