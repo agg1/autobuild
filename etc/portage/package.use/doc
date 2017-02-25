@@ -47,3 +47,6 @@ dev-ruby/actionpack -doc
 net-voip/gnugk -doc
 net-libs/libhubbub -doc
 media-libs/openjpeg -doc
+app-admin/ulogd -doc
+net-voip/gnugk -doc
+app-text/linuxdoc-tools -doc

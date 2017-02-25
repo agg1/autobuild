@@ -35,14 +35,16 @@ net-analyzer/wireshark -ssl tfshark
 dev-lang/perl ithreads
 dev-java/* -doc
 net-print/cups -ssl
+app-text/tesseract -scrollview
 app-text/ghostscript-gpl -djvu cups
 net-print/cups-filters foomatic
 net-print/gutenprint foomaticdb
+media-libs/netpbm rle
 media-libs/freetype infinality
 media-libs/libextractor -gtk
 app-office/libreoffice
 media-gfx/imagemagick perl svg png
-app-office/lyx nls html rtf dot docbook dia svg aspell enchant qt4
+app-office/texmacs -qt4
 #net-irc/weechat -ssl
 games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
 games-fps/dhewm3 sdl2
