@@ -228,7 +228,7 @@ livecd/packages:
 	app-admin/tmpwatch
 	app-admin/mktwpol
 	app-admin/tripwire
-	app-admin/ulogd
+	#app-admin/ulogd
 	app-admin/verynice
 	app-admin/whowatch
 	app-antivirus/clamav
@@ -329,7 +329,7 @@ livecd/packages:
 	app-office/homebank
 	app-office/libreoffice
 	app-office/libreoffice-l10n
-	app-office/lyx
+	app-office/texmacs
 	app-portage/cfg-update
 	app-portage/eix
 	app-portage/esearch
@@ -585,6 +585,7 @@ livecd/packages:
 	media-libs/libsdl
 	media-libs/libsdl2
 	media-libs/mesa
+	media-libs/netpbm
 	media-libs/sdl-gfx
 	media-libs/sdl-image
 	media-libs/sdl-mixer
@@ -673,7 +674,8 @@ livecd/packages:
 	net-analyzer/nipper
 	net-analyzer/nmap
 	net-analyzer/nmbscan
-	net-analyzer/ntopng
+	net-analyzer/ntop
+	#net-analyzer/ntopng
 	net-analyzer/p0f
 	net-analyzer/packit
 	net-analyzer/portsentry
@@ -728,8 +730,8 @@ livecd/packages:
 	net-ftp/vsftpd
 	net-im/bitlbee
 	net-im/pidgin
-	net-im/toxic
-	net-im/utox
+	#net-im/toxic
+	#net-im/utox
 	net-irc/anope
 	net-irc/hexchat
 	net-irc/ircd-hybrid
@@ -738,7 +740,7 @@ livecd/packages:
 	net-irc/irssi-otr
 	net-irc/znc
 	net-libs/libotr
-	net-libs/tox
+	#net-libs/tox
 	net-mail/dovecot
 	net-mail/isync
 	net-mail/notmuch
@@ -978,8 +980,9 @@ livecd/packages:
 	dev-perl/Text-CSV
 	dev-perl/Text-WikiFormat
 	dev-perl/HTML-Tree
-	app-text/xapian-omega
+	app-text/tesseract
 	app-text/texlive
+	app-text/xapian-omega
 	www-client/firefox
 	www-client/lynx
 	www-client/w3m
