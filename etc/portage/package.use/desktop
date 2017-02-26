@@ -23,7 +23,7 @@ dev-libs/DirectFB -egl gles2 gstreamer opengl
 dev-lang/php gd
 net-libs/webkit -gles2
 net-libs/webkit-gtk -gles2
-net-analyzer/rrdtool perl
+net-analyzer/rrdtool perl graph
 net-analyzer/metasploit -java
 dev-ruby/activerecord postgres
 net-libs/opal sip sipim
