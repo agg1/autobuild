@@ -25,3 +25,4 @@ commit_seed init
 commit_seed minimal
 commit_seed admin
 commit_seed desktop
+commit_seed portage
