@@ -16,7 +16,8 @@ livecd/gk_mainargs: --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf
 livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: dokeymap nodhcp memory_corruption_check=1 docache pbsleep
 livecd/rcdel: keymaps|boot netmount|default
-livecd/rcadd: cronie|default sshd|default rsyslog|default sshguard|default
+livecd/rcadd: cronie|default rsyslog|default
+# sshd|default sshguard|default
 livecd/root_overlay: /home/autobuild/rootfs
 #livecd/xdm:
 
