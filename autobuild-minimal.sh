@@ -3,7 +3,7 @@
 export LATEST=minimal-testing
 export RELDA=minimal-testing
 export CLEAN=false
-CKERN="yes"
+export CKERN="yes"
 
 #cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
 #cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
