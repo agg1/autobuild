@@ -77,7 +77,7 @@ while [ "x${POWEROFF}" = "x" ] ; do
         echo system_powerdown | ncat -U /root/qemu-monitor-${VMNAME} 2>/dev/null || POWEROFF="true"
         sleep 1
 done
-sleep 3
+sleep 5
 
 ${TASKSET} \
 ${QEMU} \
