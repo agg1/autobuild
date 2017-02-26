@@ -5,6 +5,9 @@
 rsync -av /home/distfiles/ /media/backup/distfiles/
 rsync -av /media/backup/distfiles/ /home/distfiles/
 
+[ -e /home/packages/ -a -e /media/backup/packages/ ] && \
+rsync -av /media/backup/packages/ /home/packages/
+
 cd /home/seeds
 git pull --rebase origin master
 git push --tags origin master
