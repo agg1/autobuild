@@ -3,6 +3,11 @@ RELDA=$1
 
 [ -z "${RELDA}" ] && echo "param error" && exit 1
 
+# gpg signing params
+export GPGDIR="${GPGDIR:-/home/autobuild/gpg}"
+export GNUPGHOME=${GPGDIR}
+#export GPGKEY="C03C6CA53E6068506C17EF246C8BD6DFEBA7AABB"
+
 LOGDATE="$(date +%Y%m%d) "
 LOGDEV="/dev/usb/lp0"
 gitsigtaglog.sh -r /home/autobuild	-t ${RELDA} -l /home/autolog/autobuild.log
