@@ -1,23 +1,22 @@
 #!/bin/sh
 # Copyright aggi 2017
 
-REPO=$1
-TAGNAME=$2
-LOGFILE=$3
-LOGDIR=$(dirname $LOGFILE)
+DEEP=""
 
-while getopts "r:t:l:" opt
+while getopts "r:t:l:D" opt
 do
 	case $opt in
 		r) REPO=$OPTARG ;;
 		t) TAGNAME=$OPTARG ;;
 		l) LOGFILE=$OPTARG ;;
-		*) echo "USAGE $0 <-r repository> <-t tagname> <-l logdir>"; exit 1
+		D) DEEP="yes" ;;
+		*) echo "USAGE $0 <-r repository> <-t tagname> <-l logfile> [-D]"; exit 1
 	esac
 done
+LOGDIR=$(dirname $LOGFILE)
 
 if [ -z "${REPO}" -o -z "${TAGNAME}" -o -z "${LOGDIR}" ] ; then
-	echo "USAGE $0 <-r repository> <-t tagname> <-l logdir>"; exit 1
+	echo "USAGE $0 <-r repository> <-t tagname> <-l logfile> [-D]"; exit 1
 fi
 
 if [ ! -x ${REPO} ] ; then
@@ -45,6 +44,8 @@ for t in $(git tag --sort=committerdate) ; do
 	git tag -v $t 2>/dev/null && LTAG="$t"
 done
 
+:> $LOGFILE
+
 # dump last tag
 if [ ! -z "$LTAG" ] ; then
 	echo "/* GITLOG PREVIOUS TAG $REPONAME $LTAG $LOGFILE */" >> $LOGFILE
@@ -53,14 +54,14 @@ if [ ! -z "$LTAG" ] ; then
 	git tag -v $LTAG					>> $LOGFILE
 	echo							>> $LOGFILE
 fi
-echo "/* GITLOG COMMITS $REPONAME $TAGNAME $LOGFILE */"		>> $LOGFILE
-echo								>> $LOGFILE
 
-# dump history
-if [ -z "$LTAG" ] ; then
+echo "/* GITLOG COMMITS $REPONAME $TAGNAME $LOGFILE */"		>> $LOGFILE
+
+# dump full history if -D DEEP
+if [ -z "$LTAG" -a "x${DEEP}" = "xyes" ] ; then
 	echo "no signed tag present... dumping full log"
 	git log --reverse --full-history --pretty --shortstat			>> $LOGFILE
-else
+elif [ "x${DEEP}" = "xyes" ] ; then
 	git log "$LTAG"..HEAD --reverse --full-history --pretty --shortstat	>> $LOGFILE
 fi
 
@@ -77,10 +78,10 @@ echo							>> $LOGFILE
 git show --quiet $TAGNAME				>> $LOGFILE
 git tag -v $TAGNAME					>> $LOGFILE
 
-echo							>> $LOGFILE
-echo "/* GITLOG PUBLIC KEY */"				>> $LOGFILE
-echo							>> $LOGFILE
-# dump active gpg key
-gpg --no-emit-version -a --export			>> $LOGFILE
-
-cd -
+#echo							>> $LOGFILE
+#echo "/* GITLOG PUBLIC KEY */"				>> $LOGFILE
+#echo							>> $LOGFILE
+## dump active gpg key
+#gpg --no-emit-version -a --export			>> $LOGFILE
+#
+#cd -
