@@ -45,6 +45,8 @@ else
   set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}\ %{&ff}\ %l,%c%V\ 
 endif
 
+set timeoutlen=50
+
 nmap <F4> :q <CR>
 "nmap <F2> :set ruler <CR>
 
