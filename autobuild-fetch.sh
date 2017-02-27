@@ -47,9 +47,9 @@ fetch_portage() {
 		cd ${g} ; git reset --hard ; git clean -f ; git fsck
 		sg wanout -c 'git pull --rebase'
 	done
-	#chown -R root:portage /home/source/portage/*
-	#chmod -R g+w /home/source/portage/*
-	#chmod -R o+rX /home/source/portage/*
+	chown -R root:portage /home/source/portage/*
+	chmod -R g+rwX /home/source/portage/*
+	chmod -R o+rX /home/source/portage/*
 }
 
 ### DAILY
