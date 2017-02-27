@@ -1,5 +1,5 @@
 GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
-EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --tree --with-bdeps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=12 "
+EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --tree --with-bdeps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=32 --load-average 12.0"
 # --with-test-deps y
 PORTAGE_CHECKSUM_FILTER="-* sha512"
 PORTAGE_COMPRESS="bzip2"
