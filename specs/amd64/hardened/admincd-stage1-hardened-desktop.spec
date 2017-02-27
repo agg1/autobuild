@@ -388,7 +388,7 @@ livecd/packages:
 	app-vim/csv
 	app-vim/ctrlp
 	app-vim/cvsmenu
-	app-vim/dbext
+	#app-vim/dbext
 	app-vim/detectindent
 	app-vim/dhcpd-syntax
 	app-vim/diffchar
@@ -472,7 +472,7 @@ livecd/packages:
 	app-vim/tt2-syntax
 	app-vim/txtfmt
 	app-vim/udev-syntax
-	app-vim/vcscommand
+	#app-vim/vcscommand
 	app-vim/vim-misc
 	app-vim/vimbuddy
 	#app-vim/vimclojure
