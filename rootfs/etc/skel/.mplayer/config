@@ -1,5 +1,7 @@
 ao=alsa
-vo=xv
+#vo=xv
+vo=gl
+levelconv=2
 panscan=0.50
 vf=yadif=1,pp=al:f
 double=yes
