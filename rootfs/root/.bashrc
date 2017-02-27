@@ -15,3 +15,8 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
+if [ -x /usr/bin/vi ] ; then
+	export EDITOR=/usr/bin/vi
+elif [ -x /usr/bin/nano ] ; then
+	export EDITOR=/usr/bin/nano
+fi
