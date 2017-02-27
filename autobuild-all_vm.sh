@@ -1,8 +1,10 @@
 #!/bin/sh -e
 # Copyright aggi 2017
 
-export LATEST="20161226-1482779549"
+export LATEST=$1
 export RELDA="${LATEST}"
+export CKERN=yes
+[ -z "${LATEST}" ] && echo "missing latest" && exit 1
 
 for vm in fw01 irc01 proxy01 tor01 www01 ; do
 	/bin/sh autobuild-vm_${vm}.sh
