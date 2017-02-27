@@ -15,4 +15,3 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
-export TERM=linux
