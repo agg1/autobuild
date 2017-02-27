@@ -1,7 +1,7 @@
 #!/bin/sh -e
 RELDA=$1
 
-[ -z "${RELDA}" ] && echo "param error" && exit 1
+[ -z "${RELDA}" ] && echo "missing RELDA release date" && exit 1
 
 # gpg signing params
 export GPGDIR="${GPGDIR:-/home/autobuild/gpg}"
