@@ -367,7 +367,7 @@ livecd/packages:
 	app-vim/ackvim
 	app-vim/airline
 	app-vim/align
-	app-vim/alternate
+	#app-vim/alternate
 	app-vim/ansiesc
 	#app-vim/ant_menu
 	app-vim/autoalign
