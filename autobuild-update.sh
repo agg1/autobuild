@@ -23,8 +23,8 @@ export PKDIR="/home/packages/desktop/${LATEST}"
 update_livecd_desktop
 
 archive_digests
-commit_seed boot
-commit_seed init
 commit_seed minimal
 commit_seed admin
 commit_seed desktop
+commit_seed portage
+commit_seed kerncache
