@@ -1,10 +1,10 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 
-export RELDA=test
 export CLEAN=false
 export CKERN=true
-export LATEST=20161126-1480193160
+#export LATEST=20161126-1480193160
+[ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
 cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
 cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
