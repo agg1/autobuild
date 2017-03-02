@@ -2,7 +2,9 @@
 # Copyright aggi 2016
 
 cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
+git clean -df .
 cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
+git clean -df .
 
 source /home/autobuild/autobuild.sh
 prepare_system
