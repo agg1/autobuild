@@ -46,14 +46,14 @@ done
 
 :> $LOGFILE
 
-# dump last tag
-if [ ! -z "$LTAG" ] ; then
-	echo "/* GITLOG PREVIOUS TAG $REPONAME $LTAG $LOGFILE */" >> $LOGFILE
-	echo							>> $LOGFILE
-	git show --quiet $LTAG					>> $LOGFILE
-	git tag -v $LTAG					>> $LOGFILE
-	echo							>> $LOGFILE
-fi
+## dump last tag
+#if [ ! -z "$LTAG" ] ; then
+#	echo "/* GITLOG PREVIOUS TAG $REPONAME $LTAG $LOGFILE */" >> $LOGFILE
+#	echo							>> $LOGFILE
+#	git show --quiet $LTAG					>> $LOGFILE
+#	git tag -v $LTAG					>> $LOGFILE
+#	echo							>> $LOGFILE
+#fi
 
 echo "/* GITLOG COMMITS $REPONAME $TAGNAME $LOGFILE */"		>> $LOGFILE
 
@@ -72,7 +72,7 @@ git tag -s $TAGNAME -m "" 2>/dev/null || exit 1
 #fi
 
 echo							>> $LOGFILE
-echo "/* GITLOG TAG $REPONAME $LTAG $LOGFILE */"	>> $LOGFILE
+echo "/* GITLOG TAG $REPONAME $TAGNAME $LOGFILE */"	>> $LOGFILE
 echo							>> $LOGFILE
 # dump current tag
 git show --quiet $TAGNAME				>> $LOGFILE
