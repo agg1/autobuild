@@ -8,9 +8,6 @@ export LVSIZ="768"
 export LVHOM="70"
 export LVLOG="70"
 
-cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
-cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
-
 source /home/autobuild/autobuild.sh
 prepare_system
 
