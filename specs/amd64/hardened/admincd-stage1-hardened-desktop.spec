@@ -921,6 +921,7 @@ livecd/packages:
 	sys-devel/llvm
 	sys-devel/make
 	sys-devel/patch
+	sys-firmware/radeon-ucode
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
 	sys-fs/ddrescue
