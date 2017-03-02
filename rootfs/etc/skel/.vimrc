@@ -47,6 +47,7 @@ endif
 
 set timeoutlen=10
 
+"verbose map <LocalLeader>cd
 nmap <F4> :q <CR>
 "nmap <F2> :set ruler <CR>
 
