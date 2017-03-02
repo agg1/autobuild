@@ -219,7 +219,7 @@ boot/kernel/linux/use:
 #	sys-auth/pambase
 
 livecd/rm:
-	/lib/firmware/*
+	#/lib/firmware/*
 	/boot/System*
 	/boot/initr*
 	/boot/kernel*
