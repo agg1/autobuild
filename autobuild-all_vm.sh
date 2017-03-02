@@ -2,7 +2,8 @@
 # Copyright aggi 2017
 
 export LATEST=$1
-export RELDA="${LATEST}"
+export NEWDA="$(date +%Y%m%d-%s)"
+export RELDA="${RELDA:-$NEWDA}"
 export CKERN=yes
 [ -z "${LATEST}" ] && echo "missing latest" && exit 1
 
