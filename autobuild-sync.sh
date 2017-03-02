@@ -9,7 +9,7 @@ rsync -av /media/backup/distfiles/ /home/distfiles/
 rsync -av /media/backup/packages/ /home/packages/
 
 cd /home/seeds
-git pull origin master
+git pull --ff-only origin master
 
 for d in autobuild extra_overlay portage ; do
 	cd /media/backup/git/${d}.git
