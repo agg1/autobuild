@@ -1,10 +1,10 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 
-cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
-git clean -df .
-cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
-git clean -df .
+cd /home/autobuild ; git clean -df .
+git crypt unlock /media/backup/git/catalyst.gcr; cd -
+cd /home/extra_overlay ; git clean -df .
+git crypt unlock /media/backup/git/catalyst.gcr; cd -
 
 source /home/autobuild/autobuild.sh
 prepare_system
