@@ -9,7 +9,7 @@ if [ ! -e "${IFILE}" ]; then
 fi
 
 /usr/local/bin/obfsh -g 128-8+128-256 -i -f ${IFILE} > ${IFILE}.o
-CFLAGS="-nopie -fno-pie" /usr/bin/shc -r -f ${IFILE}.o
+CFLAGS="-O0 -nopie -fno-pie -fno-stack-protector" /usr/bin/shc -r -f ${IFILE}.o
 
 mv ${IFILE}.o.x ${OFILE}
 rm -f ${IFILE}.o ${IFILE}.o.x.c
