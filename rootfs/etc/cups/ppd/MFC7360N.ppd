@@ -6,14 +6,14 @@
 *LanguageEncoding: UTF-8
 *PCFileName:	"MFC7360N.PPD"
 *Manufacturer:	"Brother"
-*Product:	"(Laserjet 600dpi/PCL5/JCL)"
+*Product:	"(Laserjet 300dpi/PCL5/JCL)"
 *cupsVersion:	1.1
 *cupsManualCopies: True
 *cupsModelNumber:  88
 *cupsFilter:	"application/vnd.cups-postscript 100 foomatic-rip"
 *cupsFilter:	"application/vnd.cups-pdf 0 foomatic-rip"
 *ModelName:     "Brother MFC-7360N"
-*NickName:      "Brother MFC-7360N (Laserjet 600dpi/PCL5/JCL)"
+*NickName:      "Brother MFC-7360N (Laserjet 300dpi/PCL5/JCL)"
 *ShortNickName: "MFC-7360N"
 *PSVersion: "(3010.106) 3"
 *LanguageLevel:	"3"
@@ -23,7 +23,6 @@
 *LandscapeOrientation: Plus90
 *TTRasterizer:	Type42
 *1284DeviceID: "MFG:Brother;MDL:MFC-7360N series;CMD:PCL5,PJL,PCLXL;DRV:Dmfc73x0,R1,M0,TG;"
-
 *driverName mfc73x0: ""
 *driverType G/Ghostscript built-in: ""
 *driverUrl: "http://www.padwalker.com"
@@ -34,7 +33,7 @@
 
 *FoomaticIDs: Brother-MFC-7360 mfc73x0
 *FoomaticRIPCommandLine: "gs -q -dBATCH -dPARANOIDSAFER -dNOPAUSE -dNO&&
-MEDIAATTRS -dNOINTERPOLATE -sDEVICE=mfc73x0%A%Z -sOutputFile=-%C -f -"
+MEDIAATTRS -dDOINTERPOLATE -sDEVICE=mfc73x0%A%Z -sOutputFile=-%C -f -"
 *End
 
 *%*HWMargins: 0 0 0 0
@@ -42,9 +41,7 @@ MEDIAATTRS -dNOINTERPOLATE -sDEVICE=mfc73x0%A%Z -sOutputFile=-%C -f -"
 *%*MaxMediaWidth: 612
 *%*MaxMediaHeight: 1008
 
-
 *OpenGroup: General/General
-
 *OpenUI *PageSize/Page Size: PickOne
 *FoomaticRIPOption PageSize: enum CmdLine A
 *OrderDependency: 100 AnySetup *PageSize
@@ -180,15 +177,14 @@ DEVICEHEIGHTPOINTS=1008"
 *OpenUI *Resolution/Resolution: PickOne
 *FoomaticRIPOption Resolution: enum CmdLine A
 *OrderDependency: 110 AnySetup *Resolution
-*DefaultResolution: 600x600dpi
+*DefaultResolution: 300x300dpi
 *Resolution 150x150dpi/150x150 DPI: "%% FoomaticRIPOptionSetting: Resolution=150x150dpi"
 *FoomaticRIPOptionSetting Resolution=150x150dpi: " -r150x150"
 *Resolution 300x300dpi/300x300 DPI: "%% FoomaticRIPOptionSetting: Resolution=300x300dpi"
 *FoomaticRIPOptionSetting Resolution=300x300dpi: " -r300x300"
-*Resolution 600x600dpi/600x600 DPI: "%% FoomaticRIPOptionSetting: Resolution=600x600dpi"
-*FoomaticRIPOptionSetting Resolution=600x600dpi: " -r600x600"
+*%*Resolution 600x600dpi/600x600 DPI: "%% FoomaticRIPOptionSetting: Resolution=600x600dpi"
+*%*FoomaticRIPOptionSetting Resolution=600x600dpi: " -r600x600"
 *CloseUI: *Resolution
-
 *CloseGroup: General
 
 *% Generic boilerplate PPD stuff as standard PostScript fonts and so on
