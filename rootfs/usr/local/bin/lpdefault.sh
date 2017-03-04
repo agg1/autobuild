@@ -13,3 +13,5 @@ echo -ne "\x1B\x67" > "$DEVICE"
 echo -ne "\x1B\x70\x00" > "$DEVICE" 
 # unidirectional off
 echo -ne "\x1B\x55\x00" > "$DEVICE" 
+
+sleep 1
