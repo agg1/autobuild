@@ -6,9 +6,9 @@ IFACE=$1
 DHCPID=$(cat /var/run/dhclient.${IFACE}.pid)
 if [ ! -z "${DHCPID}" ] ; then
 	kill -9 ${DHCPID}
+	sleep 5
 fi
-sleep 2
 
 sg lanout -c "systrace -d /usr/local/etc/systrace -ia /sbin/dhclient -- -pf /var/run/dhclient.${IFACE}.pid ${IFACE}"&
-sleep 2
+sleep 1
 /usr/local/bin/timesync.sh
