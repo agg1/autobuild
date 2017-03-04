@@ -21,6 +21,8 @@ done
 
 archive_digests
 for vm in fw01 irc01 proxy01 tor01 www01 ; do
+	mkdir -p /media/backup/virtual/${vm}
+	cp -vpR ${SDDIR}/${vm}/${RELDA}/* /media/backup/virtual/${vm}
 	commit_seed ${vm}
 done
 commit_seed kerncache
