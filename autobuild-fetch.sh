@@ -5,20 +5,21 @@ export GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://f
 unset EMERGE_DEFAULT_OPTS
 
 # check that bind mounts are set and portage trees are in place
-[ ! -e /usr/.writeable ] && /usr/local/bin/prepareusrupdate.sh /home/seeds/portage/20161118-1479508385/portage-latest.tar.bz2
+[ ! -e /usr/.writeable ] && /usr/local/bin/prepareusrupdate.sh /home/portage
 if [ ! -e /usr/.writeable ] ; then
 	mkdir -p /usr/portage/distfiles
 	mkdir -p /usr/portage/packages
+	mount -o relatime,sync,dirsync,nodev,nosuid,noexec /dev/disk/by-label/DISTFILES /home/distfiles/ || true
 	mount --bind /home/packages/desktop /usr/portage/packages
 	mount --bind /home/distfiles /usr/portage/distfiles
 fi
 
 # 
-sync_portage() {
-        echo "### sync_portage()"
-        sg wanout -c "emaint -A sync"
-        #emerge --sync
-}
+#sync_portage() {
+#        echo "### sync_portage()"
+#        sg wanout -c "emaint -A sync"
+#        #emerge --sync
+#}
 
 ## fetch with ftp, should suffice usually but might miss some distfiles if not done regularly
 #fetch_ftp() {
@@ -55,9 +56,9 @@ fetch_portage() {
 ### DAILY
 # same as fetch_ftp() but directory listing is only done once with it
 fetch_wget() {
+	echo "### fetch_wget()"
 
 	umask 002
-	echo "### fetch_wget()"
 	cd /home/distfiles
 	sg portage -c "wget -N ftp://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/distfiles/*"
 	chmod 664 /home/distfiles/* ; chown root:portage /home/distfiles/*
