@@ -9,6 +9,6 @@ if [ ! -z "${DHCPID}" ] ; then
 	sleep 5
 fi
 
-sg lanout -c "systrace -d /usr/local/etc/systrace -ia /sbin/dhclient -- -pf /var/run/dhclient.${IFACE}.pid ${IFACE}"&
+sg lanout -c "systrace -d /usr/local/etc/systrace -ia /sbin/dhclient -- -sf /usr/local/bin/dhclient-script -pf /var/run/dhclient.${IFACE}.pid ${IFACE}"&
 sleep 1
 /usr/local/bin/timesync.sh
