@@ -1,4 +1,6 @@
 #!/bin/sh -e
+/usr/local/bin/unlinkdirkey.sh /media/backup/git
+/usr/local/bin/unlockdir.sh /media/backup/git
 
 # rsync distfiles
 [ -e /home/distfiles/ -a -e /media/backup/distfiles/ ] && \
@@ -28,3 +30,4 @@ for d in autobuild extra_overlay portage ; do
 	cd /home/${d}
 	sg wanout -c "git push --tags github master || true" || true
 done
+/usr/local/bin/unlinkdirkey.sh /media/backup/git
