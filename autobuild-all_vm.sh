@@ -20,6 +20,7 @@ for vm in fw01 irc01 proxy01 tor01 www01 ; do
 done
 
 archive_digests
+rm -rf /media/backup/virtual/*
 for vm in fw01 irc01 proxy01 tor01 www01 ; do
 	mkdir -p /media/backup/virtual/${vm}
 	cp -vpR ${SDDIR}/${vm}/${RELDA}/* /media/backup/virtual/${vm}
