@@ -17,6 +17,7 @@ for d in autobuild extra_overlay portage ; do
 	cd /home/${d}
 	git fsck
 	git pull --ff-only origin master
+	git push --tags origin master
 done
 
 for d in autobuild extra_overlay ; do
