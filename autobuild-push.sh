@@ -5,5 +5,6 @@
 cd /home/autolog ; git push --tags origin master
 cd /home/autobuild ; git push --tags origin master
 cd /home/extra_overlay ; git push --tags origin master
+cd /home/portage ; git push --tags origin master
 cd /home/seeds ; git push --tags origin master
 /usr/local/bin/unlinkdirkey.sh /media/backup/git

@@ -1,6 +1,7 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 
+export LATEST=$1
 export CLEAN=false
 export CKERN=true
 #export LATEST=20161126-1480193160

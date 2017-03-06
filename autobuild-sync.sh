@@ -12,17 +12,17 @@ rsync -av /media/backup/packages/ /home/packages/
 
 cd /home/autolog
 git fsck ; git gc
-git pull --ff-only origin master
+git pull --ff-only origin master && git pull
 
 cd /home/seeds
-git pull --ff-only origin master
+git pull --ff-only origin master && git pull
 
 for d in autobuild extra_overlay portage ; do
 	cd /media/backup/git/${d}.git
 	git fsck ; git gc
 	cd /home/${d}
 	git fsck ; git gc
-	git pull --ff-only origin master
+	git pull --ff-only origin master && git pull
 	git push --tags origin master
 done
 
