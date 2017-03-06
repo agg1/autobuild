@@ -28,4 +28,3 @@ git add seeds.log
 git add portage.log
 git add extra_overlay.log
 git commit -m "${RELDA}" .
-git push origin master
