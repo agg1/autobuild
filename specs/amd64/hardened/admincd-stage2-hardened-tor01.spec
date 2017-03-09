@@ -17,7 +17,7 @@ livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cd
 livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_check=1 pbshutdown nokeymap console=ttyS0,115200 console=tty0
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshguard|default
-livecd/root_overlay: /home/autobuild/rootfs
+livecd/root_overlay: /home/autobuild/rootfs/default /home/autobuild/rootfs/tor01
 #livecd/overlay:
 
 boot/kernel: linux

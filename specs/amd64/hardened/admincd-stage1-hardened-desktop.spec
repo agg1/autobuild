@@ -859,6 +859,7 @@ livecd/packages:
 	#sys-apps/irqbalance
 	sys-apps/keyutils
 	sys-apps/less
+	sys-apps/lm_sensors
 	sys-apps/lshw
 	sys-apps/lsb-release
 	sys-apps/man-db

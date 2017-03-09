@@ -18,7 +18,7 @@ livecd/bootargs: dokeymap nodhcp memory_corruption_check=1 docache pbsleep
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default rsyslog|default
 # sshd|default sshguard|default
-livecd/root_overlay: /home/autobuild/rootfs
+livecd/root_overlay: /home/autobuild/rootfs/default
 #livecd/xdm:
 
 boot/kernel: linux
