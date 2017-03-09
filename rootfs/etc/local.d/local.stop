@@ -1,9 +1,0 @@
-#!/bin/sh
-
-sync
-
-for i in $(ls /root/monitor-qemu-*); do
-	echo system_powerdown | ncat -U $i
-done
-# implement sane vm startup and shutdown script waiting for pids to exit
-sleep 10
