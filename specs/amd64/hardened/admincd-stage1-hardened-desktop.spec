@@ -563,6 +563,7 @@ livecd/packages:
 	media-fonts/ubuntu-font-family
 	media-fonts/font-xfree86-type1
 	media-fonts/ttf-bitstream-vera 
+	media-fonts/unifont
 	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/gimp
@@ -954,6 +955,7 @@ livecd/packages:
 	sys-libs/libkudzu
 	sys-libs/libsmbios
 	sys-power/acpid
+	sys-power/iasl
 	sys-process/at
 	sys-process/atop
 	sys-process/audit
