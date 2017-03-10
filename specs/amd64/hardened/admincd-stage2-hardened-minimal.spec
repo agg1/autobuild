@@ -20,7 +20,7 @@ livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_c
 # ubsan_handle=ELNVBSLF
 livecd/rcdel: keymaps|boot netmount|default
 #livecd/rcadd:
-livecd/root_overlay: /home/autobuild/rootfs/default
+livecd/root_overlay: /home/autobuild/rootfs/minimal
 #livecd/overlay:
 
 boot/kernel: linux
