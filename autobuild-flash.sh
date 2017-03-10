@@ -1,10 +1,9 @@
 #!/bin/sh -e
 # Copyright aggi 2017
 
-#export LATEST=$1
-export CLEAN=false
+export LATEST=$1
+export CLEAN=true
 export CKERN=false
-export LATEST=20170306-1488784075
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
 #cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
