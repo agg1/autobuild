@@ -19,6 +19,7 @@ livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default rsyslog|default
 # sshd|default sshguard|default
 livecd/root_overlay: /home/autobuild/rootfs/default
+livecd/overlay: /home/autobuild/rootfs/desktop
 #livecd/xdm:
 
 boot/kernel: linux

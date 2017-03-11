@@ -26,7 +26,7 @@ stage4/packages:
 #	sshd|default
 
 boot/kernel: linux
-boot/kernel/linux/sources: vanilla-sources
+boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /etc/portage/kconfig
 boot/kernel/linux/gk_kernargs: --all-ramdisk-modules --lvm --dmraid --mdadm --makeopts=-j24 --config=/etc/portage/genkernel.conf
 

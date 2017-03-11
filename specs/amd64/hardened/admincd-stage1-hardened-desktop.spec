@@ -535,6 +535,7 @@ livecd/packages:
 	dev-vcs/git-crypt
 	dev-vcs/subversion
 	games-util/joystick
+	games-util/jstest-gtk
 	lxde-base/lxdm
 	lxde-base/lxde-meta
 	mail-client/mutt
