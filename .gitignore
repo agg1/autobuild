@@ -1,3 +1,4 @@
 rootfs/portage-*
 rootfs/default/etc/rc.local.d*
-rootfs/*/etc/cfg.sh
+rootfs/*/portage*
+rootfs/*/etc/cfg/cfg.sh
