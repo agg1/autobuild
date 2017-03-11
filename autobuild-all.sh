@@ -15,10 +15,13 @@ prepare_portage
 build_seed_boot
 build_seed_init
 export PKDIR="/home/packages/minimal/${RELDA}"
+rm -rf /home/packages/minimal/*
 build_livecd_minimal
 export PKDIR="/home/packages/admin/${RELDA}"
+rm -rf /home/packages/admin/*
 build_livecd_admin
 export PKDIR="/home/packages/desktop/${RELDA}"
+rm -rf /home/packages/desktop/*
 build_livecd_desktop
 
 archive_digests
