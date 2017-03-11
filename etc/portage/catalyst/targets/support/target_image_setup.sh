@@ -35,6 +35,9 @@ case ${clst_fstype} in
 		create_cramfs $1
 		loopret=$?
 	;;
+	none)
+		loopret=0
+	;;
 esac
 
 if [ ${loopret} = "1" ]
