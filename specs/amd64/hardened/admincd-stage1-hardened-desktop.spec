@@ -991,7 +991,7 @@ livecd/packages:
 	www-client/firefox
 	www-client/lynx
 	www-client/w3m
-	www-servers/fnord
+	www-servers/lighttpd
 	www-servers/nginx
 	x11-apps/appres
 	x11-apps/editres
