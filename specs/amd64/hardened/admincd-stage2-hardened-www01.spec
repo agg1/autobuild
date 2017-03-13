@@ -55,8 +55,6 @@ boot/kernel/linux/packages:
 	sys-fs/cryptsetup
 	sys-power/acpid
 	www-servers/lighttpd
-	#www-servers/fnord
-	#www-servers/gatling
 	dev-vcs/git
 	www-apps/ikiwiki
 	dev-perl/CGI-Session
