@@ -55,7 +55,7 @@ boot/kernel/linux/packages:
 	net-libs/libotr
 	net-misc/ntp
 	#net-misc/openvpn
-	#net-misc/tor
+	net-misc/tor
 	#net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace
