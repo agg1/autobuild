@@ -331,6 +331,7 @@ livecd/packages:
 	app-office/libreoffice-l10n
 	app-office/texmacs
 	app-portage/cfg-update
+	app-portage/cpuinfo2cpuflags
 	app-portage/eix
 	app-portage/esearch
 	app-portage/genlop

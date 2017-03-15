@@ -61,6 +61,7 @@ livecd/packages:
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
+	app-portage/cpuinfo2cpuflags
 	app-portage/eix
 	app-portage/esearch
 	app-portage/genlop
