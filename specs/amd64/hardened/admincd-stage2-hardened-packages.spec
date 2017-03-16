@@ -322,7 +322,12 @@ boot/kernel/linux/packages:
 	#games-server/
 	#games-simulation/
 	#games-sports/
+	games-strategy/0ad
+	games-strategy/asc
+	games-strategy/crimson
 	games-strategy/warzone2100
+	games-strategy/wesnoth
+	games-strategy/widelands
 	games-util/jstest-gtk
 	#gnome-base/
 	#gnome-extra/
