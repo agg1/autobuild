@@ -14,6 +14,7 @@ dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -ext
 net-analyzer/nmap ncat nping
 net-p2p/transmission -gtk -ayatana
 net-firewall/fwknop gdbm client -extras -firewalld gpg iptables nfqueue -python server udp-server
+sys-apps/flashrom ch341a_spi
 sys-apps/lshw -gtk -static
 sys-apps/hwids net pci udev usb
 sys-apps/net-tools hostname arp
