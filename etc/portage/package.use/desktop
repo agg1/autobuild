@@ -47,6 +47,6 @@ app-office/libreoffice
 media-gfx/imagemagick perl svg png
 app-office/texmacs -qt4
 #net-irc/weechat -ssl
-games-fps/darkplaces alsa cdsound -debug opengl sdl lights textures
+games-fps/darkplaces alsa cdsound -debug opengl lights textures -sdl
 games-fps/dhewm3 sdl2
 games-fps/xonotic alsa sdl
