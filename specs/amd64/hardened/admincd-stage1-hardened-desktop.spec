@@ -49,7 +49,9 @@ livecd/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
+	fluidsynth
 	jack
+	speex
 	icu
 	gd
 	djvu
@@ -297,10 +299,10 @@ livecd/packages:
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/nano
-	#app-editors/padre
 	dev-perl/List-MoreUtils
 	app-editors/vim
 	app-editors/wxmedit
+	app-editors/wxhexeditor
 	app-emulation/qemu
 	app-emulation/spice
 	#app-emulation/wine
@@ -552,7 +554,7 @@ livecd/packages:
 	mail-client/mailx
 	mail-client/mailx-support
 	mail-filter/dovecot-antispam
-	mail-filter/dovecot_deleted_to_trash
+	#mail-filter/dovecot_deleted_to_trash
 	mail-filter/clamassassin
 	mail-filter/procmail
 	mail-filter/spamassassin
@@ -560,6 +562,9 @@ livecd/packages:
 	mail-mta/opensmtpd
 	#media-fonts/corefonts
 	media-fonts/croscorefonts
+	media-plugins/gst-plugins-ladspa
+	media-plugins/ladspa-bs2b
+	media-libs/ladspa-cmt
 	media-fonts/dejavu
 	media-fonts/freefont
 	media-fonts/freefonts
@@ -611,11 +616,24 @@ livecd/packages:
 	media-libs/sdl2-net
 	media-libs/sdl2-ttf
 	media-libs/sdlmm
+	media-libs/speex
+	media-libs/speexdsp
+	media-plugins/alsa-plugins
+	media-plugins/alsaequal
+	media-plugins/gst-plugins-alsa
 	media-sound/alsa-tools
 	media-sound/alsa-utils
 	media-sound/alsaplayer
+	media-sound/ardour
+	media-sound/audacity
 	media-sound/aumix
 	media-sound/cdparanoia
+	media-sound/fluidsynth
+	media-sound/hydrogen
+	#media-sound/jack
+	media-sound/jack-rack
+	media-sound/jack-smf-utils
+	media-sound/lash
 	media-sound/mpc
 	media-sound/mpd
 	media-video/dvdrip

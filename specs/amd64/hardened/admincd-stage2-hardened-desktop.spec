@@ -14,7 +14,7 @@ livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
-livecd/bootargs: net.ifnames=0 dokeymap nodhcp memory_corruption_check=1 docache pbshutdown console=ttyUSB0,115200 console=ttyS0,115200 console=tty0
+livecd/bootargs: net.ifnames=0 dokeymap nodhcp memory_corruption_check=1 console=ttyUSB0,115200 console=ttyS0,115200 console=tty0
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default rsyslog|default
 # sshd|default sshguard|default
@@ -67,7 +67,9 @@ boot/kernel/linux/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
+	fluidsynth
 	jack
+	speex
 	icu
 	gd
 	djvu
