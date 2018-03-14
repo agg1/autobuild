@@ -1,52 +1,37 @@
-app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl -curl -sdl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64
-app-emulation/virtualbox qt4
-dev-qt/qtcore -ssl
-media-libs/gd truetype fontconfig
+app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl -curl -sdl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde
+#app-office/texmacs -qt4
+app-text/mupdf -static-libs -static
 media-libs/gst-plugins-bad -gtk opengl -egl -gles2
 media-libs/gst-plugins-base -gtk opengl -egl -gles2
 media-libs/gst-plugins-good -gtk opengl -egl -gles2
 media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
 media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
 media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl
-media-sound/alsa-tools -gtk -X
-net-analyzer/linkchecker -X
-net-proxy/privoxy acl fast-redirects force image-blocking stats editor external-filters graceful-termination lfs png-images toggle whitelists
+media-libs/gd fontconfig
+media-sound/alsa-tools -gtk fltk
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
-mail-client/mutt smtp imap pop -gpg sidebar mbox smime idn
-mail-client/thunderbird  -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 hardened lightning crypt gtk2
-www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo hardened gtk2
-x11-base/xorg-server xorg suid glamor
-x11-libs/libfm gtk -automount
-x11-libs/wxGTK X doc -gstreamer opengl sdl tiff -aqua -debug -odbc -pch -opengl
+mail-client/mutt ssl smtp imap pop -gpg sidebar mbox pgp_classic smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
+mail-client/thunderbird -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 lightning crypt gtk2 -crypt
+www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo gtk2
+x11-base/xorg-server xorg suid glamor xcsecurity
+x11-libs/libfm gtk -automount -udisks
 x11-misc/xdg-user-dirs -gtk
-dev-libs/DirectFB -egl gles2 gstreamer opengl
-dev-lang/php gd
-net-libs/webkit -gles2
-net-libs/webkit-gtk -gles2
+#dev-libs/DirectFB -egl
 net-analyzer/rrdtool perl graph
-net-analyzer/metasploit -java
-dev-ruby/activerecord postgres
-net-libs/opal sip sipim
 net-wireless/aircrack-ng -airdrop-ng
-net-misc/asterisk -calendar -http
-app-editors/emacs -ssl
-app-emulation/wine staging -oss -ssl
-net-analyzer/wireshark -ssl tfshark
+net-analyzer/wireshark -ssl -gtk crypt libssh dumpcap editcap mergecap pcap  tfshark tshark
 dev-lang/perl ithreads
 dev-java/* -doc
-net-print/cups -ssl
-app-text/tesseract -scrollview
-app-text/ghostscript-gpl -djvu cups
-net-print/cups-filters foomatic
-net-print/gutenprint foomaticdb
+#app-text/tesseract -scrollview
 media-libs/netpbm rle
 media-libs/freetype infinality
 media-libs/libextractor -gtk
-app-office/libreoffice
-media-gfx/imagemagick perl svg png
-app-office/texmacs -qt4
-#net-irc/weechat -ssl
+x11-libs/wxGTK -gstreamer
+media-gfx/imagemagick perl
+app-text/ghostscript-gpl cups -gtk -X
+net-print/cups -X
+app-office/libreoffice -gtk gtk2 -jemalloc -kde pdfimport
 games-fps/darkplaces alsa cdsound -debug opengl lights textures -sdl
 games-fps/dhewm3 sdl2
 games-fps/xonotic alsa sdl

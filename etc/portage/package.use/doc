@@ -1,11 +1,13 @@
 # break circular dependencies with doc USE_FLAG set
 app-doc/doxygen -doc dot
+app-text/xmlto text
 dev-python/ipython -doc
 dev-python/jinja -doc
 dev-python/pygments -doc
 dev-python/six -doc
 dev-python/Babel -doc
 dev-python/sphinx -latex
+dev-python/whoosh -doc
 dev-tex/xcolor -doc
 x11-libs/libvdpau -doc dri
 x11-libs/libXaw -doc

@@ -1,0 +1,16 @@
+>dev-libs/xapian-1.2.24
+>dev-libs/xapian-bindings-1.2.24
+>app-text/xapian-omega-1.2.24
+>dev-perl/SearchXapian-1.2.25.0
+#
+>x11-themes/adwaita-icon-theme-3.20
+>dev-util/gtk-update-icon-cache-3.20.9
+#
+>app-office/libreoffice-5.2.3.3
+>dev-libs/liborcus-0.11.2
+>dev-libs/libixion-0.11.1
+>gnome-extra/gucharmap-3.0.1-r200
+#
+>app-text/stardict-3.0.6-r3
+#
+>net-voip/yate-5.5.0-r1

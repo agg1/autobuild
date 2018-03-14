@@ -3,13 +3,13 @@ dev-libs/liblogging rfc3195
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-misc/ntp caps
-net-firewall/ipsec-tools rc5 idea nat hybrid
+net-vpn/ipsec-tools rc5 idea nat hybrid
 net-misc/openvpn socks
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 #sys-process/cronie anacron
 dev-libs/glib -mime -utils
 dev-libs/libxml2 python
-dev-vcs/git -gtk gpg curl subversion cvs webdav perl cgi
+dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit
 dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl -vim-syntax
 net-analyzer/nmap ncat nping
 net-p2p/transmission -gtk -ayatana
@@ -29,7 +29,4 @@ net-misc/tor tor-hardening transparent-proxy
 www-servers/lighttpd -minimal
 net-libs/wvstreams -ssl
 net-firewall/fwknop -gpg
-net-analyzer/ntop -ssl
-#net-wireless/hostapd -ssl
-#app-crypt/pinentry -gtk ncurses
 dev-libs/libpcre pcre16
