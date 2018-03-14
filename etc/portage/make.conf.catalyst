@@ -1,5 +1,5 @@
 GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
-EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --tree --with-bdeps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=32 --load-average 16.0"
+EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --tree --with-bdeps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 --load-average 16.0"
 # --with-test-deps y
 PORTAGE_CHECKSUM_FILTER="-* sha512"
 PORTAGE_COMPRESS="bzip2"
@@ -8,20 +8,29 @@ CHOST=x86_64-pc-linux-gnu
 CFLAGS="-Os -pipe"
 CXXFLAGS="${CFLAGS}"
 CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
+#sandybridge
+#CPU_FLAGS_X86="aes avx mmx mmxext popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
+#bulldozer-old, sse4a is AMD-only
+#CPU_FLAGS_X86="aes mmx mmxext popcnt sse sse2 sse3 sse4a ssse3"
+#bulldozer-new, sse4a is AMD-only
+#CPU_FLAGS_X86="aes avx fma3 fma4 mmx mmxext popcnt sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 xop"
 PORTDIR="/usr/portage"
 PORTDIR_OVERLAY="/usr/local/portage"
 DISTDIR="${PORTDIR}/distfiles"
 PKGDIR="${PORTDIR}/packages"
 CONFIG_PROTECT="-*"
 LINGUAS="af ar as ast az be bg bn bo br brx bs ca ca@valencia ca_XV cs csb cy da de dgo dz el en en_GB en_ZA eo es et eu fa fi fo fr fy ga gd gl gu gu_IN ha he hi hr hsb hu ia id is it ja ka kk km kn kn_IN ko kok ks ku lb lo lt lv mai mi mk ml mn mni mr ms mt my nb nds ne nl nn nr nso oc om or pa pa_IN pl pt pt_BR ro ru rw sa_IN sat sd se sh si sk sl sq sr ss st sv sw sw_TZ ta ta_IN te tg th tn tr ts tt ug uk uz ve ven vi wa xh zh_CN zh_HK zh_TW zu"
-MAKEOPTS="-j16"
+MAKEOPTS="-j 8"
 ACCEPT_LICENSE="-* @FREE"
 #FEATURES="userfetch userpriv candy"
 #FEATURES="splitdebug"
 #INSTALL_MASK="/usr/lib/debug"
 ACCEPT_KEYWORDS="~amd64"
-USE="${USE} -awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs"
+USE="${USE} -awt -bindist -branding -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udev -udisks -upower -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -jit -orc -gnome -kde -ruby -thin -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs"
 # crypt cryptsetup modules fbcon gmp xml ncurses lvm1
 PROFILE_IS_HARDENED=1
 #PORT_LOGDIR=/var/log/portage/
 COLLISION_IGNORE="/usr/share/vim/*"
+
+PORTAGE_TMPDIR=/home/tmp/
+PORTAGE_NICENESS=8
