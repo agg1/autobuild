@@ -1,12 +1,12 @@
 # break circular dependencies with doc USE_FLAG set
-app-doc/doxygen -doc dot
+app-doc/doxygen -doc dot latex
 app-text/xmlto text
 dev-python/ipython -doc
 dev-python/jinja -doc
 dev-python/pygments -doc
 dev-python/six -doc
 dev-python/Babel -doc
-dev-python/sphinx -latex
+dev-python/sphinx -latex -doc
 dev-python/whoosh -doc
 dev-tex/xcolor -doc
 x11-libs/libvdpau -doc dri
@@ -52,3 +52,7 @@ media-libs/openjpeg -doc
 app-admin/ulogd -doc
 net-voip/gnugk -doc
 app-text/linuxdoc-tools -doc
+dev-python/pyopenssl -doc
+dev-python/urllib3 -doc
+dev-python/cffi -doc
+media-libs/jasper -doc
