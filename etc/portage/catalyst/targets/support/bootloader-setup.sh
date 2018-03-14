@@ -302,32 +302,32 @@ case ${clst_hostarch} in
 					do
 						echo "label ${x}-${y}" >> ${icfg}
 						echo "  kernel ${x}" >> ${icfg}
-						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox" >> ${icfg}
+						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
 						echo >> ${icfg}
 
 						echo "   ${x}" >> ${kmsg}
 
-						echo "label ${x}-${y}-nocache" >> ${icfg}
+						echo "label ${x}-${y}-cache" >> ${icfg}
 						echo "  kernel ${x}" >> ${icfg}
-						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
+						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox docache" >> ${icfg}
 						echo >> ${icfg}
 
-						echo "   ${x}-nocache" >> ${kmsg}
+						echo "   ${x}-cache" >> ${kmsg}
 					done
 				else
 					echo "label ${x}" >> ${icfg}
 					echo "  kernel ${x}" >> ${icfg}
-					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox" >> ${icfg}
+					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
 					echo >> ${icfg}
 
 					echo "   ${x}" >> ${kmsg}
 
-					echo "label ${x}-nocache" >> ${icfg}
+					echo "label ${x}-cache" >> ${icfg}
 					echo "  kernel ${x}" >> ${icfg}
-					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
+					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox docache" >> ${icfg}
 					echo >> ${icfg}
 
-					echo "   ${x}-nocache" >> ${kmsg}
+					echo "   ${x}-cache" >> ${kmsg}
 				fi
 			done
 
