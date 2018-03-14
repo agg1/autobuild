@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export MAKEOPTS="-j16"
-export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=32 --load-average 16.0"
+export MAKEOPTS="-j 8"
+export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 --load-average 16.0"
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS="bzip2"
 export PORTAGE_COMPRESS_FLAGS="-1"
@@ -11,3 +11,6 @@ export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
 export PROFILE_IS_HARDENED=1
 export ACCEPT_KEYWORDS="~amd64"
 export USE="-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz xml"
+
+export PORTAGE_TMPDIR=/home/tmp/
+export PORTAGE_NICENESS=8
