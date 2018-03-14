@@ -14,6 +14,7 @@ stage4/use:
 	-X
 	-doc
 	-gtk
+	crypt
 	minimal
 
 stage4/packages:

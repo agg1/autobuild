@@ -9,7 +9,7 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
 	-udev
 	-X
 	-doc
@@ -61,7 +61,6 @@ livecd/packages:
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
-	app-portage/cpuinfo2cpuflags
 	app-portage/eix
 	app-portage/esearch
 	app-portage/genlop
@@ -107,7 +106,7 @@ livecd/packages:
 	#net-dialup/wvdial
 	net-dns/bind-tools
 	net-firewall/ebtables
-	net-firewall/ipsec-tools
+	net-vpn/ipsec-tools
 	net-firewall/iptables
 	net-fs/cifs-utils
 	net-fs/nfs-utils
@@ -223,7 +222,7 @@ livecd/packages:
 	sys-fs/multipath-tools
 	sys-fs/ntfs3g
 	sys-fs/reiserfsprogs
-	sys-fs/sshfs
+	net-fs/sshfs
 	sys-fs/squashfs-tools
 	sys-fs/sysfsutils
 	sys-fs/xfsprogs

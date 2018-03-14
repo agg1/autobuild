@@ -25,7 +25,7 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
 	-udev
 	-X
 	-doc
@@ -43,10 +43,10 @@ boot/kernel/linux/packages:
 	#net-analyzer/iptraf-ng
 	net-firewall/ebtables
 	net-firewall/iptables
-	net-firewall/ipsec-tools
+	net-vpn/ipsec-tools
 	#net-misc/ipsvd
 	net-misc/ntp
-	#net-misc/openvpn
+	#net-vpn/openvpn
 	#net-dns/bind-tools
 	sys-apps/hwsetup
 	sys-apps/systrace

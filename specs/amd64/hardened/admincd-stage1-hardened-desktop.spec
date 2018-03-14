@@ -9,7 +9,7 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
 	-udev
 	-wayland
 	-gconf
@@ -18,6 +18,7 @@ livecd/use:
 	X
 	doc
 	gtk
+	gtk2
 	xcb
 	xkb
 	alsa
@@ -48,7 +49,9 @@ livecd/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
+	jack
 	icu
+	gd
 	djvu
 	bmp
 	gif
@@ -88,16 +91,15 @@ livecd/use:
 	css
 	dvb
 	dvd
-	oss
 	sdl
 	scanner
 	joystick
 	sound
 	video
-	egl
-	gles
-	gles2
-	gles3
+	#egl
+	#gles
+	#gles2
+	#gles3
 	opengl
 	gallium
 	glamor
@@ -190,6 +192,8 @@ livecd/use:
 	imlib
 	sqlite
 	truetype
+	fontconfig
+	jadetex
 	xetex
 	fortran
 
@@ -262,7 +266,7 @@ livecd/packages:
 	app-cdr/xdvdfs-tools
 	app-crypt/aescrypt
 	app-crypt/aespipe
-	app-crypt/bcrypt
+	#app-crypt/bcrypt
 	app-crypt/bcwipe
 	#app-crypt/efitools
 	#app-crypt/gcr
@@ -289,6 +293,7 @@ livecd/packages:
 	app-dicts/myspell-ru
 	app-doc/doxygen
 	app-editors/bluefish
+	#app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
 	app-editors/nano
@@ -313,6 +318,7 @@ livecd/packages:
 	app-forensics/sleuthkit
 	app-forensics/unhide
 	app-forensics/zzuf
+	app-laptop/radeontool
 	app-misc/abook
 	app-misc/banner
 	app-misc/ca-certificates
@@ -331,7 +337,7 @@ livecd/packages:
 	app-office/libreoffice-l10n
 	app-office/texmacs
 	app-portage/cfg-update
-	app-portage/cpuinfo2cpuflags
+	#app-portage/cpuinfo2cpuflags
 	app-portage/eix
 	app-portage/esearch
 	app-portage/genlop
@@ -356,7 +362,8 @@ livecd/packages:
 	app-text/stardict
 	app-text/tree
 	app-text/wgetpaste
-	app-text/xpdf
+	app-text/mupdf
+	#app-text/xpdf
 	app-text/docx2txt
 	app-text/html2text
 	app-text/html-xml-utils
@@ -436,7 +443,7 @@ livecd/packages:
 	app-vim/notes
 	app-vim/ntp-syntax
 	app-vim/omnicppcomplete
-	app-vim/pam-syntax
+	#app-vim/pam-syntax
 	app-vim/pathogen
 	app-vim/pdv
 	app-vim/perl-support
@@ -454,7 +461,8 @@ livecd/packages:
 	app-vim/repeat
 	app-vim/reload
 	app-vim/recover
-	app-vim/rust-mode
+	#app-vim/rust-mode
+	app-vim/rust-vim
 	app-vim/scala-syntax
 	app-vim/searchcomplete
 	app-vim/securemodelines
@@ -535,10 +543,10 @@ livecd/packages:
 	dev-vcs/git
 	dev-vcs/git-crypt
 	dev-vcs/subversion
+	games-board/xskat
 	games-util/joystick
 	games-util/jstest-gtk
-	lxde-base/lxdm
-	lxde-base/lxde-meta
+	#lxde-base/
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx
@@ -578,7 +586,7 @@ livecd/packages:
 	media-gfx/xv
 	media-libs/libextractor
 	media-libs/alsa-lib
-	media-libs/alsa-oss
+	#media-libs/alsa-oss
 	media-libs/gstreamer
 	media-libs/gst-plugins-bad
 	media-libs/gst-plugins-base
@@ -614,7 +622,7 @@ livecd/packages:
 	media-video/lsdvd
 	media-video/mplayer
 	#media-video/vlc
-	net-analyzer/aimsniff
+	#net-analyzer/aimsniff
 	net-analyzer/angst
 	net-analyzer/argus
 	net-analyzer/argus-clients
@@ -651,7 +659,7 @@ livecd/packages:
 	net-analyzer/ipguard
 	net-analyzer/iptraf-ng
 	net-analyzer/iptstate
-	net-analyzer/ipv6-toolkit
+	#net-analyzer/ipv6-toolkit
 	net-analyzer/knocker
 	net-analyzer/labrea
 	net-analyzer/lft
@@ -677,8 +685,8 @@ livecd/packages:
 	net-analyzer/nipper
 	net-analyzer/nmap
 	net-analyzer/nmbscan
-	net-analyzer/ntop
-	#net-analyzer/ntopng
+	#net-analyzer/ntop
+	net-analyzer/ntopng
 	net-analyzer/p0f
 	net-analyzer/packit
 	net-analyzer/portsentry
@@ -705,7 +713,7 @@ livecd/packages:
 	net-dialup/minicom
 	net-dialup/picocom
 	net-dialup/pptpclient
-	net-dialup/pptpd
+	#net-dialup/pptpd
 	net-dialup/pppconfig
 	net-dialup/rp-pppoe
 	#net-dialup/wvdial
@@ -719,7 +727,7 @@ livecd/packages:
 	net-firewall/ebtables
 	#net-firewall/fwipsec
 	net-firewall/fwknop
-	net-firewall/ipsec-tools
+	net-vpn/ipsec-tools
 	net-firewall/iptables
 	net-firewall/itval
 	net-firewall/nfacct
@@ -763,7 +771,7 @@ livecd/packages:
 	net-misc/netkit-fingerd
 	net-misc/netkit-routed
 	net-misc/netkit-rsh
-	net-misc/netkit-rusers
+	#net-misc/netkit-rusers
 	net-misc/netkit-rwall
 	net-misc/netkit-rwho
 	net-misc/netkit-talk
@@ -772,7 +780,7 @@ livecd/packages:
 	net-misc/ntp
 	#net-misc/openntpd
 	net-misc/openssh
-	net-misc/openvpn
+	net-vpn/openvpn
 	net-misc/quagga
 	net-misc/radvd
 	net-misc/rdate
@@ -781,12 +789,13 @@ livecd/packages:
 	net-misc/socat
 	net-misc/spice-gtk
 	net-misc/sstp-client
-	net-misc/tightvnc
-	net-misc/tor
+	#net-misc/tigervnc
+	#net-misc/tightvnc
+	net-vpn/tor
 	net-misc/urlview
 	net-misc/vconfig
 	net-misc/vde
-	net-misc/vpnc
+	net-vpn/vpnc
 	net-misc/wol
 	net-misc/wget
 	net-misc/whois
@@ -796,7 +805,7 @@ livecd/packages:
 	net-misc/youtube-viewer
 	net-nds/adtool
 	net-nds/openldap
-	net-nds/ypserv
+	#net-nds/ypserv
 	net-p2p/transmission
 	net-print/cups
 	net-print/cups-filters
@@ -945,7 +954,7 @@ livecd/packages:
 	sys-fs/ntfs3g
 	sys-fs/quota
 	sys-fs/reiserfsprogs
-	sys-fs/sshfs
+	net-fs/sshfs
 	sys-fs/squashfs-tools
 	sys-fs/sysfsutils
 	sys-fs/xfsprogs
@@ -1031,6 +1040,7 @@ livecd/packages:
 	x11-misc/xautolock
 	x11-misc/xcalib
 	x11-misc/xtrlock
+	x11-misc/xlockmore
 	x11-terms/xterm
 	x11-wm/i3
 	x11-wm/openbox
