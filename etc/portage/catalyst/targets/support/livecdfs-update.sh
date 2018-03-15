@@ -27,16 +27,16 @@ fi
 
 # Since we're an official Gentoo release, we do things the official Gentoo way.
 # As such, we override livecd/users.
-case ${clst_livecd_type} in
-	gentoo-release-live*)
-		user_comment="Gentoo default user"
-		clst_livecd_users="gentoo"
-	;;
-	gentoo-gamecd)
-		user_comment="Gentoo GameCD default user"
-		clst_livecd_users="gamecd"
-	;;
-esac
+#case ${clst_livecd_type} in
+#	gentoo-release-live*)
+#		user_comment="Gentoo default user"
+#		clst_livecd_users="gentoo"
+#	;;
+#	gentoo-gamecd)
+#		user_comment="Gentoo GameCD default user"
+#		clst_livecd_users="gamecd"
+#	;;
+#esac
 
 # Add any users
 if [ -n "${clst_livecd_users}" ]
@@ -94,10 +94,10 @@ echo "## PLEASE EDIT THE FSTAB at /mnt/gentoo/etc/fstab ##" >> /etc/fstab
 echo "####################################################" >> /etc/fstab
 
 # fstab tweaks
-echo "tmpfs	/					tmpfs	defaults,size=80%		0 0" >> /etc/fstab
-echo "tmpfs	/tmp					tmpfs	defaults,noexec,nodev,nosuid	0 0" >> /etc/fstab
-echo "/tmp	/var/tmp				none	bind,rw,noexec,nodev,nosuid	0 0" >> /etc/fstab
-#echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}			tmpfs	defaults	0 0" >> /etc/fstab
+echo "tmpfs	/				tmpfs	defaults,size=30%			0 0" >> /etc/fstab
+echo "tmpfs	/tmp				tmpfs	defaults,noexec,nodev,nosuid,noatime	0 0" >> /etc/fstab
+echo "/tmp	/var/tmp			none	bind,rw,noexec,nodev,nosuid,noatime	0 0" >> /etc/fstab
+#echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}		tmpfs	defaults	0 0" >> /etc/fstab
 # If /usr/lib/X11/xkb/compiled then make it tmpfs
 #if [ -d /usr/lib/X11/xkb/compiled ]
 #then
@@ -177,21 +177,21 @@ case ${clst_livecd_type} in
 	gentoo-release-universal)
 		cat /etc/generic.motd.txt /etc/universal.motd.txt \
 			/etc/minimal.motd.txt > /etc/motd
-		sed -i 's:^##GREETING:Welcome to the Gentoo Linux Universal Installation CD!:' /etc/motd
+		sed -i 's:^##GREETING:Welcome to the Linux Universal Installation CD!:' /etc/motd
 	;;
 	gentoo-release-minimal)
 		cat /etc/generic.motd.txt /etc/minimal.motd.txt > /etc/motd
-		sed -i 's:^##GREETING:Welcome to the Gentoo Linux Minimal Installation CD!:' /etc/motd
+		sed -i 's:^##GREETING:Welcome to the Linux Minimal Installation CD!:' /etc/motd
 	;;
 	gentoo-release-live*)
 		cat /etc/generic.motd.txt \
 			/etc/minimal.motd.txt /etc/livecd.motd.txt > /etc/motd
-		sed -i -e 's:^##GREETING:Welcome to the Gentoo Linux LiveCD!:' \
+		sed -i -e 's:^##GREETING:Welcome to the Linux LiveCD!:' \
 			-e "s:##DISPLAY_MANAGER:${clst_livecd_xdm}:" /etc/motd
 	;;
 	gentoo-gamecd)
 		cat /etc/generic.motd.txt /etc/gamecd.motd.txt > /etc/motd
-		sed -i 's:^##GREETING:Welcome to the Gentoo Linux ##GAME_NAME GameCD!:' /etc/motd
+		sed -i 's:^##GREETING:Welcome to the Linux ##GAME_NAME GameCD!:' /etc/motd
 	;;
 esac
 
