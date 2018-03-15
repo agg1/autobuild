@@ -5,12 +5,14 @@ export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --autounmask y --autou
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS="bzip2"
 export PORTAGE_COMPRESS_FLAGS="-1"
-export CFLAGS="-Os -pipe"
+export CFLAGS="-O2 -pipe"
 export CXXFLAGS="${CFLAGS}"
 export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
 export PROFILE_IS_HARDENED=1
 export ACCEPT_KEYWORDS="~amd64"
-export USE="-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -test hardened urandom ipv6 sasl ssl openssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz xml"
+export USE="-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -test hardened urandom ipv6 sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz xml"
+export PYTHON_SINGLE_TARGET=python2_7
+export ACCEPT_KEYWORDS="~amd64"
 
-export PORTAGE_TMPDIR=/home/tmp/
+#export PORTAGE_TMPDIR=/home/tmp/
 export PORTAGE_NICENESS=8
