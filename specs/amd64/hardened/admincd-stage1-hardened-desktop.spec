@@ -195,6 +195,7 @@ livecd/use:
 	sqlite
 	truetype
 	fontconfig
+	latex
 	jadetex
 	xetex
 	fortran
@@ -302,7 +303,7 @@ livecd/packages:
 	dev-perl/List-MoreUtils
 	app-editors/vim
 	app-editors/wxmedit
-	app-editors/wxhexeditor
+	#app-editors/wxhexeditor
 	app-emulation/qemu
 	app-emulation/spice
 	#app-emulation/wine
@@ -1017,7 +1018,9 @@ livecd/packages:
 	app-text/texlive
 	app-text/xapian-omega
 	www-client/firefox
+	www-client/links
 	www-client/lynx
+	www-client/netsurf
 	www-client/w3m
 	www-servers/lighttpd
 	www-servers/nginx

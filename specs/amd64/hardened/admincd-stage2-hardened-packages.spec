@@ -12,7 +12,7 @@ livecd/volid: Hardened Desktop Live System
 livecd/type: generic-livecd
 livecd/iso: amd64-latest.iso
 livecd/fstype: none
-livecd/gk_mainargs: --mdadm --makeopts=-j16 --config=/etc/portage/genkernel.conf --no-oldconfig
+livecd/gk_mainargs: --mdadm --makeopts=-j8 --config=/etc/portage/genkernel.conf --no-oldconfig
 livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: net.ifnames=0 dokeymap nodhcp memory_corruption_check=1
 livecd/rcdel: keymaps|boot netmount|default
@@ -213,6 +213,7 @@ boot/kernel/linux/use:
 	sqlite
 	truetype
 	fontconfig
+	latex
 	jadetex
 	xetex
 	fortran
