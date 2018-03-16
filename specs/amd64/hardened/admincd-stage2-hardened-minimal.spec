@@ -12,7 +12,7 @@ livecd/volid: Hardened Minimal Live System
 livecd/type: gentoo-release-minimal
 livecd/iso: amd64-latest.iso
 livecd/fstype: squashfs
-livecd/gk_mainargs: --makeopts=-j8 --config=/etc/portage/genkernel.conf --no-oldconfig
+livecd/gk_mainargs: --config=/etc/portage/genkernel.conf
 livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_check=1
 # elevator=bfq
@@ -25,7 +25,7 @@ livecd/root_overlay: /home/autobuild/rootfs/minimal
 
 boot/kernel: linux
 boot/kernel/linux/sources: ck-sources
-boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
+boot/kernel/linux/config: /etc/portage/kconfig
 
 boot/kernel/linux/use:
 	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs

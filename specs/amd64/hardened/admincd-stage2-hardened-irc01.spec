@@ -12,7 +12,7 @@ livecd/volid: Hardened Minimal Live System
 livecd/type: generic-livecd
 livecd/iso: irc01-latest.iso
 livecd/fstype: squashfs
-livecd/gk_mainargs: --makeopts=-j8 --config=/etc/portage/genkernel.conf --no-oldconfig
+livecd/gk_mainargs: --config=/etc/portage/genkernel.conf
 livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_check=1 pbshutdown console=tty0 console=ttyS0,115200 hostname=irc01 syslvmdev=/dev/sda
 livecd/rcdel: keymaps|boot netmount|default
