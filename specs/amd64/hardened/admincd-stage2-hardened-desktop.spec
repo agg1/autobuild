@@ -18,8 +18,8 @@ livecd/bootargs: net.ifnames=0 dokeymap nodhcp memory_corruption_check=0 usbhid.
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default rsyslog|default
 # sshd|default sshguard|default
-livecd/root_overlay: /home/autobuild/rootfs/default
-livecd/overlay: /home/autobuild/rootfs/desktop
+livecd/root_overlay: /home/autobuild/rootfs/default /home/autobuild/rootfs/desktop
+#livecd/overlay: 
 #livecd/xdm:
 
 boot/kernel: linux

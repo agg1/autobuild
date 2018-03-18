@@ -342,7 +342,9 @@ livecd/packages:
 	app-portage/cfg-update
 	#app-portage/cpuinfo2cpuflags
 	app-portage/eix
+	app-portage/elogv
 	app-portage/esearch
+	app-portage/euses
 	app-portage/genlop
 	app-portage/gentoolkit
 	app-portage/gentoolkit-dev
@@ -549,7 +551,7 @@ livecd/packages:
 	games-board/xskat
 	games-util/joystick
 	games-util/jstest-gtk
-	#lxde-base/
+	lxde-base/lxde-meta
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx
@@ -590,6 +592,7 @@ livecd/packages:
 	media-gfx/sane-frontends
 	media-gfx/xsane
 	media-gfx/xv
+	media-gfx/scrot
 	media-libs/libextractor
 	media-libs/alsa-lib
 	#media-libs/alsa-oss
@@ -1050,6 +1053,7 @@ livecd/packages:
 	x11-apps/xset
 	x11-apps/xsetroot
 	x11-apps/xvinfo
+	x11-apps/xwd
 	x11-base/xorg-drivers
 	x11-base/xorg-server
 	x11-base/xorg-x11
@@ -1065,3 +1069,9 @@ livecd/packages:
 	x11-terms/xterm
 	x11-wm/i3
 	x11-wm/openbox
+	x11-themes/gtk-engines
+	x11-themes/adwaita-icon-theme
+	x11-themes/gnome-icon-theme
+	x11-themes/gnome-icon-theme-extras
+	x11-themes/nuovo-icon-theme
+	x11-themes/xcursor-themes
