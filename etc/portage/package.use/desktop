@@ -32,6 +32,9 @@ media-gfx/imagemagick perl
 app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 app-office/libreoffice -gtk gtk2 -jemalloc -kde pdfimport
+www-client/netsurf -gtk gtk2
 games-fps/darkplaces alsa cdsound -debug opengl lights textures -sdl
 games-fps/dhewm3 sdl2
 games-fps/xonotic alsa sdl
+app-doc/doxygen dot
+app-text/xmlto text

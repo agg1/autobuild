@@ -1,3 +1,6 @@
+#sys-kernel/ck-sources experimental
+#sys-kernel/ck-sources deblob
+sys-kernel/genkernel -firmware -cryptsetup
 app-admin/rsyslog -jemalloc rfc3195 rfc5424hmac usertools snmp
 dev-libs/liblogging rfc3195
 net-misc/openssh -bindist -X

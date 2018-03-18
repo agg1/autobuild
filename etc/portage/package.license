@@ -1,2 +1,4 @@
 sys-kernel/vanilla-sources freedist
+sys-kernel/gentoo-sources freedist
+sys-kernel/ck-sources freedist
 >=app-arch/rar-5.6.0_beta1_p20180311 RAR

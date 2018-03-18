@@ -1,5 +1,8 @@
 */* ~amd64
 
+#https://bugs.gentoo.org/612202
+>=sys-apps/sandbox-2.10-r4
+
 #requied to hook in libressl which is still associated with ~testing
 #glady few packages rely on libressl in seed stage
 dev-libs/libressl ~amd64
