@@ -30,6 +30,9 @@ ACCEPT_KEYWORDS="~amd64"
 PYTHON_SINGLE_TARGET=python2_7
 USE="${USE} -awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs"
 PROFILE_IS_HARDENED=1
+
+SWITCH_CTARGET=x86_64-pc-linux-gnu-5.4.0
+
 #PORT_LOGDIR=/var/log/portage/
 COLLISION_IGNORE="/usr/share/vim/*"
 
