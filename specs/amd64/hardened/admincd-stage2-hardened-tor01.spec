@@ -25,8 +25,9 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
+	-accessibility
 	-X
 	-doc
 	-gtk
@@ -60,7 +61,7 @@ livecd/unmerge:
 	app-admin/eselect-ctags
 	app-admin/eselect-vi
 	app-admin/perl-cleaner
-	app-admin/python-updater
+	#app-admin/python-updater
 	app-arch/cpio
 	app-text/manpager
 	dev-libs/gmp

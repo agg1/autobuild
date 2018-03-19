@@ -9,8 +9,9 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
+	-accessibility
 	-X
 	-doc
 	-gtk
@@ -27,7 +28,7 @@ livecd/packages:
 	app-admin/lnav
 	app-admin/passook
 	app-admin/perl-cleaner
-	app-admin/python-updater
+	#app-admin/python-updater
 	app-admin/rsyslog
 	app-admin/sshguard
 	app-admin/testdisk
@@ -47,6 +48,7 @@ livecd/packages:
 	app-cdr/cdrdao
 	app-cdr/cdrtools
 	app-cdr/dvd+rw-tools
+	app-crypt/heimdal
 	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
@@ -61,15 +63,19 @@ livecd/packages:
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
+	#app-portage/cpuinfo2cpuflags
 	app-portage/eix
+	app-portage/elogv
 	app-portage/esearch
+	app-portage/euses
 	app-portage/genlop
 	app-portage/gentoolkit
-	app-portage/gentoolkit-dev
+	#app-portage/gentoolkit-dev
 	app-portage/layman
 	app-portage/metagen
 	app-portage/mirrorselect
 	app-portage/portage-utils
+	#app-portage/porthole
 	app-portage/repoman
 	app-portage/ufed
 	app-shells/bash-completion
@@ -183,7 +189,7 @@ livecd/packages:
 	sys-block/vblade
 	sys-block/mpt-status
 	sys-block/mtx
-	sys-block/open-iscsi
+	#sys-block/open-iscsi
 	sys-block/parted
 	sys-block/tw_cli
 	sys-boot/grub
@@ -211,8 +217,8 @@ livecd/packages:
 	sys-fs/dmraid
 	sys-fs/dosfstools
 	sys-fs/e2fsprogs
-	sys-fs/ext3grep
-	sys-fs/extundelete
+	#sys-fs/ext3grep
+	#sys-fs/extundelete
 	sys-fs/f2fs-tools
 	sys-fs/jfsutils
 	sys-fs/lsscsi

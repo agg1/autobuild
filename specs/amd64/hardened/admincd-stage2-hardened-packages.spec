@@ -27,14 +27,16 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
+	-accessibility
 	-wayland
 	-gconf
 	smp
 	clang
 	X
 	doc
+	xml
 	gtk
 	gtk2
 	xcb
@@ -67,9 +69,6 @@ boot/kernel/linux/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
-	fluidsynth
-	jack
-	speex
 	icu
 	gd
 	djvu
@@ -82,6 +81,9 @@ boot/kernel/linux/use:
 	apng
 	svg
 	tiff
+	jack
+	sox
+	speex
 	fluidsynth
 	midi
 	gstreamer
@@ -112,6 +114,7 @@ boot/kernel/linux/use:
 	dvb
 	dvd
 	sdl
+	sdl2
 	scanner
 	joystick
 	sound
@@ -270,8 +273,6 @@ boot/kernel/linux/packages:
 	#app-office/skrooge
 	#app-office/scribus
 	#app-officeext/ooo2gd
-	#app-office/grisbi
-	app-office/lyx
 	app-officeext/barcode
 	app-officeext/dmaths
 	app-officeext/sun-templates
@@ -358,13 +359,10 @@ boot/kernel/linux/packages:
 	#mate-base/
 	#mate-extra/
 	#media-fonts/
-	media-gfx/blender
 	#media-libs/
 	#media-plugins/
 	#media-radio/
-	media-sound/audacity
 	#media-sound/grip
-	media-sound/hydrogen
 	media-sound/mumble
 	#media-sound/rhythmbox
 	#media-tv/
@@ -505,9 +503,6 @@ boot/kernel/linux/packages:
 	#x11-proto/
 	#x11-terms/
 	#x11-themes/
-	#x11-wm/
-	#xfce-base/
-	#xfce-extra/
 
 #livecd/unmerge:
 #	sys-libs/pam

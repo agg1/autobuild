@@ -9,14 +9,16 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 system-mitkrb5 usb threads nptl nls unicode bzip2 lzo lzma xz zlib xml static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
+	-accessibility
 	-wayland
 	-gconf
 	smp
 	clang
 	X
 	doc
+	xml
 	gtk
 	gtk2
 	xcb
@@ -49,9 +51,6 @@ livecd/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
-	fluidsynth
-	jack
-	speex
 	icu
 	gd
 	djvu
@@ -64,6 +63,9 @@ livecd/use:
 	apng
 	svg
 	tiff
+	jack
+	sox
+	speex
 	fluidsynth
 	midi
 	gstreamer
@@ -94,6 +96,7 @@ livecd/use:
 	dvb
 	dvd
 	sdl
+	sdl2
 	scanner
 	joystick
 	sound
@@ -225,7 +228,7 @@ livecd/packages:
 	app-admin/paxtest
 	app-admin/procinfo-ng
 	app-admin/perl-cleaner
-	app-admin/python-updater
+	#app-admin/python-updater
 	#app-admin/qtpass
 	app-admin/rsyslog
 	app-admin/sshguard
@@ -276,6 +279,7 @@ livecd/packages:
 	app-crypt/gnupg
 	#app-crypt/gpa
 	app-crypt/hashalot
+	app-crypt/heimdal
 	app-crypt/md5deep
 	app-crypt/md6sum
 	app-crypt/pinentry
@@ -335,10 +339,15 @@ livecd/packages:
 	app-mobilephone/smsclient
 	app-mobilephone/smstools
 	app-office/dia
+	app-office/grisby
 	app-office/homebank
 	app-office/libreoffice
 	app-office/libreoffice-l10n
+	app-office/lyx
+	app-office/scribus
 	app-office/texmacs
+	app-office/texmaker
+	app-office/texstudio
 	app-portage/cfg-update
 	#app-portage/cpuinfo2cpuflags
 	app-portage/eix
@@ -347,7 +356,7 @@ livecd/packages:
 	app-portage/euses
 	app-portage/genlop
 	app-portage/gentoolkit
-	app-portage/gentoolkit-dev
+	#app-portage/gentoolkit-dev
 	app-portage/layman
 	app-portage/metagen
 	app-portage/mirrorselect
@@ -368,7 +377,6 @@ livecd/packages:
 	app-text/tree
 	app-text/wgetpaste
 	app-text/mupdf
-	#app-text/xpdf
 	app-text/docx2txt
 	app-text/html2text
 	app-text/html-xml-utils
@@ -582,6 +590,7 @@ livecd/packages:
 	media-fonts/font-xfree86-type1
 	media-fonts/ttf-bitstream-vera 
 	media-fonts/unifont
+	media-gfx/blender
 	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/gimp
@@ -640,10 +649,18 @@ livecd/packages:
 	media-sound/lash
 	media-sound/mpc
 	media-sound/mpd
+	media-sound/musescore
+	media-sound/rosegarden
+	media-sound/sox
+	media-sound/timidity++
+	media-sound/linuxsampler
+	media-sound/qsampler
+	media-sound/qtractor
 	media-video/dvdrip
 	media-video/lsdvd
 	media-video/mplayer
-	#media-video/vlc
+	media-video/smplayer
+	media-video/vlc
 	#net-analyzer/aimsniff
 	net-analyzer/angst
 	net-analyzer/argus
@@ -926,7 +943,7 @@ livecd/packages:
 	sys-block/fio
 	sys-block/mpt-status
 	sys-block/mtx
-	sys-block/open-iscsi
+	#sys-block/open-iscsi
 	sys-block/parted
 	sys-block/tw_cli
 	sys-boot/grub
@@ -956,15 +973,15 @@ livecd/packages:
 	sys-devel/llvm
 	sys-devel/make
 	sys-devel/patch
-	sys-firmware/radeon-ucode
+	#sys-firmware/radeon-ucode
 	sys-fs/btrfs-progs
 	sys-fs/cryptsetup
 	sys-fs/ddrescue
 	sys-fs/dmraid
 	sys-fs/dosfstools
 	sys-fs/e2fsprogs
-	sys-fs/ext3grep
-	sys-fs/extundelete
+	#sys-fs/ext3grep
+	#sys-fs/extundelete
 	sys-fs/f2fs-tools
 	sys-fs/hfsutils
 	sys-fs/jfsutils
