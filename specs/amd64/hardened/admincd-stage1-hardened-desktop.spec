@@ -236,8 +236,8 @@ livecd/packages:
 	app-admin/syslog-summary
 	app-admin/testdisk
 	app-admin/tmpwatch
-	app-admin/mktwpol
-	app-admin/tripwire
+	#app-admin/mktwpol
+	#app-admin/tripwire
 	#app-admin/ulogd
 	app-admin/verynice
 	app-admin/whowatch
