@@ -9,7 +9,7 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
 	-accessibility
 	-wayland
@@ -17,7 +17,6 @@ livecd/use:
 	smp
 	clang
 	X
-	doc
 	xml
 	gtk
 	gtk2
@@ -202,6 +201,7 @@ livecd/use:
 	jadetex
 	xetex
 	fortran
+	-vlc
 
 livecd/packages:
 	app-admin/apache-tools
@@ -279,7 +279,7 @@ livecd/packages:
 	app-crypt/gnupg
 	#app-crypt/gpa
 	app-crypt/hashalot
-	app-crypt/heimdal
+	#app-crypt/heimdal
 	app-crypt/md5deep
 	app-crypt/md6sum
 	app-crypt/pinentry
@@ -339,7 +339,7 @@ livecd/packages:
 	app-mobilephone/smsclient
 	app-mobilephone/smstools
 	app-office/dia
-	app-office/grisby
+	app-office/grisbi
 	app-office/homebank
 	app-office/libreoffice
 	app-office/libreoffice-l10n
@@ -590,7 +590,7 @@ livecd/packages:
 	media-fonts/font-xfree86-type1
 	media-fonts/ttf-bitstream-vera 
 	media-fonts/unifont
-	media-gfx/blender
+	#media-gfx/blender
 	media-gfx/fbida
 	media-gfx/feh
 	media-gfx/gimp
@@ -660,7 +660,7 @@ livecd/packages:
 	media-video/lsdvd
 	media-video/mplayer
 	media-video/smplayer
-	media-video/vlc
+	#media-video/vlc
 	#net-analyzer/aimsniff
 	net-analyzer/angst
 	net-analyzer/argus
@@ -773,7 +773,7 @@ livecd/packages:
 	#net-firewall/nftables
 	net-firewall/psad
 	net-firewall/shapecfg
-	net-fs/cifs-utils
+	#net-fs/cifs-utils
 	net-fs/nfs-utils
 	net-ftp/ncftp
 	net-ftp/oftpd
@@ -973,8 +973,8 @@ livecd/packages:
 	sys-devel/llvm
 	sys-devel/make
 	sys-devel/patch
-	#sys-firmware/radeon-ucode
-	sys-fs/btrfs-progs
+	sys-firmware/radeon-ucode
+	#sys-fs/btrfs-progs
 	sys-fs/cryptsetup
 	sys-fs/ddrescue
 	sys-fs/dmraid

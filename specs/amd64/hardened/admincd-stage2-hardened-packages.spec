@@ -35,7 +35,6 @@ boot/kernel/linux/use:
 	smp
 	clang
 	X
-	doc
 	xml
 	gtk
 	gtk2

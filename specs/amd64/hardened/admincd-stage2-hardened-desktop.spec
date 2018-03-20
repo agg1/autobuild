@@ -19,7 +19,7 @@ livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default rsyslog|default
 # sshd|default sshguard|default
 livecd/root_overlay: /home/autobuild/rootfs/default /home/autobuild/rootfs/desktop
-#livecd/overlay: 
+livecd/overlay: /home/autobuild/tmp/buildoverlay /home/autobuild/tmp/cscriptoverlay/default
 #livecd/xdm:
 
 boot/kernel: linux
@@ -27,7 +27,7 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
 	-accessibility
 	-wayland
@@ -35,7 +35,6 @@ boot/kernel/linux/use:
 	smp
 	clang
 	X
-	doc
 	xml
 	gtk
 	gtk2
