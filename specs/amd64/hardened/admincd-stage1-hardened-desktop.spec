@@ -9,11 +9,15 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
 	-accessibility
+	-libinput
 	-wayland
 	-gconf
+	-libnotify
+	-jit
+	-orc
 	smp
 	clang
 	X
@@ -176,7 +180,7 @@ livecd/use:
 	input_devices_hyperpen
 	input_devices_joystick
 	input_devices_keyboard
-	input_devices_libinput
+	-input_devices_libinput
 	input_devices_mouse
 	input_devices_mutouch
 	input_devices_penmount
@@ -345,9 +349,9 @@ livecd/packages:
 	app-office/libreoffice-l10n
 	app-office/lyx
 	app-office/scribus
-	app-office/texmacs
-	app-office/texmaker
-	app-office/texstudio
+	#app-office/texmacs -> guile1.9 conflicts with latest guile required by autogen
+	#app-office/texmaker -> qtwebkit -> ruby
+	#app-office/texstudio -> various conflicts and inconsistencies to be analyzed separately
 	app-portage/cfg-update
 	#app-portage/cpuinfo2cpuflags
 	app-portage/eix
@@ -629,6 +633,7 @@ livecd/packages:
 	media-libs/sdl2-net
 	media-libs/sdl2-ttf
 	media-libs/sdlmm
+	media-libs/soxr
 	media-libs/speex
 	media-libs/speexdsp
 	media-plugins/alsa-plugins
@@ -649,7 +654,7 @@ livecd/packages:
 	media-sound/lash
 	media-sound/mpc
 	media-sound/mpd
-	media-sound/musescore
+	#media-sound/musescore
 	media-sound/rosegarden
 	media-sound/sox
 	media-sound/timidity++
@@ -747,7 +752,7 @@ livecd/packages:
 	#net-analyzer/wireshark
 	net-dialup/dial
 	net-dialup/diald
-	net-dialup/freeradius
+	#net-dialup/freeradius
 	net-dialup/mingetty
 	net-dialup/minicom
 	net-dialup/picocom

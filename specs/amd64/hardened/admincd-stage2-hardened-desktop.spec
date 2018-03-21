@@ -27,11 +27,15 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
+	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
 	-udev
 	-accessibility
+	-libinput
 	-wayland
 	-gconf
+	-libnotify
+	-jit
+	-orc
 	smp
 	clang
 	X
@@ -194,7 +198,7 @@ boot/kernel/linux/use:
 	input_devices_hyperpen
 	input_devices_joystick
 	input_devices_keyboard
-	input_devices_libinput
+	-input_devices_libinput
 	input_devices_mouse
 	input_devices_mutouch
 	input_devices_penmount
@@ -219,6 +223,7 @@ boot/kernel/linux/use:
 	jadetex
 	xetex
 	fortran
+	-vlc
 
 #boot/kernel/linux/packages:
 #	sys-kernel/linux-firmware
