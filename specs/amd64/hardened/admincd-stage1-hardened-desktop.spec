@@ -8,24 +8,33 @@ source_subpath: hardened/stage3-amd64-latest.tar.bz2
 portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
+#kerberos
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
-	-udev
-	-accessibility
-	-libinput
-	-wayland
-	-gconf
-	-libnotify
-	-jit
-	-orc
-	smp
-	clang
-	X
-	xml
-	gtk
-	gtk2
-	xcb
-	xkb
+	#minimal
+	#-doc
+	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
+	-udev -udisks -upower -upnp -upnp-av -avahi usb
+	-system-mitkrb5 -system-heimdal -kerberos
+	-java -ruby -python
+	#-lua -php
+	#-X -gtk -qt4 -qt5
+	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
+	-libinput -libnotify
+	-jit -orc
+	acl caps seccomp skey smartcard xattr
+	#ldap nis radius
+	### DESKTOP
+	X gtk gtk2 xcb xkb
+	sqlite
+	truetype fontconfig cups gnuplot pdf latex jadetex xetex xml iconv spell icu
+	vim-syntax bash-completion
+	scanner joystick
+	socks5
+	#snmp
+	sdl sdl2 cdparanoia cdr encode
+	gd djvu bmp gif jpeg jpeg2k mng png apng svg tiff cairo imlib wmf xpm
+	sound jack sox speex fluidsynth midi gstreamer a52 aac flac gsm lame ladspa lash ogg openal vorbis wav mad mp3 sndfile cdda cddb dts timidity
+	video -vlc mplayer mp4 mpeg theora ffmpeg libav xvid x264 h323 v4l matroska vcd css dvb dvd dvdr dv quicktime
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -54,73 +63,12 @@ livecd/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
-	icu
-	gd
-	djvu
-	bmp
-	gif
-	jpeg
-	jpeg2k
-	mng
-	png
-	apng
-	svg
-	tiff
-	jack
-	sox
-	speex
-	fluidsynth
-	midi
-	gstreamer
-	a52
-	aac
-	flac
-	gsm
-	lame
-	ladspa
-	ogg
-	openal
-	vorbis
-	wav
-	mad
-	mp3
-	mp4
-	mpeg
-	speex
-	theora
-	ffmpeg
-	xvid
-	x264
-	h323
-	v4l
-	cdda
-	cddb
-	css
-	dvb
-	dvd
-	sdl
-	sdl2
-	scanner
-	joystick
-	sound
-	video
+	#directfb fbcon
 	#egl
 	#gles
 	#gles2
 	#gles3
-	opengl
-	gallium
-	glamor
-	uxa
-	sna
-	dri
-	dri2
-	dri3
-	vaapi
-	vdpau
-	xa
-	xv
-	xvmc
+	opengl gallium glamor uxa sna dri dri2 dri3 vaapi vdpau xa xv xvmc
 	video_cards_amdgpu
 	video_cards_apm
 	video_cards_ast
@@ -190,86 +138,278 @@ livecd/use:
 	input_devices_synaptics
 	input_devices_wacom
 	-input_devices_evdev
-	mmx
-	sse
-	sse2
-	ntfsprogs
-	-ntfsdecrypt
-	libusb
-	cairo
-	imlib
-	sqlite
-	truetype
-	fontconfig
-	latex
-	jadetex
-	xetex
-	fortran
-	-vlc
 
 livecd/packages:
-	app-admin/apache-tools
+	#[minimal]
+	net-dialup/picocom
+	net-misc/dhcp
+#	net-misc/dhcpcd
+	net-misc/iputils
+	#sys-apps/busybox
+	#sys-apps/coreutils
+	sys-apps/gptfdisk
+	sys-apps/hwsetup
+	sys-apps/iproute2
+	sys-apps/lsb-release
+	#sys-apps/net-tools
+	#sys-apps/util-linux
+	#sys-apps/clrngd
+	sys-apps/rng-tools
+	sys-devel/bc
+	dev-libs/libressl
+	sys-fs/e2fsprogs
+	sys-fs/lvm2
+	#[admin]
+	#app-misc/pwsafe
 	app-admin/checksec
+	app-admin/eselect
+	app-admin/genromfs
+	app-admin/grubconfig
+	app-admin/hddtemp
+	app-admin/ide-smart
+	app-admin/lnav
+	app-admin/passook
+	app-admin/perl-cleaner
+	#app-admin/python-updater
+	app-admin/rsyslog
+	app-admin/sshguard
+	app-admin/testdisk
+	app-admin/ulogd
+	app-benchmarks/bonnie++
+	app-benchmarks/stress-ng
+	app-arch/bzip2
+	app-arch/cpio
+	app-arch/gzip
+	app-arch/mt-st
+	app-arch/p7zip
+	app-arch/pbzip2
+	app-arch/rar
+	app-arch/tar
+	app-arch/unrar
+	app-arch/unzip
+	app-cdr/cdrdao
+	app-cdr/cdrtools
+	app-cdr/dvd+rw-tools
+	#app-crypt/heimdal
+	#app-crypt/mitkrb5
+	app-crypt/bcwipe
+	app-crypt/gnupg
+	app-crypt/hashalot
+	app-crypt/md5deep
+	app-crypt/pinentry
+	app-crypt/signify
+	app-editors/nano
+	app-editors/vim
+	app-misc/ca-certificates
+	app-misc/pax-utils
+	app-misc/tmux
+	app-misc/zisofs-tools
+	app-portage/cfg-update
+	#app-portage/cpuinfo2cpuflags
+	app-portage/eix
+	app-portage/elogv
+	app-portage/esearch
+	app-portage/euses
+	app-portage/genlop
+	app-portage/gentoolkit
+	#app-portage/gentoolkit-dev
+	app-portage/layman
+	app-portage/metagen
+	app-portage/mirrorselect
+	app-portage/portage-utils
+	#app-portage/porthole
+	app-portage/repoman
+	app-portage/ufed
+	app-shells/bash-completion
+	app-shells/gentoo-bashcomp
+	app-text/tree
+	app-text/dos2unix
+	app-text/wgetpaste
+	app-vim/gentoo-syntax
+	dev-lang/perl
+	dev-lang/python
+	dev-python/pycrypto
+	dev-util/catalyst
+	dev-util/pkgconfig
+	dev-util/shc
+	dev-vcs/git
+	dev-vcs/git-crypt
+	mail-client/mailx
+	#mail-mta/msmtp
+	mail-filter/opensmtpd-extras
+	mail-mta/opensmtpd
+	net-analyzer/fail2ban
+	net-analyzer/gnu-netcat
+	net-analyzer/macchanger
+	net-analyzer/netcat6
+	net-analyzer/tcptraceroute
+	net-analyzer/traceroute
+	net-analyzer/traceroute-nanog
+	net-analyzer/tcpdump
+	net-dialup/dial
+	net-dialup/diald
+	net-dialup/mingetty
+	net-dialup/minicom
+	net-dialup/pptpclient
+	#net-dialup/wvdial
+	net-dns/bind-tools
+	net-firewall/ebtables
+	net-vpn/ipsec-tools
+	net-firewall/iptables
+	#net-fs/cifs-utils
+	net-fs/nfs-utils
+	net-ftp/ncftp
+	net-misc/bridge-utils
+	net-misc/curl
+	net-misc/netkit-telnetd
+	net-misc/ntp
+	net-misc/openssh
+	net-misc/rdate
+	net-misc/rsync
+	net-misc/socat
+	net-misc/vconfig
+	net-misc/wol
+	net-misc/wget
+	net-misc/whois
+	net-wireless/b43-fwcutter
+	#net-wireless/iw
+	#net-wireless/rfkill
+	net-wireless/wireless-tools
+	net-wireless/wpa_supplicant
+	sys-apps/arrayprobe
+	sys-apps/acl
+	sys-apps/attr
+	sys-apps/cciss_vol_status
+	sys-apps/chname
+	sys-apps/coreutils
+	sys-apps/dcfldd
+	sys-apps/net-tools
+	sys-apps/debianutils
+	sys-apps/diffutils
+	sys-apps/dmidecode
+	sys-apps/ethtool
+	sys-apps/file
+	sys-apps/findutils
+	sys-apps/flashrom
+	#sys-apps/fxload
+	sys-apps/gawk
+	sys-apps/grep
+	sys-apps/groff
+	sys-apps/hdparm
+	#sys-apps/irqbalance
+	sys-apps/less
+	sys-apps/lshw
+	sys-apps/man-db
+	sys-apps/man-pages
+	sys-apps/man-pages-posix
+	sys-apps/memtester
+	sys-apps/miscfiles
+	sys-apps/pciutils
+	sys-apps/pcmciautils
+	sys-apps/portage
+	sys-apps/sdparm
+	sys-apps/sed
+	sys-apps/setserial
+	sys-apps/sg3_utils
+	sys-apps/smartmontools
+	sys-apps/systrace
+	sys-apps/texinfo
+	sys-apps/usbutils
+	sys-apps/util-linux
+	sys-apps/vbetool
+	sys-apps/which
+	sys-boot/syslinux
+	sys-block/aoetools
+	sys-block/vblade
+	sys-block/mpt-status
+	sys-block/mtx
+	#sys-block/open-iscsi
+	sys-block/parted
+	sys-block/tw_cli
+	sys-boot/grub
+	sys-boot/syslinux
+	sys-devel/autoconf
+	sys-devel/autoconf-wrapper
+	sys-devel/autogen
+	sys-devel/automake
+	sys-devel/automake-wrapper
+	sys-devel/binutils
+	sys-devel/binutils-config
+	sys-devel/bison
+	sys-devel/flex
+	sys-devel/gcc
+	sys-devel/gcc-config
+	sys-devel/gettext
+	sys-devel/gnuconfig
+	sys-devel/libtool
+	sys-devel/m4
+	sys-devel/make
+	sys-devel/patch
+	#sys-fs/btrfs-progs
+	sys-fs/cryptsetup
+	sys-fs/ddrescue
+	sys-fs/dmraid
+	sys-fs/dosfstools
+	#sys-fs/ext3grep
+	#sys-fs/extundelete
+	sys-fs/f2fs-tools
+	sys-fs/jfsutils
+	sys-fs/lsscsi
+	sys-fs/mac-fdisk
+	sys-fs/mdadm
+	sys-fs/multipath-tools
+	sys-fs/ntfs3g
+	sys-fs/reiserfsprogs
+	net-fs/sshfs
+	sys-fs/squashfs-tools
+	sys-fs/sysfsutils
+	sys-fs/xfsprogs
+	sys-kernel/genkernel
+	sys-kernel/linux-headers
+	sys-libs/gpm
+	sys-libs/libkudzu
+	sys-libs/libsmbios
+	sys-power/acpid
+	sys-process/lsof
+	sys-process/procps
+	sys-process/psmisc
+	virtual/pkgconfig
+	www-client/lynx
+	#[desktop]
+	app-admin/apache-tools
 	app-admin/chroot_safe
 	app-admin/chrootuid
 	app-admin/chrpath
 	app-admin/cpulimit
 	app-admin/diradm
-	app-admin/eselect
 	app-admin/evtxtools
-	app-admin/genromfs
-	app-admin/grubconfig
-	app-admin/hddtemp
-	app-admin/ide-smart
 	app-admin/lnav
 	app-admin/logrotate
 	app-admin/logsentry
 	app-admin/lsat
 	app-admin/mcelog
 	app-admin/pass
-	app-admin/passook
 	app-admin/passwordsafe
 	app-admin/paxtest
 	app-admin/procinfo-ng
-	app-admin/perl-cleaner
-	#app-admin/python-updater
 	#app-admin/qtpass
-	app-admin/rsyslog
-	app-admin/sshguard
 	app-admin/superadduser
 	app-admin/syslog-summary
-	app-admin/testdisk
 	app-admin/tmpwatch
 	#app-admin/mktwpol
 	#app-admin/tripwire
-	#app-admin/ulogd
 	app-admin/verynice
 	app-admin/whowatch
 	app-antivirus/clamav
 	app-antivirus/clamav-unofficial-sigs
-	app-arch/bzip2
-	app-arch/cpio
 	app-arch/dpkg
-	app-arch/gzip
-	app-arch/mt-st
-	app-arch/p7zip
-	app-arch/pbzip2
-	app-arch/rar
 	app-arch/sharutils
-	app-arch/tar
-	app-arch/unrar
-	app-arch/unzip
-	app-backup/bareos
-	app-benchmarks/bonnie++
-	app-benchmarks/stress-ng
+	#app-backup/bareos -> crypto_openssl.c
 	app-cdr/bashburn
 	app-cdr/bin2iso
 	app-cdr/burncdda
 	app-cdr/ccd2iso
-	app-cdr/cdrdao
-	app-cdr/cdrtools
 	app-cdr/cuetools
-	app-cdr/dvd+rw-tools
 	app-cdr/nrg2iso
 	app-cdr/pburn
 	app-cdr/poweriso
@@ -277,17 +417,10 @@ livecd/packages:
 	app-crypt/aescrypt
 	app-crypt/aespipe
 	#app-crypt/bcrypt
-	app-crypt/bcwipe
 	#app-crypt/efitools
 	#app-crypt/gcr
-	app-crypt/gnupg
 	#app-crypt/gpa
-	app-crypt/hashalot
-	#app-crypt/heimdal
-	app-crypt/md5deep
 	app-crypt/md6sum
-	app-crypt/pinentry
-	app-crypt/signify
 	app-dicts/aspell-de
 	app-dicts/aspell-de-alt
 	app-dicts/aspell-en
@@ -307,9 +440,7 @@ livecd/packages:
 	#app-editors/emacs
 	app-editors/hexcurse
 	app-editors/hexedit
-	app-editors/nano
 	dev-perl/List-MoreUtils
-	app-editors/vim
 	app-editors/wxmedit
 	#app-editors/wxhexeditor
 	app-emulation/qemu
@@ -332,12 +463,9 @@ livecd/packages:
 	app-laptop/radeontool
 	app-misc/abook
 	app-misc/banner
-	app-misc/ca-certificates
 	app-misc/rmlint
 	app-misc/mc
-	app-misc/tmux
 	#app-misc/xmind
-	app-misc/zisofs-tools
 	app-mobilephone/anyremote
 	app-mobilephone/gammu
 	app-mobilephone/smsclient
@@ -352,34 +480,14 @@ livecd/packages:
 	#app-office/texmacs -> guile1.9 conflicts with latest guile required by autogen
 	#app-office/texmaker -> qtwebkit -> ruby
 	#app-office/texstudio -> various conflicts and inconsistencies to be analyzed separately
-	app-portage/cfg-update
-	#app-portage/cpuinfo2cpuflags
-	app-portage/eix
-	app-portage/elogv
-	app-portage/esearch
-	app-portage/euses
-	app-portage/genlop
-	app-portage/gentoolkit
-	#app-portage/gentoolkit-dev
-	app-portage/layman
-	app-portage/metagen
-	app-portage/mirrorselect
-	app-portage/portage-utils
 	app-portage/porthole
-	app-portage/repoman
-	app-portage/ufed
 	app-shells/bash
-	app-shells/bash-completion
-	app-shells/gentoo-bashcomp
 	app-shells/zsh
 	app-shells/zsh-completions
 	app-shells/gentoo-zsh-completions
-	app-text/dos2unix
 	app-text/ghostscript-gpl
 	app-text/gtkspell
 	app-text/stardict
-	app-text/tree
-	app-text/wgetpaste
 	app-text/mupdf
 	app-text/docx2txt
 	app-text/html2text
@@ -429,7 +537,6 @@ livecd/packages:
 	app-vim/fugitive
 	app-vim/fuzzyfinder
 	app-vim/genindent
-	app-vim/gentoo-syntax
 	app-vim/genutils
 	app-vim/gist
 	app-vim/git-patch-tags
@@ -532,8 +639,6 @@ livecd/packages:
 	dev-db/pgadmin3
 	dev-db/postgresql
 	dev-db/redis
-	dev-lang/perl
-	dev-lang/python
 	# broken with EGL dependency
 	dev-libs/DirectFB
 	dev-libs/libbsd
@@ -541,10 +646,7 @@ livecd/packages:
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
-	dev-libs/libressl
-	dev-python/pycrypto
 	dev-util/ccache
-	dev-util/catalyst
 	dev-util/cloc
 	dev-util/cmake
 	dev-util/codeblocks
@@ -552,29 +654,22 @@ livecd/packages:
 	dev-util/geany-plugins
 	dev-util/indent
 	dev-util/ltrace
-	dev-util/pkgconfig
-	dev-util/shc
 	dev-util/strace
 	dev-util/valgrind
 	dev-vcs/cvs
-	dev-vcs/git
-	dev-vcs/git-crypt
-	dev-vcs/subversion
+	#dev-vcs/subversion -> undefined reference to `BIO_meth_set_create'
 	games-board/xskat
 	games-util/joystick
 	games-util/jstest-gtk
 	lxde-base/lxde-meta
 	mail-client/mutt
 	mail-client/thunderbird
-	mail-client/mailx
 	mail-client/mailx-support
-	mail-filter/dovecot-antispam
+	#mail-filter/dovecot-antispam
 	#mail-filter/dovecot_deleted_to_trash
 	mail-filter/clamassassin
 	mail-filter/procmail
 	mail-filter/spamassassin
-	mail-filter/opensmtpd-extras
-	mail-mta/opensmtpd
 	#media-fonts/corefonts
 	media-fonts/croscorefonts
 	media-plugins/gst-plugins-ladspa
@@ -648,7 +743,7 @@ livecd/packages:
 	media-sound/cdparanoia
 	media-sound/fluidsynth
 	media-sound/hydrogen
-	#media-sound/jack
+	media-sound/jack
 	media-sound/jack-rack
 	media-sound/jack-smf-utils
 	media-sound/lash
@@ -685,12 +780,10 @@ livecd/packages:
 	net-analyzer/driftnet
 	net-analyzer/egressor
 	net-analyzer/ettercap
-	net-analyzer/fail2ban
 	net-analyzer/ffp
 	net-analyzer/firewalk
 	net-analyzer/fping
 	net-analyzer/fragroute
-	net-analyzer/gnu-netcat
 	net-analyzer/hping
 	net-analyzer/hunt
 	net-analyzer/ifmetric
@@ -708,7 +801,6 @@ livecd/packages:
 	net-analyzer/labrea
 	net-analyzer/lft
 	net-analyzer/linkchecker
-	net-analyzer/macchanger
 	net-analyzer/masscan
 	net-analyzer/mbrowse
 	net-analyzer/mping
@@ -720,7 +812,6 @@ livecd/packages:
 	net-analyzer/monitoring-plugins
 	net-analyzer/nagios-plugins-snmp
 	net-analyzer/nbtscan
-	net-analyzer/netcat6
 	net-analyzer/netperf
 	net-analyzer/net-snmp
 	net-analyzer/netwag
@@ -743,46 +834,29 @@ livecd/packages:
 	net-analyzer/suricata
 	net-analyzer/oinkmaster
 	net-analyzer/snort
-	net-analyzer/tcpdump
-	net-analyzer/tcptraceroute
-	net-analyzer/traceroute
-	net-analyzer/traceroute-nanog
 	net-analyzer/upnpscan
 	net-analyzer/wapiti
 	#net-analyzer/wireshark
-	net-dialup/dial
-	net-dialup/diald
 	#net-dialup/freeradius
-	net-dialup/mingetty
-	net-dialup/minicom
-	net-dialup/picocom
-	net-dialup/pptpclient
 	#net-dialup/pptpd
 	net-dialup/pppconfig
 	net-dialup/rp-pppoe
-	#net-dialup/wvdial
-	net-dns/bind-tools
 	net-dns/ddclient
 	net-dns/dnsmasq
 	net-dns/dnstop
 	net-dns/libidn
 	net-firewall/arptables
 	net-firewall/conntrack-tools
-	net-firewall/ebtables
 	#net-firewall/fwipsec
 	net-firewall/fwknop
-	net-vpn/ipsec-tools
-	net-firewall/iptables
 	net-firewall/itval
 	net-firewall/nfacct
 	#net-firewall/nftables
 	net-firewall/psad
 	net-firewall/shapecfg
 	#net-fs/cifs-utils
-	net-fs/nfs-utils
-	net-ftp/ncftp
 	net-ftp/oftpd
-	net-ftp/vsftpd
+	#net-ftp/vsftpd -> undefined reference to `crypt', vsf_sysdep_check_auth
 	net-im/bitlbee
 	net-im/pidgin
 	#net-im/toxic
@@ -797,52 +871,48 @@ livecd/packages:
 	net-libs/libotr
 	#net-libs/tox
 	net-mail/dovecot
-	net-mail/isync
+	#net-mail/isync -> In function `start_tls_p2': undefined reference to `X509_OBJECT_get0_X509'
 	net-mail/notmuch
 	net-mail/notmuchfs
 	net-mail/muchsync
 	net-mail/qprint
 	net-misc/asterisk
-	net-misc/bridge-utils
-	net-misc/curl
-	net-misc/dhcp
-	net-misc/iputils
 	net-misc/mosh
 	net-misc/mrouted
 	net-misc/ndisc6
+###
+	net-libs/libnsl
+	net-libs/libtirpc
+	net-libs/ntirpc
+	net-libs/rpcsvc-proto
+###
 	net-misc/netkit-bootparamd
 	net-misc/netkit-bootpd
 	net-misc/netkit-fingerd
 	net-misc/netkit-routed
 	net-misc/netkit-rsh
 	#net-misc/netkit-rusers
-	net-misc/netkit-rwall
-	net-misc/netkit-rwho
+	#rpcgen: Command not found
+	#net-misc/netkit-rwall
+	#rwhod.c:344:9: error: 'uintmax_t' undeclared
+	#net-misc/netkit-rwho
 	net-misc/netkit-talk
-	net-misc/netkit-telnetd
+	#net-misc/netkit-telnetd
 	net-misc/netkit-timed
-	net-misc/ntp
 	#net-misc/openntpd
-	net-misc/openssh
+	# -> broken with =libressl 2.6.4, fixed with 2.5.x and >2.7.x
 	net-vpn/openvpn
 	net-misc/quagga
 	net-misc/radvd
-	net-misc/rdate
 	net-misc/rdesktop
-	net-misc/rsync
-	net-misc/socat
 	net-misc/spice-gtk
 	net-misc/sstp-client
 	#net-misc/tigervnc
 	#net-misc/tightvnc
 	net-vpn/tor
 	net-misc/urlview
-	net-misc/vconfig
 	net-misc/vde
 	net-vpn/vpnc
-	net-misc/wol
-	net-misc/wget
-	net-misc/whois
 	net-misc/WendzelNNTPd
 	net-misc/yatb
 	net-misc/youtube-dl
@@ -881,136 +951,34 @@ livecd/packages:
 	net-wireless/cpyrit-opencl
 	net-wireless/wepattack
 	net-wireless/wepdecrypt
-	net-wireless/wireless-tools
-	net-wireless/wpa_supplicant
 	sci-mathematics/octave
 	sci-mathematics/octave-epstk
 	sci-visualization/gnuplot
-	sys-apps/arrayprobe
-	sys-apps/acl
-	sys-apps/attr
-	sys-apps/cciss_vol_status
-	sys-apps/chname
-	sys-apps/coreutils
-	sys-apps/dcfldd
-	sys-apps/net-tools
-	sys-apps/debianutils
-	sys-apps/diffutils
-	sys-apps/dmidecode
 	sys-apps/dstat
-	sys-apps/ethtool
-	sys-apps/file
-	sys-apps/findutils
-	sys-apps/gawk
-	sys-apps/gptfdisk
-	sys-apps/grep
-	sys-apps/groff
-	sys-apps/hdparm
-	sys-apps/hwsetup
 	sys-apps/i2c-tools
 	#sys-apps/ipmitool
 	#sys-apps/ipmiutil
-	sys-apps/iproute2
-	#sys-apps/irqbalance
 	sys-apps/keyutils
-	sys-apps/less
 	sys-apps/lm_sensors
-	sys-apps/lshw
-	sys-apps/lsb-release
-	sys-apps/man-db
-	sys-apps/man-pages
-	sys-apps/man-pages-posix
-	sys-apps/memtester
-	sys-apps/miscfiles
 	sys-apps/mlocate
 	sys-apps/net-tools
-	sys-apps/pciutils
-	sys-apps/pcmciautils
 	sys-apps/pcsc-lite
 	sys-apps/pmount
-	sys-apps/portage
-	sys-apps/sdparm
-	sys-apps/sed
-	sys-apps/setserial
-	sys-apps/sg3_utils
-	sys-apps/smartmontools
-	sys-apps/systrace
-	sys-apps/texinfo
-	sys-apps/usbutils
-	sys-apps/util-linux
-	sys-apps/vbetool
-	sys-apps/which
-	#sys-apps/clrngd
-	sys-apps/rng-tools
 	sys-auth/skey
-	sys-block/aoetools
-	sys-block/vblade
 	sys-block/fio
-	sys-block/mpt-status
-	sys-block/mtx
-	#sys-block/open-iscsi
-	sys-block/parted
-	sys-block/tw_cli
-	sys-boot/grub
-	sys-boot/syslinux
 	sys-boot/winusb
-	sys-devel/autoconf
-	sys-devel/autoconf-wrapper
-	sys-devel/autogen
-	sys-devel/automake
-	sys-devel/automake-wrapper
-	sys-devel/bc
-	sys-devel/binutils
-	sys-devel/binutils-config
-	sys-devel/bison
-	sys-devel/gcc
-	sys-devel/gcc-config
-	sys-devel/flex
 	sys-devel/clang
 	sys-devel/distcc
-	sys-devel/gcc
-	sys-devel/gcc-config
-	sys-devel/gettext
 	sys-devel/gdb
-	sys-devel/gnuconfig
-	sys-devel/libtool
-	sys-devel/m4
 	sys-devel/llvm
-	sys-devel/make
-	sys-devel/patch
 	sys-firmware/radeon-ucode
-	#sys-fs/btrfs-progs
-	sys-fs/cryptsetup
-	sys-fs/ddrescue
-	sys-fs/dmraid
-	sys-fs/dosfstools
-	sys-fs/e2fsprogs
 	#sys-fs/ext3grep
 	#sys-fs/extundelete
-	sys-fs/f2fs-tools
 	sys-fs/hfsutils
-	sys-fs/jfsutils
-	sys-fs/lsscsi
-	sys-fs/lvm2
-	sys-fs/mac-fdisk
-	sys-fs/mdadm
-	sys-fs/multipath-tools
-	sys-fs/ntfs3g
 	sys-fs/quota
-	sys-fs/reiserfsprogs
-	net-fs/sshfs
-	sys-fs/squashfs-tools
-	sys-fs/sysfsutils
-	sys-fs/xfsprogs
-	sys-kernel/genkernel
 	sys-kernel/linux-docs
-	sys-kernel/linux-headers
 	sys-libs/db
 	sys-libs/gdbm
-	sys-libs/gpm
-	sys-libs/libkudzu
-	sys-libs/libsmbios
-	sys-power/acpid
 	sys-power/iasl
 	sys-process/at
 	sys-process/atop
@@ -1018,9 +986,6 @@ livecd/packages:
 	sys-process/cronie
 	sys-process/ftop
 	sys-process/htop
-	sys-process/lsof
-	sys-process/procps
-	sys-process/psmisc
 	sys-process/schedtool
 	#dev-java/ant
 	#dev-java/icedtea
@@ -1028,7 +993,6 @@ livecd/packages:
 	#virtual/jre
 	#virtual/jdk
 	virtual/opengl
-	virtual/pkgconfig
 	www-apps/ikiwiki
 	dev-perl/Perl-Tidy
 	dev-perl/Search-Xapian
@@ -1044,7 +1008,6 @@ livecd/packages:
 	app-text/xapian-omega
 	www-client/firefox
 	www-client/links
-	www-client/lynx
 	www-client/netsurf
 	www-client/w3m
 	www-servers/lighttpd

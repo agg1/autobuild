@@ -27,23 +27,31 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -gnome-keyring -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
-	-udev
-	-accessibility
-	-libinput
-	-wayland
-	-gconf
-	-libnotify
-	-jit
-	-orc
-	smp
-	clang
-	X
-	xml
-	gtk
-	gtk2
-	xcb
-	xkb
+	#minimal
+	#-doc
+	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
+	-udev -udisks -upower -upnp -upnp-av -avahi usb
+	-system-mitkrb5 -system-heimdal -kerberos
+	-java -ruby -python
+	#-lua -php
+	#-X -gtk -qt4 -qt5
+	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
+	-libinput -libnotify
+	-jit -orc
+	acl caps seccomp skey smartcard xattr
+	#ldap nis radius
+	### DESKTOP
+	X gtk gtk2 xcb xkb
+	sqlite
+	truetype fontconfig cups gnuplot pdf latex jadetex xetex xml iconv spell icu
+	vim-syntax bash-completion
+	scanner joystick
+	socks5
+	#snmp
+	sdl sdl2 cdparanoia cdr encode
+	gd djvu bmp gif jpeg jpeg2k mng png apng svg tiff cairo imlib wmf xpm
+	sound jack sox speex fluidsynth midi gstreamer a52 aac flac gsm lame ladspa lash ogg openal vorbis wav mad mp3 sndfile cdda cddb dts timidity
+	video -vlc mplayer mp4 mpeg theora ffmpeg libav xvid x264 h323 v4l matroska vcd css dvb dvd dvdr dv quicktime
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -72,73 +80,12 @@ boot/kernel/linux/use:
 	alsa_pcm_plugins_share
 	alsa_pcm_plugins_shm
 	alsa_pcm_plugins_softvol
-	icu
-	gd
-	djvu
-	bmp
-	gif
-	jpeg
-	jpeg2k
-	mng
-	png
-	apng
-	svg
-	tiff
-	jack
-	sox
-	speex
-	fluidsynth
-	midi
-	gstreamer
-	a52
-	aac
-	flac
-	gsm
-	lame
-	ladspa
-	ogg
-	openal
-	vorbis
-	wav
-	mad
-	mp3
-	mp4
-	mpeg
-	speex
-	theora
-	ffmpeg
-	xvid
-	x264
-	h323
-	v4l
-	cdda
-	cddb
-	css
-	dvb
-	dvd
-	sdl
-	sdl2
-	scanner
-	joystick
-	sound
-	video
+	#directfb fbcon
 	#egl
 	#gles
 	#gles2
 	#gles3
-	opengl
-	gallium
-	glamor
-	uxa
-	sna
-	dri
-	dri2
-	dri3
-	vaapi
-	vdpau
-	xa
-	xv
-	xvmc
+	opengl gallium glamor uxa sna dri dri2 dri3 vaapi vdpau xa xv xvmc
 	video_cards_amdgpu
 	video_cards_apm
 	video_cards_ast
@@ -208,22 +155,6 @@ boot/kernel/linux/use:
 	input_devices_synaptics
 	input_devices_wacom
 	-input_devices_evdev
-	mmx
-	sse
-	sse2
-	ntfsprogs
-	-ntfsdecrypt
-	libusb
-	cairo
-	imlib
-	sqlite
-	truetype
-	fontconfig
-	latex
-	jadetex
-	xetex
-	fortran
-	-vlc
 
 #boot/kernel/linux/packages:
 #	sys-kernel/linux-firmware

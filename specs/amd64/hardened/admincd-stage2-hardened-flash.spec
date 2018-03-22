@@ -28,16 +28,19 @@ boot/kernel/linux/sources: ck-sources
 boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig-4.9-flash
 
 boot/kernel/linux/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
-	-udev
-	-accessibility
-	-X
-	-doc
-	-gtk
-	-libnotify
-	-jit
-	-orc
 	minimal
+	-doc
+	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
+	-udev -udisks -upower -upnp -upnp-av -avahi usb
+	-system-mitkrb5 -system-heimdal -kerberos
+	-java -ruby -python
+	#-lua -php
+	#-X -gtk -qt4 -qt5
+	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
+	-libinput -libnotify
+	-jit -orc
+	#acl caps seccomp skey smartcard xattr
+	#ldap nis radius
 
 boot/kernel/linux/packages:
 	sys-apps/flashrom

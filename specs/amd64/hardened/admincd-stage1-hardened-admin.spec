@@ -9,19 +9,41 @@ portage_confdir: /home/autobuild/etc/portage/
 portage_overlay: /usr/local/portage
 
 livecd/use:
-	-awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs
-	-udev
-	-accessibility
-	-X
+	#minimal
 	-doc
-	-gtk
-	-libnotify
-	-jit
-	-orc
-	-ntfsdecrypt
-	ntfsprogs
+	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
+	-udev -udisks -upower -upnp -upnp-av -avahi usb
+	-system-mitkrb5 -system-heimdal -kerberos
+	-java -ruby -python
+	#-lua -php
+	-X -gtk -qt4 -qt5
+	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
+	-libinput -libnotify
+	-jit -orc
+	acl caps seccomp skey smartcard xattr
+	#ldap nis radius
 
 livecd/packages:
+	#[minimal]
+	net-dialup/picocom
+	net-misc/dhcp
+#	net-misc/dhcpcd
+	net-misc/iputils
+	#sys-apps/busybox
+	#sys-apps/coreutils
+	sys-apps/gptfdisk
+	sys-apps/hwsetup
+	sys-apps/iproute2
+	sys-apps/lsb-release
+	#sys-apps/net-tools
+	#sys-apps/util-linux
+	#sys-apps/clrngd
+	sys-apps/rng-tools
+	sys-devel/bc
+	dev-libs/libressl
+	sys-fs/e2fsprogs
+	sys-fs/lvm2
+	#[admin]
 	app-admin/checksec
 	app-admin/eselect
 	app-admin/genromfs
@@ -89,7 +111,6 @@ livecd/packages:
 	app-vim/gentoo-syntax
 	dev-lang/perl
 	dev-lang/python
-	dev-libs/libressl
 	dev-python/pycrypto
 	dev-util/catalyst
 	dev-util/pkgconfig
@@ -110,7 +131,6 @@ livecd/packages:
 	net-dialup/diald
 	net-dialup/mingetty
 	net-dialup/minicom
-	net-dialup/picocom
 	net-dialup/pptpclient
 	#net-dialup/wvdial
 	net-dns/bind-tools
@@ -122,8 +142,6 @@ livecd/packages:
 	net-ftp/ncftp
 	net-misc/bridge-utils
 	net-misc/curl
-	net-misc/dhcp
-	net-misc/iputils
 	net-misc/netkit-telnetd
 	net-misc/ntp
 	net-misc/openssh
@@ -156,15 +174,11 @@ livecd/packages:
 	sys-apps/flashrom
 	#sys-apps/fxload
 	sys-apps/gawk
-	sys-apps/gptfdisk
 	sys-apps/grep
 	sys-apps/groff
 	sys-apps/hdparm
-	sys-apps/hwsetup
-	sys-apps/iproute2
 	#sys-apps/irqbalance
 	sys-apps/less
-	sys-apps/lsb-release
 	sys-apps/lshw
 	sys-apps/man-db
 	sys-apps/man-pages
@@ -186,7 +200,6 @@ livecd/packages:
 	sys-apps/vbetool
 	sys-apps/which
 	#sys-apps/clrngd
-	sys-apps/rng-tools
 	sys-boot/syslinux
 	sys-block/aoetools
 	sys-block/vblade
@@ -201,7 +214,6 @@ livecd/packages:
 	sys-devel/autoconf-wrapper
 	sys-devel/automake
 	sys-devel/automake-wrapper
-	sys-devel/bc
 	sys-devel/binutils
 	sys-devel/binutils-config
 	sys-devel/bison
@@ -219,13 +231,11 @@ livecd/packages:
 	sys-fs/ddrescue
 	sys-fs/dmraid
 	sys-fs/dosfstools
-	sys-fs/e2fsprogs
 	#sys-fs/ext3grep
 	#sys-fs/extundelete
 	sys-fs/f2fs-tools
 	sys-fs/jfsutils
 	sys-fs/lsscsi
-	sys-fs/lvm2
 	sys-fs/mac-fdisk
 	sys-fs/mdadm
 	sys-fs/multipath-tools
