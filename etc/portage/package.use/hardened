@@ -1,35 +1,41 @@
-#sys-kernel/ck-sources experimental
-#sys-kernel/ck-sources deblob
+#sys-kernel/ck-sources experimental deblob
 sys-kernel/genkernel -firmware -cryptsetup
+
+# reliable event logging protocol
 app-admin/rsyslog -jemalloc rfc3195 rfc5424hmac usertools snmp
 dev-libs/liblogging rfc3195
+
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
-net-misc/ntp caps
-net-vpn/ipsec-tools rc5 idea nat hybrid
 net-misc/openvpn socks
-sys-fs/cryptsetup -python -gcrypt openssl libressl
-#sys-process/cronie anacron
-dev-libs/glib -mime -utils
-dev-libs/libxml2 python
-dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit
-dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl -vim-syntax
+net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
+net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
+net-misc/tor tor-hardening transparent-proxy
+net-libs/wvstreams -ssl
+net-firewall/fwknop -gpg
 net-analyzer/nmap ncat nping
+net-vpn/ipsec-tools rc5 idea nat hybrid
 net-p2p/transmission -gtk -ayatana
 net-firewall/fwknop gdbm client -extras -firewalld gpg iptables nfqueue -python server udp-server
+
+sys-fs/cryptsetup -python -gcrypt openssl libressl
+
+dev-vcs/git blksha1 curl gpg highlight iconv -subversion cvs perl -python cgi tk -pcre-jit
+#dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit
+dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl -vim-syntax
+
 sys-apps/flashrom ch341a_spi
 sys-apps/lshw -gtk -static
 sys-apps/hwids net pci udev usb
 sys-apps/net-tools hostname arp
 sys-apps/pcsc-lite libusb -python -udev
+
 app-misc/rmlint -X
-sys-libs/zlib minizip
 sys-block/partimage -ssl
+
 mail-mta/nullmailer -ssl
-net-misc/wget ssl openssl libressl -gcrypt -gnutls -nettle -caps -filecaps
-net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
-net-misc/tor tor-hardening transparent-proxy
+
 www-servers/lighttpd -minimal
-net-libs/wvstreams -ssl
-net-firewall/fwknop -gpg
+
 dev-libs/libpcre pcre16
+dev-libs/libpcre2 pcre16

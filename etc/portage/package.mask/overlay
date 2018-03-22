@@ -1,40 +1,135 @@
+# otherwise openvpn is broken, with 2.4.x openvpn was fine
+# bareos probably affected too among others
+<dev-libs/libressl-2.7.0
 #
->x11-misc/xtrlock-2.3
-#x11-drivers/xf86-input-evdev
+# >2.7.12 broken with libressl 2.7.x
+# _ssl.c:141:12: error: static declaration of 'X509_NAME_ENTRY_set' 
+# follows non-static declaration static int X509_NAME_ENTRY_set(const X509_NAME_ENTRY *ne)
+#dev-lang/python-2.7.11
+# 2.7-disable-nis.patch required due to changes in glibc which removed rpc/rpc.h
+#dev-lang/python-2.7.12
+~dev-lang/python-2.7.13
+~dev-lang/python-2.7.14
+# >3.5.2 broken with libressl 2.7.x
+>dev-lang/python-3.5.2
 #
->=app-office/homebank-5.0.0
-#
+# specific xapian version required for ikiwiki to provide search functionality
 >dev-libs/xapian-1.2.24
 >dev-libs/xapian-bindings-1.2.24
 >app-text/xapian-omega-1.2.24
 >dev-perl/SearchXapian-1.2.25.0
 #
+# require dbus
 app-accessibility/at-spi2-atk
 gnome-base/gvfs
->=app-text/gtkspell-3.0.0
+#
+# any version greater pulls in gtk3..->dbus
+>app-text/gtkspell-2.0.16
+#
+# any version greater pulls in dbus
+>x11-misc/xdg-utils-1.1.1-r1
+#
+# any version greater than 2.8.12.1 or 3.0.2.0 pulls in gtk+3 
+#>x11-libs/wxGTK-2.8.12.1-r2
+>x11-libs/wxGTK-3.0.2.0-r3
+# -> atk -> atk-spi2 -> dbus
 >=x11-libs/gtk+-3.0
->x11-libs/wxGTK-3.0.3
+# 
+# any version greater pulls in gtk3..->dbus
 >x11-themes/adwaita-icon-theme-3.20
 >dev-util/gtk-update-icon-cache-3.20.9
+# gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
 >media-gfx/gimp-2.8.22-r1
 #
+#>media-sound/audacity-2.2.2
+#
+# any version greater pulls in gtk3..->dbus
+>app-office/homebank-4.6.3
+#
+# any version greater than 5.2.3.3 pulls in gnupg2/gpgme
 >app-office/libreoffice-5.2.3.3
 >app-office/libreoffice-l10n-5.2.3.3
 >dev-libs/liborcus-0.11.2
 >dev-libs/libixion-0.11.1
+# any version greater pulls in gtk3..->dbus
 >gnome-extra/gucharmap-3.0.1-r200
 #
->app-admin/passwordsafe-0.98.1_beta
+# any version greater pulls in gtk3..->dbus
+>app-admin/passwordsafe-1.02.1_beta
 #
+# any version greater pulls in gtk3..->dbus
 >app-text/stardict-3.0.6-r3
 #
->net-voip/yate-5.5.0-r1
+# pulls in guile with versioning conflict
+#>app-office/texmacs-1.99.2-r1
 #
->app-office/texmacs-1.99.2-r1
+>net-irc/ircd-hybrid-7.3.1
 #
->=net-irc/ircd-hybrid-8.0.0
+# patched to remove gpgme/gnupg2 dependency
+>net-firewall/fwknop-2.6.9-r1
 #
 #>=net-mail/dovecot-2.3.0.0
 #
 >app-crypt/rhash-1.3.5
-
+#
+# removed lxsession which relies on dbus
+>lxde-base/lxde-meta-0.5.5-r5
+#
+# patched to remove gpgme/gnupg2 dependency
+>mail-client/mutt-1.9.4
+>net-mail/notmuch-0.25.3
+>net-mail/notmuchfs-1.0
+#
+>net-analyzer/ettercap-0.8.2-r1
+#
+>net-dialup/diald-1.0-r3
+#
+>net-libs/libeXosip-4.0.0
+#
+>net-libs/ptlib-2.12.9-r1
+#
+>net-libs/wvstreams-4.6.1-r3
+#
+>net-misc/softether-vpn-4.22-r9634
+>net-misc/sstp-client-1.0.10-r1
+>net-misc/yatb-1.0
+>net-misc/youtube-viewer-3.2.4
+#
+>net-nds/adtool-1.3.3
+#
+>net-print/cups-2.2.6
+#
+>net-proxy/squid-3.5.27-r1
+#
+>net-voip/yate-5.5.0-r1
+>net-voip/linphone-3.6.1
+>net-voip/gnugk-3.4-r1
+#
+>net-vpn/vpnc-0.5.3_p550
+#
+>net-wireless/aircrack-ng-1.2_rc4-r1
+>net-wireless/cpyrit-opencl-0.5.0
+>net-wireless/pyrit-0.5.0
+>net-wireless/wepattack-0.1.3-r3
+>net-wireless/wepdecrypt-0.8-r2
+#
+# patched
+>www-apps/ikiwiki-3.20170111
+#
+#MOZCONFIG_OPTIONAL_GTK2ONLY
+>www-client/firefox-52.6.0
+>mail-client/thunderbird-52.6.0-r1
+#
+# patched
+>x11-misc/xtrlock-2.3
+#
+# pulled in by texmaker, pulls in ruby
+dev-qt/qtwebkit
+#
+# pulls in gnutls,nettle
+dev-libs/appstream
+dev-libs/appstream-glib
+net-libs/libsoup
+net-libs/glib-networking
+# issues with poppler[qt5(+)] dependency definition, dev-qt/qtsingleapplication
+#>app-office/texstudio-2.12.4

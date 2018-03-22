@@ -1,3 +1,9 @@
+# EVALUATION ORDER
+# catalystrc sets ENVIRONMENT as may any other script do
+# if no VAR is set in ENVIRONMENT make.conf sets variable
+# catalyst-spec is additive to already set USE flags
+# ENVIRONMENT supersedes package.use specific flags set
+
 GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/"
 #EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --tree --with-bdeps y --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 --load-average 16.0"
 EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --tree --with-bdeps y --binpkg-respect-use y --jobs=8 --load-average 16.0"
@@ -6,9 +12,10 @@ PORTAGE_CHECKSUM_FILTER="-* sha512"
 PORTAGE_COMPRESS="bzip2"
 PORTAGE_COMPRESS_FLAGS="-1"
 CHOST=x86_64-pc-linux-gnu
-CFLAGS="-O2 -pipe"
+#fomit-frame-pointer when debugging is not required
+CFLAGS="-O2 -pipe -fomit-frame-pointer -Wno-error"
 CXXFLAGS="${CFLAGS}"
-CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
+CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 #sandybridge
 #CPU_FLAGS_X86="aes avx mmx mmxext popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
 #bulldozer-old, sse4a is AMD-only
@@ -30,7 +37,7 @@ ACCEPT_KEYWORDS="~amd64"
 PYTHON_SINGLE_TARGET="python2_7"
 #PYTHON_SINGLE_TARGET="python3_5"
 PYTHON_TARGETS="python2_7 python3_5"
-USE="${USE} -awt -bindist -branding -debug -consolekit -dbus -kdbus -policykit -pam -systemd -oss -pulseaudio -udisks -upower -upnp -upnp-av -avahi -gvfs -gtk3 -qt4 -qt5 -gnome-keyring -libnotify -jit -orc -gnome -kde -java -ruby -python -test hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle socks5 -system-mitkrb5 -system-heimdal usb threads nptl nls unicode bzip2 lzo lzma xz zlib readline static-libs"
+USE="${USE} -bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs"
 PROFILE_IS_HARDENED=1
 
 SWITCH_CTARGET=x86_64-pc-linux-gnu-5.4.0

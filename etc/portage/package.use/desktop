@@ -1,40 +1,69 @@
-app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -alsa -opengl -curl -sdl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde
-#app-office/texmacs -qt4
-app-text/mupdf -static-libs -static
+app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde
+#
+app-office/libreoffice -gtk gtk2 -jemalloc -kde pdfimport
+#
+app-text/mupdf -opengl
+#
+app-text/ghostscript-gpl cups -gtk -X
+net-print/cups -X
+#
+dev-qt/qtgui -dbus -libinput
+dev-qt/qtwidgets -gtk
+#
+#media-gfx/blender python_single_target_python3_5
+#
+# required by www-apps/ikiwiki
+media-gfx/imagemagick perl
+#
 media-libs/gst-plugins-bad -gtk opengl -egl -gles2
 media-libs/gst-plugins-base -gtk opengl -egl -gles2
 media-libs/gst-plugins-good -gtk opengl -egl -gles2
 media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
 media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
 media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl
-media-libs/gd fontconfig
-media-sound/alsa-tools -gtk fltk
+# file collision of /usr/bin/smfsh from media-libs/libsmf with media-sound/jack-smf-utils
+media-libs/libextractor -gtk -midi
+# pulls in gtk+3 otherwise
+media-sound/alsa-tools -gtk
+#
+mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
-mail-client/mutt ssl smtp imap pop -gpg sidebar mbox pgp_classic smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
-mail-client/thunderbird -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 lightning crypt gtk2 -crypt
-www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo gtk2
+#
+mail-client/thunderbird -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 lightning -gtk -gtk3 gtk2
+#
+www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo -gtk -gtk3 gtk2
+www-client/netsurf -gtk gtk2 -svgtiny
+gnome-base/librsvg -introspection
+#
 x11-base/xorg-server xorg suid glamor xcsecurity
 x11-libs/libfm gtk -automount -udisks
 x11-misc/xdg-user-dirs -gtk
-#dev-libs/DirectFB -egl
-net-analyzer/rrdtool perl graph
+x11-libs/wxGTK -gstreamer
+#
 net-wireless/aircrack-ng -airdrop-ng
 net-analyzer/wireshark -ssl -gtk crypt libssh dumpcap editcap mergecap pcap  tfshark tshark
-dev-lang/perl ithreads
-dev-java/* -doc
-#app-text/tesseract -scrollview
-media-libs/netpbm rle
-media-libs/freetype infinality
-media-libs/libextractor -gtk
-x11-libs/wxGTK -gstreamer
-media-gfx/imagemagick perl
-app-text/ghostscript-gpl cups -gtk -X
-net-print/cups -X
-app-office/libreoffice -gtk gtk2 -jemalloc -kde pdfimport
-www-client/netsurf -gtk gtk2
-games-fps/darkplaces alsa cdsound -debug opengl lights textures -sdl
-games-fps/dhewm3 sdl2
-games-fps/xonotic alsa sdl
-app-doc/doxygen dot
+#
+# required by net-analyzer/argus-clients
+net-analyzer/rrdtool perl
+#
+# required by dev-libs/quazip
+# required by app-office/texstudio
+sys-libs/zlib minizip
+#
+# required by app-text/gnome-doc-utils
+# required by app-text/stardict-3.0.6-r3::gentoo
+dev-libs/libxml2 python
+#
+# required by x11-misc/xdg-utils
+# required by media-gfx/xsane
 app-text/xmlto text
+#
+# required by app-office/texstudio
+app-office/texstudio -video
+#app-text/poppler qt5
+#
+# required by media-gfx/inkscape
+media-gfx/pstoedit plotutils
+#
+games-fps/darkplaces cdsound lights textures

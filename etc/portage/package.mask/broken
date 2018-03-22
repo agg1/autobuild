@@ -1,0 +1,20 @@
+# error related to handling symlinks, renameat function
+<sys-apps/sandbox-2.10-r4
+
+#
+>dev-python/m2crypto-0.24.0
+#
+>dev-python/PySocks-1.5.6
+
+#
+>dev-libs/check-0.11.0
+
+# compilation error
+>=net-firewall/iptables-1.5.0
+#
+# error: unknown option after '#pragma GCC diagnostic' kind [-Werror=pragmas]
+# #pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
+#>media-libs/libnsgif-0.1.4
+#
+# -Werror
+#>dev-libs/libcss-0.6.1

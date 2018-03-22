@@ -1,8 +1,5 @@
 */* ~amd64
 
-#https://bugs.gentoo.org/612202
->=sys-apps/sandbox-2.10-r4
-
 #requied to hook in libressl which is still associated with ~testing
 #glady few packages rely on libressl in seed stage
 dev-libs/libressl ~amd64
@@ -14,15 +11,8 @@ dev-lang/python-exec ~amd64
 app-eselect/eselect-python ~amd64
 
 ### overrrides package.keywords
-=sys-devel/gcc-config-1.8-r1 ~amd64
-
-# ncurses ~ seems to break build
-#sys-libs/ncurses *
-#=sys-libs/ncurses-5.9-r5 amd64
+#=sys-devel/gcc-config-1.8-r1 ~amd64
 
 # *  stable on any architecture
 # ~* testing on any architecture
 # ** always visible
-
-net-analyzer/nessus-client **
-net-analyzer/ndsad **
