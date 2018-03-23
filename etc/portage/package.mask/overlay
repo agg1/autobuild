@@ -12,6 +12,10 @@
 ~dev-lang/python-2.7.14
 # >3.5.2 broken with libressl 2.7.x
 >dev-lang/python-3.5.2
+
+# patched to utilize libressl
+>app-admin/rsyslog-8.33.1
+
 #
 # specific xapian version required for ikiwiki to provide search functionality
 >dev-libs/xapian-1.2.24
