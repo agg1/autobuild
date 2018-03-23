@@ -17,7 +17,7 @@ livecd/use:
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python
 	#-lua -php
-	#-X -gtk -qt4 -qt5
+	#-X -gtk -gtk2 -gtk3 -qt4 -qt5
 	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
 	-libinput -libnotify
 	-jit -orc
@@ -140,41 +140,31 @@ livecd/use:
 	-input_devices_evdev
 
 livecd/packages:
-	#[minimal]
-	net-dialup/picocom
+####[minimal]
+	#net-dialup/picocom
 	net-misc/dhcp
 #	net-misc/dhcpcd
 	net-misc/iputils
 	#sys-apps/busybox
 	#sys-apps/coreutils
-	sys-apps/gptfdisk
 	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/lsb-release
-	#sys-apps/net-tools
-	#sys-apps/util-linux
-	#sys-apps/clrngd
 	sys-apps/rng-tools
 	sys-devel/bc
 	dev-libs/libressl
 	sys-fs/e2fsprogs
 	sys-fs/lvm2
-	#[admin]
-	#app-misc/pwsafe
+####[admin]
 	app-admin/checksec
 	app-admin/eselect
 	app-admin/genromfs
-	app-admin/grubconfig
 	app-admin/hddtemp
-	app-admin/ide-smart
 	app-admin/lnav
 	app-admin/passook
-	app-admin/perl-cleaner
-	#app-admin/python-updater
 	app-admin/rsyslog
 	app-admin/sshguard
 	app-admin/testdisk
-	app-admin/ulogd
 	app-benchmarks/bonnie++
 	app-benchmarks/stress-ng
 	app-arch/bzip2
@@ -191,8 +181,6 @@ livecd/packages:
 	app-cdr/cdrtools
 	app-cdr/dvd+rw-tools
 	#app-crypt/heimdal
-	#app-crypt/mitkrb5
-	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
 	app-crypt/md5deep
@@ -202,6 +190,7 @@ livecd/packages:
 	app-editors/vim
 	app-misc/ca-certificates
 	app-misc/pax-utils
+#	app-misc/pwsafe
 	app-misc/tmux
 	app-misc/zisofs-tools
 	app-portage/cfg-update
@@ -235,12 +224,8 @@ livecd/packages:
 	dev-vcs/git
 	dev-vcs/git-crypt
 	mail-client/mailx
-	#mail-mta/msmtp
-	mail-filter/opensmtpd-extras
-	mail-mta/opensmtpd
-	net-analyzer/fail2ban
+	mail-mta/msmtp
 	net-analyzer/gnu-netcat
-	net-analyzer/macchanger
 	net-analyzer/netcat6
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
@@ -250,6 +235,7 @@ livecd/packages:
 	net-dialup/diald
 	net-dialup/mingetty
 	net-dialup/minicom
+	net-dialup/picocom
 	net-dialup/pptpclient
 	#net-dialup/wvdial
 	net-dns/bind-tools
@@ -283,6 +269,7 @@ livecd/packages:
 	sys-apps/chname
 	sys-apps/coreutils
 	sys-apps/dcfldd
+	sys-apps/gptfdisk
 	sys-apps/net-tools
 	sys-apps/debianutils
 	sys-apps/diffutils
@@ -296,7 +283,6 @@ livecd/packages:
 	sys-apps/grep
 	sys-apps/groff
 	sys-apps/hdparm
-	#sys-apps/irqbalance
 	sys-apps/less
 	sys-apps/lshw
 	sys-apps/man-db
@@ -330,7 +316,6 @@ livecd/packages:
 	sys-boot/syslinux
 	sys-devel/autoconf
 	sys-devel/autoconf-wrapper
-	sys-devel/autogen
 	sys-devel/automake
 	sys-devel/automake-wrapper
 	sys-devel/binutils
@@ -375,36 +360,27 @@ livecd/packages:
 	sys-process/psmisc
 	virtual/pkgconfig
 	www-client/lynx
-	#[desktop]
+####[desktop]
 	app-admin/apache-tools
 	app-admin/chroot_safe
-	app-admin/chrootuid
 	app-admin/chrpath
 	app-admin/cpulimit
 	app-admin/diradm
 	app-admin/evtxtools
 	app-admin/lnav
 	app-admin/logrotate
-	app-admin/logsentry
-	app-admin/lsat
 	app-admin/mcelog
 	app-admin/pass
 	app-admin/passwordsafe
 	app-admin/paxtest
 	app-admin/procinfo-ng
-	#app-admin/qtpass
+	app-admin/qtpass
 	app-admin/superadduser
 	app-admin/syslog-summary
 	app-admin/tmpwatch
-	#app-admin/mktwpol
-	#app-admin/tripwire
 	app-admin/verynice
-	app-admin/whowatch
-	app-antivirus/clamav
-	app-antivirus/clamav-unofficial-sigs
 	app-arch/dpkg
 	app-arch/sharutils
-	#app-backup/bareos -> crypto_openssl.c
 	app-cdr/bashburn
 	app-cdr/bin2iso
 	app-cdr/burncdda
@@ -414,12 +390,9 @@ livecd/packages:
 	app-cdr/pburn
 	app-cdr/poweriso
 	app-cdr/xdvdfs-tools
-	app-crypt/aescrypt
 	app-crypt/aespipe
-	#app-crypt/bcrypt
-	#app-crypt/efitools
 	#app-crypt/gcr
-	#app-crypt/gpa
+	app-crypt/gentoo-keys
 	app-crypt/md6sum
 	app-dicts/aspell-de
 	app-dicts/aspell-de-alt
@@ -437,11 +410,8 @@ livecd/packages:
 	app-dicts/myspell-ru
 	app-doc/doxygen
 	app-editors/bluefish
-	#app-editors/emacs
 	app-editors/hexcurse
-	app-editors/hexedit
 	dev-perl/List-MoreUtils
-	#app-editors/wxhexeditor
 	app-emulation/qemu
 	app-emulation/spice
 	#app-emulation/wine
@@ -452,20 +422,15 @@ livecd/packages:
 	app-eselect/eselect-vi
 	app-forensics/afl
 	app-forensics/chkrootkit
-	app-forensics/foremost
-	app-forensics/mac-robber
 	app-forensics/magicrescue
 	app-forensics/ovaldi
 	app-forensics/sleuthkit
 	app-forensics/unhide
 	app-forensics/zzuf
-	app-laptop/radeontool
 	app-misc/abook
 	app-misc/banner
 	app-misc/rmlint
 	app-misc/mc
-	#app-misc/xmind
-	app-mobilephone/anyremote
 	app-mobilephone/gammu
 	app-mobilephone/smsclient
 	app-mobilephone/smstools
@@ -476,10 +441,6 @@ livecd/packages:
 	app-office/libreoffice-l10n
 	app-office/lyx
 	app-office/scribus
-	#app-office/texmacs -> guile1.9 conflicts with latest guile required by autogen
-	#app-office/texmaker -> qtwebkit -> ruby
-	#app-office/texstudio -> various conflicts and inconsistencies to be analyzed separately
-	app-portage/porthole
 	app-shells/bash
 	app-shells/zsh
 	app-shells/zsh-completions
@@ -493,7 +454,6 @@ livecd/packages:
 	app-text/html-xml-utils
 	app-text/odt2txt
 	app-text/texi2html
-	#app-text/pandoc
 	app-text/rfcutil
 	app-text/htmltidy
 	app-vim/ackvim
@@ -651,7 +611,6 @@ livecd/packages:
 	dev-util/codeblocks
 	dev-util/geany
 	dev-util/geany-plugins
-	dev-util/indent
 	dev-util/ltrace
 	dev-util/strace
 	dev-util/valgrind
@@ -669,11 +628,8 @@ livecd/packages:
 	mail-filter/clamassassin
 	mail-filter/procmail
 	mail-filter/spamassassin
-	#media-fonts/corefonts
+#	mail-mta/opensmtpd
 	media-fonts/croscorefonts
-	media-plugins/gst-plugins-ladspa
-	media-plugins/ladspa-bs2b
-	media-libs/ladspa-cmt
 	media-fonts/dejavu
 	media-fonts/freefont
 	media-fonts/freefonts
@@ -697,22 +653,22 @@ livecd/packages:
 	media-gfx/inkscape
 	media-gfx/gqview
 	media-gfx/sane-frontends
+	media-gfx/scrot
 	media-gfx/xsane
 	media-gfx/xv
-	media-gfx/scrot
 	media-libs/libextractor
 	media-libs/alsa-lib
-	#media-libs/alsa-oss
 	media-libs/gstreamer
 	media-libs/gst-plugins-bad
 	media-libs/gst-plugins-base
 	media-libs/gst-plugins-good
 	media-libs/gst-plugins-ugly
-	media-libs/openal
+	media-libs/ladspa-cmt
 	media-libs/libsdl
 	media-libs/libsdl2
 	media-libs/mesa
 	media-libs/netpbm
+	media-libs/openal
 	media-libs/sdl-gfx
 	media-libs/sdl-image
 	media-libs/sdl-mixer
@@ -733,6 +689,8 @@ livecd/packages:
 	media-plugins/alsa-plugins
 	media-plugins/alsaequal
 	media-plugins/gst-plugins-alsa
+	media-plugins/gst-plugins-ladspa
+	media-plugins/ladspa-bs2b
 	media-sound/alsa-tools
 	media-sound/alsa-utils
 	media-sound/alsaplayer
@@ -748,7 +706,6 @@ livecd/packages:
 	media-sound/lash
 	media-sound/mpc
 	media-sound/mpd
-	#media-sound/musescore
 	media-sound/rosegarden
 	media-sound/sox
 	media-sound/timidity++
@@ -760,7 +717,6 @@ livecd/packages:
 	media-video/mplayer
 	media-video/smplayer
 	#media-video/vlc
-	#net-analyzer/aimsniff
 	net-analyzer/angst
 	net-analyzer/argus
 	net-analyzer/argus-clients
@@ -795,7 +751,6 @@ livecd/packages:
 	net-analyzer/ipguard
 	net-analyzer/iptraf-ng
 	net-analyzer/iptstate
-	#net-analyzer/ipv6-toolkit
 	net-analyzer/knocker
 	net-analyzer/labrea
 	net-analyzer/lft
@@ -835,7 +790,7 @@ livecd/packages:
 	net-analyzer/snort
 	net-analyzer/upnpscan
 	net-analyzer/wapiti
-	#net-analyzer/wireshark
+	net-analyzer/wireshark
 	#net-dialup/freeradius
 	#net-dialup/pptpd
 	net-dialup/pppconfig
@@ -846,19 +801,15 @@ livecd/packages:
 	net-dns/libidn
 	net-firewall/arptables
 	net-firewall/conntrack-tools
-	#net-firewall/fwipsec
+	net-firewall/fwipsec
 	net-firewall/itval
 	net-firewall/nfacct
-	#net-firewall/nftables
 	net-firewall/psad
-	net-firewall/shapecfg
 	#net-fs/cifs-utils
 	net-ftp/oftpd
-	#net-ftp/vsftpd -> undefined reference to `crypt', vsf_sysdep_check_auth
+	net-ftp/vsftpd -> undefined reference to `crypt', vsf_sysdep_check_auth
 	net-im/bitlbee
 	net-im/pidgin
-	#net-im/toxic
-	#net-im/utox
 	net-irc/anope
 	net-irc/hexchat
 	net-irc/ircd-hybrid
@@ -867,7 +818,6 @@ livecd/packages:
 	net-irc/irssi-otr
 	net-irc/znc
 	net-libs/libotr
-	#net-libs/tox
 	net-mail/dovecot
 	#net-mail/isync -> In function `start_tls_p2': undefined reference to `X509_OBJECT_get0_X509'
 	net-mail/notmuch
@@ -925,8 +875,6 @@ livecd/packages:
 	net-print/foomatic-db
 	net-print/foomatic-db-engine
 	net-print/foomatic-db-ppds
-	#net-print/foomatic-filters
-	#net-print/foomatic-gui
 	net-print/gutenprint
 	#net-print/lprng
 	net-proxy/dante
@@ -956,6 +904,7 @@ livecd/packages:
 	sys-apps/i2c-tools
 	#sys-apps/ipmitool
 	#sys-apps/ipmiutil
+	sys-apps/irqbalance
 	sys-apps/keyutils
 	sys-apps/lm_sensors
 	sys-apps/mlocate
@@ -985,11 +934,6 @@ livecd/packages:
 	sys-process/ftop
 	sys-process/htop
 	sys-process/schedtool
-	#dev-java/ant
-	#dev-java/icedtea
-	#dev-java/icedtea-web
-	#virtual/jre
-	#virtual/jdk
 	virtual/opengl
 	www-apps/ikiwiki
 	dev-perl/Perl-Tidy

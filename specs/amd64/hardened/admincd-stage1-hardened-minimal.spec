@@ -16,28 +16,23 @@ livecd/use:
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python
 	#-lua -php
-	#-X -gtk -qt4 -qt5
+	-X -gtk -gtk2 -gtk3 -qt4 -qt5
 	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
 	-libinput -libnotify
 	-jit -orc
-	#acl caps seccomp skey smartcard xattr
+	acl caps seccomp skey smartcard xattr
 	#ldap nis radius
 
 livecd/packages:
-	net-dialup/picocom
+	#net-dialup/picocom
 	net-misc/dhcp
 	net-misc/dhcpcd
 	net-misc/iputils
-#	sys-apps/busybox
-#	sys-apps/coreutils
-	sys-apps/dmidecode
-	sys-apps/gptfdisk
+	#sys-apps/busybox
+	#sys-apps/coreutils
 	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/lsb-release
-#	sys-apps/net-tools
-#	sys-apps/util-linux
-	#sys-apps/clrngd
 	sys-apps/rng-tools
 	sys-devel/bc
 	dev-libs/libressl

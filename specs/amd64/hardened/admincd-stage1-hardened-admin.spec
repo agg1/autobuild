@@ -16,7 +16,7 @@ livecd/use:
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python
 	#-lua -php
-	-X -gtk -qt4 -qt5
+	-X -gtk -gtk2 -gtk3 -qt4 -qt5
 	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
 	-libinput -libnotify
 	-jit -orc
@@ -24,40 +24,31 @@ livecd/use:
 	#ldap nis radius
 
 livecd/packages:
-	#[minimal]
-	net-dialup/picocom
+####[minimal]
+	#net-dialup/picocom
 	net-misc/dhcp
 #	net-misc/dhcpcd
 	net-misc/iputils
 	#sys-apps/busybox
 	#sys-apps/coreutils
-	sys-apps/gptfdisk
 	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/lsb-release
-	#sys-apps/net-tools
-	#sys-apps/util-linux
-	#sys-apps/clrngd
 	sys-apps/rng-tools
 	sys-devel/bc
 	dev-libs/libressl
 	sys-fs/e2fsprogs
 	sys-fs/lvm2
-	#[admin]
+####[admin]
 	app-admin/checksec
 	app-admin/eselect
 	app-admin/genromfs
-	app-admin/grubconfig
 	app-admin/hddtemp
-	app-admin/ide-smart
 	app-admin/lnav
 	app-admin/passook
-	app-admin/perl-cleaner
-	#app-admin/python-updater
 	app-admin/rsyslog
 	app-admin/sshguard
 	app-admin/testdisk
-	app-admin/ulogd
 	app-benchmarks/bonnie++
 	app-benchmarks/stress-ng
 	app-arch/bzip2
@@ -74,7 +65,6 @@ livecd/packages:
 	app-cdr/cdrtools
 	app-cdr/dvd+rw-tools
 	#app-crypt/heimdal
-	app-crypt/bcwipe
 	app-crypt/gnupg
 	app-crypt/hashalot
 	app-crypt/md5deep
@@ -119,9 +109,7 @@ livecd/packages:
 	dev-vcs/git-crypt
 	mail-client/mailx
 	mail-mta/msmtp
-	net-analyzer/fail2ban
 	net-analyzer/gnu-netcat
-	net-analyzer/macchanger
 	net-analyzer/netcat6
 	net-analyzer/tcptraceroute
 	net-analyzer/traceroute
@@ -131,6 +119,7 @@ livecd/packages:
 	net-dialup/diald
 	net-dialup/mingetty
 	net-dialup/minicom
+	net-dialup/picocom
 	net-dialup/pptpclient
 	#net-dialup/wvdial
 	net-dns/bind-tools
@@ -153,8 +142,8 @@ livecd/packages:
 	net-misc/wget
 	net-misc/whois
 	net-wireless/b43-fwcutter
-#	net-wireless/iw
-#	net-wireless/rfkill
+	#net-wireless/iw
+	#net-wireless/rfkill
 	net-wireless/wireless-tools
 	net-wireless/wpa_supplicant
 	sys-apps/arrayprobe
@@ -164,6 +153,7 @@ livecd/packages:
 	sys-apps/chname
 	sys-apps/coreutils
 	sys-apps/dcfldd
+	sys-apps/gptfdisk
 	sys-apps/net-tools
 	sys-apps/debianutils
 	sys-apps/diffutils
@@ -177,7 +167,6 @@ livecd/packages:
 	sys-apps/grep
 	sys-apps/groff
 	sys-apps/hdparm
-	#sys-apps/irqbalance
 	sys-apps/less
 	sys-apps/lshw
 	sys-apps/man-db
@@ -199,7 +188,6 @@ livecd/packages:
 	sys-apps/util-linux
 	sys-apps/vbetool
 	sys-apps/which
-	#sys-apps/clrngd
 	sys-boot/syslinux
 	sys-block/aoetools
 	sys-block/vblade

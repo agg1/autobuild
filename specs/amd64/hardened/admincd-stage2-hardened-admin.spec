@@ -34,7 +34,7 @@ boot/kernel/linux/use:
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python
 	#-lua -php
-	-X -gtk -qt4 -qt5
+	-X -gtk -gtk2 -gtk3 -qt4 -qt5
 	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
 	-libinput -libnotify
 	-jit -orc

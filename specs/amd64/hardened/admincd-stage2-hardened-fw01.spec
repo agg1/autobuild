@@ -32,11 +32,11 @@ boot/kernel/linux/use:
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python
 	#-lua -php
-	#-X -gtk -qt4 -qt5
+	-X -gtk -gtk2 -gtk3 -qt4 -qt5
 	-gvfs -gconf -gtk3 -gnome-keyring -gnome -kde -accessibility -wayland -introspection
 	-libinput -libnotify
 	-jit -orc
-	#acl caps seccomp skey smartcard xattr
+	acl caps seccomp skey smartcard xattr
 	#ldap nis radius
 
 boot/kernel/linux/packages:
@@ -58,7 +58,7 @@ boot/kernel/linux/packages:
 	net-dns/bind-tools
 	#net-dns/ddclient
 	net-dns/dnsmasq
-	#net-misc/tor
+	#net-vpn/tor
 	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/lm_sensors
