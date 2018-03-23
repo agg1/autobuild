@@ -11,10 +11,9 @@
 
 # compilation error
 >=net-firewall/iptables-1.5.0
+
 #
-# error: unknown option after '#pragma GCC diagnostic' kind [-Werror=pragmas]
-# #pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
-#>media-libs/libnsgif-0.1.4
+# subversion
+
 #
-# -Werror
-#>dev-libs/libcss-0.6.1
+# grub
