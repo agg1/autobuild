@@ -1,4 +1,1 @@
-rootfs/portage-*
-rootfs/default/etc/rc.local.d*
-rootfs/*/portage*
-rootfs/*/etc/cfg/cfg.sh
+tmp
