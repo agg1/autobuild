@@ -1,6 +1,6 @@
 # otherwise openvpn is broken, with 2.4.x openvpn was fine
 # bareos probably affected too among others
-<dev-libs/libressl-2.7.0
+#<dev-libs/libressl-2.7.0
 
 #
 # >2.7.12 broken with libressl 2.7.x
@@ -9,16 +9,16 @@
 #dev-lang/python-2.7.11
 # 2.7-disable-nis.patch required due to changes in glibc which removed rpc/rpc.h
 #dev-lang/python-2.7.12
-~dev-lang/python-2.7.13
-~dev-lang/python-2.7.14
+#~dev-lang/python-2.7.13
+#~dev-lang/python-2.7.14
 # >3.5.2 broken with libressl 2.7.x
->dev-lang/python-3.5.2
+#>dev-lang/python-3.5.2
 
 #
 # >3.2.2 broken with libressl 2.7.x
 # libarchive/archive_openssl_hmac_private.h:34:25: error: static declaration of 'HMAC_CTX_new' follows non-static declaration
 # static inline HMAC_CTX *HMAC_CTX_new(void)
->app-arch/libarchive-3.2.2
+#>app-arch/libarchive-3.2.2
 
 # patched to utilize libressl
 >app-admin/rsyslog-8.33.1
