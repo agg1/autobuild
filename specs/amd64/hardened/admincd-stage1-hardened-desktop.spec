@@ -441,7 +441,6 @@ livecd/packages:
 	app-editors/hexcurse
 	app-editors/hexedit
 	dev-perl/List-MoreUtils
-	app-editors/wxmedit
 	#app-editors/wxhexeditor
 	app-emulation/qemu
 	app-emulation/spice
