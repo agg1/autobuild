@@ -848,7 +848,6 @@ livecd/packages:
 	net-firewall/arptables
 	net-firewall/conntrack-tools
 	#net-firewall/fwipsec
-	net-firewall/fwknop
 	net-firewall/itval
 	net-firewall/nfacct
 	#net-firewall/nftables
