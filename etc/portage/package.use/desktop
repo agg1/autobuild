@@ -91,9 +91,13 @@ sys-apps/flashrom ch341a_spi
 #
 net-analyzer/nmap ncat nping
 #
-net-vpn/tor tor-hardening transparent-proxy
-#
 net-p2p/transmission -gtk -ayatana -qt5
+
+#
+net-vpn/tor tor-hardening transparent-proxy
+
+# otherwise broken with >libressl-2.4/2.5
+net-vpn/openvpn -libressl mbedtls
 
 #
 www-servers/lighttpd -minimal
