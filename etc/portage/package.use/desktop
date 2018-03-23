@@ -56,7 +56,7 @@ x11-libs/wxGTK -gstreamer
 
 #
 net-wireless/aircrack-ng -airdrop-ng
-net-analyzer/wireshark -ssl -gtk crypt libssh dumpcap editcap mergecap pcap  tfshark tshark
+net-analyzer/wireshark -ssl -gtk libssh tfshark tshark
 
 #
 # required by net-analyzer/argus-clients

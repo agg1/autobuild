@@ -14,6 +14,12 @@
 # >3.5.2 broken with libressl 2.7.x
 >dev-lang/python-3.5.2
 
+#
+# >3.2.2 broken with libressl 2.7.x
+# libarchive/archive_openssl_hmac_private.h:34:25: error: static declaration of 'HMAC_CTX_new' follows non-static declaration
+# static inline HMAC_CTX *HMAC_CTX_new(void)
+>app-arch/libarchive-3.2.2
+
 # patched to utilize libressl
 >app-admin/rsyslog-8.33.1
 
