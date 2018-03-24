@@ -7,8 +7,7 @@
 # ENVIRONMENT supersedes package.use specific flags set
 
 export MAKEOPTS="-j 8"
-#export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --autounmask y --autounmask-write y --binpkg-respect-use y --jobs=8 --load-average 16.0"
-export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y --jobs=8 --load-average 16.0"
+export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y --load-average 8.0 -j"
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS="bzip2"
 export PORTAGE_COMPRESS_FLAGS="-1"
