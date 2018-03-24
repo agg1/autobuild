@@ -13,7 +13,7 @@ livecd/type: generic-livecd
 livecd/iso: irc01-latest.iso
 livecd/fstype: squashfs
 livecd/gk_mainargs: --config=/etc/portage/genkernel.conf
-livecd/cdtar: /home/autobuild/etc/portage/catalyst/livecd/cdtar/isolinux-3.86-cdtar.tar.bz2
+livecd/cdtar: /home/autobuild/cdtar/isolinux-3.86-cdtar.tar.bz2
 livecd/bootargs: net.ifnames=0 nokeymap nodhcp nosound nogpm memory_corruption_check=1 pbshutdown console=tty0 console=ttyS0,115200 hostname=irc01 syslvmdev=/dev/sda
 livecd/rcdel: keymaps|boot netmount|default
 livecd/rcadd: cronie|default sshguard|default
