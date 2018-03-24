@@ -14,6 +14,9 @@
 # >3.5.2 broken with libressl 2.7.x
 #>dev-lang/python-3.5.2
 
+# python 3.5.4 probably borken with catalyst 3.0.1??? updated PYTHON_TARGETS
+#>dev-lang/python-3.5.2
+
 #
 # >3.2.2 broken with libressl 2.7.x
 # libarchive/archive_openssl_hmac_private.h:34:25: error: static declaration of 'HMAC_CTX_new' follows non-static declaration
