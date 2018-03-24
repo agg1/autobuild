@@ -1,0 +1,214 @@
+diff -Naur catalyst-3.0.1_orig/targets/support/bootloader-setup.sh catalyst-3.0.1/targets/support/bootloader-setup.sh
+--- catalyst-3.0.1_orig/targets/support/bootloader-setup.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/bootloader-setup.sh	2018-03-18 23:46:28.000000000 +0000
+@@ -269,8 +269,8 @@
+ 			icfg=$1/isolinux/isolinux.cfg
+ 			kmsg=$1/isolinux/kernels.msg
+ 			echo "default ${first}" > ${icfg}
+-			echo "timeout 150" >> ${icfg}
+-			echo "ontimeout localhost" >> ${icfg}
++			echo "timeout 30" >> ${icfg}
++			echo "ontimeout linux" >> ${icfg}
+ 			echo "prompt 1" >> ${icfg}
+ 			echo "display boot.msg" >> ${icfg}
+ 			echo "F1 kernels.msg" >> ${icfg}
+@@ -302,27 +302,32 @@
+ 					do
+ 						echo "label ${x}-${y}" >> ${icfg}
+ 						echo "  kernel ${x}" >> ${icfg}
+-						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=791" >> ${icfg}
+-
++						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
+ 						echo >> ${icfg}
++
+ 						echo "   ${x}" >> ${kmsg}
+-						echo "label ${x}-${y}-nofb" >> ${icfg}
++
++						echo "label ${x}-${y}-cache" >> ${icfg}
+ 						echo "  kernel ${x}" >> ${icfg}
+-						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz" >> ${icfg}
++						echo "  append ${default_append_line} softlevel=${y} initrd=${x}.igz vga=0x0f00 nox docache" >> ${icfg}
+ 						echo >> ${icfg}
+-						echo "   ${x}-nofb" >> ${kmsg}
++
++						echo "   ${x}-cache" >> ${kmsg}
+ 					done
+ 				else
+ 					echo "label ${x}" >> ${icfg}
+ 					echo "  kernel ${x}" >> ${icfg}
+-					echo "  append ${default_append_line} initrd=${x}.igz vga=791" >> ${icfg}
++					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox nocache" >> ${icfg}
+ 					echo >> ${icfg}
++
+ 					echo "   ${x}" >> ${kmsg}
+-					echo "label ${x}-nofb" >> ${icfg}
++
++					echo "label ${x}-cache" >> ${icfg}
+ 					echo "  kernel ${x}" >> ${icfg}
+-					echo "  append ${default_append_line} initrd=${x}.igz" >> ${icfg}
++					echo "  append ${default_append_line} initrd=${x}.igz vga=0x0f00 nox docache" >> ${icfg}
+ 					echo >> ${icfg}
+-					echo "   ${x}-nofb" >> ${kmsg}
++
++					echo "   ${x}-cache" >> ${kmsg}
+ 				fi
+ 			done
+ 
+diff -Naur catalyst-3.0.1_orig/targets/support/livecdfs-update.sh catalyst-3.0.1/targets/support/livecdfs-update.sh
+--- catalyst-3.0.1_orig/targets/support/livecdfs-update.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/livecdfs-update.sh	2018-03-18 23:54:23.000000000 +0000
+@@ -27,16 +27,16 @@
+ 
+ # Since we're an official Gentoo release, we do things the official Gentoo way.
+ # As such, we override livecd/users.
+-case ${clst_livecd_type} in
+-	gentoo-release-live*)
+-		user_comment="Gentoo default user"
+-		clst_livecd_users="gentoo"
+-	;;
+-	gentoo-gamecd)
+-		user_comment="Gentoo GameCD default user"
+-		clst_livecd_users="gamecd"
+-	;;
+-esac
++#case ${clst_livecd_type} in
++#	gentoo-release-live*)
++#		user_comment="Gentoo default user"
++#		clst_livecd_users="gentoo"
++#	;;
++#	gentoo-gamecd)
++#		user_comment="Gentoo GameCD default user"
++#		clst_livecd_users="gamecd"
++#	;;
++#esac
+ 
+ # Add any users
+ if [ -n "${clst_livecd_users}" ]
+@@ -78,10 +78,10 @@
+ 
+ # Setup links for ethernet devices
+ cd /etc/init.d
+-ln -sf net.lo net.eth1
+-ln -sf net.lo net.eth2
+-ln -sf net.lo net.eth3
+-ln -sf net.lo net.eth4
++#ln -sf net.lo net.eth1
++#ln -sf net.lo net.eth2
++#ln -sf net.lo net.eth3
++#ln -sf net.lo net.eth4
+ 
+ # Add this for hwsetup/mkx86config
+ mkdir -p /etc/sysconfig
+@@ -94,34 +94,36 @@
+ echo "####################################################" >> /etc/fstab
+ 
+ # fstab tweaks
+-echo "tmpfs	/					tmpfs	defaults	0 0" >> /etc/fstab
+-echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}			tmpfs	defaults	0 0" >> /etc/fstab
++echo "tmpfs	/				tmpfs	defaults,size=30%			0 0" >> /etc/fstab
++echo "tmpfs	/tmp				tmpfs	defaults,noexec,nodev,nosuid,noatime	0 0" >> /etc/fstab
++echo "/tmp	/var/tmp			none	bind,rw,noexec,nodev,nosuid,noatime	0 0" >> /etc/fstab
++#echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}		tmpfs	defaults	0 0" >> /etc/fstab
+ # If /usr/lib/X11/xkb/compiled then make it tmpfs
+-if [ -d /usr/lib/X11/xkb/compiled ]
+-then
+-	echo "tmpfs	/usr/lib/X11/xkb/compiled	tmpfs	defaults	0 0" >> \
+-		/etc/fstab
+-fi
++#if [ -d /usr/lib/X11/xkb/compiled ]
++#then
++#	echo "tmpfs	/usr/lib/X11/xkb/compiled	tmpfs	defaults	0 0" >> \
++#		/etc/fstab
++#fi
+ 
+ # Tweak the livecd make.conf so that users know not to edit it
+ # https://bugs.gentoo.org/144647
+-mv ${clst_make_conf} ${clst_make_conf}.old
+-echo "####################################################" >> ${clst_make_conf}
+-echo "## ATTENTION: THIS IS THE MAKE.CONF ON THE LIVECD ##" >> ${clst_make_conf}
+-echo "## PLEASE EDIT /mnt/gentoo${clst_make_conf} INSTEAD  ##" >> ${clst_make_conf}
+-echo "####################################################" >> ${clst_make_conf}
+-cat ${clst_make_conf}.old >> ${clst_make_conf}
++#mv ${clst_make_conf} ${clst_make_conf}.old
++#echo "####################################################" >> ${clst_make_conf}
++#echo "## ATTENTION: THIS IS THE MAKE.CONF ON THE LIVECD ##" >> ${clst_make_conf}
++#echo "## PLEASE EDIT /mnt/gentoo${clst_make_conf} INSTEAD  ##" >> ${clst_make_conf}
++#echo "####################################################" >> ${clst_make_conf}
++#cat ${clst_make_conf}.old >> ${clst_make_conf}
+ 
+ # devfs tweaks
+ [ -e /etc/devfsd.conf ] && ${clst_sed} -i '/dev-state/ s:^:#:' /etc/devfsd.conf
+ 
+ # Add some helpful aliases
+-echo "alias cp='cp -i'" >> /etc/profile
+-echo "alias mv='mv -i'" >> /etc/profile
+-echo "alias rm='rm -i'" >> /etc/profile
+-echo "alias ls='ls --color=auto'" >> /etc/profile
+-echo "alias ll='ls -l'" >> /etc/profile
+-echo "alias grep='grep --color=auto'" >> /etc/profile
++#echo "alias cp='cp -i'" >> /etc/profile
++#echo "alias mv='mv -i'" >> /etc/profile
++#echo "alias rm='rm -i'" >> /etc/profile
++#echo "alias ls='ls --color=auto'" >> /etc/profile
++#echo "alias ll='ls -l'" >> /etc/profile
++#echo "alias grep='grep --color=auto'" >> /etc/profile
+ 
+ # Make sure we have the latest pci,usb and hotplug ids.  Older versions of
+ # pciutils and usbutils used /sbin, where newer versions use /usr/sbin.
+@@ -175,21 +177,21 @@
+ 	gentoo-release-universal)
+ 		cat /etc/generic.motd.txt /etc/universal.motd.txt \
+ 			/etc/minimal.motd.txt > /etc/motd
+-		${clst_sed} -i 's:^##GREETING:Welcome to the Gentoo Linux Universal Installation CD!:' /etc/motd
++		${clst_sed} -i 's:^##GREETING:Welcome to the Linux Universal Installation CD!:' /etc/motd
+ 	;;
+ 	gentoo-release-minimal)
+ 		cat /etc/generic.motd.txt /etc/minimal.motd.txt > /etc/motd
+-		${clst_sed} -i 's:^##GREETING:Welcome to the Gentoo Linux Minimal Installation CD!:' /etc/motd
++		${clst_sed} -i 's:^##GREETING:Welcome to the Linux Minimal Installation CD!:' /etc/motd
+ 	;;
+ 	gentoo-release-live*)
+ 		cat /etc/generic.motd.txt \
+ 			/etc/minimal.motd.txt /etc/livecd.motd.txt > /etc/motd
+-		${clst_sed} -i -e 's:^##GREETING:Welcome to the Gentoo Linux LiveCD!:' \
++		${clst_sed} -i -e 's:^##GREETING:Welcome to the Linux LiveCD!:' \
+ 			-e "s:##DISPLAY_MANAGER:${clst_livecd_xdm}:" /etc/motd
+ 	;;
+ 	gentoo-gamecd)
+ 		cat /etc/generic.motd.txt /etc/gamecd.motd.txt > /etc/motd
+-		${clst_sed} -i 's:^##GREETING:Welcome to the Gentoo Linux ##GAME_NAME GameCD!:' /etc/motd
++		${clst_sed} -i 's:^##GREETING:Welcome to the Linux ##GAME_NAME GameCD!:' /etc/motd
+ 	;;
+ esac
+ 
+diff -Naur catalyst-3.0.1_orig/targets/support/rc-update.sh catalyst-3.0.1/targets/support/rc-update.sh
+--- catalyst-3.0.1_orig/targets/support/rc-update.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/rc-update.sh	2018-03-18 23:57:29.000000000 +0000
+@@ -11,19 +11,19 @@
+ 
+ if [ "${clst_spec_prefix}" == "livecd" ]
+ then
+-	rc-update --all del iptables
+-	rc-update --all del netmount
+-	rc-update --all del keymaps
+-	rc-update --all del serial
+-	rc-update --all del consolefont
++	rc-update del iptables
++	rc-update del netmount
++	rc-update del keymaps
++	rc-update del serial
++	rc-update del consolefont
+ 	# We need to add this one, unconditionally
+ 	rc-update add autoconfig default
+-	[[ -e /etc/init.d/splash ]] && rc-update add splash default
+-	[[ -e /etc/init.d/fbcondecor ]] && rc-update add fbcondecor default
++	#[[ -e /etc/init.d/splash ]] && rc-update add splash default
++	#[[ -e /etc/init.d/fbcondecor ]] && rc-update add fbcondecor default
+ 	[[ -e /etc/init.d/sysklogd ]] && rc-update add sysklogd default
+ 	[[ -e /etc/init.d/metalog ]] && rc-update add metalog default
+ 	[[ -e /etc/init.d/syslog-ng ]] && rc-update add syslog-ng default
+-	[[ -e /etc/init.d/fixinittab ]] && rc-update add fixinittab default
++	#[[ -e /etc/init.d/fixinittab ]] && rc-update add fixinittab default
+ 
+ 	# Do some livecd_type specific rc-update changes
+ 	case ${clst_livecd_type} in
