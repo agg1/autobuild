@@ -30,7 +30,7 @@ boot/kernel/linux/config: /home/autobuild/etc/portage/kconfig-4.9-flash
 boot/kernel/linux/use:
 	minimal
 	-doc
-	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
+	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
 	-udev -udisks -upower -upnp -upnp-av -avahi usb
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python

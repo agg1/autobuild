@@ -12,7 +12,7 @@ portage_overlay: /usr/local/portage
 livecd/use:
 	#minimal
 	#-doc
-	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 crypt sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
+	-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 sasl ssl libressl curl_ssl_libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp static-libs
 	-udev -udisks -upower -upnp -upnp-av -avahi usb
 	-system-mitkrb5 -system-heimdal -kerberos
 	-java -ruby -python
@@ -34,7 +34,7 @@ livecd/use:
 	sdl sdl2 cdparanoia cdr encode
 	gd djvu bmp gif jpeg jpeg2k mng png apng svg tiff cairo imlib wmf xpm
 	sound jack sox speex fluidsynth midi gstreamer a52 aac flac gsm lame ladspa lash ogg openal vorbis wav mad mp3 sndfile cdda cddb dts timidity
-	video -vlc mplayer mp4 mpeg theora ffmpeg libav xvid x264 h323 v4l matroska vcd css dvb dvd dvdr dv quicktime
+	video -vlc mplayer mp4 mpeg mjpeg theora ffmpeg xvid x264 h323 v4l matroska vcd css dvb dvd dvdr dv quicktime
 	alsa
 	alsa_pcm_plugins_adpcm
 	alsa_pcm_plugins_alaw
@@ -601,7 +601,7 @@ livecd/packages:
 	# broken with EGL dependency
 	dev-libs/DirectFB
 	dev-libs/libbsd
-	dev-libs/libusb-compat
+	#dev-libs/libusb-compat
 	dev-libs/gmp
 	dev-libs/libxml2
 	dev-libs/mpfr
@@ -807,7 +807,7 @@ livecd/packages:
 	net-firewall/psad
 	#net-fs/cifs-utils
 	net-ftp/oftpd
-	net-ftp/vsftpd -> undefined reference to `crypt', vsf_sysdep_check_auth
+	#net-ftp/vsftpd -> undefined reference to `crypt', vsf_sysdep_check_auth
 	net-im/bitlbee
 	net-im/pidgin
 	net-irc/anope
