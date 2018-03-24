@@ -22,7 +22,7 @@ export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit
 #export GK_SHARE="/etc/portage/genkernel"
 export PYTHON_SINGLE_TARGET="python2_7"
 #export PYTHON_SINGLE_TARGET="python3_5"
-export PYTHON_TARGETS="python2_7 python3_5"
+export PYTHON_TARGETS="python2_7 python3_5 python3_6"
 export ACCEPT_KEYWORDS="~amd64"
 
 export SWITCH_CTARGET=x86_64-pc-linux-gnu-5.4.0
