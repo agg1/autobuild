@@ -45,7 +45,7 @@ media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -w
 media-libs/libextractor -gtk -midi
 
 # compilation fails with static-libs for >openjpeg-1.5.2-r1
-#media-libs/openjpeg -static-libs
+media-libs/openjpeg -static-libs
 
 media-video/libav -ssl
 
