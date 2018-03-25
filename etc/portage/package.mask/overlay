@@ -5,7 +5,7 @@
 
 #
 # patched to meet >=dev-lang/orc-0.4
->app-emulation/spice-0.13.1
+>app-emulation/spice-0.13.3
 
 #
 # >2.7.12 broken with libressl 2.7.x
