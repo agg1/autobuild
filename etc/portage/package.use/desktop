@@ -15,8 +15,8 @@ app-misc/rmlint -X
 #
 app-office/libreoffice -gtk gtk2 -jemalloc -kde pdfimport
 
-#
-#app-text/mupdf -opengl
+# with opengl static-libs flag must be unset
+app-text/mupdf -opengl
 
 #
 app-text/ghostscript-gpl cups -gtk -X
