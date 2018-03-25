@@ -4,6 +4,10 @@
 >net-vpn/openvpn-2.4.5
 
 #
+# patched to meet >=dev-lang/orc-0.4
+>app-emulation/spice-0.13.1
+
+#
 # >2.7.12 broken with libressl 2.7.x
 # _ssl.c:141:12: error: static declaration of 'X509_NAME_ENTRY_set' 
 # follows non-static declaration static int X509_NAME_ENTRY_set(const X509_NAME_ENTRY *ne)
