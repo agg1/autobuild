@@ -829,6 +829,7 @@ livecd/packages:
 	net-misc/mrouted
 	net-misc/ndisc6
 ###
+	### glibc-related which removed rpc.h
 	net-libs/libnsl
 	net-libs/libtirpc
 	net-libs/ntirpc
