@@ -160,3 +160,6 @@ net-libs/glib-networking
 #
 # removed openssl dependency
 #>media-video/libav-13_pre20171219
+
+# broken build depending on freeglut not pulled in
+>app-text/mupdf-1.12.0
