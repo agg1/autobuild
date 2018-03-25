@@ -1,6 +1,7 @@
 # otherwise openvpn is broken, with 2.4.x openvpn was fine
 # bareos probably affected too among others
 #<dev-libs/libressl-2.7.0
+>net-vpn/openvpn-2.4.5
 
 #
 # >2.7.12 broken with libressl 2.7.x
@@ -55,8 +56,7 @@ gnome-base/gvfs
 >dev-util/gtk-update-icon-cache-3.20.9
 # gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
 >media-gfx/gimp-2.8.22-r1
-#
-#>media-sound/audacity-2.2.2
+
 #
 # any version greater pulls in gtk3..->dbus
 >app-office/homebank-4.6.3
@@ -90,8 +90,11 @@ gnome-base/gvfs
 >mail-client/mutt-1.9.4
 >net-mail/notmuch-0.25.3
 >net-mail/notmuchfs-1.0
-#
+
+# removal of gnutls, libressl compat
 >net-analyzer/ettercap-0.8.2-r1
+>net-analyzer/wireshark-2.5.0
+
 #
 >net-dialup/diald-1.0-r3
 #
@@ -153,3 +156,7 @@ dev-libs/appstream
 dev-libs/appstream-glib
 net-libs/libsoup
 net-libs/glib-networking
+
+#
+# removed openssl dependency
+#>media-video/libav-13_pre20171219

@@ -1,9 +1,6 @@
 #sys-kernel/ck-sources experimental deblob
 sys-kernel/genkernel -firmware -cryptsetup
 
-# required by hwdb
-#sys-apps/hwids udev
-
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
 # required by sys-devel/gettext-0.19.8.1::gentoo
 # required by sys-devel/gettext (argument)

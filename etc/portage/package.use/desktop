@@ -1,4 +1,15 @@
+#- app-emulation/qemu-2.11.1 (Change USE: -spice)
+#- app-emulation/spice-0.14.0 (Change USE: -smartcard)
 app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde
+app-emulation/spice -smartcard
+
+# required by hwdb,eudev
+sys-apps/hwids udev
+sys-apps/pcsc-lite udev
+
+app-editors/vim -X
+
+#
 app-misc/rmlint -X
 
 #
@@ -32,6 +43,11 @@ media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -w
 
 # file collision of /usr/bin/smfsh from media-libs/libsmf with media-sound/jack-smf-utils
 media-libs/libextractor -gtk -midi
+
+# compilation fails with static-libs for >openjpeg-1.5.2-r1
+#media-libs/openjpeg -static-libs
+
+media-video/libav -ssl
 
 # pulls in gtk+3 otherwise
 media-sound/alsa-tools -gtk
@@ -96,8 +112,8 @@ net-p2p/transmission -gtk -ayatana -qt5
 #
 net-vpn/tor tor-hardening transparent-proxy
 
-# otherwise broken with >libressl-2.4/2.5
-net-vpn/openvpn -libressl mbedtls
+# otherwise broken with >libressl-2.4/2.5, overlay
+net-vpn/openvpn mbedtls -libressl
 
 #
 www-servers/lighttpd -minimal
