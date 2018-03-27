@@ -3,9 +3,33 @@
 #<dev-libs/libressl-2.7.0
 >net-vpn/openvpn-2.4.5
 
+# removed circular dependency in spice and spice-gtk
+# attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
+# dependency chain against spice-smartcard
+>app-emulation/qemu-2.6.0
+
 #
 # patched to meet >=dev-lang/orc-0.4
->=app-emulation/spice-0.14.0
+# does not match spice-0.13.1-r2.ebuild correctly it seems
+#>app-emulation/spice-0.13.1
+#>=app-emulation/spice-0.14.0
+>=app-emulation/spice-0.13.3
+
+# other packages are affected likewise concerning openssl-compat with libressl 2.6.4
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_puts'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_set_data'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_get_new_index'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `EVP_PKEY_get0_RSA'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_set_init'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_free'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_write'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_read'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_get_data'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_new'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `ASN1_STRING_get0_data'
+#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_ctrl'
+>net-misc/spice-gtk-0.31
+>app-emulation/spice-protocol-0.12.11
 
 #
 # >2.7.12 broken with libressl 2.7.x

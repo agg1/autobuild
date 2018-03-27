@@ -1,7 +1,10 @@
 #- app-emulation/qemu-2.11.1 (Change USE: -spice)
 #- app-emulation/spice-0.14.0 (Change USE: -smartcard)
-app-emulation/qemu -gtk -gtk2 -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde
-app-emulation/spice -smartcard
+# removed circular dependency in spice and spice-gtk
+# attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
+# dependency chain against spice-smartcard
+app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde smartcard -pin-upstream-blobs
+#app-emulation/spice -smartcard
 
 # required by hwdb,eudev
 sys-apps/hwids udev
@@ -12,8 +15,8 @@ app-editors/vim -X
 #
 app-misc/rmlint -X
 
-#
-app-office/libreoffice -gtk gtk2 -jemalloc -kde pdfimport
+# pdfimport requires missing UTF8.h
+app-office/libreoffice -gtk gtk2 -jemalloc -kde -pdfimport
 
 # with opengl static-libs flag must be unset
 app-text/mupdf -opengl
