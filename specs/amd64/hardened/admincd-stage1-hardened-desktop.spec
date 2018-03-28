@@ -858,6 +858,7 @@ livecd/packages:
 	net-misc/sstp-client
 	#net-misc/tigervnc
 	#net-misc/tightvnc
+	# check transparent socks option to resocksify tor
 	net-vpn/tor
 	net-misc/urlview
 	net-misc/vde
@@ -884,7 +885,7 @@ livecd/packages:
 	net-proxy/squid
 	net-proxy/torsocks
 	net-proxy/tsocks
-	net-voip/gnugk
+	#net-voip/gnugk
 	net-voip/linphone
 	net-voip/yate
 	net-wireless/aircrack-ng
@@ -951,7 +952,7 @@ livecd/packages:
 	app-text/xapian-omega
 	www-client/firefox
 	www-client/links
-	www-client/netsurf
+	#www-client/netsurf -> binding.c:111:13: error: too many arguments to function 'duk_safe_call'
 	www-client/w3m
 	www-servers/lighttpd
 	www-servers/nginx
