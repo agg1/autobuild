@@ -6,14 +6,18 @@
 # removed circular dependency in spice and spice-gtk
 # attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
 # dependency chain against spice-smartcard
->app-emulation/qemu-2.6.0
+#qemu-2.6.0/user-exec.c:71:37: error: dereferencing pointer to incomplete type 'struct ucontext' sigprocmask(SIG_SETMASK, &uc->uc_sigmask, NULL); ???
+# might be related to glibc 2.26 and gcc <5.5, fixed in 5.5 6.5 and 7.x
+#>app-emulation/qemu-2.6.0
+# try 2.5.0-r3 instead
+#>=app-emulation/qemu-2.6.0
 
+# undefined reference to `OPENSSL_init_ssl'
+# patched to meet >=dev-lang/orc-0.4
+#<app-emulation/spice-0.14
 #
 # patched to meet >=dev-lang/orc-0.4
-# does not match spice-0.13.1-r2.ebuild correctly it seems
-#>app-emulation/spice-0.13.1
-#>=app-emulation/spice-0.14.0
->=app-emulation/spice-0.13.3
+>app-emulation/spice-0.13.3-r2
 
 # other packages are affected likewise concerning openssl-compat with libressl 2.6.4
 #../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_puts'
@@ -29,7 +33,7 @@
 #../src/.libs/libspice-client-glib-2.0.so: undefined reference to `ASN1_STRING_get0_data'
 #../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_ctrl'
 >net-misc/spice-gtk-0.31
->app-emulation/spice-protocol-0.12.11
+#>app-emulation/spice-protocol-0.12.11
 
 #
 # >2.7.12 broken with libressl 2.7.x
@@ -89,12 +93,23 @@ gnome-base/gvfs
 # any version greater pulls in gtk3..->dbus
 >app-office/homebank-4.6.3
 
-#
+# libreoffice-5.2.3.3/desktop/unx/source/pagein.c:58:13: error: called object 'major' is not a function or function pointer
 # any version greater than 5.2.3.3 pulls in gnupg2/gpgme
->app-office/libreoffice-5.2.3.3
->app-office/libreoffice-l10n-5.2.3.3
->dev-libs/liborcus-0.11.2
->dev-libs/libixion-0.11.1
+# 5.1.4.2 pulls in google and googledrive dependencies
+#>app-office/libreoffice-5.1.4.2
+#>app-office/libreoffice-l10n-5.1.4.2
+# didn't match
+#>dev-libs/liborcus-0.9.2
+#>~dev-libs/liborcus-0.9.2
+#>dev-libs/liborcus-0.9.2-r1
+#>dev-libs/libixion-0.9.1
+#>~dev-libs/libixion-0.9.1
+#>dev-libs/libixion-0.9.1-r1
+###>dev-libs/icu-57.1
+
+#gpgme patched out, libreoffice configuration does not complain
+>app-office/libreoffice-5.4.5.1
+>app-office/libreoffice-l10n-5.4.5.1
 
 # any version greater pulls in gtk3..->dbus
 >gnome-extra/gucharmap-3.0.1-r200
@@ -127,8 +142,18 @@ gnome-base/gvfs
 >net-dialup/diald-1.0-r3
 #
 >net-libs/libeXosip-4.0.0
-#
+
+# does not install /usr/bin/ptlib-config
 >net-libs/ptlib-2.12.9-r1
+
+#required by gnugk
+#ptclib/pssl.cxx:1193:27: error: 'SSLv3_method' was not declared in this scope -> patched in 2.12.9-r1
+#ptlib/unix/channel.cxx:239:38: error: '::readv' has not been declared
+#>net-libs/ptlib-2.10.11
+
+#
+>net-libs/h323plus-1.25.0-r2
+
 #
 >net-libs/wvstreams-4.6.1-r3
 #
@@ -191,3 +216,14 @@ net-libs/glib-networking
 
 # broken build depending on freeglut not pulled in
 >app-text/mupdf-1.12.0
+
+#build-Linux-gtk/duktape/binding.c:111:13: error: too many arguments to function 'duk_safe_call'
+#netsurf-gtk
+>www-client/netsurf-3.5
+
+
+#gui/src/UI/ui_PatternFillDialog_UI.h:13:29: fatal error: QtWidgets/QAction: No such file or directory
+#hydrogen, latest pre uses QT5 instead of QT4
+<=media-sound/hydrogen-0.9.5-r1
+
+

@@ -16,7 +16,10 @@ app-editors/vim -X
 app-misc/rmlint -X
 
 # pdfimport requires missing UTF8.h
-app-office/libreoffice -gtk gtk2 -jemalloc -kde -pdfimport
+#	x11-libs/cairo[X,-xlib-xcb] ->	x11-libs/cairo[X]
+app-office/libreoffice -gtk gtk2 -jemalloc -kde -pdfimport -google
+#
+dev-libs/xmlsec nss
 
 # with opengl static-libs flag must be unset
 app-text/mupdf -opengl
@@ -65,7 +68,7 @@ mail-client/thunderbird -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 light
 #
 www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo -gtk -gtk3 gtk2
 # svgtiny is broken
-www-client/netsurf -gtk gtk2 -svgtiny
+www-client/netsurf gtk -svgtiny
 
 #
 x11-base/xorg-server xorg suid glamor xcsecurity
