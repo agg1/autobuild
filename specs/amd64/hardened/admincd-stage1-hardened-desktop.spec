@@ -429,7 +429,7 @@ livecd/packages:
 	app-forensics/zzuf
 	app-misc/abook
 	app-misc/banner
-	app-misc/rmlint
+	#app-misc/rmlint -> librmlint.a(utilities.o): In function `rm_mounts_create_tables': utilities.c:(.text+0x18f2): undefined reference to `makedev'
 	app-misc/mc
 	app-mobilephone/gammu
 	app-mobilephone/smsclient
@@ -820,9 +820,9 @@ livecd/packages:
 	net-libs/libotr
 	net-mail/dovecot
 	#net-mail/isync -> In function `start_tls_p2': undefined reference to `X509_OBJECT_get0_X509'
-	net-mail/notmuch
-	net-mail/notmuchfs
-	net-mail/muchsync
+	#net-mail/notmuch
+	#net-mail/notmuchfs
+	#net-mail/muchsync
 	net-mail/qprint
 	net-misc/asterisk
 	net-misc/mosh
