@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# Copyright aggi 2016
+# Copyright aggi 2016,2017,2018
 
 export LATEST=$1
 export CLEAN=false
@@ -7,27 +7,26 @@ export CKERN=true
 #export LATEST=20161126-1480193160
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
-git clean -df .
-cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
-git clean -df .
-cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
+if [ -f /tmp/.relda ]; then
+	export RELDA=$(cat /tmp/.relda)
+	export NOCLEAN="true"
+else
+	:> /home/autolog/build.log
+fi
 
 source /home/autobuild/autobuild.sh
-prepare_system
 
+prepare_system
 clean_portage
 prepare_portage
 
 export PKDIR="/home/packages/minimal/${LATEST}"
 update_livecd_minimal
+
 export PKDIR="/home/packages/admin/${LATEST}"
 update_livecd_admin
+
 export PKDIR="/home/packages/desktop/${LATEST}"
 update_livecd_desktop
 
-archive_digests
-commit_seed minimal
-commit_seed admin
-commit_seed desktop
-commit_seed kerncache
-commit_seed portage
+sign_release

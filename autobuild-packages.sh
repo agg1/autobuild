@@ -6,14 +6,16 @@ export LATEST=$1
 export CKERN=true
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
-git clean -df .
-cd /home/autobuild; git crypt unlock /media/backup/git/catalyst.gcr; cd -
-git clean -df .
-cd /home/extra_overlay; git crypt unlock /media/backup/git/catalyst.gcr; cd -
+if [ -f /tmp/.relda ]; then
+	export RELDA=$(cat /tmp/.relda)
+	export NOCLEAN="true"
+else
+	:> /home/autolog/build.log
+fi
 
 source /home/autobuild/autobuild.sh
-prepare_system
 
+prepare_system
 clean_portage
 prepare_portage
 

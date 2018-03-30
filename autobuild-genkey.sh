@@ -4,6 +4,7 @@
 #cat /proc/sys/kernel/random/entropy_avail
 
 rm -f /home/autobuild/gpg/*.gpg
+rm -f /home/autobuild/gpg/*.gpg~
 rm -f /home/autobuild/gpg/*.pub
 
 gpgcfg="/tmp/gpgcfg-$RANDOM"
