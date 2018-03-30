@@ -1,6 +1,6 @@
-diff -Naur catalyst-3.0.1_orig/targets/support/bootloader-setup.sh catalyst-3.0.1/targets/support/bootloader-setup.sh
---- catalyst-3.0.1_orig/targets/support/bootloader-setup.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/bootloader-setup.sh	2018-03-18 23:46:28.000000000 +0000
+diff -Naur catalyst-3.0.1-orig/targets/support/bootloader-setup.sh catalyst-3.0.1/targets/support/bootloader-setup.sh
+--- catalyst-3.0.1-orig/targets/support/bootloader-setup.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/bootloader-setup.sh	2018-03-30 18:24:34.100020147 +0000
 @@ -269,8 +269,8 @@
  			icfg=$1/isolinux/isolinux.cfg
  			kmsg=$1/isolinux/kernels.msg
@@ -54,9 +54,21 @@ diff -Naur catalyst-3.0.1_orig/targets/support/bootloader-setup.sh catalyst-3.0.
  				fi
  			done
  
-diff -Naur catalyst-3.0.1_orig/targets/support/livecdfs-update.sh catalyst-3.0.1/targets/support/livecdfs-update.sh
---- catalyst-3.0.1_orig/targets/support/livecdfs-update.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/livecdfs-update.sh	2018-03-18 23:54:23.000000000 +0000
+diff -Naur catalyst-3.0.1-orig/targets/support/filesystem-functions.sh catalyst-3.0.1/targets/support/filesystem-functions.sh
+--- catalyst-3.0.1-orig/targets/support/filesystem-functions.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/filesystem-functions.sh	2018-03-30 18:26:02.890021631 +0000
+@@ -55,7 +55,7 @@
+ create_squashfs() {
+ 	echo "Creating squashfs..."
+ 	export loopname="image.squashfs"
+-	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend \
++	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend -comp xz \
+ 		|| die "mksquashfs failed, did you emerge squashfs-tools?"
+ }
+ 
+diff -Naur catalyst-3.0.1-orig/targets/support/livecdfs-update.sh catalyst-3.0.1/targets/support/livecdfs-update.sh
+--- catalyst-3.0.1-orig/targets/support/livecdfs-update.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/livecdfs-update.sh	2018-03-30 18:24:34.100020147 +0000
 @@ -27,16 +27,16 @@
  
  # Since we're an official Gentoo release, we do things the official Gentoo way.
@@ -181,9 +193,9 @@ diff -Naur catalyst-3.0.1_orig/targets/support/livecdfs-update.sh catalyst-3.0.1
  	;;
  esac
  
-diff -Naur catalyst-3.0.1_orig/targets/support/rc-update.sh catalyst-3.0.1/targets/support/rc-update.sh
---- catalyst-3.0.1_orig/targets/support/rc-update.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/rc-update.sh	2018-03-18 23:57:29.000000000 +0000
+diff -Naur catalyst-3.0.1-orig/targets/support/rc-update.sh catalyst-3.0.1/targets/support/rc-update.sh
+--- catalyst-3.0.1-orig/targets/support/rc-update.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/rc-update.sh	2018-03-30 18:24:34.100020147 +0000
 @@ -11,19 +11,19 @@
  
  if [ "${clst_spec_prefix}" == "livecd" ]

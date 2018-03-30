@@ -53,7 +53,7 @@ create_noloop() {
 create_squashfs() {
 	echo "Creating squashfs..."
 	export loopname="image.squashfs"
-	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend -comp lzo \
+	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend -comp xz \
 		|| die "mksquashfs failed, did you emerge squashfs-tools?"
 }
 
