@@ -62,7 +62,7 @@ diff -Naur catalyst-3.0.1-orig/targets/support/filesystem-functions.sh catalyst-
  	echo "Creating squashfs..."
  	export loopname="image.squashfs"
 -	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend \
-+	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend -comp xz \
++	mksquashfs "${clst_destpath}" "$1/${loopname}" ${clst_fsops} -noappend -comp lzo \
  		|| die "mksquashfs failed, did you emerge squashfs-tools?"
  }
  
