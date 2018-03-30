@@ -9,18 +9,19 @@ rm -f /home/autobuild/gpg/*.pub
 
 gpgcfg="/tmp/gpgcfg-$RANDOM"
 
-echo "enter cred"
-read -s gpw
 
 export GPGDIR="${GPGDIR:-/home/autobuild/gpg}"
 export GNUPGHOME=${GPGDIR}
 
-
 cat ${GNUPGHOME}/config > ${gpgcfg}
-echo "Passphrase: $gpw" >> ${gpgcfg}
 
-gpg --gen-key --enable-large-rsa --batch < ${gpgcfg}
+#echo "enter cred"
+#read -s gpw
+#echo "Passphrase: $gpw" >> ${gpgcfg}
+#gpg --gen-key --enable-large-rsa --batch < ${gpgcfg}
 #echo "passwd" | gpg --command-fd 0 --edit-key Autobuild
+
+gpg --passphrase-file /dev/null --gen-key --enable-large-rsa --batch < ${gpgcfg}
 
 gpg -a --export > ${GNUPGHOME}/autobuild.pub
 gpg --list-key
