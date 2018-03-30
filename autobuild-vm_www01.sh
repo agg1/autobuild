@@ -18,6 +18,6 @@ prepare_portage
 export MACHINE="www01"
 export MACHID=44444445
 export PKDIR="/home/packages/${MACHINE}/${RELDA}"
-build_livecd_minimal_machine
+build_livecd_minimal_machine 2>&1 | tee -a /home/autolog/build.log
 #build_livecd_minimal_machine_img
 #cp -p /home/seeds/${MACHINE}/${RELDA}/* /home/virtual/${MACHINE}
