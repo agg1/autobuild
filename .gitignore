@@ -1,1 +1,3 @@
 tmp
+gpg/*.gpg*
+gpg/*.pub*
