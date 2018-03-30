@@ -10,8 +10,8 @@ export LVHOM="50"
 export LVLOG="50"
 
 source /home/autobuild/autobuild.sh
-prepare_system
 
+prepare_system
 clean_portage
 prepare_portage
 

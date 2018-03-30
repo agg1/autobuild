@@ -1,16 +1,14 @@
 #!/bin/sh -e
 # Copyright aggi 2016
 
-#export LATEST="20161226-1482779549"
-#export RELDA="fw01-testing"
 export CKERN="yes"
 export LVSIZ="128"
 export LVHOM="10"
 export LVLOG="70"
 
 source /home/autobuild/autobuild.sh
-prepare_system
 
+prepare_system
 clean_portage
 prepare_portage
 
