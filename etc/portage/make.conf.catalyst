@@ -46,5 +46,4 @@ COLLISION_IGNORE="/usr/share/vim/*"
 PORTAGE_TMPDIR=/home/tmp/
 PORTAGE_NICENESS=8
 
-#GK_SHARE="/etc/portage/genkernel"
 SHELL="/bin/bash"
