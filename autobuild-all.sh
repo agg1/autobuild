@@ -9,10 +9,7 @@ else
 fi
 
 source /home/autobuild/autobuild.sh
-
 prepare_system
-clean_portage
-prepare_portage
 
 sync_portage
 #fetch_portage

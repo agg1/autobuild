@@ -11,10 +11,6 @@ export LVLOG="70"
 source /home/autobuild/autobuild.sh
 prepare_system
 
-clean_portage
-prepare_portage
-umount /var/tmp/catalyst/builds || true
-
 export MACHINE="padwalker"
 export MACHID=66669999
 export PKDIR="/home/packages/${MACHINE}/${RELDA}"

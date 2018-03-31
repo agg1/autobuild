@@ -16,8 +16,6 @@ fi
 
 source /home/autobuild/autobuild.sh
 prepare_system
-clean_portage
-prepare_portage
 
 for vm in fw01 irc01 proxy01 tor01 www01 ; do
 	/bin/sh autobuild-vm_${vm}.sh

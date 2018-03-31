@@ -14,10 +14,7 @@ else
 fi
 
 source /home/autobuild/autobuild.sh
-
 prepare_system
-clean_portage
-prepare_portage
 
 export PKDIR="/home/packages/desktop/${LATEST}"
 update_livecd_packages

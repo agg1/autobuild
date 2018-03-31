@@ -7,10 +7,7 @@ export LVHOM="10"
 export LVLOG="70"
 
 source /home/autobuild/autobuild.sh
-
 prepare_system
-clean_portage
-prepare_portage
 
 export MACHINE="fw01"
 export MACHID=44444440
