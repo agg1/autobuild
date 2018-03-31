@@ -1,7 +1,6 @@
 >sys-boot/syslinux-3.86
 >=sys-devel/gcc-6.0.0
 >=sys-kernel/ck-sources-4.9.999
->=sys-kernel/genkernel-3.5.2.5
 >dev-util/catalyst-3.0.1
 sys-apps/systemd
 sys-auth/consolekit
