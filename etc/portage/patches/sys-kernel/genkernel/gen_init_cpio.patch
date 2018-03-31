@@ -6,7 +6,7 @@ diff -Naur genkernel-3.5.2.5-orig/gen_initramfs.sh genkernel-3.5.2.5/gen_initram
  		cat "${TEMP}/initramfs-base-temp.devices"
  	fi
 -	${KERNEL_OUTPUTDIR}/usr/gen_init_cpio "${TEMP}/initramfs-base-temp.devices" >"${CPIO}" \
-+	gen_init_cpio "${TEMP}/initramfs-base-temp.devices" >"${CPIO}" \
++	/etc/portage/gen_init_cpio "${TEMP}/initramfs-base-temp.devices" >"${CPIO}" \
  			|| gen_die "Failed to add devices to cpio"
  }
  
