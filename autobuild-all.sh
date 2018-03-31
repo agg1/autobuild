@@ -25,6 +25,7 @@ build_seed_init
 export PKDIR="/home/packages/minimal/${RELDA}"
 rm -rf /home/packages/minimal/*
 build_livecd_minimal 2>&1 | tee -a /home/autolog/build.log
+export CKERN=true
 
 export PKDIR="/home/packages/admin/${RELDA}"
 rm -rf /home/packages/admin/*
