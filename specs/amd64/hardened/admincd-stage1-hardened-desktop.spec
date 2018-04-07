@@ -620,6 +620,7 @@ livecd/packages:
 	games-util/joystick
 	games-util/jstest-gtk
 	lxde-base/lxde-meta
+	lxde-base/lxterminal
 	mail-client/mutt
 	mail-client/thunderbird
 	mail-client/mailx-support
@@ -864,7 +865,7 @@ livecd/packages:
 	net-misc/vde
 	net-vpn/vpnc
 	net-misc/WendzelNNTPd
-	net-misc/yatb
+	#net-misc/yatb dobin: bin/blowcrypt does not exist
 	net-misc/youtube-dl
 	net-misc/youtube-viewer
 	net-nds/adtool
@@ -994,7 +995,7 @@ livecd/packages:
 	x11-misc/xautolock
 	x11-misc/xcalib
 	x11-misc/xtrlock
-	x11-misc/xlockmore
+	#x11-misc/xlockmore -> buffer overflow, core dumped
 	x11-terms/xterm
 	x11-wm/i3
 	x11-wm/openbox
