@@ -10,7 +10,7 @@ if [ -f /tmp/.relda ]; then
 	export RELDA=$(cat /tmp/.relda)
 	export NOCLEAN="true"
 else
-	:> /home/autolog/build.log
+	:> /home/autolog/autobuild.log
 fi
 
 source /home/autobuild/autobuild.sh

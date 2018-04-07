@@ -2,27 +2,29 @@
 # Copyright aggi 2016,2017,2018
 
 export LATEST=$1
-export CKERN=true
+#export CKERN=true
 #export LATEST=20161126-1480193160
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
 if [ -f /tmp/.relda ]; then
 	export RELDA=$(cat /tmp/.relda)
-	export NOCLEAN="true"
+	#export NOCLEAN="true"
 else
-	:> /home/autolog/build.log
+	:> /home/autolog/autobuild.log
 fi
 
 source /home/autobuild/autobuild.sh
 prepare_system
 
 export PKDIR="/home/packages/minimal/${LATEST}"
-update_livecd_minimal 2>&1 | tee -a /home/autolog/build.log
+update_livecd_minimal
 
+export CKERN=true
 export PKDIR="/home/packages/admin/${LATEST}"
-update_livecd_admin 2>&1 | tee -a /home/autolog/build.log
+update_livecd_admin
 
+export CKERN=true
 export PKDIR="/home/packages/desktop/${LATEST}"
-update_livecd_desktop 2>&1 | tee -a /home/autolog/build.log
+update_livecd_desktop
 
-sign_release
+#sign_release

@@ -9,9 +9,9 @@ export CKERN=yes
 
 if [ -f /tmp/.relda ]; then
 	export RELDA=$(cat /tmp/.relda)
-	export NOCLEAN="true"
+	#export NOCLEAN="true"
 else
-	:> /home/autolog/build.log
+	:> /home/autolog/autobuild.log
 fi
 
 source /home/autobuild/autobuild.sh
@@ -19,13 +19,6 @@ prepare_system
 
 for vm in fw01 irc01 proxy01 tor01 www01 ; do
 	/bin/sh autobuild-vm_${vm}.sh
-done
-
-#rm -rf /media/backup/virtual/*
-for vm in fw01 irc01 proxy01 tor01 www01 ; do
-	commit_seed ${vm}
-	#mkdir -p /media/backup/virtual/${vm}
-	#cp -vpR ${SDDIR}/${vm}/${RELDA}/* /media/backup/virtual/${vm}
 done
 
 sign_release
