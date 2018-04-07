@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.9.87 Kernel Configuration
+# Linux/x86 4.9.87-ck1 Kernel Configuration
 #
 
 #
@@ -393,9 +393,8 @@ CONFIG_SWIOTLB=y
 CONFIG_IOMMU_HELPER=y
 # CONFIG_MAXSMP is not set
 CONFIG_NR_CPUS=32
-CONFIG_SCHED_SMT=y
-CONFIG_SMT_NICE=y
-CONFIG_SCHED_MC=y
+# CONFIG_SCHED_SMT is not set
+# CONFIG_SCHED_MC is not set
 # CONFIG_PREEMPT_NONE is not set
 # CONFIG_PREEMPT_VOLUNTARY is not set
 CONFIG_PREEMPT=y
