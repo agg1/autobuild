@@ -1,4 +1,7 @@
 # HOWTO libressl
+# portage-2017 required
+
+# remember nsswitch.conf!
 
 mkdir -p /tmp/stage3
 cd /tmp/stage3
@@ -9,7 +12,7 @@ mkdir -p /tmp/stage3/usr/portage/distfiles
 mount --bind /dev /tmp/stage3/dev
 mount --bind /proc /tmp/stage3/proc
 mount --bind /usr/portage /tmp/stage3/usr/portage
-mount --bind /home/distfiles /tmp/stage3/usr/portage/distfiles
+mount --bind /media/distfiles /tmp/stage3/usr/portage/distfiles
 
 chroot /tmp/stage3
 
