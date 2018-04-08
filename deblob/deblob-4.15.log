@@ -98,53 +98,6 @@ MOXA_INTELLIO - Moxa Intellio support
 drivers/tty/moxa.c: disabled non-Free firmware-loading machinery
 drivers/tty/moxa.c: removed blobs
 
-DRM_AMDGPU - AMD GPU
-drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/psp_v3_1.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/psp_v3_1.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/psp_v10_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/psp_v10_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/sdma_v2_4.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/sdma_v2_4.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/amdgpu_device.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/amdgpu_device.c: removed blobs
-drivers/gpu/drm/amd/powerplay/smumgr/smumgr.c: removed blobs
-
-DRM_AMDGPU_CIK - Enable amdgpu support for CIK parts
-drivers/gpu/drm/amd/amdgpu/ci_dpm.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/ci_dpm.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/cik_sdma.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/cik_sdma.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c: removed blobs
-
-DRM_AMDGPU_SI - Enable amdgpu support for CIK parts
-drivers/gpu/drm/amd/amdgpu/si_dpm.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/si_dpm.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c: removed blobs
-drivers/gpu/drm/amd/amdgpu/gmc_v6_0.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/amd/amdgpu/gmc_v6_0.c: removed blobs
-
 DRM_AST - AST server chips
 drivers/gpu/drm/ast/ast_dp501.c: disabled non-Free firmware-loading machinery
 drivers/gpu/drm/ast/ast_dp501.c: removed blobs
@@ -194,16 +147,6 @@ drivers/gpu/drm/radeon/r600.c: removed blobs
 drivers/gpu/drm/radeon/r600.c: enable blobless activation
 drivers/gpu/drm/radeon/evergreen.c: enable blobless activation
 drivers/gpu/drm/radeon/rv770.c: enable blobless activation
-drivers/gpu/drm/radeon/ni.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/radeon/ni.c: removed blobs
-drivers/gpu/drm/radeon/si.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/radeon/si.c: removed blobs
-drivers/gpu/drm/radeon/cik.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/radeon/cik.c: removed blobs
-drivers/gpu/drm/radeon/radeon_uvd.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/radeon/radeon_uvd.c: removed blobs
-drivers/gpu/drm/radeon/radeon_vce.c: disabled non-Free firmware-loading machinery
-drivers/gpu/drm/radeon/radeon_vce.c: removed blobs
 
 ROCKCHIP_CDN_DP - Rockchip cdn DP
 drivers/gpu/drm/rockchip/cdn-dp-core.c: disabled non-Free firmware-loading machinery

@@ -712,58 +712,58 @@ clean_mk CONFIG_MOXA_INTELLIO drivers/tty/Makefile
 
 # gpu drm
 
-announce DRM_AMDGPU - "AMD GPU"
-reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c
-clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.c
-clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/psp_v3_1.c
-clean_blob drivers/gpu/drm/amd/amdgpu/psp_v3_1.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/psp_v10_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/psp_v10_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/sdma_v2_4.c
-clean_blob drivers/gpu/drm/amd/amdgpu/sdma_v2_4.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
-clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
-clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
-clean_blob drivers/gpu/drm/amd/powerplay/smumgr/smumgr.c
-clean_kconfig drivers/gpu/drm/Kconfig DRM_AMDGPU
-clean_mk CONFIG_DRM_AMDGPU drivers/gpu/drm/amd/amdgpu/Makefile
-
-announce DRM_AMDGPU_CIK - "Enable amdgpu support for CIK parts"
-reject_firmware drivers/gpu/drm/amd/amdgpu/ci_dpm.c
-clean_blob drivers/gpu/drm/amd/amdgpu/ci_dpm.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/cik_sdma.c
-clean_blob drivers/gpu/drm/amd/amdgpu/cik_sdma.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
-clean_kconfig drivers/gpu/drm/amd/amdgpu/Kconfig DRM_AMDGPU_CIK
-clean_mk CONFIG_DRM_AMDGPU_CIK drivers/gpu/drm/amd/amdgpu/Makefile
-
-announce DRM_AMDGPU_SI - "Enable amdgpu support for CIK parts"
-reject_firmware drivers/gpu/drm/amd/amdgpu/si_dpm.c
-clean_blob drivers/gpu/drm/amd/amdgpu/si_dpm.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c
-reject_firmware drivers/gpu/drm/amd/amdgpu/gmc_v6_0.c
-clean_blob drivers/gpu/drm/amd/amdgpu/gmc_v6_0.c
-clean_kconfig drivers/gpu/drm/amd/amdgpu/Kconfig DRM_AMDGPU_SI
-clean_mk CONFIG_DRM_AMDGPU_SI drivers/gpu/drm/amd/amdgpu/Makefile
+#announce DRM_AMDGPU - "AMD GPU"
+#reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v9_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/psp_v3_1.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/psp_v3_1.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/psp_v10_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/psp_v10_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/sdma_v2_4.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/sdma_v2_4.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+#clean_blob drivers/gpu/drm/amd/powerplay/smumgr/smumgr.c
+#clean_kconfig drivers/gpu/drm/Kconfig DRM_AMDGPU
+#clean_mk CONFIG_DRM_AMDGPU drivers/gpu/drm/amd/amdgpu/Makefile
+#
+#announce DRM_AMDGPU_CIK - "Enable amdgpu support for CIK parts"
+#reject_firmware drivers/gpu/drm/amd/amdgpu/ci_dpm.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/ci_dpm.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/cik_sdma.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/cik_sdma.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
+#clean_kconfig drivers/gpu/drm/amd/amdgpu/Kconfig DRM_AMDGPU_CIK
+#clean_mk CONFIG_DRM_AMDGPU_CIK drivers/gpu/drm/amd/amdgpu/Makefile
+#
+#announce DRM_AMDGPU_SI - "Enable amdgpu support for CIK parts"
+#reject_firmware drivers/gpu/drm/amd/amdgpu/si_dpm.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/si_dpm.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c
+#reject_firmware drivers/gpu/drm/amd/amdgpu/gmc_v6_0.c
+#clean_blob drivers/gpu/drm/amd/amdgpu/gmc_v6_0.c
+#clean_kconfig drivers/gpu/drm/amd/amdgpu/Kconfig DRM_AMDGPU_SI
+#clean_mk CONFIG_DRM_AMDGPU_SI drivers/gpu/drm/amd/amdgpu/Makefile
 
 announce DRM_AST - "AST server chips"
 reject_firmware drivers/gpu/drm/ast/ast_dp501.c
@@ -838,18 +838,18 @@ clean_sed '
 clean_sed '
 /r = r600_init_microcode(rdev);/,/}/ s,return r;,/*(DEBLOBBED)*/,
 ' drivers/gpu/drm/radeon/rv770.c 'enable blobless activation'
-reject_firmware drivers/gpu/drm/radeon/ni.c
-clean_blob drivers/gpu/drm/radeon/ni.c
-reject_firmware drivers/gpu/drm/radeon/si.c
-clean_blob drivers/gpu/drm/radeon/si.c
-reject_firmware drivers/gpu/drm/radeon/cik.c
-clean_blob drivers/gpu/drm/radeon/cik.c
-reject_firmware drivers/gpu/drm/radeon/radeon_uvd.c
-clean_blob drivers/gpu/drm/radeon/radeon_uvd.c
-reject_firmware drivers/gpu/drm/radeon/radeon_vce.c
-clean_blob drivers/gpu/drm/radeon/radeon_vce.c
-clean_kconfig drivers/gpu/drm/Kconfig DRM_RADEON
-clean_mk CONFIG_DRM_RADEON drivers/gpu/drm/Makefile
+#reject_firmware drivers/gpu/drm/radeon/ni.c
+#clean_blob drivers/gpu/drm/radeon/ni.c
+#reject_firmware drivers/gpu/drm/radeon/si.c
+#clean_blob drivers/gpu/drm/radeon/si.c
+#reject_firmware drivers/gpu/drm/radeon/cik.c
+#clean_blob drivers/gpu/drm/radeon/cik.c
+#reject_firmware drivers/gpu/drm/radeon/radeon_uvd.c
+#clean_blob drivers/gpu/drm/radeon/radeon_uvd.c
+#reject_firmware drivers/gpu/drm/radeon/radeon_vce.c
+#clean_blob drivers/gpu/drm/radeon/radeon_vce.c
+#clean_kconfig drivers/gpu/drm/Kconfig DRM_RADEON
+#clean_mk CONFIG_DRM_RADEON drivers/gpu/drm/Makefile
 
 announce ROCKCHIP_CDN_DP - "Rockchip cdn DP"
 reject_firmware drivers/gpu/drm/rockchip/cdn-dp-core.c
