@@ -60,7 +60,7 @@
 #>app-admin/rsyslog-8.33.1
 #
 # patched and included configs, greater version buggy not writing/synching files properly, check changelog for json config
->app-admin/rsyslog-8.29.
+>app-admin/rsyslog-8.29.0
 
 #
 # specific xapian version required for ikiwiki to provide search functionality
