@@ -13,3 +13,6 @@ app-admin/qtpass noparallel.conf
 net-ftp/vsftpd noparallel.conf
 
 net-libs/h323plus noparallel.conf
+
+# does not fix catalyst build
+#media-gfx/blender python36.conf
