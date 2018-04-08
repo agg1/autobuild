@@ -57,7 +57,10 @@
 #>app-arch/libarchive-3.2.2
 
 # patched to utilize libressl
->app-admin/rsyslog-8.33.1
+#>app-admin/rsyslog-8.33.1
+#
+# patched and included configs, greater version buggy not writing/synching files properly, check changelog for json config
+>app-admin/rsyslog-8.29.
 
 #
 # specific xapian version required for ikiwiki to provide search functionality
@@ -133,6 +136,8 @@ gnome-base/gvfs
 >mail-client/mutt-1.9.4
 >net-mail/notmuch-0.25.3
 >net-mail/notmuchfs-1.0
+# any greater is broken with ssl/libressl
+>net-mail/isync-1.2.1
 
 # removal of gnutls, libressl compat
 >net-analyzer/ettercap-0.8.2-r1
@@ -155,7 +160,8 @@ gnome-base/gvfs
 >net-libs/h323plus-1.25.0-r2
 
 #
->net-libs/wvstreams-4.6.1-r3
+#>net-libs/wvstreams-4.6.1-r3
+
 #
 >net-misc/softether-vpn-4.22-r9634
 >net-misc/sstp-client-1.0.10-r1
@@ -209,6 +215,9 @@ dev-libs/appstream
 dev-libs/appstream-glib
 net-libs/libsoup
 net-libs/glib-networking
+
+# broken ebuild
+>net-ftp/vsftpd-3.0.3-r2
 
 #
 # removed openssl dependency

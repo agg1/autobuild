@@ -8,3 +8,8 @@ app-admin/rsyslog rsyslog.conf
 
 # parallel build seems broken
 app-admin/qtpass noparallel.conf
+
+# parallel build seems broken
+net-ftp/vsftpd noparallel.conf
+
+net-libs/h323plus noparallel.conf

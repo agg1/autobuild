@@ -1,4 +1,4 @@
-#sys-kernel/ck-sources experimental deblob
+sys-kernel/ck-sources experimental -deblob
 sys-kernel/genkernel -firmware -cryptsetup
 
 # required by libreoffice, tweaked to not fail with <gnupg-2
@@ -25,9 +25,8 @@ net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 
-dev-vcs/git blksha1 curl gpg highlight iconv -subversion cvs perl -python cgi tk -pcre-jit
-#dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit
-dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl -vim-syntax
+dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit
+#dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl
 
 mail-mta/nullmailer -ssl
 
@@ -36,4 +35,5 @@ dev-libs/libpcre pcre16
 #
 dev-libs/libpcre2 pcre16
 
+#
 app-misc/pax-utils -python
