@@ -127,8 +127,32 @@ net-vpn/tor tor-hardening transparent-proxy
 # otherwise broken with >libressl-2.4/2.5, overlay
 net-vpn/openvpn mbedtls -libressl
 
+# [client,winbind] required by media-video/vlc
+# build with mitkrb5/ldap seems broken with samba version 4.6.13
+# upgrade to samba version 4.7 pulls in broken mitkrb5
+net-fs/samba client winbind -system-mitkrb5 -ldap
+# can be dropped by updated samba which requires an updated krb5 still broken
+# required by sys-libs/ldb-1.1.29-r1::gentoo
+# required by net-fs/samba-4.6.13::gentoo
+# required by net-fs/cifs-utils (argument)
+#sys-libs/talloc python
+#sys-libs/tevent python
+#sys-libs/tdb python
+#sys-libs/ldb python
+# python dependency is highly suspicious here!
+
+# configure: error: Basic auth helper NIS ... found but cannot be built
+net-proxy/squid -nis
+
 # kerberos conflicts with ssl/libressl
 www-servers/lighttpd -minimal -kerberos
+
+# required by app-vim/splice (argument) and vimpress
+#app-editors/vim python
+
+# egl_system.c: In function 'InitEGL':
+# egl_system.c:150:82: error: 'nativewindow' undeclared (first use in this function)
+dev-libs/DirectFB -egl
 
 #
 games-fps/darkplaces cdsound lights textures -sdl

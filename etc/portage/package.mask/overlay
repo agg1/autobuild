@@ -217,7 +217,9 @@ net-libs/libsoup
 net-libs/glib-networking
 
 # otherwise broken >=mit-krb5-1.15.1 required
->net-fs/samba-4.6.13
+#>net-fs/samba-4.6.13
+# samba-4.6.13 reports build error too
+#librpc/idl/auth.idl:107: error: Unable to determine origin of type `struct cli_credentials'
 
 # broken ebuild
 >net-ftp/vsftpd-3.0.3-r2
@@ -241,3 +243,6 @@ net-libs/glib-networking
 
 # gnutls
 >app-emulation/wine-any-2.21
+
+# temporarily removed egl support because it is broken
+#>dev-libs/DirectFB-1.7.6
