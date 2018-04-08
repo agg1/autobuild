@@ -27,6 +27,6 @@ export PORTAGE_REPO_DUPLICATE_WARN="0"
 export SWITCH_CTARGET=x86_64-pc-linux-gnu-5.4.0
 
 #export PORTAGE_TMPDIR=/var/tmp
-export PORTAGE_NICENESS=8
+export PORTAGE_NICENESS=18
 
 export SHELL="/bin/bash"
