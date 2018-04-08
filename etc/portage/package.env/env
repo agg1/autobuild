@@ -1,5 +1,3 @@
-#app-admin/qtpass noparallel.conf
-
 */* nowerr.conf
 */* parallel.conf
 
