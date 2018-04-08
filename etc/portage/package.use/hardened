@@ -5,11 +5,9 @@ sys-kernel/genkernel -firmware -cryptsetup
 app-crypt/gpgme cxx
 
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
-# required by sys-devel/gettext-0.19.8.1::gentoo
 # required by sys-devel/gettext (argument)
 #>=dev-lang/python-3.5.2 xml
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python2_7]
-# required by sys-devel/gettext-0.19.8.1::gentoo
 # required by sys-devel/gettext (argument)
 #>=dev-lang/python-2.7.12:2.7 xml
 dev-lang/python xml
@@ -25,8 +23,8 @@ net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 
-dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit
-#dev-vcs/subversion berkdb http nls perl -apache2 -ctypes-python -debug -dso -extras -gnome-keyring -java -kde -python -ruby -sasl
+dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit -dso -extras -kde
+dev-vcs/subversion perl -dso
 
 mail-mta/nullmailer -ssl
 
@@ -37,3 +35,18 @@ dev-libs/libpcre2 pcre16
 
 #
 app-misc/pax-utils -python
+
+# required by media-video/vlc
+net-fs/samba client winbind
+# can be dropped by updated samba which requires an updated krb5 still broken
+# required by sys-libs/ldb-1.1.29-r1::gentoo
+# required by net-fs/samba-4.6.13::gentoo
+# required by net-fs/cifs-utils (argument)
+sys-libs/talloc python
+sys-libs/tevent python
+sys-libs/tdb python
+sys-libs/ldb python
+# python dependency is highly suspicious here!
+
+# required by app-vim/splice (argument) and vimpress
+#app-editors/vim python

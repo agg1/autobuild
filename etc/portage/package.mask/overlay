@@ -216,10 +216,12 @@ dev-libs/appstream-glib
 net-libs/libsoup
 net-libs/glib-networking
 
+# otherwise broken >=mit-krb5-1.15.1 required
+>net-fs/samba-4.6.13
+
 # broken ebuild
 >net-ftp/vsftpd-3.0.3-r2
 
-#
 # removed openssl dependency
 #>media-video/libav-13_pre20171219
 
@@ -230,9 +232,12 @@ net-libs/glib-networking
 #netsurf-gtk
 >www-client/netsurf-3.5
 
-
 #gui/src/UI/ui_PatternFillDialog_UI.h:13:29: fatal error: QtWidgets/QAction: No such file or directory
 #hydrogen, latest pre uses QT5 instead of QT4
 <=media-sound/hydrogen-0.9.5-r1
 
+# gnutls
+>media-video/vlc-3.0.0-r3
 
+# gnutls
+>app-emulation/wine-any-2.21

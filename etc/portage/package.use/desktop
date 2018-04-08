@@ -51,7 +51,7 @@ media-libs/gst-plugins-base -gtk opengl -egl -gles2
 media-libs/gst-plugins-good -gtk opengl -egl -gles2
 media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
 media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
-media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl
+media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl d3d9
 
 # file collision of /usr/bin/smfsh from media-libs/libsmf with media-sound/jack-smf-utils
 media-libs/libextractor -gtk -midi
@@ -127,8 +127,8 @@ net-vpn/tor tor-hardening transparent-proxy
 # otherwise broken with >libressl-2.4/2.5, overlay
 net-vpn/openvpn mbedtls -libressl
 
-#
-www-servers/lighttpd -minimal
+# kerberos conflicts with ssl/libressl
+www-servers/lighttpd -minimal -kerberos
 
 #
 games-fps/darkplaces cdsound lights textures -sdl
