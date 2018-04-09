@@ -1,6 +1,15 @@
 diff -Naur linux-4.15.15-ck.orig/Makefile linux-4.15.15-ck/Makefile
---- linux-4.15.15-ck.orig/Makefile	2018-04-09 00:24:11.785884532 +0000
-+++ linux-4.15.15-ck/Makefile	2018-04-09 00:47:57.015907637 +0000
+--- linux-4.15.15-ck.orig/Makefile	2018-04-09 03:04:07.783040098 +0000
++++ linux-4.15.15-ck/Makefile	2018-04-09 03:06:28.047042372 +0000
+@@ -2,7 +2,7 @@
+ VERSION = 4
+ PATCHLEVEL = 15
+ SUBLEVEL = 15
+-EXTRAVERSION = -ck-gnu
++#EXTRAVERSION = -ck-gnu
+ NAME = Fearless Coyote
+ 
+ # *DOCUMENTATION*
 @@ -17,7 +17,7 @@
  
  CKVERSION = -ck1
