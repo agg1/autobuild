@@ -1,6 +1,32 @@
-diff -Naur catalyst-3.0.1-orig/targets/support/bootloader-setup.sh catalyst-3.0.1/targets/support/bootloader-setup.sh
---- catalyst-3.0.1-orig/targets/support/bootloader-setup.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/bootloader-setup.sh	2018-03-30 18:24:34.100020147 +0000
+diff -Naur catalyst-3.0.1.orig/catalyst/main.py catalyst-3.0.1/catalyst/main.py
+--- catalyst-3.0.1.orig/catalyst/main.py	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/catalyst/main.py	2018-04-09 05:08:20.626160920 +0000
+@@ -438,14 +438,14 @@
+ 
+ 	# Namespaces aren't supported on *BSDs at the moment. So let's check
+ 	# whether we're on Linux.
+-	if os.uname().sysname in  ["Linux", "linux"]:
+-		# Start off by creating unique namespaces to run in.  Would be nice to
+-		# use pid & user namespaces, but snakeoil's namespace module has signal
+-		# transfer issues (CTRL+C doesn't propagate), and user namespaces need
+-		# more work due to Gentoo build process (uses sudo/root/portage).
+-		namespaces.simple_unshare(
+-			mount=True, uts=True, ipc=True, pid=False, net=False, user=False,
+-			hostname='catalyst')
++	#if os.uname().sysname in  ["Linux", "linux"]:
++	#	# Start off by creating unique namespaces to run in.  Would be nice to
++	#	# use pid & user namespaces, but snakeoil's namespace module has signal
++	#	# transfer issues (CTRL+C doesn't propagate), and user namespaces need
++	#	# more work due to Gentoo build process (uses sudo/root/portage).
++	#	namespaces.simple_unshare(
++	#		mount=True, uts=True, ipc=True, pid=False, net=False, user=False,
++	#		hostname='catalyst')
+ 
+ 	# everything is setup, so the build is a go
+ 	try:
+diff -Naur catalyst-3.0.1.orig/targets/support/bootloader-setup.sh catalyst-3.0.1/targets/support/bootloader-setup.sh
+--- catalyst-3.0.1.orig/targets/support/bootloader-setup.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/bootloader-setup.sh	2018-04-09 05:08:20.626160920 +0000
 @@ -269,8 +269,8 @@
  			icfg=$1/isolinux/isolinux.cfg
  			kmsg=$1/isolinux/kernels.msg
@@ -54,9 +80,24 @@ diff -Naur catalyst-3.0.1-orig/targets/support/bootloader-setup.sh catalyst-3.0.
  				fi
  			done
  
-diff -Naur catalyst-3.0.1-orig/targets/support/filesystem-functions.sh catalyst-3.0.1/targets/support/filesystem-functions.sh
---- catalyst-3.0.1-orig/targets/support/filesystem-functions.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/filesystem-functions.sh	2018-03-30 18:26:02.890021631 +0000
+diff -Naur catalyst-3.0.1.orig/targets/support/create-iso.sh catalyst-3.0.1/targets/support/create-iso.sh
+--- catalyst-3.0.1.orig/targets/support/create-iso.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/create-iso.sh	2018-04-09 05:05:31.199158173 +0000
+@@ -85,9 +85,9 @@
+ 
+ if [ "${clst_fstype}" == "zisofs" ]
+ then
+-	mkisofs_zisofs_opts="-z"
++	mkisofs_zisofs_opts="-iso-level 3 -z"
+ else
+-	mkisofs_zisofs_opts=""
++	mkisofs_zisofs_opts="-iso-level 3"
+ fi
+ 
+ #we want to create a sha512sum for every file on the iso so we can verify it
+diff -Naur catalyst-3.0.1.orig/targets/support/filesystem-functions.sh catalyst-3.0.1/targets/support/filesystem-functions.sh
+--- catalyst-3.0.1.orig/targets/support/filesystem-functions.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/filesystem-functions.sh	2018-04-09 05:08:20.626160920 +0000
 @@ -55,7 +55,7 @@
  create_squashfs() {
  	echo "Creating squashfs..."
@@ -66,9 +107,9 @@ diff -Naur catalyst-3.0.1-orig/targets/support/filesystem-functions.sh catalyst-
  		|| die "mksquashfs failed, did you emerge squashfs-tools?"
  }
  
-diff -Naur catalyst-3.0.1-orig/targets/support/livecdfs-update.sh catalyst-3.0.1/targets/support/livecdfs-update.sh
---- catalyst-3.0.1-orig/targets/support/livecdfs-update.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/livecdfs-update.sh	2018-03-30 18:24:34.100020147 +0000
+diff -Naur catalyst-3.0.1.orig/targets/support/livecdfs-update.sh catalyst-3.0.1/targets/support/livecdfs-update.sh
+--- catalyst-3.0.1.orig/targets/support/livecdfs-update.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/livecdfs-update.sh	2018-04-09 05:08:20.626160920 +0000
 @@ -27,16 +27,16 @@
  
  # Since we're an official Gentoo release, we do things the official Gentoo way.
@@ -193,9 +234,9 @@ diff -Naur catalyst-3.0.1-orig/targets/support/livecdfs-update.sh catalyst-3.0.1
  	;;
  esac
  
-diff -Naur catalyst-3.0.1-orig/targets/support/rc-update.sh catalyst-3.0.1/targets/support/rc-update.sh
---- catalyst-3.0.1-orig/targets/support/rc-update.sh	2017-12-30 18:56:34.000000000 +0000
-+++ catalyst-3.0.1/targets/support/rc-update.sh	2018-03-30 18:24:34.100020147 +0000
+diff -Naur catalyst-3.0.1.orig/targets/support/rc-update.sh catalyst-3.0.1/targets/support/rc-update.sh
+--- catalyst-3.0.1.orig/targets/support/rc-update.sh	2017-12-30 18:56:34.000000000 +0000
++++ catalyst-3.0.1/targets/support/rc-update.sh	2018-04-09 05:08:20.626160920 +0000
 @@ -11,19 +11,19 @@
  
  if [ "${clst_spec_prefix}" == "livecd" ]
