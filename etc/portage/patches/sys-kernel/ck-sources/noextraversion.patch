@@ -1,12 +1,12 @@
 diff -Naur linux-4.15.15-ck.orig/Makefile linux-4.15.15-ck/Makefile
---- linux-4.15.15-ck.orig/Makefile	2018-04-08 22:51:01.066793897 +0000
-+++ linux-4.15.15-ck/Makefile	2018-04-08 22:59:25.006802067 +0000
-@@ -2,7 +2,7 @@
- VERSION = 4
- PATCHLEVEL = 15
- SUBLEVEL = 7
--EXTRAVERSION = -ck-gnu
-+#EXTRAVERSION = -ck-gnu
- NAME = Fearless Coyote
+--- linux-4.15.15-ck.orig/Makefile	2018-04-09 00:24:11.785884532 +0000
++++ linux-4.15.15-ck/Makefile	2018-04-09 00:47:57.015907637 +0000
+@@ -17,7 +17,7 @@
  
- # *DOCUMENTATION*
+ CKVERSION = -ck1
+ CKNAME = MuQSS Powered
+-EXTRAVERSION := $(EXTRAVERSION)$(CKVERSION)
++#EXTRAVERSION := $(EXTRAVERSION)$(CKVERSION)
+ 
+ # o Do not use make's built-in rules and variables
+ #   (this increases performance and avoids hard-to-debug behaviour);
