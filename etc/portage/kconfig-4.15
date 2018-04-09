@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.15.15-ck-gnu Kernel Configuration
+# Linux/x86 4.15.15 Kernel Configuration
 #
 
 #
@@ -68,8 +68,8 @@ CONFIG_HAVE_KERNEL_LZ4=y
 # CONFIG_KERNEL_GZIP is not set
 # CONFIG_KERNEL_BZIP2 is not set
 # CONFIG_KERNEL_LZMA is not set
-# CONFIG_KERNEL_XZ is not set
-CONFIG_KERNEL_LZO=y
+CONFIG_KERNEL_XZ=y
+# CONFIG_KERNEL_LZO is not set
 # CONFIG_KERNEL_LZ4 is not set
 CONFIG_DEFAULT_HOSTNAME="localhost"
 CONFIG_SWAP=y
@@ -152,7 +152,7 @@ CONFIG_ARCH_SUPPORTS_INT128=y
 # CONFIG_CGROUPS is not set
 # CONFIG_NAMESPACES is not set
 # CONFIG_SYSFS_DEPRECATED is not set
-# CONFIG_RELAY is not set
+CONFIG_RELAY=y
 CONFIG_BLK_DEV_INITRD=y
 CONFIG_INITRAMFS_SOURCE=""
 # CONFIG_RD_GZIP is not set
