@@ -13,6 +13,6 @@
 	- emerge shc compiler
 	- consider manually mounting TMP to /var/tmp
 	- rm /home/portage/.prepared ; rm /tmp/.relda
-2) rm -f /tmp/.relda /home/portage/.prepared ; ./autobuild-all.sh 2>&1 | tee -a /home/autolog/autobuild.log
-3) rm -f /tmp/.relda /home/portage/.prepared ; ./autobuild-all_vm.sh 2>&1 | tee -a /home/autolog/autobuild.log
-4) rm -f /tmp/.relda /home/portage/.prepared ; ./autobuild-update.sh LATEST-RELDA 2>&1 | tee -a /home/autolog/autobuild.log
+2) rm -f /tmp/.relda /home/portage/.prepared ; ./autobuild-all.sh 2>&1 | tee -a /home/autolog/build.log
+3) rm -f /tmp/.relda /home/portage/.prepared ; ./autobuild-all_vm.sh 2>&1 | tee -a /home/autolog/build.log
+4) rm -f /tmp/.relda /home/portage/.prepared ; ./autobuild-update.sh LATEST-RELDA 2>&1 | tee -a /home/autolog/build.log
