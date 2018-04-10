@@ -246,3 +246,6 @@ net-libs/glib-networking
 
 # temporarily removed egl support because it is broken
 #>dev-libs/DirectFB-1.7.6
+
+# gnutls,nettle
+>mail-mta/nullmailer-2.0-r2

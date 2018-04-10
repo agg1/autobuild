@@ -35,3 +35,6 @@ dev-libs/libpcre2 pcre16
 
 #
 app-misc/pax-utils -python
+
+# gnutls, nettle
+mail-mta/nullmailer -ssl
