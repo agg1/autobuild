@@ -5,7 +5,7 @@
 # ENVIRONMENT supersedes package.use specific flags set
 
 GENTOO_MIRRORS="http://ftp.wh2.tu-dresden.de/pub/mirrors/gentoo/ http://ftp.uni-erlangen.de/pub/mirrors/gentoo http://gd.tuwien.ac.at/opsys/linux/gentoo/ http://ftp.informatik.uni-frankfurt.de/gentoo.org/"
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --verbose --verbose-conflicts --deep --complete-graph y --binpkg-respect-use y --load-average 8.0 -j"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --verbose --verbose-conflicts --deep --complete-graph y --binpkg-respect-use y --load-average 24.0 -j"
 PORTAGE_CHECKSUM_FILTER="-* sha512"
 PORTAGE_COMPRESS="bzip2"
 PORTAGE_COMPRESS_FLAGS="-1"
