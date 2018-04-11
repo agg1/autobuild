@@ -1,5 +1,5 @@
 */* nowerr.conf
-*/* parallel.conf
+#*/* parallel.conf
 
 # DEFINE recently properly set with rsyslog
 app-admin/rsyslog rsyslog.conf
