@@ -26,7 +26,7 @@ DISTDIR="${PORTDIR}/distfiles"
 PKGDIR="${PORTDIR}/packages"
 CONFIG_PROTECT="-*"
 LINGUAS="af ar as ast az be bg bn bo br brx bs ca ca@valencia ca_XV cs csb cy da de dgo dz el en en_GB en_ZA eo es et eu fa fi fo fr fy ga gd gl gu gu_IN ha he hi hr hsb hu ia id is it ja ka kk km kn kn_IN ko kok ks ku lb lo lt lv mai mi mk ml mn mni mr ms mt my nb nds ne nl nn nr nso oc om or pa pa_IN pl pt pt_BR ro ru rw sa_IN sat sd se sh si sk sl sq sr ss st sv sw sw_TZ ta ta_IN te tg th tn tr ts tt ug uk uz ve ven vi wa xh zh_CN zh_HK zh_TW zu"
-MAKEOPTS="-j 8"
+MAKEOPTS="-j 24"
 ACCEPT_LICENSE="-* @FREE"
 #FEATURES="userfetch userpriv candy"
 #FEATURES="splitdebug"
@@ -39,7 +39,7 @@ USE="${USE} -bindist -branding -debug -test -pam -systemd -consolekit -policykit
 PROFILE_IS_HARDENED=1
 PORTAGE_REPO_DUPLICATE_WARN="0"
 
-SWITCH_CTARGET=x86_64-pc-linux-gnu-5.4.0
+SWITCH_CTARGET=x86_64-pc-linux-gnu-6.4.0
 
 #PORT_LOGDIR=/var/log/portage/
 COLLISION_IGNORE="/usr/share/vim/*"
