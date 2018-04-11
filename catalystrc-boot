@@ -6,7 +6,6 @@
 # catalyst-spec is additive to already set USE flags
 # ENVIRONMENT supersedes package.use specific flags set
 
-#export MAKEOPTS="-j 8"
 export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 -j"
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS="bzip2"
@@ -24,7 +23,7 @@ export PYTHON_TARGETS="python2_7 python3_5 python3_6"
 export ACCEPT_KEYWORDS="~amd64"
 
 export PORTAGE_REPO_DUPLICATE_WARN="0"
-export SWITCH_CTARGET=x86_64-pc-linux-gnu-5.4.0
+export SWITCH_CTARGET=x86_64-pc-linux-gnu-6.4.0
 
 #export PORTAGE_TMPDIR=/var/tmp
 export PORTAGE_NICENESS=18
