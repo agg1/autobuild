@@ -1,1 +1,0 @@
-../../usr/portage/profiles/hardened/linux/amd64/no-multilib
