@@ -13,9 +13,9 @@
 	- emerge shc compiler
 	- consider manually mounting TMP to /var/tmp
 	- rm -f /tmp/.prepared /tmp/.relda
-2) rm -f /tmp/.relda /tmp/.prepared ; ./autobuild-all.sh 2>&1 | tee -a /home/autolog/build.log
-3) rm -f /tmp/.relda /tmp/.prepared ; ./autobuild-all_vm.sh 2>&1 | tee -a /home/autolog/build.log
-4) rm -f /tmp/.relda /tmp/.prepared ; ./autobuild-update.sh LATEST-RELDA 2>&1 | tee -a /home/autolog/build.log
+2) rm -f /tmp/.relda /tmp/.prepared ; ./autobuild-all.sh 2>&1 | tee -a /home/autolog/build.log ; /usr/local/bin/sleep.sh
+3) rm -f /tmp/.relda /tmp/.prepared ; ./autobuild-all_vm.sh 2>&1 | tee -a /home/autolog/build.log ; /usr/local/bin/sleep.sh
+4) rm -f /tmp/.relda /tmp/.prepared ; ./autobuild-update.sh LATEST-RELDA 2>&1 | tee -a /home/autolog/build.log ; /usr/local/bin/sleep.sh
 	- update build may break with a kernel update involved
 	  in that case a build against an old init-stage3 with autobuild-all.sh instead may help
 	  just place a symlink for RELDA on init stage
