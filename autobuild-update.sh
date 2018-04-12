@@ -4,9 +4,9 @@
 export LATEST=$1
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
+#export NOCLEAN="true"
 if [ -f /tmp/.relda ]; then
 	export RELDA=$(cat /tmp/.relda)
-	export NOCLEAN="true"
 else
 	:> /home/autolog/build.log
 fi
