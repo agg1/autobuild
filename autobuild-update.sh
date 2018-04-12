@@ -14,19 +14,39 @@ fi
 source /home/autobuild/autobuild.sh
 prepare_system
 
+# minimal
 export PKDIR="/home/packages/minimal/${LATEST}"
-update_livecd_minimal
+clean_stage
+update_livecd_stage1 minimal
+update_livecd_stage2 minimal
+archive_kerncache
 
+# admin
 export CKERN=true
 export PKDIR="/home/packages/admin/${LATEST}"
-update_livecd_admin
+clean_stage
+compile_csripts default
+update_livecd_stage1 admin
+update_livecd_stage2 admin
 
+# desktop
 export CKERN=true
 export PKDIR="/home/packages/desktop/${LATEST}"
-update_livecd_desktop
+clean_stage
+compile_csripts default
+update_livecd_stage1 desktop
+# keep portage tree for package updates on desktop ISO
+cp ${TMPDR}/catalyst/snapshots/* ${CADIR}/tmp/buildoverlay
+update_livecd_stage2 desktop
 
+# full
 export CKERN=true
 export PKDIR="/home/packages/full/${LATEST}"
-update_livecd_full
+clean_stage
+compile_csripts default
+update_livecd_stage1 full
+# keep portage tree for package updates on desktop ISO
+cp ${TMPDR}/catalyst/snapshots/* ${CADIR}/tmp/buildoverlay
+update_livecd_stage2 full
 
 sign_release
