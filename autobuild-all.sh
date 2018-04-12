@@ -16,6 +16,7 @@ prepare_system
 #fetch_wget
 #fetch_catalyst
 
+export INITSTAGE="/home/seeds/gentoo/stage3-amd64-hardened+nomultilib-libressl.tar.bz2"
 build_seed_boot
 build_seed_init
 
