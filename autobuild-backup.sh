@@ -12,6 +12,8 @@ rsync -av --delete /media/backup/packages/ /home/packages/
 
 cd /home/autolog
 git fsck ; git gc
+git reflog expire --expire=now --all ; git gc --prune=now
+git fsck
 git pull --ff-only origin master && git pull
 
 cd /home/seeds
@@ -20,6 +22,8 @@ git pull --ff-only origin master && git pull
 for d in autobuild extra_overlay portage ; do
 	cd /media/backup/git/${d}.git
 	git fsck ; git gc
+	git reflog expire --expire=now --all ; git gc --prune=now
+	git fsck
 	cd /home/${d}
 	git fsck ; git gc
 	git pull --ff-only origin master && git pull
@@ -28,6 +32,9 @@ done
 
 for d in autobuild autolog extra_overlay ; do
 	cd /home/${d}
+	git fsck ; git gc
+	git reflog expire --expire=now --all ; git gc --prune=now
+	git fsck
 	sg lanout -c "git push --tags www02 master || true" || true
 done
 for d in autobuild autolog extra_overlay portage ; do
