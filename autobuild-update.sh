@@ -25,4 +25,8 @@ export CKERN=true
 export PKDIR="/home/packages/desktop/${LATEST}"
 update_livecd_desktop
 
+export CKERN=true
+export PKDIR="/home/packages/full/${LATEST}"
+update_livecd_full
+
 sign_release
