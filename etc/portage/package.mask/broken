@@ -2,7 +2,7 @@
 <sys-apps/sandbox-2.10-r4
 
 # module autoloading broken with >=3.5.x.y
-sys-kernel/genkernel-3.4.52.4-r2
+>sys-kernel/genkernel-3.4.52.4-r2
 
 # PYTHON_TARGET issue could not be fixed
 >app-misc/pax-utils-1.2.3
