@@ -11,7 +11,6 @@ else
 fi
 
 source /home/autobuild/autobuild.sh
-prepare_system
 
 # minimal
 clean_stage
@@ -30,7 +29,7 @@ clean_stage
 compile_csripts default
 update_livecd_stage1 desktop
 # keep portage tree for package updates on desktop ISO
-cp ${TMPDR}/catalyst/snapshots/* ${CADIR}/tmp/buildoverlay
+cp ${TMPDR}/catalyst/snapshots/* ${CDOVERLAY}
 update_livecd_stage2 desktop
 
 # full
@@ -38,7 +37,7 @@ clean_stage
 compile_csripts default
 update_livecd_stage1 full
 # keep portage tree for package updates on desktop ISO
-cp ${TMPDR}/catalyst/snapshots/* ${CADIR}/tmp/buildoverlay
+cp ${TMPDR}/catalyst/snapshots/* ${CDOVERLAY}
 update_livecd_stage2 full
 
 sign_release
