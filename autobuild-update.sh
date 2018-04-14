@@ -14,21 +14,18 @@ source /home/autobuild/autobuild.sh
 prepare_system
 
 # minimal
-export PKDIR="/home/packages/minimal/${LATEST}"
 clean_stage
 update_livecd_stage1 minimal
 update_livecd_stage2 minimal
 archive_kerncache
 
 # admin
-export PKDIR="/home/packages/admin/${LATEST}"
 clean_stage
 compile_csripts default
 update_livecd_stage1 admin
 update_livecd_stage2 admin
 
 # desktop
-export PKDIR="/home/packages/desktop/${LATEST}"
 clean_stage
 compile_csripts default
 update_livecd_stage1 desktop
@@ -37,7 +34,6 @@ cp ${TMPDR}/catalyst/snapshots/* ${CADIR}/tmp/buildoverlay
 update_livecd_stage2 desktop
 
 # full
-export PKDIR="/home/packages/full/${LATEST}"
 clean_stage
 compile_csripts default
 update_livecd_stage1 full
