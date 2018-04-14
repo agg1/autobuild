@@ -1,4 +1,5 @@
 autobuild.sh filter=git-crypt diff=git-crypt
+autobuild.conf filter=git-crypt diff=git-crypt
 autobuild-all.sh filter=git-crypt diff=git-crypt
 autobuild-all_vm.sh filter=git-crypt diff=git-crypt
 .gitattributes !filter !diff
