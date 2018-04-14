@@ -8,8 +8,12 @@
 
 export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --with-bdeps y --deep --complete-graph y --binpkg-respect-use y --load-average 24.0 -j"
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
-export PORTAGE_COMPRESS="bzip2"
+export PORTAGE_COMPRESS="gzip"
 export PORTAGE_COMPRESS_FLAGS="-1"
+export BINPKG_COMPRESS="gzip"
+export BINPKG_COMPRESS_FLAGS="-1"
+#export BINPKG_COMPRESS="lzop"
+#export BINPKG_COMPRESS_FLAGS="-1"
 #fomit-frame-pointer when debugging is not required
 export CFLAGS="-O2 -pipe -fomit-frame-pointer -Wno-error"
 export CXXFLAGS="${CFLAGS}"
