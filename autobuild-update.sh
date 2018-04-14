@@ -4,12 +4,7 @@
 export LATEST=$1
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
-if [ -f /tmp/.reldate ]; then
-	export REL_DATE=$(cat /tmp/.reldate)
-else
-	:> /home/autolog/build.log
-fi
-
+:> /home/autolog/build.log
 source /home/autobuild/autobuild.sh
 
 # minimal
