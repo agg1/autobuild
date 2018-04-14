@@ -1,0 +1,38 @@
+IPv6
+iptables marking
+sniff wan
+static,static-libs,musl,clang
+gnugk,ptlib,h323plus
+netsurf
+lirc
+tensor-flow
+ebuild-fetch, obsd fetch
+offline wiki, offline gentoo wiki, hakin9
+stardict
+broken filesystem-tools packages (btrfs, etc) pull portage tree and rebuild
+check sshaut, check ipsec
+g505s IOMMU, VGA-ROMs, ASROCK ROMS and boot order
+minimize flags in make.conf and catalystrc
+deblob qemu
+acpi slic
+Win7/10 VMs, KVM passthroughb
+gentoo-install, diskimage builder gentoo, libvirt
+home.rc script
+games spring, openttd, descent, flightgear, billardgl
+usb-tv, dvb-t2, v4l, umts
+samba, kerberos, ldap, squid[nis]
+netboot
+genkernel/catalyst lzop/lz4 dependency
+lxdm autologin guest
+relayfs, kconfig, unwind
+nagios
+sservices setup
+ikiwiki update
+print spooling for raw plotter (lprng or cups)
+distfiles to md-raid
+git-sync autolog and autobuild
+rsync release dir
+dell tower lsiutil, lower sata speed
+sslv23, tlsv1, BIO_METH SSL issue!
+fw01 to laptop
+rqshare=smp with NUMA kernel config enabled broken
