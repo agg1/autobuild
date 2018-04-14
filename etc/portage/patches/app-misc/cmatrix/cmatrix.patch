@@ -1,0 +1,12 @@
+diff -Naur cmatrix-1.2a.orig/cmatrix.c cmatrix-1.2a/cmatrix.c
+--- cmatrix-1.2a.orig/cmatrix.c	2002-04-01 00:30:02.000000000 +0000
++++ cmatrix-1.2a/cmatrix.c	2018-04-14 15:35:17.534317078 +0000
+@@ -412,7 +412,7 @@
+ 		finish(0);
+ 	    else
+ 		switch (keypress) {
+-		case 'q':
++		case '~':
+ 		    finish(0);
+ 		    break;
+ 		case 'a':
