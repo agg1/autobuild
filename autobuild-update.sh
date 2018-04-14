@@ -4,8 +4,8 @@
 export LATEST=$1
 [ -z "${LATEST}" ] && echo "LATEST not set" && exit 1
 
-if [ -f /tmp/.relda ]; then
-	export RELDA=$(cat /tmp/.relda)
+if [ -f /tmp/.reldate ]; then
+	export REL_DATE=$(cat /tmp/.reldate)
 else
 	:> /home/autolog/build.log
 fi
@@ -29,7 +29,7 @@ clean_stage
 compile_csripts default
 update_livecd_stage1 desktop
 # keep portage tree for package updates on desktop ISO
-cp ${TMPDR}/catalyst/snapshots/* ${CDOVERLAY}
+cp ${TMP_DIR}/catalyst/snapshots/* ${CDROM_OVERLAY}
 update_livecd_stage2 desktop
 
 # full
@@ -37,7 +37,7 @@ clean_stage
 compile_csripts default
 update_livecd_stage1 full
 # keep portage tree for package updates on desktop ISO
-cp ${TMPDR}/catalyst/snapshots/* ${CDOVERLAY}
+cp ${TMP_DIR}/catalyst/snapshots/* ${CDROM_OVERLAY}
 update_livecd_stage2 full
 
 sign_release
