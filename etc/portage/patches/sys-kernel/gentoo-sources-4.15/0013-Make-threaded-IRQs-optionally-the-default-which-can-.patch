@@ -1,7 +1,7 @@
-From eb9fc57c2e664db479b36e35b2b0da62050c787e Mon Sep 17 00:00:00 2001
+From ec0c36ff3034ff57aec86237d670b24e34a6c1be Mon Sep 17 00:00:00 2001
 From: Con Kolivas <kernel@kolivas.org>
 Date: Wed, 7 Dec 2016 21:13:16 +1100
-Subject: [PATCH 13/19] Make threaded IRQs optionally the default which can be
+Subject: [PATCH 13/17] Make threaded IRQs optionally the default which can be
  disabled.
 
 ---
@@ -10,10 +10,10 @@ Subject: [PATCH 13/19] Make threaded IRQs optionally the default which can be
  2 files changed, 24 insertions(+)
 
 diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
-index 3bbfd6a..351bf16 100644
+index 89e355866450..7a2665a1c346 100644
 --- a/kernel/irq/Kconfig
 +++ b/kernel/irq/Kconfig
-@@ -95,6 +95,20 @@ config IRQ_DOMAIN_DEBUG
+@@ -117,6 +117,20 @@ config IRQ_DOMAIN_DEBUG
  config IRQ_FORCED_THREADING
         bool
  
@@ -35,10 +35,10 @@ index 3bbfd6a..351bf16 100644
  	bool "Support sparse irq numbering" if MAY_HAVE_SPARSE_IRQ
  	---help---
 diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 6b66959..6b3fb17 100644
+index 0f922729bab9..c2e3621d3620 100644
 --- a/kernel/irq/manage.c
 +++ b/kernel/irq/manage.c
-@@ -22,7 +22,17 @@
+@@ -24,7 +24,17 @@
  #include "internals.h"
  
  #ifdef CONFIG_IRQ_FORCED_THREADING
@@ -57,5 +57,5 @@ index 6b66959..6b3fb17 100644
  static int __init setup_forced_irqthreads(char *arg)
  {
 -- 
-2.7.4
+2.14.1
 
