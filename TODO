@@ -1,5 +1,12 @@
 IPv6
 iptables marking
+app-arch packages
+relocate some configs as patches
+midnight commander LZOP support
+portage sign gpg
+check all .xinitrc and tmux for locker
+package.provided to break loops and misguided dependencies
+consider porting MuQSS back or forward...
 sniff wan
 static,static-libs,musl,clang
 gnugk,ptlib,h323plus
@@ -22,7 +29,6 @@ games spring, openttd, descent, flightgear, billardgl
 usb-tv, dvb-t2, v4l, umts
 samba, kerberos, ldap, squid[nis]
 netboot
-genkernel/catalyst lzop/lz4 dependency
 lxdm autologin guest
 relayfs, kconfig, unwind
 nagios
@@ -33,6 +39,6 @@ distfiles to md-raid
 git-sync autolog and autobuild
 rsync release dir
 dell tower lsiutil, lower sata speed
-sslv23, tlsv1, BIO_METH SSL issue!
+sslv23, tlsv1, BIO_METH SSL issue!, libressl 2.7
 fw01 to laptop
 rqshare=smp with NUMA kernel config enabled broken
