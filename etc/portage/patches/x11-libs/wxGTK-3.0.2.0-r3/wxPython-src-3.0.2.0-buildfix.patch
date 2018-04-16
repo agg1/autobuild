@@ -5,7 +5,7 @@ diff -Naur wxPython-src-3.0.2.0.orig/src/stc/scintilla/src/Editor.cxx wxPython-s
  #include <algorithm>
  #include <memory>
  
-+#include <cmath.h>
++#include <cmath>
 +
  #include "Platform.h"
  
