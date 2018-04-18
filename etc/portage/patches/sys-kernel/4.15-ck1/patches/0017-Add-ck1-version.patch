@@ -1,0 +1,27 @@
+From bdb118bfaf65cf70e138d2e55c057b59d0416775 Mon Sep 17 00:00:00 2001
+From: Con Kolivas <kernel@kolivas.org>
+Date: Sun, 11 Dec 2016 17:08:47 +1100
+Subject: [PATCH 17/17] Add -ck1 version.
+
+---
+ Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index c8b8e902d5a4..0cd40b83ccc5 100644
+--- a/Makefile
++++ b/Makefile
+@@ -15,6 +15,10 @@ NAME = Fearless Coyote
+ PHONY := _all
+ _all:
+ 
++CKVERSION = -ck1
++CKNAME = MuQSS Powered
++EXTRAVERSION := $(EXTRAVERSION)$(CKVERSION)
++
+ # o Do not use make's built-in rules and variables
+ #   (this increases performance and avoids hard-to-debug behaviour);
+ # o Look for make include files relative to root of kernel src
+-- 
+2.14.1
+

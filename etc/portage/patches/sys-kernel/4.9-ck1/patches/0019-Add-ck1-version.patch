@@ -1,0 +1,27 @@
+From 2d35beb688a453050589af6b2048716e77909b39 Mon Sep 17 00:00:00 2001
+From: Con Kolivas <kernel@kolivas.org>
+Date: Sun, 11 Dec 2016 17:08:47 +1100
+Subject: [PATCH 19/19] Add -ck1 version.
+
+---
+ Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index b103777..d6c32ca 100644
+--- a/Makefile
++++ b/Makefile
+@@ -10,6 +10,10 @@ NAME = Roaring Lionus
+ # Comments in this file are targeted only to the developer, do not
+ # expect to learn how to build the kernel reading this file.
+ 
++CKVERSION = -ck1
++CKNAME = BFS Powered
++EXTRAVERSION := $(EXTRAVERSION)$(CKVERSION)
++
+ # o Do not use make's built-in rules and variables
+ #   (this increases performance and avoids hard-to-debug behaviour);
+ # o Look for make include files relative to root of kernel src
+-- 
+2.7.4
+
