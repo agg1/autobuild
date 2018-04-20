@@ -7,6 +7,7 @@
 # ENVIRONMENT supersedes package.use specific flags set
 
 export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --with-bdeps y --deep --complete-graph y --binpkg-respect-use y --load-average 16.0 --jobs=64 --accept-properties=-interactive"
+#export MAKEOPTS="-j16"
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS="gzip"
 export PORTAGE_COMPRESS_FLAGS="-1"
