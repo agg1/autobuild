@@ -35,3 +35,5 @@ export PORTAGE_TMPDIR=/var/tmp
 export PORTAGE_NICENESS=18
 
 export SHELL="/bin/bash"
+
+export COLLISION_IGNORE="/usr/share/vim/*"
