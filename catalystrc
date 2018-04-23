@@ -11,10 +11,11 @@ export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y
 export PORTAGE_CHECKSUM_FILTER="-* sha256"
 export PORTAGE_COMPRESS="gzip"
 export PORTAGE_COMPRESS_FLAGS="-1"
-export BINPKG_COMPRESS="tar"
-#export BINPKG_COMPRESS_FLAGS="-1"
+export BINPKG_COMPRESS="gzip"
+export BINPKG_COMPRESS_FLAGS="-1"
 #export BINPKG_COMPRESS="lzop"
 #export BINPKG_COMPRESS_FLAGS="-1"
+#export BINPKG_COMPRESS="tar"
 #fomit-frame-pointer when debugging is not required
 export CFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
 export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
