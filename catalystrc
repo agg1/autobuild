@@ -8,11 +8,11 @@
 
 export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y --deep --complete-graph y --load-average 6.0 --jobs=64 --accept-properties=-interactive"
 #export MAKEOPTS="-j16"
-export PORTAGE_CHECKSUM_FILTER="-* sha512"
+export PORTAGE_CHECKSUM_FILTER="-* sha256"
 export PORTAGE_COMPRESS="gzip"
 export PORTAGE_COMPRESS_FLAGS="-1"
-export BINPKG_COMPRESS="gzip"
-export BINPKG_COMPRESS_FLAGS="-1"
+export BINPKG_COMPRESS="tar"
+#export BINPKG_COMPRESS_FLAGS="-1"
 #export BINPKG_COMPRESS="lzop"
 #export BINPKG_COMPRESS_FLAGS="-1"
 #fomit-frame-pointer when debugging is not required
