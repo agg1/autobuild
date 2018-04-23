@@ -6,7 +6,7 @@
 # catalyst-spec is additive to already set USE flags
 # ENVIRONMENT supersedes package.use specific flags set
 
-export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y --deep --complete-graph y --load-average 16.0 --jobs=64 --accept-properties=-interactive"
+export EMERGE_DEFAULT_OPTS="--verbose --verbose-conflicts --binpkg-respect-use y --deep --complete-graph y --load-average 6.0 --jobs=64 --accept-properties=-interactive"
 #export MAKEOPTS="-j16"
 export PORTAGE_CHECKSUM_FILTER="-* sha512"
 export PORTAGE_COMPRESS="gzip"
@@ -17,7 +17,8 @@ export BINPKG_COMPRESS_FLAGS="-1"
 #export BINPKG_COMPRESS_FLAGS="-1"
 #fomit-frame-pointer when debugging is not required
 export CFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
-export CXXFLAGS="${CFLAGS}"
+export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
+#export KCFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
 # ssse3 would exclude phenom2 generation AMD cpus
 export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
 export PROFILE_IS_HARDENED=1
