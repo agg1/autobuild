@@ -1,0 +1,81 @@
+diff -Naur pyDeComp-0.2.orig/DeComp/definitions.py pyDeComp-0.2/DeComp/definitions.py
+--- pyDeComp-0.2.orig/DeComp/definitions.py	2016-06-23 15:57:16.000000000 +0000
++++ pyDeComp-0.2/DeComp/definitions.py	2018-04-24 18:16:23.795898254 +0000
+@@ -153,10 +153,19 @@
+     "lzop": [
+                 "_common", "tar",
+                 [
+-                    "other_options", "%(comp_prog)s", "lzop", "-cf",
++                    "other_options", "--lzop -cpf", "%(filename)s", "-C",
++                    "%(basedir)s", "%(source)s"
++                ],
++                "LZOP", ["tar.lzop"], {"tar"},
++            ],
++    "lzop_x": [
++                "_common", "tar",
++                [
++                    "--xattrs", "--xattrs-include=security.capability",
++                    "--xattrs-include=user.pax.flags", "--lzop -cpf",
+                     "%(filename)s", "-C", "%(basedir)s", "%(source)s"
+                 ],
+-                "LZOP", ["tar.lzop"], {"tar", "lzop"},
++                "LZOP", ["tar.lzop"], {"tar"},
+               ],
+     "tar": [
+                 "_common", "tar",
+@@ -306,10 +315,19 @@
+     "lzop": [
+                 "_common", "tar",
+                 [
+-                    "other_options", "%(comp_prog)s", "lzop", "-cf",
+-                    "%(filename)s", "-C", "%(basedir)s", "%(source)s"
++                    "other_options", "--lzop -xpf", "%(source)s",
++                    "-C", "%(destination)s"
+                 ],
+-                "LZOP", ["tar.lzop"], {"tar", "lzop"},
++                "LZOP", ["tar.lzop", "lzop"], {"tar"},
++            ],
++    "lzop_x": [
++                "_common", "tar",
++                [
++                    "--xattrs", "--xattrs-include=security.capability",
++                    "--xattrs-include=user.pax.flags", "--lzop -xpf", "%(source)s",
++                    "-C", "%(destination)s"
++                ],
++                "LZOP", ["tar.lzop", "lzop"], {"tar"},
+               ],
+     "tar": [
+                 "_common", "tar",
+@@ -385,11 +403,11 @@
+ 
+ 
+ DECOMPRESSOR_SEARCH_ORDER = [
+-    "pixz", "lbzip2", "squashfs", "gzip", "xz", "bzip2", "tar"
++    "pixz", "lbzip2", "squashfs", "gzip", "lzop", "xz", "bzip2", "tar"
+ ]
+ 
+ DECOMPRESSOR_XATTR_SEARCH_ORDER = [
+-    "pixz_x", "lbzip2_x", "squashfs", "gzip_x", "xz_x", "bzip2_x", "tar_x"
++    "pixz_x", "lbzip2_x", "squashfs", "gzip_x", "lzop_x", "xz_x", "bzip2_x", "tar_x"
+ ]
+ 
+ """Configure this here in case it is ever changed.
+@@ -408,6 +426,11 @@
+                 ["%(list_xattrs_opt)s", "-tvzf", "%(source)s"],
+                 "GZIP", [".tgz", ".tar.gz", "gz"], {"tar"},
+             ],
++    "lzop": [
++                "_common", "tar",
++                ["%(list_xattrs_opt)s", "--lzop -tvf", "%(source)s"],
++                "LZOP", [".tar.lzop", "lzop"], {"tar"},
++            ],
+     "lbzip2": [
+                 "_common", "tar",
+                 [
+@@ -454,5 +477,5 @@
+ # isoinfo_f should be a last resort only
+ CONTENTS_SEARCH_ORDER = [
+     "pixz", "lbzip2", "isoinfo_l", "squashfs",
+-    "gzip", "xz", "bzip2", "tar", "isoinfo_f"
++    "gzip", "lzop", "xz", "bzip2", "tar", "isoinfo_f"
+ ]
