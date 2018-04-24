@@ -153,11 +153,11 @@ COMPRESS_DEFINITIONS = {
     "lzop": [
                 "_common", "tar",
                 [
-                    "other_options", "%(comp_prog)s", "lzop", "-cpf",
-                    "%(filename)s", "-C", "%(basedir)s", "%(source)s"
+                    "other_options", "--lzop -cpf", "%(filename)s", "-C",
+                    "%(basedir)s", "%(source)s"
                 ],
-                "LZOP", ["tar.lzop"], {"tar", "lzop"},
-              ],
+                "LZOP", ["tar.lzop"], {"tar"},
+            ],
     "lzop_x": [
                 "_common", "tar",
                 [
@@ -315,11 +315,11 @@ DECOMPRESS_DEFINITIONS = {
     "lzop": [
                 "_common", "tar",
                 [
-                    "other_options", "%(comp_prog)s", "lzop", "--lzop -xpf",
-                    "%(filename)s", "-C", "%(basedir)s", "%(source)s"
+                    "other_options", "--lzop -xpf", "%(source)s",
+                    "-C", "%(destination)s"
                 ],
-                "LZOP", ["tar.lzop"], {"tar", "lzop"},
-              ],
+                "LZOP", ["tar.lzop", "lzop"], {"tar"},
+            ],
     "lzop_x": [
                 "_common", "tar",
                 [
