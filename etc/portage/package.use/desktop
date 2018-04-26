@@ -76,8 +76,14 @@ www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo -gtk -gtk3 gtk2
 # svgtiny is broken
 www-client/netsurf gtk -svgtiny
 
+#-suid is a pain in the arse, strace -e trace=open,ioctl Xorg
+#ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
+#Xorg.log: Unable to retrieve master
+#radeon specific drm code, gpu driver dependent
+#if user is in group video and/or input this might do more harm than any good because direcat hardware acess for user
 #
 x11-base/xorg-server xorg suid glamor xcsecurity
+#
 x11-libs/libfm gtk -automount -udisks
 x11-misc/xdg-user-dirs -gtk
 x11-libs/wxGTK -gstreamer
