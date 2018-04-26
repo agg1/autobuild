@@ -1,0 +1,42 @@
+diff -Naur vcscommand-1.99.47.orig/plugin/vcscommand.vim vcscommand-1.99.47/plugin/vcscommand.vim
+--- vcscommand-1.99.47.orig/plugin/vcscommand.vim	2013-04-12 17:52:16.000000000 +0000
++++ vcscommand-1.99.47/plugin/vcscommand.vim	2018-04-26 13:23:32.520974220 +0000
+@@ -157,7 +157,7 @@
+ "   <Leader>cN VCSAnnotate!
+ "   <Leader>cc VCSCommit
+ "   <Leader>cD VCSDelete
+-"   <Leader>cd VCSDiff
++"   <Leader>cC VCSDiff
+ "   <Leader>cg VCSGotoOriginal
+ "   <Leader>cG VCSGotoOriginal!
+ "   <Leader>ci VCSInfo
+@@ -1424,7 +1424,7 @@
+ 			\['a', 'VCSAdd'],
+ 			\['c', 'VCSCommit'],
+ 			\['D', 'VCSDelete'],
+-			\['d', 'VCSDiff'],
++			\['C', 'VCSDiff'],
+ 			\['G', 'VCSClearAndGotoOriginal'],
+ 			\['g', 'VCSGotoOriginal'],
+ 			\['i', 'VCSInfo'],
+diff -Naur vcscommand-1.99.47.orig/plugin/vcscvs.vim vcscommand-1.99.47/plugin/vcscvs.vim
+--- vcscommand-1.99.47.orig/plugin/vcscvs.vim	2013-04-12 17:52:16.000000000 +0000
++++ vcscommand-1.99.47/plugin/vcscvs.vim	2018-04-26 13:24:05.544974138 +0000
+@@ -61,7 +61,7 @@
+ "
+ "   <Leader>ce CVSEdit
+ "   <Leader>cE CVSEditors
+-"   <Leader>ct CVSUnedit
++"   <Leader>cT CVSUnedit
+ "   <Leader>cwv CVSWatchers
+ "   <Leader>cwa CVSWatchAdd
+ "   <Leader>cwn CVSWatchOn
+@@ -416,7 +416,7 @@
+ 	let mappingInfo = [
+ 				\['CVSEdit', 'CVSEdit', 'e'],
+ 				\['CVSEditors', 'CVSEditors', 'E'],
+-				\['CVSUnedit', 'CVSUnedit', 't'],
++				\['CVSUnedit', 'CVSUnedit', 'T'],
+ 				\['CVSWatchers', 'CVSWatchers', 'wv'],
+ 				\['CVSWatchAdd', 'CVSWatch add', 'wa'],
+ 				\['CVSWatchOff', 'CVSWatch off', 'wf'],
