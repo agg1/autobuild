@@ -18,14 +18,14 @@ app-editors/vim -X
 #
 app-misc/rmlint -X
 
-# pdfimport requires missing UTF8.h
-#	x11-libs/cairo[X,-xlib-xcb] ->	x11-libs/cairo[X]
-app-office/libreoffice -gtk gtk2 -jemalloc -kde -pdfimport -google
-#
-dev-libs/xmlsec nss
+# replaces libreoffice
+# map pulls in libchamplain causing trouble, ots pulls in borken build of ots-0.5.0 *** No rule to make target '../src/libots-1.la', needed by 'ots'.  Stop.
+app-office/abiword calendar collab eds goffice grammar -introspection latex -map math -ots plugins redland spell wordperfect wmf thesaurus
+
+app-office/gnucach aqbanking chipcard examples -gnome-keyring nls ofx postgres quotes
 
 # with opengl static-libs flag must be unset
-app-text/mupdf -opengl
+#app-text/mupdf -opengl
 
 #
 app-text/ghostscript-gpl cups -gtk -X
@@ -65,16 +65,15 @@ media-video/libav -ssl
 media-sound/alsa-tools -gtk
 
 #
+mail-client/alpine passfile spell
+
+#
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 
-#
-mail-client/thunderbird -jit -hwaccel -gmp-autoupdate -jemalloc -jemalloc3 lightning -gtk -gtk3 gtk2
-#
-www-client/firefox -jit -hwaccel -gmp-autoupdate -jemalloc -pgo -gtk -gtk3 gtk2
 # svgtiny is broken
-www-client/netsurf gtk -svgtiny
+www-client/netsurf gtk -svgtiny -duktape
 
 #-suid is a pain in the arse, strace -e trace=open,ioctl Xorg
 #ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
@@ -159,6 +158,15 @@ www-servers/lighttpd -minimal -kerberos
 # egl_system.c: In function 'InitEGL':
 # egl_system.c:150:82: error: 'nativewindow' undeclared (first use in this function)
 dev-libs/DirectFB -egl
+
+# geolocation demands introspection, opengl or gles2 choice required
+net-libs/webkit-gtk -geolocation -gles2 opengl
+
+# eds evolution-data-server, collab demands gnutls
+app-office/abiword -eds -collab
+
+# pulled in by geany/geany-plugins, crypt requires gnutls
+x11-libs/vte -crypt
 
 #
 games-fps/darkplaces cdsound lights textures -sdl

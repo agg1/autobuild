@@ -23,9 +23,12 @@ net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 
+sys-apps/util-linux static-libs
+
 dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit -dso -extras -kde
 dev-vcs/subversion perl -dso
 
+# gnutls, nettle
 mail-mta/nullmailer -ssl
 
 #
@@ -36,5 +39,3 @@ dev-libs/libpcre2 pcre16
 #
 app-misc/pax-utils -python
 
-# gnutls, nettle
-mail-mta/nullmailer -ssl
