@@ -17,9 +17,9 @@ export BINPKG_COMPRESS="lzop"
 export BINPKG_COMPRESS_FLAGS="-1"
 #export BINPKG_COMPRESS="tar"
 #fomit-frame-pointer when debugging is not required
-export CFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
-export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
-#export KCFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing"
+export CFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing -Wno-write-strings"
+export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing -Wno-write-strings"
+#export KCFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing -Wno-write-strings"
 # ssse3 would exclude phenom2 generation AMD cpus
 export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
 export PROFILE_IS_HARDENED=1
