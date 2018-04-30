@@ -159,8 +159,8 @@ diff -Naur catalyst-3.0.1.orig/targets/support/livecdfs-update.sh catalyst-3.0.1
 -echo "tmpfs	/					tmpfs	defaults	0 0" >> /etc/fstab
 -echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}			tmpfs	defaults	0 0" >> /etc/fstab
 +echo "tmpfs	/				tmpfs	defaults,size=50%			0 0" >> /etc/fstab
-+echo "tmpfs	/tmp				tmpfs	defaults,noexec,nodev,nosuid,noatime	0 0" >> /etc/fstab
-+echo "/tmp	/var/tmp			none	bind,rw,noexec,nodev,nosuid,noatime	0 0" >> /etc/fstab
++echo "tmpfs	/tmp				tmpfs	defaults,noexec,nodev,nosuid,noatime,mode=1777	0 0" >> /etc/fstab
++echo "/tmp	/var/tmp			none	bind,rw,noexec,nodev,nosuid,noatime,mode=1777	0 0" >> /etc/fstab
 +#echo "tmpfs	${clst_repo_basedir}/${clst_repo_name}		tmpfs	defaults	0 0" >> /etc/fstab
  # If /usr/lib/X11/xkb/compiled then make it tmpfs
 -if [ -d /usr/lib/X11/xkb/compiled ]
