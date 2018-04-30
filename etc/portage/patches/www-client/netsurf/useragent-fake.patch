@@ -1,0 +1,14 @@
+diff -Naur netsurf-3.6.orig/utils/useragent.c netsurf-3.6/utils/useragent.c
+--- netsurf-3.6.orig/utils/useragent.c	2016-11-19 13:37:41.000000000 +0000
++++ netsurf-3.6/utils/useragent.c	2018-04-30 11:28:37.722986884 +0000
+@@ -39,6 +39,10 @@
+ static void
+ user_agent_build_string(void)
+ {
++	// fake user agent string
++	core_user_agent_string = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063";
++	return;
++
+         struct utsname un;
+         const char *sysname = "Unknown";
+         char *ua_string;
