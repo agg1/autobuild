@@ -1,0 +1,77 @@
+diff -Naur xterm-331.orig/UXTerm.ad xterm-331/UXTerm.ad
+--- xterm-331.orig/UXTerm.ad	2010-03-04 01:17:07.000000000 +0000
++++ xterm-331/UXTerm.ad	2018-04-30 03:03:12.578990755 +0000
+@@ -74,3 +74,34 @@
+ !*VT100.font4:	-efont-biwidth-medium-r-normal--14-140-75-75-p-70-iso10646-1
+ !*VT100.font5:	-efont-biwidth-medium-r-normal--16-160-75-75-p-80-iso10646-1
+ !*VT100.font6:	-efont-biwidth-medium-r-normal--24-240-75-75-p-120-iso10646-1
++
++UXTerm*font: -*-*-*-*-*-*-20-*-*-*-*-*-*-*
++!UXTerm*termName: xterm-256color
++UXTerm*selectToClipboard: true
++UXTerm*VT100.cutNewLine: false
++UXTerm*VT100.cutToBeginningOfLine: false
++UXTerm*VT100.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
++UXterm*saveLines: 16384
++UXTerm*eightBitInput: false
++UXTerm*metaSendsEscape: true
++UXTerm*backarrowKey: false
++UXTerm*ttyModes: erase ^?
++UXTerm*reverseVideo: off
++UXTerm*background:  #9f9f9f
++UXTerm*foreground:  #000000
++UXTerm*color0:      #000000
++UXTerm*color1:      #9e1828
++UXTerm*color2:      #aece92
++UXTerm*color3:      #968a38
++UXTerm*color4:      #1d1d30
++UXTerm*color5:      #963c59
++UXTerm*color6:      #418179
++UXTerm*color7:      #bebebe
++UXTerm*color8:      #666666
++!UXTerm*color9:      #cf6171
++!UXTerm*color10:     #c5f779
++!UXTerm*color11:     #fff796
++!UXTerm*color12:     #4186be
++!UXTerm*color13:     #cf9ebe
++!UXTerm*color14:     #71bebe
++UXTerm*color15:     #cccccc
+diff -Naur xterm-331.orig/XTerm.ad xterm-331/XTerm.ad
+--- xterm-331.orig/XTerm.ad	2016-12-22 02:07:39.000000000 +0000
++++ xterm-331/XTerm.ad	2018-04-30 03:02:06.042990921 +0000
+@@ -259,3 +259,35 @@
+ !*allowTcapOps: false
+ !*allowTitleOps: false
+ !*allowWindowOps: false
++
++XTerm*font: -*-*-*-*-*-*-20-*-*-*-*-*-*-*
++!XTerm*termName: xterm-256color
++XTerm*selectToClipboard: true
++XTerm*VT100.cutNewLine: false
++XTerm*VT100.cutToBeginningOfLine: false
++XTerm*VT100.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
++Xterm*saveLines: 16384
++XTerm*eightBitInput: false
++XTerm*metaSendsEscape: true
++XTerm*backarrowKey: false
++XTerm*ttyModes: erase ^?
++XTerm*reverseVideo: off
++XTerm*background:  #9f9f9f
++XTerm*foreground:  #000000
++XTerm*color0:      #000000
++XTerm*color1:      #9e1828
++XTerm*color2:      #aece92
++XTerm*color3:      #968a38
++XTerm*color4:      #1d1d30
++XTerm*color5:      #963c59
++XTerm*color6:      #418179
++XTerm*color7:      #bebebe
++XTerm*color8:      #666666
++!XTerm*color9:      #cf6171
++!XTerm*color10:     #c5f779
++!XTerm*color11:     #fff796
++!XTerm*color12:     #4186be
++!XTerm*color13:     #cf9ebe
++!XTerm*color14:     #71bebe
++XTerm*color15:     #cccccc
++
