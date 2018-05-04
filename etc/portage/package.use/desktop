@@ -171,5 +171,8 @@ x11-libs/vte -crypt
 #
 dev-util/anjuta -introspection -packagekit terminal
 
+# gtk and gtk3 cannot be set at the same time, ebuild quirk
+net-misc/dhcpcd-ui -gtk
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
