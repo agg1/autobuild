@@ -73,7 +73,7 @@ net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 
 # svgtiny is broken
-www-client/netsurf gtk -svgtiny -duktape
+www-client/netsurf gtk -svgtiny -duktape javascript
 
 #-suid is a pain in the arse, strace -e trace=open,ioctl Xorg
 #ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
@@ -167,6 +167,9 @@ app-office/abiword -eds -collab
 
 # pulled in by geany/geany-plugins, crypt requires gnutls
 x11-libs/vte -crypt
+
+#
+dev-util/anjuta -introspection -packagekit terminal
 
 #
 games-fps/darkplaces cdsound lights textures -sdl

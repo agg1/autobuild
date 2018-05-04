@@ -39,3 +39,5 @@ dev-libs/libpcre2 pcre16
 #
 app-misc/pax-utils -python
 
+#
+sys-libs/libapparmor -python -perl
