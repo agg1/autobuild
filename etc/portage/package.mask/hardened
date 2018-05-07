@@ -24,5 +24,3 @@ app-crypt/gpa
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.10.0
 >sys-apps/portage-2.3.24-r1
-dev-lang/lua
-dev-lang/luajit

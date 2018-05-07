@@ -209,3 +209,9 @@ net-libs/glib-networking
 
 # patched to remove atk-bridge to dbus
 >x11-libs/gtk+-3.22.26
+
+>app-office/libreoffice-5.4.5.1
+>app-office/libreoffice-l10n-5.4.5.1
+
+dev-lang/lua
+dev-lang/luajit
