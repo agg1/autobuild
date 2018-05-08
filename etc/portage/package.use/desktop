@@ -22,7 +22,7 @@ app-misc/rmlint -X
 # map pulls in libchamplain causing trouble, ots pulls in borken build of ots-0.5.0 *** No rule to make target '../src/libots-1.la', needed by 'ots'.  Stop.
 app-office/abiword calendar collab eds goffice grammar -introspection latex -map math -ots plugins redland spell wordperfect wmf thesaurus
 
-app-office/gnucach aqbanking chipcard examples -gnome-keyring nls ofx postgres quotes
+app-office/gnucash aqbanking chipcard examples -gnome-keyring nls ofx postgres quotes
 
 # with opengl static-libs flag must be unset
 #app-text/mupdf -opengl
@@ -73,7 +73,7 @@ net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 
 # svgtiny is broken
-www-client/netsurf gtk -svgtiny -duktape javascript
+www-client/netsurf gtk -svgtiny javascript
 
 #-suid is a pain in the arse, strace -e trace=open,ioctl Xorg
 #ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
@@ -173,6 +173,8 @@ dev-util/anjuta -introspection -packagekit terminal
 
 # gtk and gtk3 cannot be set at the same time, ebuild quirk
 net-misc/dhcpcd-ui -gtk
+
+app-crypt/gcr gtk
 
 #
 games-fps/darkplaces cdsound lights textures -sdl
