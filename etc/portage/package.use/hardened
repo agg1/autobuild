@@ -1,5 +1,5 @@
 sys-kernel/ck-sources experimental -deblob
-sys-kernel/genkernel -firmware -cryptsetup
+sys-kernel/genkernel -firmware cryptsetup
 
 # required by libreoffice, tweaked to not fail with <gnupg-2
 app-crypt/gpgme cxx

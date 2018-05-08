@@ -18,7 +18,9 @@ app-editors/vim -X
 #
 app-misc/rmlint -X
 
-# replaces libreoffice
+#
+app-office/libreoffice gtk gtk2 -gtk3 -jemalloc -kde -pdfimport -google -eds
+
 # map pulls in libchamplain causing trouble, ots pulls in borken build of ots-0.5.0 *** No rule to make target '../src/libots-1.la', needed by 'ots'.  Stop.
 app-office/abiword calendar collab eds goffice grammar -introspection latex -map math -ots plugins redland spell wordperfect wmf thesaurus
 
