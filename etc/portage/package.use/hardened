@@ -25,7 +25,9 @@ sys-fs/cryptsetup -python -gcrypt openssl libressl
 
 sys-apps/util-linux static-libs
 
-dev-vcs/git blksha1 curl gpg highlight iconv subversion cvs perl -python cgi tk -pcre-jit -dso -extras -kde
+# highlight requires lua
+app-text/asciidoc -highlight
+dev-vcs/git blksha1 curl gpg -highlight iconv subversion cvs perl -python cgi tk -pcre-jit -dso -extras -kde
 dev-vcs/subversion perl -dso
 
 # gnutls, nettle
