@@ -2,7 +2,7 @@
 #*/* parallel.conf
 
 # DEFINE recently properly set with rsyslog
-app-admin/rsyslog rsyslog.conf
+#app-admin/rsyslog rsyslog.conf
 
 # parallel build seems broken
 app-admin/qtpass noparallel.conf
