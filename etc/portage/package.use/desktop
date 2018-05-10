@@ -178,5 +178,9 @@ net-misc/dhcpcd-ui -gtk
 
 app-crypt/gcr gtk
 
+# hfs requires diskdev_cmds with openssl currently, kde pulls in crap, btrfs stil broken
+sys-block/gparted cryptsetup dmraid f2fs fat jfs kde mdadm ntfs udf xfs -kde
+#sys-block/gparted btrfs cryptsetup dmraid f2fs fat hfs jfs kde mdadm ntfs policykit reiserfs reiser4 udf xfs
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
