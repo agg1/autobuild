@@ -18,6 +18,9 @@ app-editors/vim -X
 #
 app-misc/rmlint -X
 
+# circular dependency qtcore->cmake->qtcore
+dev-util/cmake -qt5
+
 #
 app-office/libreoffice gtk gtk2 -gtk3 -jemalloc -kde -pdfimport -google -eds
 dev-libs/xmlsec nss
