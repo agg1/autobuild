@@ -213,5 +213,6 @@ net-libs/glib-networking
 >app-office/libreoffice-5.4.5.1
 >app-office/libreoffice-l10n-5.4.5.1
 
-dev-lang/lua
-dev-lang/luajit
+# required by ntopng, redis, scribus->podofo
+#dev-lang/lua
+#dev-lang/luajit
