@@ -7,7 +7,7 @@ app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte
 #app-emulation/spice -smartcard
 
 #
-app-emulation/wine-any -ssl -udisks staging d3d9 s3tc
+app-emulation/wine-any -ssl -udisks staging d3d9 s3tc abi_x86_32 abi_x86_64
 
 # required by hwdb,eudev
 sys-apps/hwids udev
