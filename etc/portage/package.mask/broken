@@ -25,3 +25,5 @@
 
 # later version broken
 >lxde-base/lxterminal-0.2.0-r1
+# broken ebuild 0.99.1 to be fixed, requires automake 1.14
+>=lxde-base/lxde-common-0.6.0
