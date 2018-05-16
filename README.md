@@ -2,9 +2,9 @@
 	- check autobuild.conf
 	- autobuild-genkey.sh
 1) create directories and manually prepare catalyst if required with initial build
-	- check make.conf settings match portage tree version (python etc), revert when done
-		- adapt MAKEFLAGS -jN --load-average N and genkernel.conf for parallel jobs according to nCPU present
-		- adapt SWITCH_CTARGET according to target compiler
+	- adapt MAKEFLAGS -jN --load-average N and genkernel.conf for parallel jobs according to nCPU present
+	  +50% with N=6 for 4 cores or N=16 for 12 cores
+	- adapt SWITCH_CTARGET according to target compiler
 	- adapt paths in autobuild.conf and spec files
 	- emerge -vb catalyst shc lzop
 2) ./autobuild-all.sh 2>&1 | tee -a /home/autolog/build.log ; /usr/local/bin/sleep.sh
