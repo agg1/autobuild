@@ -10,4 +10,7 @@ cuda_*linux*.run
 *-bin-libreoffice*
 *-debug-libreoffice*
 *opera-*.deb
+opera-*
 systemrescuecd-*
+netbeans-*
+eclipse-*
