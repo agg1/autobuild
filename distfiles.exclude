@@ -1,0 +1,13 @@
+android-studio-*
+VirtualBox-*
+apache-tomcat-*
+Apache_OpenOffice*
+LibreOffice*
+libreoffice-*
+firefox-*
+chromium-*
+cuda_*linux*.run
+*-bin-libreoffice*
+*-debug-libreoffice*
+*opera-*.deb
+systemrescuecd-*
