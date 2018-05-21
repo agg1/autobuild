@@ -1,0 +1,23 @@
+#games-fps/freespace-scp
+
+net-dialup/radiusclient-ng?
+#net-dialup/pptpd?
+#net-mail/notmuchfs
+
+#/var/tmp/portage/net-misc/ssvnc-1.0.29-r2/temp/ccCoJklv.o: In function `enc_do':
+#ultravnc_dsm_helper.c:(.text+0x1ea9): undefined reference to `EVP_sha'
+#net-misc/ssvnc -> broken with ssl
+#net-misc/tigervnc
+#net-misc/tightvnc -> distfile download required
+
+#net-misc/yatb
+
+#net-nds/ypserv
+
+#net-print/lprng -> collides with cups, decide
+
+#net-voip/gnugk, ptlib may collide with pwlib
+
+#www-client/netsurf
+#x11-libs/libnotify -> dbus
+#x11-misc/xlockmore -> buffer overflow
