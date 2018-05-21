@@ -10,3 +10,10 @@
 # both broken, ext4magic is available instead
 sys-fs/ext3grep
 sys-fs/extundelete
+
+# requires pam
+mail-client/alpine
+
+#discovery.c:53:26: fatal error: libisns/isns.h: No such file or directory
+sys-block/open-iscsi
+
