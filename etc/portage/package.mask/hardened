@@ -1,5 +1,5 @@
 >sys-boot/syslinux-3.86
->=sys-devel/gcc-7.0.0
+>=sys-devel/gcc-8.0.0
 #>sys-kernel/gentoo-sources-4.9.999
 >=sys-kernel/gentoo-sources-4.16.0
 >dev-util/catalyst-3.0.1
@@ -23,4 +23,8 @@ app-crypt/gpa
 >net-misc/openssh-7.3_p1-r8
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.10.0
->sys-apps/portage-2.3.24-r1
+# later version requires suspectible gnupg2, nettle, gnutls code path with rsync-verify use flag
+#>sys-apps/portage-2.3.24-r1
+>sys-apps/portage-2.3.38
+# upstream fiddled with overlayfs meanwhile but doesn't get it right imo
+>sys-kernel/genkernel-3.5.2.5

@@ -1,29 +1,12 @@
-# error related to handling symlinks, renameat function
-<sys-apps/sandbox-2.10-r4
-
 # PYTHON_TARGET issue could not be fixed
 >app-misc/pax-utils-1.2.3
-
-# pkinit_crypto_openssl.c:3076:3: error: expected ',' or ';' before 
-# 'static_ASN1_SEQUENCE_END_name' } static_ASN1_SEQUENCE_END_name(int_dhvparams, DHvparams)
->app-crypt/mit-krb5-1.14.5
 
 # $mod+e split window broken with 4.14.x
 >x11-wm/i3-4.13-r1
 
-#dev-vcs/subversion -> undefined reference to `BIO_meth_set_create'
->net-libs/serf-1.3.8-r1
+# removed static build which was broken
+>media-libs/openjpeg-2.3.0
 
-# net-wireless/crda -> Failed to import the "M2Crypto" module: No module named _m2crypto
->dev-python/m2crypto-0.24.0
-
->app-vim/alternate-2.18-r1
-
-# broken with netsurf 3.6
->=dev-libs/libcss-0.7.0
->dev-libs/libutf8proc-1.3.1_p2-r1
-
-# later version broken
->lxde-base/lxterminal-0.2.0-r1
-# broken ebuild 0.99.1 to be fixed, requires automake 1.14
->=lxde-base/lxde-common-0.6.0
+# both broken, ext4magic is available instead
+sys-fs/ext3grep
+sys-fs/extundelete

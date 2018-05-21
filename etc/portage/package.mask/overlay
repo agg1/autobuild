@@ -1,60 +1,10 @@
 # successfully patched to remove atk-bridge
->x11-libs/gtk+-3.22.26
+>x11-libs/gtk+-3.22.30
 
 # otherwise openvpn is broken, with 2.4.x openvpn was fine
 # bareos probably affected too among others
 #<dev-libs/libressl-2.7.0
 >net-vpn/openvpn-2.4.5
-
-# removed circular dependency in spice and spice-gtk
-# attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
-# dependency chain against spice-smartcard
-#qemu-2.6.0/user-exec.c:71:37: error: dereferencing pointer to incomplete type 'struct ucontext' sigprocmask(SIG_SETMASK, &uc->uc_sigmask, NULL); ???
-# might be related to glibc 2.26 and gcc <5.5, fixed in 5.5 6.5 and 7.x
-#>app-emulation/qemu-2.6.0
-# try 2.5.0-r3 instead
-#>=app-emulation/qemu-2.6.0
-
-# undefined reference to `OPENSSL_init_ssl'
-# patched to meet >=dev-lang/orc-0.4
-#<app-emulation/spice-0.14
-#
-# patched to meet >=dev-lang/orc-0.4
->app-emulation/spice-0.13.3-r2
-
-# other packages are affected likewise concerning openssl-compat with libressl 2.6.4
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_puts'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_set_data'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_get_new_index'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `EVP_PKEY_get0_RSA'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_set_init'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_free'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_write'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_read'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_get_data'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_new'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `ASN1_STRING_get0_data'
-#../src/.libs/libspice-client-glib-2.0.so: undefined reference to `BIO_meth_set_ctrl'
->net-misc/spice-gtk-0.31
-#>app-emulation/spice-protocol-0.12.11
-
-#
-# >2.7.12 broken with libressl 2.7.x
-# _ssl.c:141:12: error: static declaration of 'X509_NAME_ENTRY_set' 
-# follows non-static declaration static int X509_NAME_ENTRY_set(const X509_NAME_ENTRY *ne)
-#dev-lang/python-2.7.11
-# 2.7-disable-nis.patch required due to changes in glibc which removed rpc/rpc.h
-#dev-lang/python-2.7.12
-#~dev-lang/python-2.7.13
-#~dev-lang/python-2.7.14
-# >3.5.2 broken with libressl 2.7.x
-#>dev-lang/python-3.5.2
-
-#
-# >3.2.2 broken with libressl 2.7.x
-# libarchive/archive_openssl_hmac_private.h:34:25: error: static declaration of 'HMAC_CTX_new' follows non-static declaration
-# static inline HMAC_CTX *HMAC_CTX_new(void)
-#>app-arch/libarchive-3.2.2
 
 # patched to utilize libressl
 #>app-admin/rsyslog-8.33.1
@@ -73,16 +23,12 @@
 # require dbus
 app-accessibility/at-spi2-atk
 gnome-base/gvfs
-#
-# any version greater pulls in gtk3..->dbus
-#>app-text/gtkspell-2.0.16
 
 # any version greater pulls in dbus
 >x11-misc/xdg-utils-1.1.1-r1
 
 # gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
 >media-gfx/gimp-2.8.22-r1
-
 
 #
 >net-irc/ircd-hybrid-7.3.1
@@ -91,10 +37,15 @@ gnome-base/gvfs
 
 #
 # removed lxsession which relies on dbus
->lxde-base/lxde-meta-0.5.5-r5
-#
-# patched to remove gpgme/gnupg2 dependency
+>lxde-base/lxde-meta-0.5.5-r6
+# fixed ebuild dependency for automake-1.14
+>lxde-base/lxde-common-0.99.2
+# later version broken recently to be tested again
+>lxde-base/lxterminal-0.2.0-r1
+
+# patched for gpg batch signing
 >mail-client/mutt-1.9.4
+# pinned due to xapian omega
 >net-mail/notmuch-0.25.3
 >net-mail/notmuchfs-1.0
 # any greater is broken with ssl/libressl
@@ -102,6 +53,7 @@ gnome-base/gvfs
 
 # removal of gnutls, libressl compat
 >net-analyzer/ettercap-0.8.2-r1
+# removed gnutls, 2.6.0 was migrated to cmake with further adaptions required now
 >net-analyzer/wireshark-2.5.0
 
 #
@@ -128,14 +80,16 @@ gnome-base/gvfs
 >net-misc/sstp-client-1.0.10-r1
 >net-misc/yatb-1.0
 
-# otherwise ffmpeg[openssl] required
->net-misc/youtube-viewer-3.2.4
+# ffmpeg[libressl]
+>net-misc/youtube-viewer-3.3.4
 
-#
+# libressl
 >net-nds/adtool-1.3.3
-#
->net-print/cups-2.2.6
-#
+
+# patched for libressl
+>net-print/cups-2.2.7
+
+# patched to remove gnutls
 >net-proxy/squid-3.5.27-r1
 
 #
@@ -153,14 +107,12 @@ gnome-base/gvfs
 >net-wireless/wepattack-0.1.3-r3
 >net-wireless/wepdecrypt-0.8-r2
 
-#
 # patched
 >www-apps/ikiwiki-3.20170111
-#
+
 # patched
 >x11-misc/xtrlock-2.3
 
-#
 # pulled in by texmaker, pulls in ruby
 dev-qt/qtwebkit
 
@@ -171,26 +123,12 @@ dev-libs/appstream-glib
 net-libs/libsoup
 net-libs/glib-networking
 
-# otherwise broken >=mit-krb5-1.15.1 required
-#>net-fs/samba-4.6.13
-# samba-4.6.13 reports build error too
-#librpc/idl/auth.idl:107: error: Unable to determine origin of type `struct cli_credentials'
-
 # broken ebuild
 >net-ftp/vsftpd-3.0.3-r2
-
-# removed openssl dependency
-#>media-video/libav-13_pre20171219
-
-# broken build depending on freeglut not pulled in
->app-text/mupdf-1.12.0
 
 #gui/src/UI/ui_PatternFillDialog_UI.h:13:29: fatal error: QtWidgets/QAction: No such file or directory
 #hydrogen, latest pre uses QT5 instead of QT4
 <=media-sound/hydrogen-0.9.5-r1
-
-# gnutls
->media-video/vlc-3.0.0-r3
 
 # gnutls
 >app-emulation/wine-any-2.21
@@ -204,14 +142,11 @@ net-libs/glib-networking
 # any version greater pulls in libsoup->glib-networking->gnutls
 >app-office/homebank-4.6.3
 
-# any version greater pulls in dbus with spell use flag
->mail-client/sylpheed-3.5.1
-
-# patched to remove atk-bridge to dbus
->x11-libs/gtk+-3.22.26
-
 >app-office/libreoffice-5.4.5.1
 >app-office/libreoffice-l10n-5.4.5.1
+
+# required by anjuta, libressl
+>gnome-extra/libgda-5.2.4-r2
 
 # required by ntopng, redis, scribus->podofo
 #dev-lang/lua

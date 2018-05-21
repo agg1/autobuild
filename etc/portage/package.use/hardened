@@ -1,3 +1,6 @@
+#requires gnupg2
+#sys-apps/portage -rsync-verify
+
 sys-kernel/ck-sources experimental -deblob
 sys-kernel/genkernel -firmware cryptsetup
 
