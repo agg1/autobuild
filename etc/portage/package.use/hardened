@@ -1,19 +1,8 @@
-#requires gnupg2
-#sys-apps/portage -rsync-verify
-
 sys-kernel/ck-sources experimental -deblob
 sys-kernel/genkernel -firmware cryptsetup
 
-# required by libreoffice, tweaked to not fail with <gnupg-2
-app-crypt/gpgme cxx
-
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
 # required by sys-devel/gettext (argument)
-#>=dev-lang/python-3.5.2 xml
-# required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python2_7]
-# required by sys-devel/gettext (argument)
-#>=dev-lang/python-2.7.12:2.7 xml
-dev-lang/python xml
 dev-lang/python xml
 
 # reliable event logging protocol
@@ -59,6 +48,7 @@ app-emulation/wine-any -ssl -udisks staging d3d9 s3tc abi_x86_32 abi_x86_64
 sys-apps/hwids udev
 sys-apps/pcsc-lite udev
 
+#
 app-editors/vim -X
 
 #
@@ -70,6 +60,7 @@ dev-util/cmake -qt5
 #
 app-office/libreoffice gtk gtk2 -gtk3 -jemalloc -kde -pdfimport -google -eds
 dev-libs/xmlsec nss
+app-crypt/gpgme cxx
 
 #
 app-text/ghostscript-gpl cups -gtk -X
@@ -79,7 +70,7 @@ net-print/cups -X
 dev-qt/qtgui -dbus -libinput
 dev-qt/qtwidgets -gtk
 
-#
+# otherwise gnutls is required
 media-video/vlc -ssl
 
 # required by www-apps/ikiwiki
@@ -99,8 +90,6 @@ media-libs/libextractor -gtk -midi
 # compilation fails with static-libs for >openjpeg-1.5.2-r1
 media-libs/openjpeg -static-libs
 
-media-video/libav -ssl
-
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
 net-mail/notmuch mutt -crypt
@@ -116,16 +105,14 @@ www-client/netsurf gtk -svgtiny javascript
 #if user is in group video and/or input this might do more harm than any good because direcat hardware acess for user
 #
 x11-base/xorg-server xorg suid glamor xcsecurity
-#
-x11-libs/libfm gtk -automount -udisks
-x11-misc/xdg-user-dirs -gtk
-x11-libs/wxGTK -gstreamer
+
+# automount requires dbus
+x11-libs/libfm -automount -udisks
 
 #
 net-wireless/aircrack-ng -airdrop-ng
 net-analyzer/wireshark -ssl -gtk libssh tfshark tshark
 
-#
 # required by net-analyzer/argus-clients
 net-analyzer/rrdtool perl
 
@@ -139,9 +126,6 @@ dev-libs/libxml2 python
 # required by x11-misc/xdg-utils
 # required by media-gfx/xsane
 app-text/xmlto text
-
-# required by app-office/texstudio
-app-office/texstudio -video
 
 # required by media-gfx/inkscape
 media-gfx/pstoedit plotutils
@@ -161,22 +145,14 @@ net-vpn/tor tor-hardening transparent-proxy
 # otherwise broken with >libressl-2.4/2.5, overlay
 net-vpn/openvpn mbedtls -libressl
 
-# [client,winbind] required by media-video/vlc
+# required by media-video/vlc
 net-fs/samba client winbind
-#sys-libs/talloc python
-#sys-libs/tevent python
-#sys-libs/tdb python
-#sys-libs/ldb python
-# python dependency is highly suspicious here!
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
 net-proxy/squid -nis
 
 # kerberos conflicts with ssl/libressl
 www-servers/lighttpd -minimal -kerberos
-
-# required by app-vim/splice (argument) and vimpress
-#app-editors/vim python
 
 # egl_system.c: In function 'InitEGL':
 # egl_system.c:150:82: error: 'nativewindow' undeclared (first use in this function)
