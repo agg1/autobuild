@@ -28,6 +28,7 @@ dev-libs/nettle abi_x86_32
 dev-libs/nspr abi_x86_32
 dev-libs/nss abi_x86_32
 dev-libs/openssl abi_x86_32
+dev-libs/libressl abi_x86_32
 dev-libs/udis86 abi_x86_32
 media-libs/giflib abi_x86_32
 media-libs/lcms abi_x86_32

@@ -131,7 +131,7 @@ net-libs/glib-networking
 <=media-sound/hydrogen-0.9.5-r1
 
 # gnutls
->app-emulation/wine-any-2.21
+>app-emulation/wine-any-3.8
 
 # temporarily removed egl support because it is broken
 #>dev-libs/DirectFB-1.7.6
