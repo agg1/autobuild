@@ -27,4 +27,6 @@ app-crypt/gpa
 #>sys-apps/portage-2.3.24-r1
 >sys-apps/portage-2.3.38
 # upstream fiddled with overlayfs meanwhile but doesn't get it right imo
->sys-kernel/genkernel-3.5.2.5
+#>sys-kernel/genkernel-3.5.2.5
+#
+>sys-kernel/genkernel-3.5.3.3
