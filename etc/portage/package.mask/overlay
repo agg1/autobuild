@@ -93,9 +93,8 @@ gnome-base/gvfs
 >net-proxy/squid-3.5.27-r1
 
 #
->net-voip/yate-5.5.0-r1
+>net-voip/yate-6.0.0
 >net-voip/linphone-3.6.1
->net-voip/gnugk-3.4-r1
 
 #
 >net-vpn/vpnc-0.5.3_p550

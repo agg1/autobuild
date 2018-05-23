@@ -178,5 +178,8 @@ sys-block/gparted cryptsetup dmraid f2fs fat jfs kde mdadm ntfs udf xfs -kde
 sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
 
 #
+media-gfx/blender cycles openimageio
+
+#
 games-fps/darkplaces cdsound lights textures -sdl
 

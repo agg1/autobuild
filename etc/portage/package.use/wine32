@@ -1,3 +1,6 @@
+# required by app-emulation/wine-any-3.8::extra[sdl]
+media-libs/libsdl2 haptic
+
 # app-emulation/emul-linux-x86-baselibs-20140508-r14  USE="development kerberos ldap pam" ABI_X86="-32" 39,395 kB
 app-admin/gamin abi_x86_32
 app-arch/bzip2 abi_x86_32
