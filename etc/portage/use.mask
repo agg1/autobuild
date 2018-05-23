@@ -1,2 +1,0 @@
-# for wine 32bit
--abi_x86_32
