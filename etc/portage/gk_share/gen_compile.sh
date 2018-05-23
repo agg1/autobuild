@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: c28705422202cc4bcf3127e101494aa7df2f6240 $
 
 compile_kernel_args() {
 	local ARGS

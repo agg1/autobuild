@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: 866a40f2ca575e8b5067ea4d5c1a2c416688326d $
 
 get_official_arch() {
 	if [ "${CMD_ARCHOVERRIDE}" != '' ]

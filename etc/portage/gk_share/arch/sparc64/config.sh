@@ -1,4 +1,4 @@
-# $Id$
+# $Id: 620b03dd2d89a572028619790f824e4f32d57bdc $
 #
 # This file is sourced AFTER defaults/config.sh; generic options should be set there.
 # Arch-specific options that normally shouldn't be changed.

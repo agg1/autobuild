@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: d4f56db8c31113b105afa56dadbbe6f3399e6c6a $
 
 COPY_BINARIES=false
 CPIO_ARGS="--quiet -o -H newc --owner root:root --force-local"

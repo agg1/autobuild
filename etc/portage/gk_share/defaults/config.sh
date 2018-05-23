@@ -1,5 +1,5 @@
 # This file is sourced before the arch-specific configs.
-# $Id$
+# $Id: b961f6829d3b2e785ebe03e668293494590e8f58 $
 #
 # Arch-specific options that normally shouldn't be changed (and should be set in the arch-specific configs)
 #

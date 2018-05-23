@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: 3d9611fd2f8bdcc8c8bebcfaec808b263eeec92e $
 
 longusage() {
   echo "Gentoo Linux Genkernel ${GK_V}"

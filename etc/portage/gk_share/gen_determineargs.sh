@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: b686fca90a2eeefb13cfc19a4a936e26c72a8cb5 $
 
 get_KV() {
 	if [ "${KERNEL_SOURCES}" = '0' -a -e "${KERNCACHE}" ]

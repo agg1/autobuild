@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: 697c478d50f09f33bf401236f775ff9250f30d7e $
 
 # Fills variable KERNEL_CONFIG
 determine_config_file() {

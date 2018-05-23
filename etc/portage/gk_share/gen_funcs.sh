@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: 656ddef1bdbd2f87413e64d19eab8e037a8b8821 $
 
 isTrue() {
 	case "$1" in

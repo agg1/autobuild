@@ -1,5 +1,5 @@
 #!/bin/bash
-# $Id$
+# $Id: d82322fa099032dad19cbca34ea8ba29dd314b38 $
 
 gen_minkernpackage() {
 	print_info 1 'Creating minimal kernel package'

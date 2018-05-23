@@ -1,4 +1,4 @@
-# $Id$
+# $Id: 28fa29208e0589d17bddbc99e3b822d08fd8e0e5 $
 
 set_bootloader() {
 	case "${BOOTLOADER}" in
