@@ -1,7 +1,7 @@
 */* nowerr.conf
 #*/* parallel.conf
 
-app-admin/rsyslog rsyslog.conf
+#app-admin/rsyslog rsyslog.conf
 
 app-admin/qtpass noparallel.conf
 net-ftp/vsftpd noparallel.conf
