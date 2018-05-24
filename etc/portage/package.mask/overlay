@@ -1,25 +1,18 @@
 # successfully patched to remove atk-bridge
 >x11-libs/gtk+-3.22.30
 
-# otherwise openvpn is broken, with 2.4.x openvpn was fine
-# bareos probably affected too among others
-#<dev-libs/libressl-2.7.0
+# libressl
 >net-vpn/openvpn-2.4.5
 
-# patched to utilize libressl
-#>app-admin/rsyslog-8.33.1
-#
 # patched and included configs, greater version buggy not writing/synching files properly, check changelog for json config
 >app-admin/rsyslog-8.29.0
 
-#
 # specific xapian version required for ikiwiki to provide search functionality
 >dev-libs/xapian-1.2.24
 >dev-libs/xapian-bindings-1.2.24
 >app-text/xapian-omega-1.2.24
 >dev-perl/SearchXapian-1.2.25.0
 
-#
 # require dbus
 app-accessibility/at-spi2-atk
 gnome-base/gvfs
@@ -32,10 +25,10 @@ gnome-base/gvfs
 
 #
 >net-irc/ircd-hybrid-7.3.1
+
 #
 >app-crypt/rhash-1.3.5
 
-#
 # removed lxsession which relies on dbus
 >lxde-base/lxde-meta-0.5.5-r6
 # fixed ebuild dependency for automake-1.14
@@ -60,17 +53,6 @@ gnome-base/gvfs
 >net-dialup/diald-1.0-r3
 #
 >net-libs/libeXosip-4.0.0
-
-# does not install /usr/bin/ptlib-config
->net-libs/ptlib-2.12.9-r1
-
-#required by gnugk
-#ptclib/pssl.cxx:1193:27: error: 'SSLv3_method' was not declared in this scope -> patched in 2.12.9-r1
-#ptlib/unix/channel.cxx:239:38: error: '::readv' has not been declared
-#>net-libs/ptlib-2.10.11
-
-#
->net-libs/h323plus-1.25.0-r2
 
 #
 #>net-libs/wvstreams-4.6.1-r3
