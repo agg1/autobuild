@@ -293,7 +293,7 @@ do
 			overlayfs_modules_dir=${x#*=}
                         overlayfs_modules=1
 		;;
-		rootlabel)
+		rootlabel=*)
 			ROOT_LABEL=${x#*=}
 		;;
 		unionfs)

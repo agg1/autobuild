@@ -592,7 +592,7 @@ setup_aufs() {
 }
 
 setup_overlayfs() {
-        ROOT_LABEL=$1
+	local ROOT_LABEL="${1}"
 	
         # Setup  directories and vars
         local overlay=/mnt/overlay
@@ -610,32 +610,32 @@ setup_overlayfs() {
 
         checkfs overlay
 
-		# search for ROOT_LABEL disk to mount instead of tmpfs for overlayfs
-		OVERLAY_DISK=`blkid -L ${ROOT_LABEL}`
-		warn_msg "Searching for label ${ROOT_LABEL} on disk ${OVERLAY_DISK}"
-		for i in $(ls /dev/sd*) ; do
-			echo -n ROOTCRYPT | cryptsetup open ${i} ROOTCRYPT \
-			--type plain --cipher aes-xts-plain64 \
-			--key-size 512 --hash sha512 -
-			ROOTCRYPT=`blkid -L ${ROOT_LABEL}`
-			if [ x"/dev/mapper/ROOTCRYPT" = x"${ROOTCRYPT}" ] ; then
-				OVERLAY_DISK="/dev/mapper/ROOTCRYPT"
-				break
-			fi
-			cryptsetup close ROOTCRYPT 2>/dev/null
-		done
-		
-		if [ ! -z "${OVERLAY_DISK}" -a -e "${OVERLAY_DISK}" ] ; then
-			mount -n ${OVERLAY_DISK} "${overlay}" || \
-			{
-				bad_msg "Disk with label ${ROOT_LABEL} on ${OVERLAY_DISK} failed"
-				warn_msg "Mounting tmpfs instead, be aware!"
-				mount -n -t tmpfs none "${overlay}"
-			}
-		else
-			warn_msg "Mounting tmpfs to overlay squashfs"
-			mount -n -t tmpfs none "${overlay}"
+	# search for ROOT_LABEL disk to mount instead of tmpfs for overlayfs
+	OVERLAY_DISK=`blkid -L ${ROOT_LABEL}`
+	for i in $(ls /dev/sd*) ; do
+		warn_msg "Searching for label ${ROOT_LABEL} on disk ${i}"
+		echo -n ROOTCRYPT | cryptsetup open ${i} ROOTCRYPT \
+		--type plain --cipher aes-xts-plain64 \
+		--key-size 512 --hash sha512 -
+		ROOTCRYPT=`blkid -L ${ROOT_LABEL}`
+		if [ x"/dev/mapper/ROOTCRYPT" = x"${ROOTCRYPT}" ] ; then
+			OVERLAY_DISK="/dev/mapper/ROOTCRYPT"
+			break
 		fi
+		cryptsetup close ROOTCRYPT 2>/dev/null
+	done
+
+	if [ ! -z "${OVERLAY_DISK}" -a -e "${OVERLAY_DISK}" ] ; then
+		mount ${OVERLAY_DISK} "${overlay}" || \
+		{
+			bad_msg "Disk with label ${ROOT_LABEL} on ${OVERLAY_DISK} failed"
+			warn_msg "Mounting tmpfs instead, be aware!"
+			mount -n -t tmpfs none "${overlay}"
+		}
+	else
+		warn_msg "Mounting tmpfs to overlay squashfs"
+		mount -n -t tmpfs none "${overlay}"
+	fi
 
         mount -t squashfs -o loop,ro "$CDROOT_PATH/$LOOPEXT$LOOP" "${static}"
         mkdir "${upperdir}" "${workdir}"
