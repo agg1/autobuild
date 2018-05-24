@@ -1,6 +1,3 @@
-# required by app-emulation/wine-any-3.8::extra[sdl]
-media-libs/libsdl2 haptic
-
 # missed
 sys-fs/eudev abi_x86_32
 dev-libs/libverto abi_x86_32
