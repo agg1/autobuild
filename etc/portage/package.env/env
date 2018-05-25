@@ -7,3 +7,8 @@ app-admin/qtpass noparallel.conf
 net-ftp/vsftpd noparallel.conf
 net-libs/h323plus noparallel.conf
 media-sound/mp3_check noparallel.conf
+
+# linking errors with gcc-7.30 and default behavior C99
+media-sound/mp3_check ldflags-inline.conf
+app-admin/cpulimit ldflags-inline.conf
+net-misc/vde ldflags-inline.conf
