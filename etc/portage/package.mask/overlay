@@ -129,6 +129,6 @@ net-libs/glib-networking
 # required by anjuta, libressl
 >gnome-extra/libgda-5.2.4-r2
 
-# required by ntopng, redis, scribus->podofo
+# required by ntopng, redis, scribus->podofo, and suricata
 #dev-lang/lua
 #dev-lang/luajit
