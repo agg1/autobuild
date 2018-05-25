@@ -626,22 +626,22 @@ setup_overlayfs() {
 	done
 
 	if [ ! -z "${OVERLAY_DISK}" -a -e "${OVERLAY_DISK}" ] ; then
-		mount ${OVERLAY_DISK} "${overlay}" || \
+		mount -o nodev ${OVERLAY_DISK} "${overlay}" || \
 		{
 			bad_msg "Disk with label ${ROOT_LABEL} on ${OVERLAY_DISK} failed"
 			warn_msg "Mounting tmpfs instead, be aware!"
-			mount -n -t tmpfs none "${overlay}"
+			mount -o nodev -t tmpfs none "${overlay}"
 		}
 	else
 		warn_msg "Mounting tmpfs to overlay squashfs"
-		mount -n -t tmpfs none "${overlay}"
+		mount -o nodev -t tmpfs none "${overlay}"
 	fi
 
         mount -t squashfs -o loop,ro "$CDROOT_PATH/$LOOPEXT$LOOP" "${static}"
         mkdir "${upperdir}" "${workdir}"
 
         is_union_modules overlayfs
-        mount -t overlay overlay -o lowerdir="${static}${mod_path}",upperdir="${upperdir}",workdir="${workdir}" "${NEW_ROOT}"
+        mount -t overlay overlay -o nodev,lowerdir="${static}${mod_path}",upperdir="${upperdir}",workdir="${workdir}" "${NEW_ROOT}"
 
         [ ! -d "${NEW_ROOT}${overlay}" ] && mkdir -p "${NEW_ROOT}${overlay}"
         [ ! -d "${NEW_ROOT}${static}" ] && mkdir -p "${NEW_ROOT}${static}"
