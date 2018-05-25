@@ -181,6 +181,9 @@ sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
 #
 media-gfx/blender cycles openimageio
 
+# either one is required otherwise configure stage is broken
+#net-analyzer/suricata lua
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
 
