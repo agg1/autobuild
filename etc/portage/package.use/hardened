@@ -74,6 +74,9 @@ dev-qt/qtwidgets -gtk
 # otherwise gnutls is required
 media-video/vlc -ssl
 
+# changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
+media-video/ffmpeg -openssl
+
 # required by www-apps/ikiwiki
 media-gfx/imagemagick perl
 

@@ -22,3 +22,9 @@ sys-block/open-iscsi
 
 # test -d "$d" && find "${d}" -name .packlist -delete || die; -> || die is broken in ebuild
 >dev-vcs/git-2.16.3
+
+# linking broken, incompatible
+>=media-video/ffmpeg-4.0
+
+# requires ffmpeg[openssl]
+net-misc/youtube-viewer

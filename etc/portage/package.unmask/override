@@ -1,2 +1,2 @@
 # masked in portage/profile/package.mask, lets see, https://bugs.gentoo.org/653678
-=media-video/ffmpeg-4.0
+#=media-video/ffmpeg-4.0
