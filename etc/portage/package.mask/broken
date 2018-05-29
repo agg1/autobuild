@@ -28,3 +28,6 @@ sys-block/open-iscsi
 
 # requires ffmpeg[openssl]
 net-misc/youtube-viewer
+
+ issues with redeclaration of conflicting opengl functions, related to qt5 dependency, required by blender with opencl
+>=media-libs/openimageio-1.8.0

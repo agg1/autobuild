@@ -182,7 +182,7 @@ sys-block/gparted cryptsetup dmraid f2fs fat jfs kde mdadm ntfs udf xfs -kde
 sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
 
 #
-media-gfx/blender cycles openimageio
+media-gfx/blender cycles openimageio openexr tiff
 
 # either one is required otherwise configure stage is broken
 #net-analyzer/suricata lua
