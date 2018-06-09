@@ -46,7 +46,9 @@ echo "virtual/perl-JSON-PP ~amd64" >> /etc/portage/package.accept_keywords
 #
 echo "sys-libs/gdbm ~amd64" >> /etc/portage/package.accept_keywords
 
-emerge -1q gentoolkit && \
+# file collisionb with pyblake and certifi package, who knows, hotfix
+rm -f /usr/lib64/python2.7/site-packages/pyblake2.so /usr/lib64/python3.5/site-packages/pyblake2.cpython-35m-x86_64-linux-gnu.so
+
 emerge -C openssl && \
 emerge -1q libressl && \
 emerge -1q openssh && \
@@ -55,9 +57,7 @@ emerge -1q =sys-libs/gdbm-1.14.1 && \
 emerge -1q =dev-lang/python-2.7.14-r2 =dev-lang/python-3.5.5-r1 && \
 emerge -1q net-misc/iputils && \
 emerge --update --deep dev-lang/perl && \
-emerge -q @preserved-rebuild && \
-revdep-rebuild && \
-emerge -C gentoolkit
+emerge -q @preserved-rebuild
 
 # gdbm and perl,libintl-perl emerge required otherwise boot seed stage build fails with conflict
 
