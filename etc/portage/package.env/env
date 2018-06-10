@@ -11,6 +11,7 @@ net-libs/libnet noparallel.conf
 dev-lang/ocaml noparallel.conf
 net-analyzer/netwox noparallel.conf
 sys-devel/autogen noparallel.conf
+media-libs/libwmf noparallel.conf
 
 # linking errors with gcc-7.30 and default behavior C99
 #media-sound/mp3_check ldflags-inline.conf
