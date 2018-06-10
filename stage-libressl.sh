@@ -46,7 +46,7 @@ echo "virtual/perl-JSON-PP ~amd64" >> /etc/portage/package.accept_keywords
 #
 echo "sys-libs/gdbm ~amd64" >> /etc/portage/package.accept_keywords
 
-# file collisionb with pyblake and certifi package, who knows, hotfix
+# file collision with pyblake and certifi package, who knows, hotfix
 rm -f /usr/lib64/python2.7/site-packages/pyblake2.so /usr/lib64/python3.5/site-packages/pyblake2.cpython-35m-x86_64-linux-gnu.so
 
 emerge -C openssl && \
