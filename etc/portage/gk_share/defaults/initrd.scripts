@@ -648,7 +648,7 @@ setup_overlayfs() {
 
         echo "overlay / overlay defaults 0 0" > "${NEW_ROOT}"/etc/fstab
 
-        for i in "${overlay}" "${static}"; do
+        for i in "${static}"; do
                 mount --bind "${i}" "${NEW_ROOT}${i}"
         done
 
