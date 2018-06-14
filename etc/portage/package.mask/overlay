@@ -37,7 +37,7 @@ gnome-base/gvfs
 >lxde-base/lxterminal-0.2.0-r1
 
 # patched for gpg batch signing
->mail-client/mutt-1.9.4
+<mail-client/mutt-1.9.4
 # pinned due to xapian omega
 >net-mail/notmuch-0.25.3
 >net-mail/notmuchfs-1.0
