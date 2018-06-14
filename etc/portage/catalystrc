@@ -19,7 +19,7 @@ export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 
 # ssse3 would exclude phenom2 generation AMD cpus
 export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
 export PROFILE_IS_HARDENED=1
-export ACCEPT_KEYWORDS="~amd64"
+export ACCEPT_KEYWORDS="~amd64 ~x86"
 export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp"
 #static-libs
 #export PYTHON_SINGLE_TARGET="python2_7"
