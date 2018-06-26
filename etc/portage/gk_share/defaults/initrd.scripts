@@ -637,7 +637,12 @@ setup_overlayfs() {
 		mount -o nodev -t tmpfs none "${overlay}"
 	fi
 
-        mount -t squashfs -o loop,ro "$CDROOT_PATH/$LOOPEXT$LOOP" "${static}"
+	_CACHED_SQUASHFS_PATH="${NEW_ROOT}/mnt/${LOOP}"
+	_squashfs_path="${CDROOT_PATH}/${LOOPEXT}${LOOP}"  # Default to uncached
+	[ "${DO_cache}" -a -f "${_CACHED_SQUASHFS_PATH}" ] \
+	&& _squashfs_path=${_CACHED_SQUASHFS_PATH}
+	mount -t squashfs -o loop,ro "${_squashfs_path}" "${static}"
+
         mkdir "${upperdir}" "${workdir}"
 
         is_union_modules overlayfs
