@@ -1,5 +1,6 @@
 >sys-boot/syslinux-3.86
 >=sys-devel/gcc-8.0.0
+<sys-libs/glibc-2.26
 #>sys-kernel/gentoo-sources-4.9.999
 >=sys-kernel/linux-headers-4.16.0
 >=sys-kernel/gentoo-sources-4.16.0
