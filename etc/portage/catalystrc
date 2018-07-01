@@ -37,4 +37,4 @@ export SHELL="/bin/bash"
 
 export COLLISION_IGNORE="/usr/share/vim/*"
 
-export GK_SHARE=/etc/portage/gk_share
+#export GK_SHARE=/etc/portage/gk_share
