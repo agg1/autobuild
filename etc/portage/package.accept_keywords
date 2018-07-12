@@ -1,3 +1,5 @@
+#package.accept_keywords overrides package.keywords
+
 #requied to hook in libressl which is still associated with ~testing
 #glady few packages rely on libressl in seed stage
 dev-libs/libressl ~amd64
@@ -8,6 +10,15 @@ dev-lang/python ~amd64
 dev-lang/python-exec ~amd64
 app-eselect/eselect-python ~amd64
 
-# *  stable on any architecture
-# ~* testing on any architecture
-# ** always visible
+# special tokens valid with package.accept_keywords 
+# *  stable on any architecture 
+# ~* testing on any architecture 
+# ** always visible 
+ 
+#*/* ~* 
+ 
+# latest ebuild has no KEYWORDS set for unknown reason,openssh-7.7_p1-r102 
+net-misc/openssh **
+
+# only use stable amd64
+#media-libs/freetype -~amd64
