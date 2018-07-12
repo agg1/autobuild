@@ -1,2 +1,11 @@
 # masked in portage/profile/package.mask, lets see, https://bugs.gentoo.org/653678
-#=media-video/ffmpeg-4.0
+#>=media-video/ffmpeg-4.0
+
+# still unstable with cryptsetup breaking first
+#=dev-libs/libressl-2.7*
+
+# masked in profile root, not maintained and to be removed
+#dev-libs/DirectFB
+
+# Masked for removal in 30 days. Bug #646118
+net-misc/urlview
