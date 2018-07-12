@@ -6,25 +6,24 @@
 # catalyst-spec is additive to already set USE flags
 # ENVIRONMENT supersedes package.use specific flags set
 
-export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 16.0 --jobs=128 --accept-properties=-interactive"
+export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 6.0 --jobs=128 --accept-properties=-interactive"
 export PORTAGE_CHECKSUM_FILTER="-* sha256"
 export PORTAGE_COMPRESS="gzip"
 export PORTAGE_COMPRESS_FLAGS="-1"
 export BINPKG_COMPRESS="lzop"
 export BINPKG_COMPRESS_FLAGS="-1"
 #fomit-frame-pointer when debugging is not required
-export CFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing -Wno-write-strings"
-export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing -Wno-write-strings"
-#export KCFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer -Wno-error -Wno-narrowing -Wno-write-strings"
+export CFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
+export CXXFLAGS="-Os -pipe -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
+#export KCFLAGS
 # ssse3 would exclude phenom2 generation AMD cpus
 export CPU_FLAGS_X86="mmx mmxext sse sse2 sse3"
 export PROFILE_IS_HARDENED=1
 #export ACCEPT_KEYWORDS="~amd64 ~x86"
 export ACCEPT_KEYWORDS="~amd64"
-export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp multilib"
+export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio hardened urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl nls unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp"
 #static-libs
 #export PYTHON_SINGLE_TARGET="python2_7"
-##export PYTHON_SINGLE_TARGET="python3_5"
 #export PYTHON_TARGETS="python2_7 python3_5 python3_6"
 
 export PORTAGE_REPO_DUPLICATE_WARN="0"
