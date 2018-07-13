@@ -1,3 +1,6 @@
+# otherwise requires gpg2
+sys-apps/portage -rsync-verify
+
 sys-kernel/ck-sources experimental -deblob
 sys-kernel/genkernel -firmware cryptsetup
 
@@ -15,6 +18,7 @@ net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 
+# required during kernel stage build
 sys-apps/util-linux static-libs
 
 # highlight requires lua
@@ -27,7 +31,6 @@ mail-mta/nullmailer -ssl
 
 #
 dev-libs/libpcre pcre16
-#
 dev-libs/libpcre2 pcre16
 
 #
@@ -40,10 +43,6 @@ sys-libs/libapparmor python perl
 app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde smartcard -pin-upstream-blobs
 # circular dependency spice-qemu-spice due to smartcard
 app-emulation/spice -smartcard
-
-#
-app-emulation/wine-any -ssl -udisks staging d3d9 vulkan s3tc abi_x86_32 abi_x86_64
-media-libs/libsdl2 haptic
 
 # required by hwdb,eudev
 sys-apps/hwids udev
@@ -100,7 +99,7 @@ net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 
 # svgtiny is broken
-www-client/netsurf gtk -svgtiny javascript
+#www-client/netsurf gtk -svgtiny javascript
 
 #-suid is a pain in the arse, strace -e trace=open,ioctl Xorg
 #ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
@@ -144,10 +143,7 @@ net-analyzer/nmap ncat nping
 net-p2p/transmission -gtk -ayatana -qt5
 
 #
-net-vpn/tor tor-hardening transparent-proxy
-
-# otherwise broken with >libressl-2.4/2.5, overlay
-net-vpn/openvpn mbedtls -libressl
+net-vpn/tor tor-hardening transparent-proxy seccomp
 
 # required by media-video/vlc
 net-fs/samba client winbind
@@ -184,9 +180,5 @@ sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
 #
 media-gfx/blender cycles openimageio openexr tiff
 
-# either one is required otherwise configure stage is broken
-#net-analyzer/suricata lua
-
 #
 games-fps/darkplaces cdsound lights textures -sdl
-
