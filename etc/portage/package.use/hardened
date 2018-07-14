@@ -1,7 +1,6 @@
 # otherwise requires gpg2
 sys-apps/portage -rsync-verify
 
-sys-kernel/ck-sources experimental -deblob
 sys-kernel/genkernel -firmware cryptsetup
 
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
@@ -52,12 +51,6 @@ sys-apps/pcsc-lite udev
 app-editors/vim -X
 
 #
-app-misc/rmlint -X
-
-# circular dependency qtcore->cmake->qtcore
-dev-util/cmake -qt5
-
-#
 app-office/libreoffice gtk gtk2 -gtk3 -jemalloc -kde -pdfimport -google -eds
 dev-libs/xmlsec nss
 app-crypt/gpgme cxx
@@ -87,19 +80,10 @@ media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
 media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
 media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl d3d9
 
-# file collision of /usr/bin/smfsh from media-libs/libsmf with media-sound/jack-smf-utils
-media-libs/libextractor -gtk -midi
-
-# compilation fails with static-libs for >openjpeg-1.5.2-r1
-media-libs/openjpeg -static-libs
-
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
-
-# svgtiny is broken
-#www-client/netsurf gtk -svgtiny javascript
 
 #-suid is a pain in the arse, strace -e trace=open,ioctl Xorg
 #ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
@@ -170,15 +154,11 @@ dev-util/anjuta -introspection -packagekit terminal
 # gtk and gtk3 cannot be set at the same time, ebuild quirk
 net-misc/dhcpcd-ui -gtk gtk3
 
-# hfs requires diskdev_cmds with openssl currently, kde pulls in crap, btrfs stil broken
-sys-block/gparted cryptsetup dmraid f2fs fat jfs kde mdadm ntfs udf xfs -kde
-#sys-block/gparted btrfs cryptsetup dmraid f2fs fat hfs jfs kde mdadm ntfs policykit reiserfs reiser4 udf xfs
+# hfs requires diskdev_cmds with openssl
+sys-block/gparted btffs cryptsetup dmraid f2fs fat jfs mdadm ntfs udf xfs -kde
 
 # ntfsdecrypt requires gnutls
 sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
-
-#
-media-gfx/blender cycles openimageio openexr tiff
 
 #
 games-fps/darkplaces cdsound lights textures -sdl
