@@ -118,6 +118,9 @@ net-libs/glib-networking
 # die "${FUNCNAME}: conversion of incompatible shebang requested";
 >sys-block/fio-3.2
 
+# 
+>app-text/evince-3.24.2-r1
+
 # required by ntopng, redis, scribus->podofo, and suricata
 #dev-lang/lua
 #dev-lang/luajit
