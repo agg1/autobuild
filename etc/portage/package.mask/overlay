@@ -1,5 +1,5 @@
-# patched and included configs, greater version buggy not writing/synching files properly, check changelog for json config
->app-admin/rsyslog-8.29.0
+# patched and included configs, greater version buggy not writing/synching files properly, check changelog for json
+>=app-admin/rsyslog-8.29.0
 
 # specific xapian version required for ikiwiki to provide search functionality
 >dev-libs/xapian-1.2.24
@@ -77,16 +77,6 @@ gnome-base/gvfs
 # patched
 >x11-misc/xtrlock-2.3
 
-# pulled in by texmaker, pulls in ruby
-dev-qt/qtwebkit
-
-#
-# pulls in gnutls,nettle
-dev-libs/appstream
-dev-libs/appstream-glib
-net-libs/libsoup
-net-libs/glib-networking
-
 # broken ebuild
 >net-ftp/vsftpd-3.0.3-r2
 
@@ -100,6 +90,7 @@ net-libs/glib-networking
 # any version greater pulls in libsoup->glib-networking->gnutls
 >app-office/homebank-4.6.3
 
+#
 >app-office/libreoffice-5.4.7.2
 >app-office/libreoffice-l10n-5.4.7.2
 
@@ -121,6 +112,20 @@ net-libs/glib-networking
 # 
 >app-text/evince-3.24.2-r1
 
-# required by ntopng, redis, scribus->podofo, and suricata
-#dev-lang/lua
-#dev-lang/luajit
+# seen twice with 5.18.12: AutoGen aborting on signal 18 (Continued) in state EMITTING
+# processing template ../autoopts/tpl/optlib.tlib            on line 1048       for function EXPR (14)
+#
+# will fail with >guile-2.0
+>sys-devel/autogen-5.18.4-r1
+>=dev-scheme/guile-2.0.0
+
+# who needs all this bloat
+dev-lang/lua
+dev-lang/luajit
+dev-lang/ruby
+dev-lang/rust
+dev-lang/php
+dev-lang/go
+virtual/jdk
+virtual/jre
+dev-java/icedtea-bin

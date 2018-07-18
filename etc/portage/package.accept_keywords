@@ -20,5 +20,11 @@ app-eselect/eselect-python ~amd64
 # latest ebuild has no KEYWORDS set for unknown reason,openssh-7.7_p1-r102 
 net-misc/openssh **
 
+#
+=app-admin/rsyslog-8.28.0-r1 **
+
 # only use stable amd64
 #media-libs/freetype -~amd64
+
+# doesn't match
+#dev-qt/* -~amd64

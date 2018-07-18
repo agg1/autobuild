@@ -160,5 +160,8 @@ sys-block/gparted btffs cryptsetup dmraid f2fs fat jfs mdadm ntfs udf xfs -kde
 # ntfsdecrypt requires gnutls
 sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
 
+# circular dependency qtcore -> cmake -> qt
+dev-util/cmake -qt5
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
