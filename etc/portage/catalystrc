@@ -6,7 +6,7 @@
 # catalyst-spec is additive to already set USE flags
 # ENVIRONMENT supersedes package.use specific flags set
 
-export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 6.0 --jobs=128 --accept-properties=-interactive"
+export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 4.0 --jobs=128 --accept-properties=-interactive"
 export PORTAGE_CHECKSUM_FILTER="-* sha256"
 export PORTAGE_COMPRESS="gzip"
 export PORTAGE_COMPRESS_FLAGS="-1"
@@ -34,6 +34,6 @@ export PORTAGE_NICENESS=18
 
 export SHELL="/bin/bash"
 
-export COLLISION_IGNORE="/usr/share/vim/*"
+export COLLISION_IGNORE="/usr/share/vim/* /usr/bin/smfsh"
 
 #export GK_SHARE=/etc/portage/gk_share
