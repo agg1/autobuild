@@ -24,3 +24,4 @@ app-crypt/gpa
 >app-crypt/gpgme-1.10.0
 >sys-kernel/genkernel-3.5.3.3
 <net-misc/openssh-7.7_p1-r102
+>=net-firewall/iptables-1.7.0
