@@ -170,5 +170,5 @@ games-fps/darkplaces cdsound lights textures -sdl
 #app-emulation/wine-any -abi_x86_32 abi_x86_64 staging -ssl
 #media-libs/libsdl2 haptic
 
-#
-media-gfx/blender cycles openexr tiff openimageio
+# openimageio build is broken with QT5/egl/gles
+media-gfx/blender -opencl -cycles -openimageio
