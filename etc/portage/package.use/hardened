@@ -50,8 +50,8 @@ sys-apps/pcsc-lite udev
 #
 app-editors/vim -X
 
-#
-app-office/libreoffice gtk gtk2 -gtk3 -jemalloc -kde -pdfimport -google -eds
+# otherwise dconf,dbus etc. are pulled in
+app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde -pdfimport -google -eds
 dev-libs/xmlsec nss
 app-crypt/gpgme cxx
 
@@ -67,7 +67,8 @@ dev-qt/qtwidgets -gtk
 media-video/vlc -ssl
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
-media-video/ffmpeg -openssl
+# ERROR: smbclient not found
+media-video/ffmpeg -openssl -samba
 
 # required by www-apps/ikiwiki
 media-gfx/imagemagick perl
@@ -89,8 +90,7 @@ dev-libs/gmime -smime
 #ioctl(10, DRM_IOCTL_SET_MASTER, 0)      = -1 EACCES (Permission denied)
 #Xorg.log: Unable to retrieve master
 #radeon specific drm code, gpu driver dependent
-#if user is in group video and/or input this might do more harm than any good because direcat hardware acess for user
-#
+#if user is in group video and/or input this might do more harm than any good because direct hardware acess for user
 x11-base/xorg-server xorg suid glamor xcsecurity
 
 # automount requires dbus
@@ -98,7 +98,9 @@ x11-libs/libfm -automount -udisks
 
 #
 net-wireless/aircrack-ng -airdrop-ng
-net-analyzer/wireshark -ssl -gtk libssh tfshark tshark
+
+#
+net-analyzer/wireshark -ssl -gtk qt5 libssh tfshark tshark
 
 # required by net-analyzer/argus-clients
 net-analyzer/rrdtool perl
@@ -163,12 +165,14 @@ sys-fs/ntfs3g -ntfsdecrypt ntfsprogs
 # circular dependency qtcore -> cmake -> qt
 dev-util/cmake -qt5
 
-#
-games-fps/darkplaces cdsound lights textures -sdl
-
-# wine requires a patch
-#app-emulation/wine-any -abi_x86_32 abi_x86_64 staging -ssl
-#media-libs/libsdl2 haptic
-
 # openimageio build is broken with QT5/egl/gles
 media-gfx/blender -opencl -cycles -openimageio
+
+# static-libs build breaks
+media-libs/openjpeg -static-libs
+
+# doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
+app-doc/doxygen -clang
+
+#
+games-fps/darkplaces cdsound lights textures -sdl
