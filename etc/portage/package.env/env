@@ -14,13 +14,4 @@ sys-devel/autogen noparallel.conf
 media-libs/libwmf noparallel.conf
 app-text/xdvik noparallel.conf
 media-plugins/caps-plugins noparallel.conf
-
-# seems overriding cflags is ignored with catalyst
-#app-text/ttf2pk2 freetype2.conf
-#app-text/xdvik freetype2.conf
-
-# linking errors with gcc-7.30 and default behavior C99
-#media-sound/mp3_check ldflags-inline.conf
-#app-admin/cpulimit ldflags-inline.conf
-#net-misc/vde ldflags-inline.conf
-#media-sound/timidity++ ldflags-inline.conf
+net-dialup/diald noparallel.conf
