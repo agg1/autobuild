@@ -38,4 +38,8 @@ export SHELL="/bin/bash"
 
 export COLLISION_IGNORE="/usr/share/vim/* /usr/bin/smfsh"
 
+#priority decreases from left to right
+#export USE_ORDER="env:pkg:conf:defaults:pkginternal:repo:env.d"
+export USE_ORDER="pkg:env:conf:defaults:pkginternal:repo:env.d"
+
 #export GK_SHARE=/etc/portage/gk_share
