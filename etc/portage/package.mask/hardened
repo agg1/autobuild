@@ -1,11 +1,6 @@
 >=sys-devel/gcc-8.0.0
-<sys-libs/glibc-2.27
 >=sys-kernel/linux-headers-4.19
 >=sys-kernel/gentoo-sources-4.19.0
->dev-util/catalyst-3.0.1
->=dev-libs/libressl-2.7.0
-# PYTHON_TARGET issue could not be fixed
->app-misc/pax-utils-1.2.3
 sys-apps/systemd
 sys-auth/consolekit
 sys-auth/polkit
@@ -20,9 +15,10 @@ net-libs/gnutls
 app-crypt/gpa
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.10.0
->sys-kernel/genkernel-3.5.3.3
-<net-misc/openssh-7.7_p1-r102
->=net-firewall/iptables-1.7.0
 # version 6.3 refused to spawn claiming there was no entropy sources available
 # allthough frandom spits out endless gibberish sufficiently
 >sys-apps/rng-tools-6.2
+# circular dependency introduced with later version
+>=sys-apps/keyutils-1.5.11
+# versions later than 1.6.8 pull in gnutls
+>mail-mta/msmtp-1.7.0

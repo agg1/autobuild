@@ -1,11 +1,11 @@
-# patched and included configs, greater version buggy not writing/synching files properly, check changelog for json
+# patched and included configs, greater version buggy not writing/syncing files properly, check changelog for json
 >=app-admin/rsyslog-8.29.0
 
 # specific xapian version required for ikiwiki to provide search functionality
 >dev-libs/xapian-1.2.24
 >dev-libs/xapian-bindings-1.2.24
 >app-text/xapian-omega-1.2.24
->dev-perl/SearchXapian-1.2.25.0
+>dev-perl/Search-Xapian-1.2.25.0
 
 # require dbus
 app-accessibility/at-spi2-atk
@@ -15,15 +15,13 @@ gnome-base/gvfs
 >x11-misc/xdg-utils-1.1.1-r1
 
 # gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
->media-gfx/gimp-2.8.22-r1
+>media-gfx/gimp-2.9.0
 
 #
 >net-irc/ircd-hybrid-7.3.1
 
 # removed lxsession which relies on dbus
 >lxde-base/lxde-meta-0.5.5-r6
-# fixed ebuild dependency for automake-1.14
->lxde-base/lxde-common-0.99.2
 
 # patched for gpg batch signing
 <mail-client/mutt-1.9.4
@@ -35,6 +33,8 @@ gnome-base/gvfs
 # socket.o: In function `start_tls_p2': socket.c:(.text+0xf5c): undefined reference to `X509_OBJECT_get0_X509'
 >net-mail/isync-1.2.1
 #>net-mail/isync-1.2.2
+#
+>net-mail/muchsync-5
 
 # removal of gnutls, libressl compat
 >net-analyzer/ettercap-0.8.2-r1
@@ -71,18 +71,17 @@ gnome-base/gvfs
 >net-wireless/wepattack-0.1.3-r3
 >net-wireless/wepdecrypt-0.8-r2
 
-# patched
+# patched, later versions fail
+#PERL5LIB=.. ./po2wiki underlay.setup
+#Invalid po file
+#/var/tmp/portage/www-apps/ikiwiki-3.20170111/temp/ikiwiki-po-filter-in.rgrjWixeF
 >www-apps/ikiwiki-3.20170111
 
 # patched
 >x11-misc/xtrlock-2.3
 
-# broken ebuild
+# broken ebuild fixed, probably doesn't link ssl and crypto as intended so check ssl is working
 >net-ftp/vsftpd-3.0.3-r2
-
-#gui/src/UI/ui_PatternFillDialog_UI.h:13:29: fatal error: QtWidgets/QAction: No such file or directory
-#hydrogen, latest pre uses QT5 instead of QT4
-<=media-sound/hydrogen-0.9.5-r1
 
 # gnutls,nettle
 >mail-mta/nullmailer-2.0-r2
@@ -91,11 +90,12 @@ gnome-base/gvfs
 >app-office/homebank-4.6.3
 
 #
->app-office/libreoffice-5.4.7.2
->app-office/libreoffice-l10n-5.4.7.2
+#>app-office/libreoffice-5.4.7.2
+#>app-office/libreoffice-l10n-5.4.7.2
 
 # required by anjuta, libressl
 >gnome-extra/libgda-5.2.4-r2
+>dev-util/anjuta-3.22.0
 
 # ssl linking error with subversion depending on serf
 >net-libs/serf-1.3.8-r1
@@ -109,7 +109,7 @@ gnome-base/gvfs
 # die "${FUNCNAME}: conversion of incompatible shebang requested";
 >sys-block/fio-3.2
 
-# 
+# introspection 
 >app-text/evince-3.24.2-r1
 
 # seen twice with 5.18.12: AutoGen aborting on signal 18 (Continued) in state EMITTING
@@ -118,6 +118,20 @@ gnome-base/gvfs
 # will fail with >guile-2.0
 >sys-devel/autogen-5.18.4-r1
 >=dev-scheme/guile-2.0.0
+
+#broken
+lxde-base/lxterminal
+>x11-apps/xinit-1.4.0
+>x11-libs/gtk+-3.22.30
+
+# support libressl, it is still broken!
+#>dev-qt/qtnetwork-5.11.1
+
+# -r3 currently causes a cyclic dependency
+#(media-fonts/encodings-1.0.4-r3:0/0::gentoo, ebuild scheduled for merge) depends on
+# (media-fonts/encodings-1.0.4-r3:0/0::gentoo, ebuild scheduled for merge) (buildtime)
+# doesn't make sense: media-fonts/encodings-1.0.4-r3 (Change USE: -X)
+>media-fonts/encodings-1.0.4-r1
 
 #lua is required by freespace-scp, widelands and probably other games and not pulled in by anthing else
 #dev-lang/lua
