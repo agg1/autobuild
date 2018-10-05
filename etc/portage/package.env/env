@@ -15,3 +15,4 @@ media-libs/libwmf noparallel.conf
 app-text/xdvik noparallel.conf
 media-plugins/caps-plugins noparallel.conf
 net-dialup/diald noparallel.conf
+media-sound/qjackctl noparallel.conf
