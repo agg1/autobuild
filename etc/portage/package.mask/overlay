@@ -39,14 +39,8 @@ gnome-base/gvfs
 # removal of gnutls, libressl compat
 >net-analyzer/ettercap-0.8.2-r1
 
-#
->net-dialup/diald-1.0-r3
-
 >net-misc/sstp-client-1.0.10-r1
 >net-misc/yatb-1.0
-
-# ffmpeg[libressl]
->net-misc/youtube-viewer-3.3.4
 
 # libressl
 >net-nds/adtool-1.3.3
@@ -71,12 +65,6 @@ gnome-base/gvfs
 >net-wireless/wepattack-0.1.3-r3
 >net-wireless/wepdecrypt-0.8-r2
 
-# patched, later versions fail
-#PERL5LIB=.. ./po2wiki underlay.setup
-#Invalid po file
-#/var/tmp/portage/www-apps/ikiwiki-3.20170111/temp/ikiwiki-po-filter-in.rgrjWixeF
->www-apps/ikiwiki-3.20170111
-
 # patched
 >x11-misc/xtrlock-2.3
 
@@ -89,15 +77,11 @@ gnome-base/gvfs
 # any version greater pulls in libsoup->glib-networking->gnutls
 >app-office/homebank-4.6.3
 
-#
-#>app-office/libreoffice-5.4.7.2
-#>app-office/libreoffice-l10n-5.4.7.2
-
 # required by anjuta, libressl
 >gnome-extra/libgda-5.2.4-r2
 >dev-util/anjuta-3.22.0
 
-# ssl linking error with subversion depending on serf
+# ssl linking error with subversion depending on serf and libressl, strange
 >net-libs/serf-1.3.8-r1
 
 # freetype-config was deprecated and removed which breaks various packages in app-text such as xdvik, ttf2pk2
@@ -112,20 +96,10 @@ gnome-base/gvfs
 # introspection 
 >app-text/evince-3.24.2-r1
 
-# seen twice with 5.18.12: AutoGen aborting on signal 18 (Continued) in state EMITTING
-# processing template ../autoopts/tpl/optlib.tlib            on line 1048       for function EXPR (14)
-#
-# will fail with >guile-2.0
->sys-devel/autogen-5.18.4-r1
->=dev-scheme/guile-2.0.0
-
 #broken
 lxde-base/lxterminal
 >x11-apps/xinit-1.4.0
 >x11-libs/gtk+-3.22.30
-
-# support libressl, it is still broken!
-#>dev-qt/qtnetwork-5.11.1
 
 # -r3 currently causes a cyclic dependency
 #(media-fonts/encodings-1.0.4-r3:0/0::gentoo, ebuild scheduled for merge) depends on
