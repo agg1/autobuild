@@ -1,6 +1,7 @@
 # otherwise requires gpg2
 sys-apps/portage -rsync-verify
 
+#
 sys-kernel/genkernel -firmware cryptsetup
 
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
@@ -167,9 +168,6 @@ dev-util/cmake -qt5
 
 # openimageio build is broken with QT5/egl/gles
 media-gfx/blender -opencl -cycles -openimageio
-
-# static-libs build breaks
-media-libs/openjpeg -static-libs
 
 # doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
 app-doc/doxygen -clang
