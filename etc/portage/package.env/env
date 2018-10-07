@@ -2,7 +2,7 @@
 
 #app-admin/rsyslog rsyslog.conf
 
-#
+#broken parallel build
 app-admin/qtpass noparallel.conf
 net-ftp/vsftpd noparallel.conf
 net-libs/h323plus noparallel.conf
@@ -16,3 +16,4 @@ app-text/xdvik noparallel.conf
 media-plugins/caps-plugins noparallel.conf
 net-dialup/diald noparallel.conf
 media-sound/qjackctl noparallel.conf
+sys-apps/pcmciautils noparallel.conf
