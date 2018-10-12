@@ -49,7 +49,7 @@ gnome-base/gvfs
 >net-print/cups-2.2.8-r1
 
 # patched to remove gnutls
->net-proxy/squid-3.5.27-r1
+>net-proxy/squid-3.5.28
 
 #
 >net-voip/yate-6.0.0
@@ -71,9 +71,6 @@ gnome-base/gvfs
 # broken ebuild fixed, probably doesn't link ssl and crypto as intended so check ssl is working
 >net-ftp/vsftpd-3.0.3-r2
 
-# gnutls,nettle
->mail-mta/nullmailer-2.0-r2
-
 # any version greater pulls in libsoup->glib-networking->gnutls
 >app-office/homebank-4.6.3
 
@@ -93,7 +90,7 @@ gnome-base/gvfs
 # die "${FUNCNAME}: conversion of incompatible shebang requested";
 >sys-block/fio-3.2
 
-# introspection 
+# dbus
 >app-text/evince-3.24.2-r1
 
 #broken
@@ -107,7 +104,15 @@ lxde-base/lxterminal
 # doesn't make sense: media-fonts/encodings-1.0.4-r3 (Change USE: -X)
 >media-fonts/encodings-1.0.4-r1
 
-#lua is required by freespace-scp, widelands and probably other games and not pulled in by anthing else
+# version 6.3 refused to spawn claiming there was no entropy sources available
+# allthough frandom spits out endless gibberish sufficiently
+>sys-apps/rng-tools-6.2
+# circular dependency introduced with later version
+>=sys-apps/keyutils-1.5.11
+# versions later than 1.6.8 pull in gnutls
+>mail-mta/msmtp-1.7.0
+
+#lua is required by freespace-scp, widelands and probably other games and not pulled in by anything else
 #dev-lang/lua
 # who needs all this bloat
 dev-lang/luajit
