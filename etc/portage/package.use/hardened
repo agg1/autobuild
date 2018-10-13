@@ -4,21 +4,24 @@ sys-apps/portage -rsync-verify
 #
 sys-kernel/genkernel -firmware cryptsetup
 
+#
+sys-kernel/gentoo-sources -linux-firmware
+
 # required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
 # required by sys-devel/gettext (argument)
-dev-lang/python xml
+#dev-lang/python xml
 
 # reliable event logging protocol
 app-admin/rsyslog -jemalloc rfc3195 rfc5424hmac usertools snmp
 dev-libs/liblogging rfc3195
 
 net-misc/openssh -bindist -X
-net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
+#net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 sys-fs/cryptsetup -python -gcrypt openssl libressl
 
-# required during kernel stage build
+# required by genkernel
 sys-apps/util-linux static-libs
 
 # highlight requires lua
@@ -26,15 +29,12 @@ app-text/asciidoc -highlight
 dev-vcs/git blksha1 curl gpg -highlight iconv subversion cvs perl -python cgi tk -pcre-jit -dso -extras -kde
 dev-vcs/subversion perl -dso
 
-# gnutls, nettle
-mail-mta/nullmailer -ssl
-
-#
+# required by dev-qt/qtcore
 dev-libs/libpcre pcre16
 dev-libs/libpcre2 pcre16
 
 #
-app-misc/pax-utils -python
+#app-misc/pax-utils -python
 
 #
 sys-libs/libapparmor python perl
@@ -53,8 +53,9 @@ app-editors/vim -X
 
 # otherwise dconf,dbus etc. are pulled in
 app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde -pdfimport -google -eds
+# required by app-office/libreoffice
 dev-libs/xmlsec nss
-app-crypt/gpgme cxx
+#app-crypt/gpgme cxx
 
 #
 app-text/ghostscript-gpl cups -gtk -X
@@ -75,11 +76,12 @@ media-video/ffmpeg -openssl -samba
 media-gfx/imagemagick perl
 
 #
-media-libs/gst-plugins-bad -gtk opengl -egl -gles2
-media-libs/gst-plugins-base -gtk opengl -egl -gles2
-media-libs/gst-plugins-good -gtk opengl -egl -gles2
-media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
-media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
+#media-libs/gst-plugins-bad -gtk opengl -egl -gles2
+#media-libs/gst-plugins-base -gtk opengl -egl -gles2
+#media-libs/gst-plugins-good -gtk opengl -egl -gles2
+#media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
+#media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
+# vaapi causes cyclic dependency, libva->opengl->mesa->libva
 media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl d3d9
 
 #
@@ -106,15 +108,13 @@ net-analyzer/wireshark -ssl -gtk qt5 libssh tfshark tshark
 # required by net-analyzer/argus-clients
 net-analyzer/rrdtool perl
 
-# required by various
+# required by media-video/vlc
 sys-libs/zlib minizip
 
-# required by app-text/gnome-doc-utils
-# required by app-text/stardict-3.0.6-r3::gentoo
+# required by app-text/stardict
 dev-libs/libxml2 python
 
-# required by x11-misc/xdg-utils
-# required by media-gfx/xsane
+# required by app-office/libreoffice
 app-text/xmlto text
 
 # required by media-gfx/inkscape
@@ -143,7 +143,7 @@ www-servers/lighttpd -minimal -kerberos
 
 # egl_system.c: In function 'InitEGL':
 # egl_system.c:150:82: error: 'nativewindow' undeclared (first use in this function)
-dev-libs/DirectFB -egl
+#dev-libs/DirectFB -egl
 
 # geolocation demands introspection, opengl or gles2 choice required
 net-libs/webkit-gtk -geolocation -gles2 opengl

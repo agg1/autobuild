@@ -112,6 +112,10 @@ lxde-base/lxterminal
 # versions later than 1.6.8 pull in gnutls
 >mail-mta/msmtp-1.7.0
 
+# mesa with opencl now pulls in this which requires ruby, no thanks, patched mesa ebuild
+dev-libs/ocl-icd
+>media-libs/mesa-18.2.2-r1
+
 #lua is required by freespace-scp, widelands and probably other games and not pulled in by anything else
 #dev-lang/lua
 # who needs all this bloat
