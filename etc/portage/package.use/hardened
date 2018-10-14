@@ -7,9 +7,8 @@ sys-kernel/genkernel -firmware cryptsetup
 #
 sys-kernel/gentoo-sources -linux-firmware
 
-# required by dev-libs/libxml2-2.9.7::gentoo[python,python_targets_python3_5]
 # required by sys-devel/gettext (argument)
-#dev-lang/python xml
+dev-lang/python xml
 
 # reliable event logging protocol
 app-admin/rsyslog -jemalloc rfc3195 rfc5424hmac usertools snmp
