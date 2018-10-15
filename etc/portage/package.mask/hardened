@@ -17,3 +17,5 @@ net-libs/gnutls
 app-crypt/gpa
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.12.0
+# broken
+>=dev-util/catalyst-3.0.3

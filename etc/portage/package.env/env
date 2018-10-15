@@ -17,3 +17,4 @@ media-plugins/caps-plugins noparallel.conf
 net-dialup/diald noparallel.conf
 media-sound/qjackctl noparallel.conf
 sys-apps/pcmciautils noparallel.conf
+app-arch/arj noparallel.conf
