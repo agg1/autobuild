@@ -33,9 +33,6 @@ dev-libs/libpcre pcre16
 dev-libs/libpcre2 pcre16
 
 #
-#app-misc/pax-utils -python
-
-#
 sys-libs/libapparmor python perl
 
 # attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
@@ -74,12 +71,6 @@ media-video/ffmpeg -openssl -samba
 # required by www-apps/ikiwiki
 media-gfx/imagemagick perl
 
-#
-#media-libs/gst-plugins-bad -gtk opengl -egl -gles2
-#media-libs/gst-plugins-base -gtk opengl -egl -gles2
-#media-libs/gst-plugins-good -gtk opengl -egl -gles2
-#media-libs/gst-plugins-ugly -gtk opengl -egl -gles2
-#media-libs/gst-plugins-vaapi -gtk opengl -egl -gles2
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
 media-libs/mesa llvm classic gles1 gles2 egl gallium gbm vdpau xa dri3 -vaapi -wayland opencl d3d9
 
@@ -140,9 +131,8 @@ net-proxy/squid -nis
 # kerberos conflicts with ssl/libressl
 www-servers/lighttpd -minimal -kerberos
 
-# egl_system.c: In function 'InitEGL':
 # egl_system.c:150:82: error: 'nativewindow' undeclared (first use in this function)
-#dev-libs/DirectFB -egl
+dev-libs/DirectFB -egl
 
 # geolocation demands introspection, opengl or gles2 choice required
 net-libs/webkit-gtk -geolocation -gles2 opengl
