@@ -29,4 +29,5 @@ net-misc/openssh **
 # doesn't match
 #dev-qt/* -~amd64
 
-media-libs/svgalib **
+#CONFIG_TRIM_UNUSED_KSYMS:   should not be set. But it is.
+#media-libs/svgalib **
