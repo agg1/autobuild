@@ -4,13 +4,14 @@ apache-tomcat-*
 Apache_OpenOffice*
 LibreOffice*
 libreoffice-*
+*-bin-libreoffice*
+*-debug-libreoffice*
 firefox-*
 chromium-*
 cuda_*linux*.run
-*-bin-libreoffice*
-*-debug-libreoffice*
 *opera-*.deb
 opera-*
 systemrescuecd-*
 netbeans-*
 eclipse-*
+rust-*-linux-gnu*
