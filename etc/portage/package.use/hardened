@@ -161,5 +161,7 @@ media-gfx/blender -opencl -cycles -openimageio
 # doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
 app-doc/doxygen -clang
 
+www-client/netsurf duktape javascript gtk3
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
