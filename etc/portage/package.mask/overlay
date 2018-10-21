@@ -132,3 +132,4 @@ dev-lang/go
 virtual/jdk
 virtual/jre
 dev-java/icedtea-bin
+dev-lang/mono
