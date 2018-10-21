@@ -163,5 +163,8 @@ app-doc/doxygen -clang
 
 www-client/netsurf duktape javascript gtk3
 
+# required by freeorion
+#dev-libs/boost python icu
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
