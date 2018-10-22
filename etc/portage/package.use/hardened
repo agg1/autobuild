@@ -166,5 +166,8 @@ www-client/netsurf duktape javascript gtk3
 # required by freeorion
 #dev-libs/boost python icu
 
+# otherwise broken dev-libs/icu-layoutex will be pulled in
+games-simulation/openttd -icu
+
 #
 games-fps/darkplaces cdsound lights textures -sdl
