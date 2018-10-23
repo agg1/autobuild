@@ -6,3 +6,4 @@ mkdir -p /var/log/audit
 mkdir -p /var/log/archive
 chmod 700 /var/log/audit
 chmod 700 /var/log/archive
+rm -rf /etc/portage/rootfs
