@@ -3,9 +3,16 @@
 
 # still unstable with cryptsetup breaking first
 #=dev-libs/libressl-2.7*
+# unmask because it is masked in profile as testing
+=dev-libs/libressl-2.8.0
 
 # masked in profile root, not maintained and to be removed
 #dev-libs/DirectFB
 
 # Masked for removal in 30 days. Bug #646118
 net-misc/urlview
+
+# Matt Turner <mattst88@gentoo.org> (17 Oct 2018)
+# Multiple regressions causing pain for users and developers alike: Bug
+# Bugs #666892, #667686
+=sys-fs/eudev-3.2.6
