@@ -161,6 +161,10 @@ media-gfx/blender -opencl -cycles -openimageio
 # doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
 app-doc/doxygen -clang
 
+# undefined reference to `PKCS12_SAFEBAG_get0_p8inf'
+app-text/mupdf -openssl
+
+#
 www-client/netsurf duktape javascript gtk3
 
 # required by freeorion
