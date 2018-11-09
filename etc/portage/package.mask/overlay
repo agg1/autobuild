@@ -96,7 +96,7 @@ gnome-base/gvfs
 #broken
 lxde-base/lxterminal
 >x11-apps/xinit-1.4.0
->x11-libs/gtk+-3.22.30
+>x11-libs/gtk+-2.24.32-r1
 
 # -r3 currently causes a cyclic dependency
 #(media-fonts/encodings-1.0.4-r3:0/0::gentoo, ebuild scheduled for merge) depends on
