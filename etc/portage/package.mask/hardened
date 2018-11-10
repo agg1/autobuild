@@ -1,4 +1,4 @@
->sys-devel/gcc-9.0.0
+>=sys-devel/gcc-9.0.0
 <sys-libs/glibc-2.27
 >=sys-kernel/linux-headers-4.19
 >=sys-kernel/gentoo-sources-4.19.0
