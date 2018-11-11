@@ -14,9 +14,9 @@ app-eselect/eselect-python ~amd64
 # *  stable on any architecture 
 # ~* testing on any architecture 
 # ** always visible 
- 
+
 #*/* ~* 
- 
+
 # latest ebuild has no KEYWORDS set for unknown reason,openssh-7.7_p1-r102 
 net-misc/openssh **
 
