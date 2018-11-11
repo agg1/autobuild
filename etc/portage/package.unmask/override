@@ -16,3 +16,23 @@ net-misc/urlview
 # Multiple regressions causing pain for users and developers alike: Bug
 # Bugs #666892, #667686
 =sys-fs/eudev-3.2.6
+
+# Buggy (#499298), upstream is dead for a long time, maybe a switch to one
+# abi_x86_32 doesn't work (#524498)
+# removal in a month
+media-plugins/alsaequal
+
+# All this packages are broken and need major version bumps to fix them. See
+# bug #504114, #486510, #510550, #511096, #517260, #551784, #616490, #
+net-libs/libeXosip
+
+# All this packages are broken and need major version bumps to fix them. See
+# bug #504114, #486510, #510550, #511096, #517260, #551784, #616490, #
+net-voip/linphone
+
+# All this packages are broken and need major version bumps to fix them. See
+# bug #504114, #486510, #510550, #511096, #517260, #551784, #616490, #
+net-libs/libosip
+
+# Masked for removal on 2018-11-24, bug #669650.
+dev-db/pgadmin3

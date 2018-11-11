@@ -175,3 +175,6 @@ games-simulation/openttd -icu
 
 #
 games-fps/darkplaces cdsound lights textures -sdl
+
+#
+games-fps/quake3 teamarena voice mumble
