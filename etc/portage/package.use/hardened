@@ -161,6 +161,9 @@ media-gfx/blender -opencl -cycles -openimageio
 # doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
 app-doc/doxygen -clang
 
+# any-of ( l10n_en l10n_en-AU l10n_en-CA l10n_en-GB l10n_en-US l10n_en-ZA ) 
+app-dicts/myspell-en l10n_en
+
 # undefined reference to `PKCS12_SAFEBAG_get0_p8inf'
 app-text/mupdf -openssl
 
