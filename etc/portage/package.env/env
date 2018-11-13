@@ -19,6 +19,7 @@ media-sound/qjackctl noparallel.conf
 sys-apps/pcmciautils noparallel.conf
 app-arch/arj noparallel.conf
 media-sound/mpc noparallel.conf
+media-libs/libjpeg-turbo noparallel.conf
 
 # error: invalid conversion
 net-proxy/squid nowerr.conf
