@@ -12,11 +12,6 @@
 # Masked for removal in 30 days. Bug #646118
 net-misc/urlview
 
-# Matt Turner <mattst88@gentoo.org> (17 Oct 2018)
-# Multiple regressions causing pain for users and developers alike: Bug
-# Bugs #666892, #667686
-=sys-fs/eudev-3.2.6
-
 # Buggy (#499298), upstream is dead for a long time, maybe a switch to one
 # abi_x86_32 doesn't work (#524498)
 # removal in a month
