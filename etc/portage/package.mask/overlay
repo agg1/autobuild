@@ -146,3 +146,10 @@ dev-lang/mono
 
 # source/i18n/digitlst.cpp:67:13: fatal error: xlocale.h: No such file or directory
 dev-libs/icu-layoutex
+
+#
+>app-office/libreoffice-6.1.2.1
+
+# media-libs/gegl complained first
+# error: 'CODEC_CAP_TRUNCATED' undeclared (first use in this function); did you mean 'AV_CODEC_CAP_TRUNCATED' 
+>=media-video/ffmpeg-4.0
