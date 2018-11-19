@@ -173,6 +173,11 @@ www-client/netsurf duktape javascript gtk3
 # required by freeorion
 #dev-libs/boost python icu
 
+# error: 'GL_PROJECTION' was not declared
+media-video/avidemux -opengl -qt5
+media-libs/avidemux-core -opengl -qt5
+media-libs/avidemux-plugins -opengl -qt5
+
 # otherwise broken dev-libs/icu-layoutex will be pulled in
 games-simulation/openttd -icu
 
@@ -180,4 +185,4 @@ games-simulation/openttd -icu
 games-fps/darkplaces cdsound lights textures -sdl
 
 #
-games-fps/quake3 teamarena voice mumble
+games-fps/quake3 voice mumble
