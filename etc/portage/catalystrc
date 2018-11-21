@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# EVALUATION ORDER
-# catalystrc sets ENVIRONMENT as may any other script do
-# if no VAR is set in ENVIRONMENT make.conf sets variable
-# catalyst-spec is additive to already set USE flags
-# ENVIRONMENT supersedes package.use specific flags set
-
 #MAKEOPTS="-j8" -> this overrides parallel/non-parallel settings applied by catalyst/portage
 export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=128 --accept-properties=-interactive"
 export PORTAGE_CHECKSUM_FILTER="-* sha256"
