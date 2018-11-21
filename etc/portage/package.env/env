@@ -30,6 +30,7 @@ media-video/avidemux noparallel.conf
 games-fps/darkplaces games.conf
 games-fps/dhewm3 games.conf
 games-fps/freespace-scp games.conf
+games-fps/openarena games.conf
 games-fps/quake3 games.conf
 games-fps/xonotic games.conf
 games-fps/yamagi-quake2 games.conf
