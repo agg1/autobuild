@@ -23,9 +23,6 @@ media-libs/libjpeg-turbo noparallel.conf
 media-libs/gegl noparallel.conf
 media-video/avidemux noparallel.conf
 
-# error: invalid conversion
-#net-proxy/squid nowerr.conf
-
 # -Ofast
 games-fps/darkplaces games.conf
 games-fps/dhewm3 games.conf
