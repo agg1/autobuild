@@ -8,6 +8,7 @@ libreoffice-*
 *-debug-libreoffice*
 firefox-*
 chromium-*
+iridium-browser-*
 cuda_*linux*.run
 *opera-*.deb
 opera-*
