@@ -8,7 +8,7 @@ export SWITCH_CTARGET=x86_64-pc-linux-gnu-8.2.0
 
 export DISTDIR="/usr/distfiles"
 export PKGDIR="/var/tmp/packages"
-export PORTDIR_OVERLAY="/usr/local/portage"
+#export PORTDIR_OVERLAY="/usr/local/portage"
 export PORTDIR="/usr/portage"
 export PORTAGE_TMPDIR=/var/tmp
 export PORTAGE_NICENESS=18
