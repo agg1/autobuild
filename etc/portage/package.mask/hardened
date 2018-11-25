@@ -17,8 +17,7 @@ net-libs/gnutls
 app-crypt/gpa
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.12.0
-# broken
->=dev-util/catalyst-3.0.3
+>dev-util/catalyst-3.0.3
 # 2.8.1: undefined reference to `X509_get_notAfter'
 >dev-libs/libressl-2.8.0
 # broken, profiles do not load properly, init scripts screwed
