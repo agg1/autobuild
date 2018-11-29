@@ -124,6 +124,9 @@ dev-libs/ocl-icd
 >app-office/libreoffice-6.1.3.2
 
 #
+>dev-util/meld-3.18.3
+
+#
 >=games-fps/freespace-scp-3.7.0
 
 #lua is required by freespace-scp, widelands and probably other games and not pulled in by anything else
