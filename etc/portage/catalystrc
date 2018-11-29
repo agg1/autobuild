@@ -6,7 +6,7 @@ export PROFILE_IS_HARDENED=1
 export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=128 --accept-properties=-interactive"
 export SWITCH_CTARGET=x86_64-pc-linux-gnu-8.2.0
 
-export DISTDIR="/usr/distfiles"
+#export DISTDIR="/usr/distfiles"
 export PKGDIR="/var/tmp/packages"
 #export PORTDIR_OVERLAY="/usr/local/portage"
 export PORTDIR="/usr/portage"
