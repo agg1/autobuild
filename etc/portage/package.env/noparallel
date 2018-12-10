@@ -18,3 +18,4 @@ media-sound/mpc noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
 media-libs/gegl noparallel.conf
 media-video/avidemux noparallel.conf
+dev-lang/python noparallel.conf
