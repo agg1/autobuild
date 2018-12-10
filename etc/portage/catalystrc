@@ -17,8 +17,8 @@ export STAGE1_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -f
 
 export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=128 --accept-properties=-interactive"
 
-#export DISTDIR="/usr/distfiles"
-export PKGDIR="/var/tmp/packages"
+#export DISTDIR="/usr/distfiles" conflicts
+#export PKGDIR="/var/tmp/packages" conflicts
 #export PORTDIR_OVERLAY="/usr/local/portage"
 export PORTDIR="/usr/portage"
 export PORTAGE_TMPDIR=/var/tmp
@@ -27,7 +27,7 @@ export PORTAGE_REPO_DUPLICATE_WARN="0"
 #export PORT_LOGDIR=/var/log/portage/
 
 #export ELIBC=uclibc
-export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio caps hardened pic uclibc urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp"
+export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio caps hardened pie pic uclibc urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl unicode bzip2 lzo lzma xz zlib readline fortran clang gmp openmp ghc smp"
 # these break stage1 build already
 #export BOOTSTRAP_USE=
 #static-libs
