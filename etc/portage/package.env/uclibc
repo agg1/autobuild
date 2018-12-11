@@ -1,12 +1,12 @@
 # undefined reference to `libintl_gettext'
-sys-apps/apparmor lintl.conf
-sys-libs/libapparmor lintl.conf
-sys-apps/apparmor-utils lintl.conf
-net-libs/rpcsvc-proto lintl.conf
-sys-libs/libsmbios lintl.conf
-net-misc/ndisc6 lintl.conf
-sys-apps/pmount lintl.conf
 media-libs/libquicktime lintl.conf
+net-libs/rpcsvc-proto lintl.conf
+net-misc/ndisc6 lintl.conf
+sys-apps/apparmor lintl.conf
+sys-apps/apparmor-utils lintl.conf
+sys-apps/pmount lintl.conf
+sys-libs/libapparmor lintl.conf
+sys-libs/libsmbios lintl.conf
 
 #
 media-libs/libextractor liconv-lintl.conf
@@ -27,11 +27,11 @@ sys-libs/zlib fpic.conf
 #media-sound/timidity++ fpic.conf
 
 # otherwise clang fails without LD_LIBRARY_PATH
-sys-devel/llvm llvm.conf
 sys-devel/clang llvm.conf
 sys-devel/clang-runtime llvm.conf
+sys-devel/llvm llvm.conf
 
 # make sure all toolchain identifiers are set
-sys-devel/gcc toolchain.conf
 sys-devel/binutils toolchain.conf
+sys-devel/gcc toolchain.conf
 sys-libs/uclibc-ng toolchain.conf
