@@ -19,3 +19,7 @@ media-libs/libjpeg-turbo noparallel.conf
 media-libs/gegl noparallel.conf
 media-video/avidemux noparallel.conf
 dev-lang/python noparallel.conf
+# python waf stuck otherwise
+net-fs/samba noparallel.conf
+sys-libs/ldb noparallel.conf
+media-sound/ardour noparallel.conf

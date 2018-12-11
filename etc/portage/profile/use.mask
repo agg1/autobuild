@@ -1,4 +1,6 @@
 ## site-specific override for wine 32bit
 #-abi_x86_32
 #-multilib
+
+# unmask nls for uclibc profile
 -nls
