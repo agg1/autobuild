@@ -15,7 +15,7 @@ export COMMON_FLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -fa
 export BOOT_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
 export STAGE1_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
 
-export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=128 --accept-properties=-interactive"
+export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=32 --accept-properties=-interactive"
 
 #export DISTDIR="/usr/distfiles" conflicts
 #export PKGDIR="/var/tmp/packages" conflicts
