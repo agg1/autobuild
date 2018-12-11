@@ -23,7 +23,7 @@ x11-wm/i3 liconv.conf
 media-gfx/inkscape liconv.conf
 
 #
-#sys-libs/zlib fpic.conf
+sys-libs/zlib fpic.conf
 #media-sound/timidity++ fpic.conf
 
 # otherwise clang fails without LD_LIBRARY_PATH
