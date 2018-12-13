@@ -32,31 +32,10 @@ media-libs/sdl2-mixer -timidity
 media-libs/sdl-mixer -timidity
 dev-libs/DirectFB -timidity
 
-# causes rebuild of gcc which may be avoided
-sys-devel/gcc -nls
-sys-devel/binutils -nls
 # blocked rebuild
 dev-libs/elfutils -nls
 dev-libs/libelf -nls
-# error: 'locale_t' was not declared in this scope
-dev-libs/boost -nls
-# undefined reference to `libintl_gettext'
-sys-apps/attr -nls
-app-portage/portage-utils -nls
-sys-apps/acl -nls
-sys-apps/net-tools -nls
-sys-process/procps -nls
-net-irc/znc -nls
-net-misc/whois -nls
-sys-fs/xfsdump -nls
-sys-fs/xfsprogs -nls
-sys-fs/e2fsprogs -nls
-media-sound/alsa-utils -nls
-app-admin/sysstat -nls
-app-text/dos2unix -nls
-net-dns/dnsmasq -nls
-sys-libs/libsmbios -nls
-sys-apps/man-db -nls
-sys-apps/man-pages -nls
-sys-fs/quota -nls
-dev-vcs/git -nls
+# error: 'locale_t' was not declared in this scope, required by libressl
+#dev-libs/boost nls
+lxde-base/lxdm nls
+x11-wm/openbox nls
