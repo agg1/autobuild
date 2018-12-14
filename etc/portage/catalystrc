@@ -42,7 +42,7 @@ export LINGUAS="af ar as ast az be bg bn bo br brx bs ca ca@valencia ca_XV cs cs
 #PYTHON_SINGLE_TARGET="python2_7"
 #PYTHON_TARGETS="python2_7 python3_5 python3_6"
 export SHELL="/bin/bash"
-export COLLISION_IGNORE="/usr/share/vim/* /usr/bin/smfsh"
+export COLLISION_IGNORE="/usr/share/vim/* /usr/bin/smfsh /usr/bin/iconv /usr/include/iconv.h"
 
 export PORTAGE_CHECKSUM_FILTER="-* sha256"
 export PORTAGE_COMPRESS="gzip"
