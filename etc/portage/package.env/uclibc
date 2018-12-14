@@ -7,10 +7,11 @@ sys-apps/apparmor-utils lintl.conf
 sys-apps/pmount lintl.conf
 sys-libs/libapparmor lintl.conf
 sys-libs/libsmbios lintl.conf
-
-#
 media-libs/libextractor liconv-lintl.conf
+#media-libs/libextractor lintl.conf
 
+# use internal iconv of uclibc with locale support included
+# prefer external libiconv, comment otherwise those which require liconv
 # undefined reference to `libiconv'
 sys-fs/dosfstools liconv.conf
 #sys-fs/fuse-common liconv.conf

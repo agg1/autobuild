@@ -18,6 +18,10 @@ net-dialup/mingetty -unicode
 # liconv
 net-misc/whois -iconv
 media-sound/mpc -iconv
+# do not use external libiconv due to file collisions of
+# usr/bin/iconv and usr/include/iconv.h
+# and potential further issues
+#sys-libs/uclibc-ng -iconv
 
 # compiler-rt-sanitizers obstack.h among other issues
 sys-devel/clang-runtime -sanitize
