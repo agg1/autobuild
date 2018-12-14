@@ -3,7 +3,7 @@ app-admin/qtpass noparallel.conf
 app-arch/arj noparallel.conf
 app-text/xdvik noparallel.conf
 dev-lang/ocaml noparallel.conf
-dev-lang/python noparallel.conf
+#dev-lang/python noparallel.conf
 media-libs/gegl noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
 media-libs/libwmf noparallel.conf
