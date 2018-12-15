@@ -44,6 +44,6 @@ dev-libs/DirectFB -timidity
 dev-libs/elfutils -nls
 dev-libs/libelf -nls
 # error: 'locale_t' was not declared in this scope, required by libressl
-dev-libs/boost nls
+#dev-libs/boost nls
 lxde-base/lxdm nls
 x11-wm/openbox nls
