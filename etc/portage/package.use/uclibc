@@ -13,6 +13,10 @@ media-video/transcode -v4l
 # otherwise mediastreamer[v4l]
 net-voip/linphone -video
 
+# internal-glib breaks with libiconv
+# #error GNU libiconv not in use but included iconv.h is from libiconv
+dev-util/pkgconfig -internal-glib
+
 # lintl, liconv
 net-dialup/mingetty -unicode
 # liconv
