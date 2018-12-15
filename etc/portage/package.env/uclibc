@@ -22,6 +22,9 @@ x11-wm/i3 liconv.conf
 #media-gfx/fbida liconv.conf
 #www-client/netsurf liconv.conf
 media-gfx/inkscape liconv.conf
+app-arch/lha liconv.conf
+sys-apps/usbutils liconv.conf
+#app-arch/unshield liconv.conf
 
 #
 sys-libs/zlib fpic.conf
