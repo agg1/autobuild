@@ -123,10 +123,12 @@ dev-libs/ocl-icd
 # error: 'CODEC_CAP_TRUNCATED' undeclared (first use in this function); did you mean 'AV_CODEC_CAP_TRUNCATED' 
 >=media-video/ffmpeg-4.0
 
-# No such file or directory: '/var/tmp/portage/dev-lang/python-3.6.6/work/Python-3.6.6/Modules/_ctypes/libffi'
-#>=dev-lang/python-3.6.6
+# sporadic error: File "./setup.py", line 2407, in main
+# "Tools/scripts/2to3", "Tools/scripts/pyvenv"]
+# ... ValueError: embedded null byte
+>=dev-lang/python-3.6.6
+
 # /var/tmp/portage/dev-lang/python-2.7.15/work/x86_64-gentoo-linux-uclibc/python: symbol 'ffi_prep_cif': can't resolve symbol
-#=dev-lang/python-2.7.15
 >dev-libs/libffi-3.2.1-r2
 >virtual/libffi-3.0.13-r1
 
