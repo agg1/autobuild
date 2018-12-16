@@ -126,7 +126,7 @@ dev-libs/ocl-icd
 # sporadic error: File "./setup.py", line 2407, in main
 # "Tools/scripts/2to3", "Tools/scripts/pyvenv"]
 # ... ValueError: embedded null byte
->=dev-lang/python-3.6.6
+#>=dev-lang/python-3.6.6
 
 # /var/tmp/portage/dev-lang/python-2.7.15/work/x86_64-gentoo-linux-uclibc/python: symbol 'ffi_prep_cif': can't resolve symbol
 >dev-libs/libffi-3.2.1-r2
