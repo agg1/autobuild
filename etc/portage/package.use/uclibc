@@ -16,6 +16,8 @@ net-voip/linphone -video
 # internal-glib breaks with libiconv
 # #error GNU libiconv not in use but included iconv.h is from libiconv
 dev-util/pkgconfig -internal-glib
+# otherwise breaks in stage1 build as dependency of pkgconfig,glib
+dev-util/glib-utils python_single_target_python3_6
 
 # lintl, liconv
 net-dialup/mingetty -unicode
