@@ -23,3 +23,9 @@ sys-apps/xinet
 
 # broken linking against alsa, fPIC flag not applied although Makefile.in is patched
 media-sound/timidity++
+
+# adds up to compilation time considerably, can be disposed
+# and is required for either opencl or latest radeon cards only
+sys-devel/llvm
+sys-devel/clang
+dev-libs/libclc
