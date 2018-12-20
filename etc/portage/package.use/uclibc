@@ -29,6 +29,9 @@ media-sound/mpc -iconv
 # and potential further issues, -iconv
 sys-libs/uclibc-ng -savedconfig
 
+#
+media-video/mplayer iconv
+
 # compiler-rt-sanitizers obstack.h among other issues
 sys-devel/clang-runtime -sanitize
 
@@ -46,6 +49,7 @@ dev-libs/DirectFB -timidity
 dev-libs/elfutils -nls
 dev-libs/libelf -nls
 # error: 'locale_t' was not declared in this scope, required by libressl
-#dev-libs/boost nls
+dev-libs/boost nls
 lxde-base/lxdm nls
 x11-wm/openbox nls
+dev-db/postgresql nls
