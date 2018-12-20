@@ -7,24 +7,31 @@ sys-apps/apparmor-utils lintl.conf
 sys-apps/pmount lintl.conf
 sys-libs/libapparmor lintl.conf
 sys-libs/libsmbios lintl.conf
+app-office/libreoffice lintl.conf
+sys-power/cpupower lintl.conf
 media-libs/libextractor liconv-lintl.conf
-#media-libs/libextractor lintl.conf
 
 # use internal iconv of uclibc with locale support included
 # prefer external libiconv, comment otherwise those which require liconv
 # undefined reference to `libiconv'
+dev-vcs/git liconv.conf
 sys-fs/dosfstools liconv.conf
-#sys-fs/fuse-common liconv.conf
-#net-misc/whois liconv.conf
+sys-fs/fuse-common liconv.conf
 app-text/odt2txt liconv.conf
 media-gfx/fbida liconv.conf
 x11-wm/i3 liconv.conf
-#media-gfx/fbida liconv.conf
-#www-client/netsurf liconv.conf
 media-gfx/inkscape liconv.conf
 app-arch/lha liconv.conf
 sys-apps/usbutils liconv.conf
+dev-libs/gmime liconv.conf
+x11-misc/xclip liconv.conf
+x11-libs/motif liconv.conf
+media-libs/sdl-ttf liconv.conf
+app-doc/doxygen liconv.conf
+#media-video/handbrake liconv.conf
 #app-arch/unshield liconv.conf
+#media-gfx/fbida liconv.conf
+#www-client/netsurf liconv.conf
 
 #
 sys-libs/zlib fpic.conf
