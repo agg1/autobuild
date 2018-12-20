@@ -7,9 +7,9 @@ media-libs/libv4l
 # memfrob patch, not required anymore once git[cvs] pulls in cvsps-3.x
 >=dev-vcs/cvsps-2.2
 
-# build broken currently, linking issues with libiconv and internally
-sys-fs/fuse
+# undefined reference to `fuse_new'
 sys-fs/fuse-common
+sys-fs/fuse
 
 # missing locale support yet
 sys-libs/timezone-data
