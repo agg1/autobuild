@@ -75,7 +75,7 @@ media-video/ffmpeg -openssl -samba
 media-gfx/imagemagick perl
 
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
-media-libs/mesa gles1 gles2 egl classic gbm vdpau xa dri3 -llvm -gallium -vulkan -vaapi -wayland -opencl -d3d9 -gallium-nine
+media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm gallium classic vulkan opencl -vaapi -wayland -d3d9 -gallium-nine
 
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
