@@ -3,7 +3,6 @@ app-admin/qtpass noparallel.conf
 app-arch/arj noparallel.conf
 app-text/xdvik noparallel.conf
 dev-lang/ocaml noparallel.conf
-#dev-lang/python noparallel.conf
 =dev-lang/python-3.6.6 noparallel.conf
 media-libs/gegl noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
@@ -20,8 +19,7 @@ net-libs/h323plus noparallel.conf
 net-libs/libnet noparallel.conf
 sys-apps/pcmciautils noparallel.conf
 sys-devel/autogen noparallel.conf
-net-libs/serf noparallel.conf
-#media-libs/libvpx noparallel.conf
+net-misc/ipsvd noparallel.conf
 
 # python waf stuck otherwise
 app-text/lcdf-typetools noparallel.conf
@@ -39,3 +37,4 @@ sys-libs/ldb noparallel.conf
 sys-libs/talloc noparallel.conf
 sys-libs/tdb noparallel.conf
 sys-libs/tevent noparallel.conf
+net-libs/serf noparallel.conf
