@@ -20,6 +20,7 @@ net-libs/h323plus noparallel.conf
 net-libs/libnet noparallel.conf
 sys-apps/pcmciautils noparallel.conf
 sys-devel/autogen noparallel.conf
+net-libs/serf noparallel.conf
 #media-libs/libvpx noparallel.conf
 
 # python waf stuck otherwise
