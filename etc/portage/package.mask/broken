@@ -1,0 +1,113 @@
+# missing/compat.h:9:8: error: conflicting types for 'strlcpy'
+app-admin/entr
+
+# undefined reference to `rresvport'
+app-admin/fam
+
+# backtrace.c:71:16: error: dereferencing pointer to incomplete type 'struct ucontext_t'
+app-admin/hddtemp
+
+# gcc: error: unrecognized command line option '-nopie'
+app-benchmarks/ramspeed
+
+# stress-cpu.c:2041:27: error: the call requires ifunc, which is not supported by this target
+app-benchmarks/stress-ng
+
+# undefined reference to `decode_c'
+app-arch/xdms
+
+# undefined reference to `res_send'
+net-analyzer/traceroute-nanog
+
+# wvstreams libressl/openssl issue
+net-dialup/wvdial
+
+# depends on fuse
+net-fs/sshfs
+# undefined reference to `fuse_new'
+sys-fs/fuse-common
+sys-fs/fuse
+#notmuchfs.c:64:10: fatal error: fuse.h: No such file or directory
+net-mail/notmuchfs
+
+#fatal error: obstack.h: No such file or directory
+sys-fs/reiserfsprogs
+
+# fatal error: obstack.h: No such file or directory
+app-admin/tmpwatch
+
+# nonsense
+media-sound/alsa-tools
+media-sound/alsaplayer
+media-sound/aumix
+
+# Testing the CC wrapper and instrumentation output... ../afl-clang-fast: No such file or directory
+app-forensics/afl
+
+# undefined reference to `_environ'
+app-forensics/ovaldi
+
+# configure: error: Can't find neither a definition of isinf nor ieeefp.h
+app-office/dia
+
+# pdb-clone -> ImportError: No module named test
+dev-python/pdb-clone
+app-vim/pyclewn
+
+# plugin error during vim startup
+app-vim/showmarks
+app-vim/dbext
+
+# requires jdk
+app-vim/ant_menu
+app-vim/vimclojure
+
+# requires vim[python]
+app-vim/vimpress
+app-vim/youcompleteme
+app-vim/splice
+
+# signature-log.c:122:9: error: too many arguments to function 'dict_init' if (dict_init(cfg->dict_uri, ...
+mail-filter/dovecot-antispam
+mail-filter/dovecot_deleted_to_trash
+
+# undefined reference to `rresvport'
+net-analyzer/ipcad
+
+net-analyzer/nagios
+# -> undefined reference to `getloadavg'
+net-analyzer/nagios-core
+net-analyzer/nagios-check_glsa2
+net-analyzer/nagios-plugin-check_raid
+net-analyzer/monitoring-plugins
+# -> lintl patch required
+net-analyzer/nagios-plugins-snmp
+
+# broken due to race condition, review
+net-irc/irssi-otr
+
+# getrpcent.c:63:16: error: field 'rpc' has incomplete type
+net-libs/ntirpc
+
+# sed: can't read MCONFIG: No such file or directory
+net-misc/netkit-rsh
+
+# ffmpeg[openssl]
+net-misc/youtube-viewer
+
+# openssl
+sys-apps/ipmiutil
+
+# conflicts with cups, decide
+net-print/lprng
+
+# undefined reference to `getloadavg'
+sys-devel/distcc
+
+# broken getloadavg, segmentation fault with patch
+x11-misc/i3status
+
+# requires opencl/mesa
+app-eselect/eselect-opencl
+net-wireless/cpyrit-opencl
+

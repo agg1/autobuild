@@ -175,6 +175,8 @@ app-text/mupdf -openssl
 
 #
 www-client/netsurf duktape javascript gtk3
+#
+net-libs/libdom xml
 
 # error: 'GL_PROJECTION' was not declared
 media-video/avidemux -opengl -qt5

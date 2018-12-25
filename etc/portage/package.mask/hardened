@@ -24,9 +24,9 @@ sys-apps/rng-tools
 # 2.8.1: undefined reference to `X509_get_notAfter'
 >dev-libs/libressl-2.8.0
 # broken, profiles do not load properly, init scripts screwed
->=sec-policy/apparmor-profiles-2.13.0
->=sys-apps/apparmor-2.13.0
->=sys-apps/apparmor-utils-2.13.0
->=sys-libs/libapparmor-2.13.0
+#>=sec-policy/apparmor-profiles-2.13.0
+#>=sys-apps/apparmor-2.13.0
+#>=sys-apps/apparmor-utils-2.13.0
+#>=sys-libs/libapparmor-2.13.0
 # broken, missing -T option
 >=dev-util/shc-3.9.0

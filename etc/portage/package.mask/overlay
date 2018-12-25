@@ -10,6 +10,9 @@
 # require dbus
 app-accessibility/at-spi2-atk
 gnome-base/gvfs
+app-crypt/gcr
+#dconf -> dbus
+app-editors/latexila
 
 # any version greater pulls in dbus
 >x11-misc/xdg-utils-1.1.1-r1
@@ -110,7 +113,7 @@ lxde-base/lxterminal
 dev-libs/ocl-icd
 # does not ship OpenCL but instead pulls in the ruby related things - no thanks for now
 #>media-libs/mesa-18.2.2-r1
->media-libs/mesa-18.2.1
+#>media-libs/mesa-18.2.1
 
 # content/handlers/css/utils.h:90:15: error: 'CSS_DISPLAY_FLEX' undeclared (first use in this function);
 >www-client/netsurf-3.7
