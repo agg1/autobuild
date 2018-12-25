@@ -108,6 +108,6 @@ sys-devel/distcc
 x11-misc/i3status
 
 # requires opencl/mesa
-app-eselect/eselect-opencl
-net-wireless/cpyrit-opencl
+#app-eselect/eselect-opencl
+#net-wireless/cpyrit-opencl
 
