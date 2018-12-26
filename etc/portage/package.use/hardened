@@ -131,7 +131,7 @@ net-libs/zeromq drafts
 #
 dev-python/pycurl -curl_ssl_openssl curl_ssl_libressl
 #
-# required by dev-python/spyder
+# required by dev-python/spyder, sipQtGuiQOpenGLTimeMonitor.cpp:88:1: error: expected class-name before '{'
 dev-python/PyQt5 svg gui widgets printsupport
 #
 dev-python/QtPy svg
