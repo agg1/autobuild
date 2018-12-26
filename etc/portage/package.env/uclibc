@@ -36,6 +36,7 @@ app-arch/unshield liconv.conf
 #media-gfx/fbida liconv.conf
 www-client/netsurf liconv.conf
 net-p2p/transmission liconv.conf
+dev-qt/qtnetwork liconv.conf
 
 #
 sys-libs/zlib fpic.conf
