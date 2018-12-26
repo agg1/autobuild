@@ -21,9 +21,9 @@ app-editors/latexila
 x11-drivers/nvidia-drivers
 
 # 
->media-gfx/gimp-2.9.0
+#>media-gfx/gimp-2.9.0
 # patched: gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
-#>media-gfx/gimp-2.10.8
+>media-gfx/gimp-2.10.8
 
 #
 >net-irc/ircd-hybrid-7.3.1
