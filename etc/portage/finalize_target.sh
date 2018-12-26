@@ -11,3 +11,9 @@ uname -a > /etc/BUILDHOST
 rm -rf /etc/portage/rootfs
 rm -rf "/usr/share/applications/links_-g_%u-links-2.desktop"
 rm -rf /etc/portage/patches
+
+chgrp input /usr/bin/Xorg 2>/dev/null
+chmod u-s /usr/bin/Xorg 2>/dev/null
+chmod g+s /usr/bin/Xorg 2>/dev/null
+
+true
