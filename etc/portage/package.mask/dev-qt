@@ -1,6 +1,6 @@
-# latest ebuild (1.11.1) does not consider libressl anymore, headers reorganized, qtrandom.h, give it some weeks
-# build errors
-#
+# 5.11.1 does not consider libressl anymore, headers reorganized, qtrandom.h, give it some weeks
+# 5.11.2 does not consider libressl anymore: 
+#   OPENSSL_STACK, OPENSSL_INIT_SETTINGS, X509_STORE_CTX_verify_cb
 #doesn't match
 #>=dev-qt/*-5.11.1
 >=dev-qt/qtnetwork-5.11.1
