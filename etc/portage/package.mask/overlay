@@ -155,7 +155,7 @@ dev-tex/hevea
 dev-lang/luajit
 # required by ocl-icd
 #dev-lang/ruby
->dev-lang/ruby-2.3.9
+#>dev-lang/ruby-2.3.9
 dev-lang/rust
 dev-lang/php
 dev-lang/go
