@@ -20,9 +20,10 @@ app-editors/latexila
 #
 x11-drivers/nvidia-drivers
 
-# gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
-#>media-gfx/gimp-2.9.0
->media-gfx/gimp-2.10.8
+# 
+>media-gfx/gimp-2.9.0
+# patched: gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
+#>media-gfx/gimp-2.10.8
 
 #
 >net-irc/ircd-hybrid-7.3.1
@@ -111,10 +112,10 @@ lxde-base/lxterminal
 >mail-mta/msmtp-1.7.0
 
 # mesa with opencl now pulls in this which requires ruby, no thanks, patched mesa ebuild
-dev-libs/ocl-icd
+#dev-libs/ocl-icd
 # pulls in the ruby related things - no thanks for now
 #>media-libs/mesa-18.2.2-r1
->media-libs/mesa-18.2.1
+#>media-libs/mesa-18.2.1
 
 # content/handlers/css/utils.h:90:15: error: 'CSS_DISPLAY_FLEX' undeclared (first use in this function);
 >www-client/netsurf-3.7
@@ -152,7 +153,9 @@ dev-tex/hevea
 #dev-lang/lua
 # who needs all this bloat
 dev-lang/luajit
-dev-lang/ruby
+# required by ocl-icd
+#dev-lang/ruby
+>dev-lang/ruby-2.3.9
 dev-lang/rust
 dev-lang/php
 dev-lang/go
