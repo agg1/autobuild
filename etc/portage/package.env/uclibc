@@ -12,6 +12,7 @@ sys-power/cpupower lintl.conf
 sys-apps/lshw lintl.conf
 sys-boot/efibootmgr lintl.conf
 #net-analyzer/nagios-plugins-snmp lintl.conf
+games-strategy/widelands lintl.conf
 media-libs/libextractor liconv-lintl.conf
 
 # use internal iconv of uclibc with locale support included

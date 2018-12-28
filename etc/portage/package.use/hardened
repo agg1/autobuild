@@ -206,7 +206,7 @@ media-libs/avidemux-core -opengl -qt5
 media-libs/avidemux-plugins -opengl -qt5
 
 # otherwise broken dev-libs/icu-layoutex will be pulled in
-games-simulation/openttd -icu
+games-simulation/openttd -icu -timidity aplaymidi
 
 #
 games-fps/darkplaces cdsound lights textures -sdl
