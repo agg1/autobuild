@@ -22,6 +22,8 @@ sys-devel/autogen noparallel.conf
 net-misc/ipsvd noparallel.conf
 media-libs/libsvgtiny noparallel.conf
 dev-python/PyQt5 noparallel.conf
+#games-fps/openarena noparallel.conf
+#games-fps/quake3 noparallel.conf
 
 # python waf stuck otherwise
 app-text/lcdf-typetools noparallel.conf

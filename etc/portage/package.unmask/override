@@ -34,3 +34,6 @@ dev-db/pgadmin3
 
 # required by ltrace
 dev-libs/elfutils
+
+# boost[nls]
+games-strategy/wesnoth
