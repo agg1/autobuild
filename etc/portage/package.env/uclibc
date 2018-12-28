@@ -52,3 +52,5 @@ sys-devel/llvm llvm.conf
 sys-devel/binutils toolchain.conf
 sys-devel/gcc toolchain.conf
 sys-libs/uclibc-ng toolchain.conf
+
+media-video/mplayer linguas-en.conf
