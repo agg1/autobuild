@@ -18,7 +18,8 @@ net-misc/openssh -bindist -X
 #net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
-sys-fs/cryptsetup -python -openssl gcrypt -nls
+#sys-fs/cryptsetup -python -openssl gcrypt -nls
+sys-fs/cryptsetup -python -gcrypt openssl libressl -nls
 
 # required by genkernel
 sys-apps/util-linux static-libs
