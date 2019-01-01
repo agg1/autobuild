@@ -1,4 +1,7 @@
 #!/bin/bash
+
+export MAKEOPTS="-j8 -l8"
+
 export CHOST="x86_64-unknown-linux-uclibc"
 export CHOST_amd64="x86_64-unknown-linux-uclibc"
 #export CHOST_amd64="x86_64-gentoo-linux-uclibc"
@@ -9,6 +12,8 @@ export SWITCH_CTARGET=x86_64-unknown-linux-uclibc-8.2.0
 export ACCEPT_KEYWORDS="~amd64"
 export ACCEPT_LICENSE="-* @FREE"
 export PROFILE_IS_HARDENED=1
+export PAX_MARKINGS="PT"
+
 #if these are set package.env specific CFLAGS do not override environment with package specific CFLAGS
 #export CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
 #export CXXFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
