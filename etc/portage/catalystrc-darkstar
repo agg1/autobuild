@@ -33,7 +33,7 @@ export PORTAGE_REPO_DUPLICATE_WARN="0"
 #export PORT_LOGDIR=/var/log/portage/
 
 #export ELIBC=uclibc
-export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio -udev acl caps hardened pie pic ssp uclibc urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl -idn -iconv -nls unicode bzip2 lzo lzma xz zlib readline fortran gmp openmp ghc smp -introspection"
+export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit -dbus -kdbus -oss -pulseaudio -udev acl caps hardened pax-kernel pie pic ssp uclibc urandom ipv6 sasl ssl libressl -gnutls -nettle threads nptl -idn -iconv -nls unicode bzip2 lzo lzma xz zlib readline fortran gmp openmp ghc smp -introspection"
 # these break stage1 build already
 #export BOOTSTRAP_USE=
 #static-libs
