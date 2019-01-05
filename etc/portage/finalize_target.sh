@@ -11,6 +11,7 @@ uname -a > /etc/BUILDHOST
 rm -rf /etc/portage/rootfs
 rm -rf "/usr/share/applications/links_-g_%u-links-2.desktop"
 rm -rf /etc/portage/patches
+# left-over from ipsvd
 rm -rf /html
 
 echo /usr/lib/samba >> /etc/ld.so.conf
