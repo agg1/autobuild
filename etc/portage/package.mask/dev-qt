@@ -4,9 +4,6 @@
 #doesn't match
 #>=dev-qt/*-5.11.1
 
-# PyQt5_gpl-5.10.1-python2_7/QtGui/sipQtGuiQOpenGLTimeMonitor.cpp:88:1: error: expected class-name before '{' token
-#>=dev-python/PyQt5-5.10.1
-
 >=dev-qt/qtnetwork-5.11.1
 >=dev-qt/qdbus-5.11.1
 >=dev-qt/qtsvg-5.11.1
