@@ -65,9 +65,6 @@ net-print/cups -X
 dev-qt/qtgui -dbus -libinput
 dev-qt/qtwidgets -gtk
 
-# otherwise gnutls is required
-media-video/vlc -ssl -v4l
-
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
 # ERROR: smbclient not found
 media-video/ffmpeg -openssl -samba
