@@ -19,7 +19,7 @@ net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 #sys-fs/cryptsetup -python -openssl gcrypt -nls
-sys-fs/cryptsetup -python -gcrypt openssl libressl -nls
+sys-fs/cryptsetup -python -gcrypt openssl libressl -nls -urandom -udev
 
 # required by genkernel
 sys-apps/util-linux static-libs
@@ -62,7 +62,7 @@ app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 
 #
-dev-qt/qtgui -dbus -libinput
+#dev-qt/qtgui -dbus -libinput
 dev-qt/qtwidgets -gtk
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
@@ -78,7 +78,7 @@ media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium vulkan op
 #app-text/tesseract -opencl
 
 #
-mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet
+mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet nls
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 

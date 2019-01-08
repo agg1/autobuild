@@ -11,6 +11,7 @@ app-office/libreoffice lintl.conf
 sys-power/cpupower lintl.conf
 sys-apps/lshw lintl.conf
 sys-boot/efibootmgr lintl.conf
+mail-client/mutt lintl.conf
 #net-analyzer/nagios-plugins-snmp lintl.conf
 games-strategy/widelands lintl.conf
 media-libs/libextractor liconv-lintl.conf
@@ -23,7 +24,6 @@ sys-fs/dosfstools liconv.conf
 #sys-fs/fuse-common liconv.conf
 app-text/odt2txt liconv.conf
 media-gfx/fbida liconv.conf
-x11-wm/i3 liconv.conf
 media-gfx/inkscape liconv.conf
 app-arch/lha liconv.conf
 sys-apps/usbutils liconv.conf
@@ -38,6 +38,8 @@ app-arch/unshield liconv.conf
 www-client/netsurf liconv.conf
 net-p2p/transmission liconv.conf
 dev-qt/qtnetwork liconv.conf
+
+x11-wm/i3 liconv-noparallel.conf
 
 #
 sys-libs/zlib fpic.conf
