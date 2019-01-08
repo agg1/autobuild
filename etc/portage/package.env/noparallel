@@ -22,3 +22,4 @@ sys-devel/autogen noparallel.conf
 net-misc/ipsvd noparallel.conf
 media-libs/libsvgtiny noparallel.conf
 media-gfx/inkscape noparallel.conf
+net-analyzer/net-snmp noparallel.conf
