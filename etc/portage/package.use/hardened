@@ -1,6 +1,3 @@
-# otherwise requires gpg2
-sys-apps/portage -rsync-verify
-
 #
 sys-kernel/genkernel -firmware cryptsetup
 
@@ -149,7 +146,7 @@ net-libs/libsoup -ssl gssapi
 net-vpn/tor tor-hardening transparent-proxy seccomp
 
 # required by media-video/vlc
-net-fs/samba client winbind
+net-fs/samba client winbind -gpg
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
 net-proxy/squid -nis
