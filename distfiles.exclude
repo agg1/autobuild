@@ -17,3 +17,6 @@ netbeans-*
 eclipse-*
 rust-*-linux-gnu*
 OpenJDK*
+kibana-*
+mono-*
+monodevelop-*
