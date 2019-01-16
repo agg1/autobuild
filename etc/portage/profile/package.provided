@@ -1,3 +1,2 @@
-# portage assumes these packages are supplied and no further dependency checks are made
-games-fps/quake3-data
-games-fps/quake3-highres
+games-fps/quake3-data-1.32b
+games-fps/quake3-highres-1.32b
