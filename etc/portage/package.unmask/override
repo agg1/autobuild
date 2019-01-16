@@ -1,20 +1,13 @@
-# masked in portage/profile/package.mask, lets see, https://bugs.gentoo.org/653678
-#>=media-video/ffmpeg-4.0
-
 # still unstable with cryptsetup breaking first
 #=dev-libs/libressl-2.7*
 # unmask because it is masked in profile as testing
 =dev-libs/libressl-2.8.0
-
-# masked in profile root, not maintained and to be removed
-#dev-libs/DirectFB
 
 # Masked for removal in 30 days. Bug #646118
 net-misc/urlview
 
 # Buggy (#499298), upstream is dead for a long time, maybe a switch to one
 # abi_x86_32 doesn't work (#524498)
-# removal in a month
 media-plugins/alsaequal
 
 # All this packages are broken and need major version bumps to fix them. See
