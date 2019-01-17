@@ -22,11 +22,6 @@ net-analyzer/traceroute-nanog
 # wvstreams libressl/openssl issue
 net-dialup/wvdial
 
-# depends on fuse
-net-fs/sshfs
-# undefined reference to `fuse_new'
-sys-fs/fuse-common
-sys-fs/fuse
 #notmuchfs.c:64:10: fatal error: fuse.h: No such file or directory
 net-mail/notmuchfs
 
@@ -111,3 +106,10 @@ x11-misc/i3status
 #app-eselect/eselect-opencl
 #net-wireless/cpyrit-opencl
 
+# python2.7: symbol 'OPENSSL_zalloc': can't resolve symbol
+# net-wireless/crda: Failed to import the "M2Crypto" module: No module named _m2crypto
+>=dev-python/m2crypto-0.30.0
+
+# tries to break sandbox during install phase
+dev-libs/crypto++
+app-crypt/codecrypt
