@@ -43,6 +43,7 @@ export USE_ORDER="pkg:env:conf:defaults:pkginternal:repo:env.d"
 
 export CONFIG_PROTECT="-*"
 #FEATURES="userfetch userpriv candy"
+FEATURES="userfetch"
 #FEATURES="splitdebug"
 #INSTALL_MASK="/usr/lib/debug"
 #PYTHON_SINGLE_TARGET="python2_7"
