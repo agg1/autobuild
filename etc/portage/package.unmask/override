@@ -1,6 +1,13 @@
 # still unstable with cryptsetup breaking first
 #=dev-libs/libressl-2.7*
 # unmask because it is masked in profile as testing
+
+#=dev-libs/libressl-2.7*
+#=dev-libs/libressl-2.8*
+# missing header openssl/asn1_mac.h, see mit-krb5-1.16.x
+#=dev-libs/libressl-2.9*
+
+# 2.8.1/2/3: undefined reference to `X509_get_notAfter'
 =dev-libs/libressl-2.8.0
 
 # Masked for removal in 30 days. Bug #646118
