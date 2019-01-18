@@ -36,7 +36,8 @@ media-video/mplayer iconv
 sys-devel/clang-runtime -sanitize
 
 # C99 complex arithmetics required, cpow
-app-text/texlive -xetex
+# truetype requires app-text/ttf2pk2 which is broken with latest freetype: ft2build.h: No such file or directory
+app-text/texlive -xetex -truetype
 app-text/texlive-core -luajittex -xetex
 dev-texlive/texlive-basic -luajittex -xetex
 
