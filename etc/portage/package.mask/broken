@@ -110,6 +110,12 @@ x11-misc/i3status
 # net-wireless/crda: Failed to import the "M2Crypto" module: No module named _m2crypto
 >=dev-python/m2crypto-0.30.0
 
+# not fixed  yet to compile with latest freetype2: ft2build.h no such file or directory
+app-text/ttf2pk2
+
+# POLLRDNORM undeclared
+>=media-sound/alsa-utils-1.1.8
+
 # tries to break sandbox during install phase
 dev-libs/crypto++
 app-crypt/codecrypt
