@@ -64,7 +64,8 @@ dev-qt/qtwidgets -gtk
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
 # ERROR: smbclient not found
-media-video/ffmpeg -openssl -samba
+# linking against fdk is broken with ffmpeg-3.x
+media-video/ffmpeg -openssl -samba -fdk
 
 # required by www-apps/ikiwiki
 media-gfx/imagemagick perl
