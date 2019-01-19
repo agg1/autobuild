@@ -80,7 +80,7 @@ mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic s
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 
-# non-root xorg
+# dmx
 x11-base/xorg-server xorg -suid glamor xcsecurity
 
 # automount requires dbus
