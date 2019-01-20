@@ -119,3 +119,6 @@ app-text/ttf2pk2
 # tries to break sandbox during install phase
 dev-libs/crypto++
 app-crypt/codecrypt
+
+# perl-5.28 segfaults compiling ikiwiki
+>=dev-lang/perl-5.27.0
