@@ -121,4 +121,6 @@ dev-libs/crypto++
 app-crypt/codecrypt
 
 # perl-5.28 segfaults compiling ikiwiki
->=dev-lang/perl-5.27.0
+#>=dev-lang/perl-5.27.0
+#>=virtual/perl-Data-Dumper-2.170.0
+#>=virtual/perl-Test-Harness-3.420.0
