@@ -23,6 +23,7 @@ net-misc/ipsvd noparallel.conf
 media-libs/libsvgtiny noparallel.conf
 media-gfx/inkscape noparallel.conf
 net-analyzer/net-snmp noparallel.conf
+media-sound/linuxsampler noparallel.conf
 www-apps/ikiwiki noparallel.conf
 
 # python waf stuck otherwise
