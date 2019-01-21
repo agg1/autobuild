@@ -124,3 +124,6 @@ app-crypt/codecrypt
 #>=dev-lang/perl-5.27.0
 #>=virtual/perl-Data-Dumper-2.170.0
 #>=virtual/perl-Test-Harness-3.420.0
+
+# file collision
+>net-print/gutenprint-5.2.13
