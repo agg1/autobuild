@@ -122,6 +122,9 @@ lxde-base/lxterminal
 dev-tex/hevea
 
 #
+app-editors/gvim
+
+#
 >=games-fps/freespace-scp-3.7.0
 
 #lua is required by freespace-scp, widelands and probably other games and not pulled in by anything else

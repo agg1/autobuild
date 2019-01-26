@@ -58,8 +58,8 @@ media-video/handbrake -gtk
 app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 
-#
-#dev-qt/qtgui -dbus -libinput
+# libinput demands udev
+dev-qt/qtgui -dbus -libinput
 dev-qt/qtwidgets -gtk
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
@@ -72,8 +72,6 @@ media-gfx/imagemagick perl
 
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
 media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium vulkan opencl -vaapi -wayland -d3d9 -gallium-nine
-# -opencl
-#app-text/tesseract -opencl
 
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet nls
@@ -128,8 +126,7 @@ net-libs/zeromq drafts
 #
 dev-python/pycurl -curl_ssl_openssl curl_ssl_libressl
 #
-# required by dev-python/spyder, sipQtGuiQOpenGLTimeMonitor.cpp:88:1: error: expected class-name before '{'
-dev-python/PyQt5 svg gui widgets printsupport opengl
+dev-python/PyQt5 svg gui widgets printsupport opengl gles2
 #
 dev-python/QtPy svg
 
