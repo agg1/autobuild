@@ -59,7 +59,7 @@ app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 
 # libinput demands udev
-dev-qt/qtgui -dbus -libinput
+dev-qt/qtgui -dbus -libinput gles2 egl
 dev-qt/qtwidgets -gtk
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
@@ -130,6 +130,12 @@ dev-python/PyQt5 svg gui widgets printsupport opengl gles2
 #
 dev-python/QtPy svg
 
+#
+dev-python/numpy lapack
+
+# otherwise liconv is not linked properly
+dev-qt/qtcore -icu
+
 # otherwise openssl is requried, patch necessary
 dev-qt/qtnetwork -ssl
 
@@ -148,6 +154,13 @@ net-fs/samba client winbind -gpg
 
 #
 media-video/vlc -libav -fdk ffmpeg
+
+#
+media-video/handbrake -fdk libav-aac gtk
+
+#
+#virtual/ffmpeg libav
+#media-video/libav openssl libressl
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
 net-proxy/squid -nis

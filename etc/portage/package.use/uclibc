@@ -24,10 +24,9 @@ net-dialup/mingetty -unicode
 # liconv
 net-misc/whois -iconv
 media-sound/mpc -iconv
-# do not use external libiconv due to file collisions of
-# usr/bin/iconv and usr/include/iconv.h
-# and potential further issues, -iconv
-sys-libs/uclibc-ng -savedconfig
+
+#
+sys-libs/uclibc-ng -savedconfig iconv
 
 #
 media-video/mplayer iconv
