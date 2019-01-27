@@ -1,2 +1,4 @@
 games-fps/quake3-data-1.32b
 games-fps/quake3-highres-1.32b
+virtual/notification-daemon-0
+x11-misc/notification-daemon-3.20.0
