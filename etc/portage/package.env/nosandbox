@@ -1,2 +1,1 @@
-dev-libs/crypto++ nosandbox.conf
-#www-client/seamonkey nosandbox.conf
+www-client/seamonkey nosandbox.conf
