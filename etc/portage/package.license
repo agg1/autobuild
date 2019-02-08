@@ -35,6 +35,7 @@ media-fonts/font-bh-type1 bh-luxi
 app-vim/nagios-syntax vim.org
 media-libs/faac MPEG-4
 media-libs/fdk-aac FraunhoferFDK
+app-vim/vim-tmux vim.org
 # darkstar
 app-doc/linkers-and-loaders all-rights-reserved
 app-doc/linuxfromscratch CC-BY-NC-SA-2.5
