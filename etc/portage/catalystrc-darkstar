@@ -51,7 +51,7 @@ FEATURES="userfetch"
 #PYTHON_SINGLE_TARGET="python2_7"
 #PYTHON_TARGETS="python2_7 python3_5 python3_6"
 export SHELL="/bin/bash"
-export COLLISION_IGNORE="/usr/share/vim/* /usr/bin/smfsh /usr/bin/iconv /usr/include/iconv.h"
+export COLLISION_IGNORE="/usr/share/vim/* /usr/libexec/cups/driver /usr/libexec/cups/driver/* /usr/bin/smfsh /usr/bin/iconv /usr/include/iconv.h"
 
 export PORTAGE_CHECKSUM_FILTER="-* sha256"
 export PORTAGE_COMPRESS="gzip"
