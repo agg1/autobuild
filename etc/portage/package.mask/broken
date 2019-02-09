@@ -120,10 +120,10 @@ app-text/ttf2pk2
 dev-libs/crypto++
 app-crypt/codecrypt
 
-# perl-5.28 segfaults compiling ikiwiki
-#>=dev-lang/perl-5.27.0
-#>=virtual/perl-Data-Dumper-2.170.0
-#>=virtual/perl-Test-Harness-3.420.0
+# perl-5.28 segfaults compiling ikiwiki among other issues with GetOpt::Long broken
+>dev-lang/perl-5.27.0
+>virtual/perl-Data-Dumper-2.170.0
+>virtual/perl-Test-Harness-3.420.0
 
 # file collision
 >net-print/gutenprint-5.2.13
@@ -133,6 +133,3 @@ app-crypt/codecrypt
 
 # c_locale: undeclared (first use in this function)
 >media-gfx/imagemagick-7.0.8.23
-
-# patch needs update
->media-video/smplayer-19.0.0
