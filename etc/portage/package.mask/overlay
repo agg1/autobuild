@@ -24,6 +24,12 @@ x11-drivers/nvidia-drivers
 #>media-gfx/gimp-2.9.0
 # patched: gimp -> appstream-glib/appstream -> libsoup -> glib-networking -> gnutls -> nettle
 >media-gfx/gimp-2.10.8
+# gnutls
+>=net-libs/glib-networking-2.58.0
+# strangely pulls in openssl, probably bug in EAPI7 ebuild
+>=net-libs/libvncserver-0.9.12
+# undefined reference to `X509_OBJECT_new'
+>=x11-misc/x11vnc-0.9.16
 
 #
 >net-irc/ircd-hybrid-7.3.1

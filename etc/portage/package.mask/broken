@@ -127,3 +127,12 @@ app-crypt/codecrypt
 
 # file collision
 >net-print/gutenprint-5.2.13
+
+# easy-align-2.10.0-r1 EAPI6: eapply_user (or default) must be called in src_prepare()!
+>app-vim/easy-align-2.10.0
+
+# c_locale: undeclared (first use in this function)
+>media-gfx/imagemagick-7.0.8.23
+
+# patch needs update
+>media-video/smplayer-19.0.0
