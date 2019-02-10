@@ -10,6 +10,9 @@ dev-lang/python ~amd64
 dev-lang/python-exec ~amd64
 app-eselect/eselect-python ~amd64
 
+#dev-lang/perl -~amd64 amd64
+dev-lang/perl amd64
+
 # special tokens valid with package.accept_keywords 
 # *  stable on any architecture 
 # ~* testing on any architecture 
