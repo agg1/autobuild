@@ -45,3 +45,4 @@ sys-libs/talloc noparallel.conf
 sys-libs/tdb noparallel.conf
 sys-libs/tevent noparallel.conf
 net-libs/serf noparallel.conf
+dev-python/lxml noparallel.conf
