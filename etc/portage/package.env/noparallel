@@ -25,6 +25,7 @@ media-libs/libsvgtiny noparallel.conf
 media-gfx/inkscape noparallel.conf
 net-analyzer/net-snmp noparallel.conf
 media-sound/linuxsampler noparallel.conf
+media-sound/qtractor noparallel.conf
 sci-libs/scipy noparallel.conf
 
 # python waf stuck otherwise
