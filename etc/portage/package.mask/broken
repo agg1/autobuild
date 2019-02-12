@@ -163,3 +163,6 @@ app-crypt/codecrypt
 
 # c_locale: undeclared (first use in this function)
 >media-gfx/imagemagick-7.0.8.23
+
+# audio issues maybe related to alsa
+>=media-libs/alsa-lib-1.1.8
