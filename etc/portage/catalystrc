@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # overrides package.env specific noparallel if set here
-#export MAKEOPTS="-j8 -l8"
-export MAKEFLAGS="-l8"
+export MAKEOPTS="-j8 -l8"
+export MAKEFLAGS="-j8 -l8"
 
 export CHOST="x86_64-unknown-linux-uclibc"
 export CHOST_amd64="x86_64-unknown-linux-uclibc"
