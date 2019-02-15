@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# overrides package.env specific noparallel if set here
-#export MAKEOPTS="-j8 -l8"
-#export MAKEFLAGS="-j8 -l8"
+# overrides package.env specific noparallel if set here so profile/package.bashrc specific override is required
+export MAKEOPTS="-j6 -l6"
 
 export CHOST="x86_64-unknown-linux-uclibc"
 export CHOST_amd64="x86_64-unknown-linux-uclibc"
