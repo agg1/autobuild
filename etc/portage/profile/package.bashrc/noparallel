@@ -26,7 +26,7 @@ media-gfx/inkscape noparallel.conf
 net-analyzer/net-snmp noparallel.conf
 media-sound/linuxsampler noparallel.conf
 media-sound/qtractor noparallel.conf
-sci-libs/scipy noparallel.conf
+#sci-libs/scipy noparallel.conf -> still breaks with indefinite block
 dev-perl/Pango noparallel.conf
 x11-wm/i3 noparallel.conf
 
