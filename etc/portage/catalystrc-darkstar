@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # overrides package.env specific noparallel if set here so profile/package.bashrc specific override is required
-#export MAKEOPTS="-j8 -l8"
+export MAKEOPTS="-j8 -l8"
 
 export CHOST="x86_64-unknown-linux-uclibc"
 export CHOST_amd64="x86_64-unknown-linux-uclibc"
 #export CHOST_amd64="x86_64-gentoo-linux-uclibc"
 #export CTARGET="x86_64-unknown-linux-uclibc" breaks
 #export SWITCH_CTARGET=x86_64-pc-linux-gnu-8.2.0
-export SWITCH_CTARGET=x86_64-unknown-linux-uclibc-8.2.0
+export SWITCH_CTARGET=x86_64-unknown-linux-uclibc-8.3.0
 
 export ACCEPT_KEYWORDS="~amd64"
 export ACCEPT_LICENSE="-* @FREE"
@@ -22,7 +22,7 @@ export PAX_MARKINGS="PT"
 #export BOOT_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
 #export STAGE1_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
 
-export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=32 --accept-properties=-interactive"
+export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=64 --accept-properties=-interactive"
 
 #export DISTDIR="/usr/distfiles" conflicts
 #export PKGDIR="/var/tmp/packages" conflicts

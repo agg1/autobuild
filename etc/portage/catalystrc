@@ -8,7 +8,7 @@ export CHOST_amd64="x86_64-unknown-linux-uclibc"
 #export CHOST_amd64="x86_64-gentoo-linux-uclibc"
 #export CTARGET="x86_64-unknown-linux-uclibc" breaks
 #export SWITCH_CTARGET=x86_64-pc-linux-gnu-8.2.0
-export SWITCH_CTARGET=x86_64-unknown-linux-uclibc-8.2.0
+export SWITCH_CTARGET=x86_64-unknown-linux-uclibc-8.3.0
 
 export ACCEPT_KEYWORDS="~amd64"
 export ACCEPT_LICENSE="-* @FREE"
@@ -40,6 +40,7 @@ export USE="-bindist -branding -debug -test -pam -systemd -consolekit -policykit
 #priority decreases from left to right
 export USE_ORDER="pkg:env:conf:defaults:pkginternal:repo:env.d"
 
+export LINGUAS="af ar as ast az be bg bn bo br brx bs ca ca@valencia ca_XV cs csb cy da de dgo dz el en en_GB en_ZA eo es et eu fa fi fo fr fy ga gd gl gu gu_IN ha he hi hr hsb hu ia id is it ja ka kk km kn kn_IN ko kok ks ku lb lo lt lv mai mi mk ml mn mni mr ms mt my nb nds ne nl nn nr nso oc om or pa pa_IN pl pt pt_BR ro ru rw sa_IN sat sd se sh si sk sl sq sr ss st sv sw sw_TZ ta ta_IN te tg th tn tr ts tt ug uk uz ve ven vi wa xh zh_CN zh_HK zh_TW zu"
 export CONFIG_PROTECT="-*"
 #FEATURES="userfetch userpriv candy"
 FEATURES="userfetch"
