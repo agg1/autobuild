@@ -1,9 +1,10 @@
 #sporadically broken parallel build
+sys-fs/xfsprogs noparallel.conf
 app-admin/qtpass noparallel.conf
 app-arch/arj noparallel.conf
 app-text/xdvik noparallel.conf
 dev-lang/ocaml noparallel.conf
-=dev-lang/python-3.6.6 noparallel.conf
+#=dev-lang/python-3.6.6 noparallel.conf
 dev-python/cython noparallel.conf
 media-libs/gegl noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
