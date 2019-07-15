@@ -43,7 +43,7 @@ app-doc/single-unix-specification sus4-copyright
 app-doc/selfhtml selfhtml
 games-misc/opensfx CC-Sampling-Plus-1.0
 games-fps/eduke32 BUILDLIC HRP
-games-fps/quake3-teamarena Q3AEULA
-games-fps/quake3-data Q3AEULA
-games-fps/quake3-highres Q3AEULA
+#games-fps/quake3-teamarena Q3AEULA
+#games-fps/quake3-data Q3AEULA
+#games-fps/quake3-highres Q3AEULA
 games-fps/doom-data freedist
