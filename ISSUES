@@ -1,0 +1,18 @@
+- bash 5.x defective breaking deblob script
+- perl 5.27/28 defective getopt-long broken
+- bpfilter module?
+- acpi processor module disabled and cstate behaviour
+- freespace >3.6.18 broken mods and stuttering in nebula
+- test rqshare=all|smp, and enabled vt-d
+- SWITCH_CTARGET requires build_boostrap_seed_stage
+  but fails with build_seed_stage if a gcc-config shall
+  switch CTARGET and no valid profile will be set for stage4
+- >mesa-18.2.2 requires ruby/ocl-icd etc.
+  currently clang7 and clang8 are pulled in
+- sdlmm broken build
+- timidity++ broken build
+- ipsec connection loss with irc every 24 hours
+- mumble build broke
+- irssi otr broken with fish in parallel, trigger.pl
+- atop service loaded during startup
+- spyder broken
