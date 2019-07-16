@@ -1,2 +1,3 @@
 #www-client/seamonkey nosandbox.conf
 #www-apps/ikiwiki nosandbox.conf
+#sys-libs/ncurses nosandbox.conf

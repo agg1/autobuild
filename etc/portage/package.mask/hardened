@@ -1,6 +1,6 @@
 >=sys-devel/gcc-9.0.0
->=sys-kernel/linux-headers-4.19
->=sys-kernel/gentoo-sources-4.19.0
+>=sys-kernel/linux-headers-5.1
+>=sys-kernel/gentoo-sources-5.1
 sys-kernel/linux-firmware
 sys-apps/systemd
 sys-auth/consolekit
@@ -18,6 +18,10 @@ sys-apps/rng-tools
 >app-crypt/gnupg-1.4.21
 >app-crypt/gpgme-1.12.0
 # 2.8.1: undefined reference to `X509_get_notAfter'
->dev-libs/libressl-2.8.0
+#>dev-libs/libressl-2.8.0
 # broken, missing -T option
 >=dev-util/shc-3.9.0
+# multiple definition of `minus_zero'; lib/libcoreutils.a
+>=sys-apps/coreutils-8.31
+# dev-libs/openssl 
+>sys-apps/kmod-25

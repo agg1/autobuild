@@ -4,6 +4,12 @@ sys-kernel/genkernel -firmware cryptsetup
 #
 sys-kernel/gentoo-sources -linux-firmware
 
+# openssl
+sys-apps/kmod -ssl
+
+# gnupg2,gnutls etc.
+sys-apps/portage -rsync-verify
+
 # required by sys-devel/gettext (argument)
 dev-lang/python xml
 
@@ -16,7 +22,8 @@ net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 #sys-fs/cryptsetup -python -openssl gcrypt -nls
-sys-fs/cryptsetup -python -gcrypt openssl libressl -nls -urandom -udev
+#-urandom -udev
+sys-fs/cryptsetup -python -gcrypt -openssl -nettle libressl -nls
 
 # required by genkernel
 sys-apps/util-linux static-libs
@@ -197,7 +204,7 @@ dev-util/cmake -qt5
 media-gfx/blender -opencl -cycles -openimageio
 
 # doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
-app-doc/doxygen -clang
+#app-doc/doxygen -clang
 
 # any-of ( l10n_en l10n_en-AU l10n_en-CA l10n_en-GB l10n_en-US l10n_en-ZA ) 
 app-dicts/myspell-en l10n_en
@@ -219,10 +226,20 @@ media-libs/avidemux-plugins -opengl -qt5
 media-libs/libwebp -tiff
 
 # otherwise broken dev-libs/icu-layoutex will be pulled in
-games-simulation/openttd -icu -timidity aplaymidi
+#games-simulation/openttd -icu -timidity aplaymidi
 
 #
-games-fps/darkplaces cdsound lights -sdl -textures -demo -cdinstall
+#games-fps/darkplaces cdsound lights -sdl -textures -demo -cdinstall
 
 #
-games-fps/quake3 voice mumble
+#games-fps/quake3 voice mumble
+
+#
+#gnome-base/librsvg -vala
+#media-libs/gexiv2 -vala
+#net-libs/libsoup -vala
+#dev-util/anjuta -vala
+
+# ocl-icd, -lOpenCl not found
+app-text/tesseract -opencl
+media-video/ffmpeg -opencl
