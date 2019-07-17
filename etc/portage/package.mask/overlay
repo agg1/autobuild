@@ -80,9 +80,11 @@ x11-drivers/nvidia-drivers
 # rquires ocl-icd magics with ruby
 >=media-libs/mesa-18.2.3
 
-# otherwise v7 and v8 are pulled in
+# otherwise v7 and v8 are pulled in together for no obvious reason
 >=sys-devel/clang-8.0.0
+>=sys-devel/clang-common-8.0.0
 >=sys-devel/llvm-8.0.0
+>=sys-devel/llvm-common-8.0.0
 >=sys-libs/compiler-rt-8.0.0
 >=sys-libs/compiler-rt-sanitizers-8.0.0
 

@@ -213,7 +213,7 @@ app-dicts/myspell-en l10n_en
 app-text/mupdf -openssl
 
 #
-www-client/netsurf duktape javascript gtk3
+www-client/netsurf duktape javascript gtk2
 #
 net-libs/libdom xml
 
