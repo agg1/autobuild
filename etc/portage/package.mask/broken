@@ -157,3 +157,6 @@ lxde-base/lxterminal
 
 #
 >x11-apps/xinit-1.4.0
+
+# sshguard crashes when launched with init.d
+>=app-admin/sshguard-2.4.0
