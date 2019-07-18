@@ -23,4 +23,6 @@ chgrp input /usr/bin/Xorg 2>/dev/null
 chmod u-s /usr/bin/Xorg 2>/dev/null
 chmod g+s /usr/bin/Xorg 2>/dev/null
 
+chmod 600 /etc/crylog
+
 true
