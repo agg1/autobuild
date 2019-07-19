@@ -46,8 +46,6 @@ export CONFIG_PROTECT="-*"
 FEATURES="userfetch"
 #FEATURES="splitdebug"
 #INSTALL_MASK="/usr/lib/debug"
-#PYTHON_SINGLE_TARGET="python2_7"
-#PYTHON_TARGETS="python2_7 python3_5 python3_6"
 export SHELL="/bin/bash"
 export COLLISION_IGNORE="/usr/share/vim/* /usr/libexec/cups/driver /usr/libexec/cups/driver/* /usr/bin/smfsh /usr/bin/iconv /usr/include/iconv.h"
 
