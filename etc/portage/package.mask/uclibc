@@ -7,9 +7,3 @@ sys-libs/glibc
 # undefined reference to `fcvt'
 # undefined reference to `ecvt'
 sys-apps/xinet
-
-# adds up to compilation time considerably, can be disposed
-# and is required for either opencl or latest radeon cards only
-#sys-devel/llvm
-#sys-devel/clang
-#dev-libs/libclc

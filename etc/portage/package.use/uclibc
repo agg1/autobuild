@@ -1,9 +1,6 @@
 #
 sys-fs/lvm2 -thin
 
-# undefined reference to `bindresvport'
-net-irc/irssi -socks5
-
 # The CAP installation appears to be missing or broken
 net-misc/asterisk -caps
 

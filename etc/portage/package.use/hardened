@@ -4,9 +4,6 @@ sys-kernel/genkernel -firmware cryptsetup
 #
 sys-kernel/gentoo-sources -linux-firmware
 
-# openssl
-sys-apps/kmod -ssl
-
 # gnupg2,gnutls etc.
 sys-apps/portage -rsync-verify
 
@@ -20,6 +17,7 @@ dev-libs/liblogging rfc3195
 net-misc/openssh -bindist -X
 #net-misc/iputils ssl openssl libressl -gcrypt -gnutls -nettle
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
+dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools rc5 idea nat hybrid
 #sys-fs/cryptsetup -python -openssl gcrypt -nls
 #-urandom -udev
@@ -30,8 +28,8 @@ sys-apps/util-linux static-libs
 
 # highlight requires lua
 app-text/asciidoc -highlight
-dev-vcs/git blksha1 curl gpg -highlight iconv subversion cvs perl -python cgi tk -pcre-jit -dso -extras -kde
-dev-vcs/subversion perl -dso
+dev-vcs/git blksha1 curl gpg -highlight iconv subversion cvs perl -python -pcre-jit -dso -extras -kde
+dev-vcs/subversion -dso perl
 
 # required by dev-qt/qtcore
 dev-libs/libpcre pcre16
@@ -41,9 +39,7 @@ dev-libs/libpcre2 pcre16
 sys-libs/libapparmor python perl
 
 # attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
-app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl spice -vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde smartcard -pin-upstream-blobs
-# circular dependency spice-qemu-spice due to smartcard
-app-emulation/spice -smartcard
+app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl -spice vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde smartcard -pin-upstream-blobs
 
 # required by hwdb,eudev
 sys-apps/hwids udev
@@ -64,10 +60,6 @@ media-video/handbrake -gtk
 #
 app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
-
-# libinput demands udev
-dev-qt/qtgui -dbus -libinput gles2 egl
-dev-qt/qtwidgets -gtk
 
 # changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
 # ERROR: smbclient not found
@@ -101,7 +93,7 @@ net-wireless/aircrack-ng -airdrop-ng
 net-analyzer/wireshark -ssl -gtk qt5 libssh tfshark tshark
 
 # required by net-analyzer/argus-clients
-net-analyzer/rrdtool perl
+#net-analyzer/rrdtool perl
 
 # required by media-video/vlc
 sys-libs/zlib minizip
@@ -124,27 +116,36 @@ net-analyzer/nmap ncat nping
 # otherwise dbus is required with gtk or qt
 net-p2p/transmission -gtk -ayatana -qt5
 
+# hdf5
+dev-python/spyder -webengine -webkit
 #
-dev-python/spyder -webengine -webkit hdf5
-#
-sci-libs/hdf5 cxx fortran hl -threads zlib -debug examples -mpi -static-libs -szip
+#sci-libs/hdf5 cxx fortran hl -threads zlib -debug examples -mpi -static-libs -szip
 #
 net-libs/zeromq drafts
 #
-dev-python/pycurl -curl_ssl_openssl curl_ssl_libressl
+dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 #
-dev-python/PyQt5 svg gui widgets printsupport opengl gles2
+dev-python/PyQt5 svg gui widgets printsupport opengl gles2 -webchannel network
 #
-dev-python/QtPy svg
-
+dev-python/QtPy svg -webkit
+#
+#dev-qt/qtwebengine widgets
+#
+#dev-qt/qtwebchannel qml
+#
+media-libs/libvpx svc
 #
 dev-python/numpy lapack
+
+# libinput demands udev
+dev-qt/qtgui -dbus -libinput gles2 egl
+dev-qt/qtwidgets -gtk
 
 # otherwise liconv is not linked properly
 dev-qt/qtcore -icu
 
 # otherwise openssl is requried, patch necessary
-dev-qt/qtnetwork -ssl
+#dev-qt/qtnetwork -ssl
 
 # required by media-gfx/gimp-2.10.8::extra
 media-libs/gegl cairo
@@ -164,10 +165,6 @@ media-video/vlc -libav -fdk ffmpeg
 
 #
 media-video/handbrake -fdk libav-aac gtk
-
-#
-#virtual/ffmpeg libav
-#media-video/libav openssl libressl
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
 net-proxy/squid -nis
@@ -203,9 +200,6 @@ dev-util/cmake -qt5
 # openimageio build is broken with QT5/egl/gles
 media-gfx/blender -opencl -cycles -openimageio
 
-# doxygen-1.8.14/src/clangparser.cpp:177:44: error: incomplete type 'clang::tooling::CompilationDatabase' ...
-#app-doc/doxygen -clang
-
 # any-of ( l10n_en l10n_en-AU l10n_en-CA l10n_en-GB l10n_en-US l10n_en-ZA ) 
 app-dicts/myspell-en l10n_en
 
@@ -228,18 +222,9 @@ media-libs/libwebp -tiff
 # otherwise broken dev-libs/icu-layoutex will be pulled in
 #games-simulation/openttd -icu -timidity aplaymidi
 
-#
-#games-fps/darkplaces cdsound lights -sdl -textures -demo -cdinstall
-
-#
-#games-fps/quake3 voice mumble
-
-#
-#gnome-base/librsvg -vala
-#media-libs/gexiv2 -vala
-#net-libs/libsoup -vala
-#dev-util/anjuta -vala
-
 # ocl-icd, -lOpenCl not found
 app-text/tesseract -opencl
 media-video/ffmpeg -opencl
+
+# undefined reference to `bindresvport'
+net-irc/irssi -socks5 perl python otr

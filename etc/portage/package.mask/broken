@@ -100,7 +100,7 @@ net-print/lprng
 sys-devel/distcc
 
 # broken getloadavg, segmentation fault with patch
-#x11-misc/i3status
+x11-misc/i3status
 
 # requires opencl/mesa
 #app-eselect/eselect-opencl
