@@ -30,7 +30,7 @@ media-sound/qtractor noparallel.conf
 #sci-libs/scipy noparallel.conf -> still breaks with indefinite block
 dev-perl/Pango noparallel.conf
 x11-wm/i3 noparallel.conf
-x11-libs/libX11
+x11-libs/libX11 noparallel.conf
 
 # python waf stuck otherwise
 app-text/lcdf-typetools noparallel.conf
