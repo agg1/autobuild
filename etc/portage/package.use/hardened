@@ -68,6 +68,7 @@ media-video/ffmpeg -openssl -samba -fdk
 
 www-apps/ikiwiki extras test
 media-gfx/imagemagick perl
+dev-vcs/cvs server
 
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
 media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium vulkan opencl -vaapi -wayland -d3d9 -gallium-nine

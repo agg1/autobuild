@@ -141,6 +141,7 @@ x11-drivers/nvidia-drivers
 #>app-office/libreoffice-l10n-6.1.4.2
 #app-office/lyx: FileName.cpp:77:64: error: wrong number of template arguments (3, should be 4)
 >=dev-libs/boost-1.70.0
+>=dev-util/mdds-1.4.0
 
 # requires ocaml which is broken -> /bin/sh: shared-libs-not-available: command not found
 dev-tex/hevea
