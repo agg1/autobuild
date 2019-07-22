@@ -72,7 +72,7 @@ media-gfx/imagemagick perl
 dev-vcs/cvs server
 
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
-media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium -vulkan -opencl -vaapi -wayland -d3d9 -gallium-nine vaapi
+media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium -vulkan -opencl -vaapi -wayland -d3d9 -gallium-nine
 #dev-libs/libclc video_cards_radeonsi
 
 #
