@@ -11,7 +11,5 @@
 - mumble build broke
 - irssi otr broken with fish in parallel, trigger.pl
 - atop service loaded during startup
-- spyder broken
-- zsh-lovers broken build, similar to portage iirc
 - netsurf broken with assertion to be fixed
 - MuQSS creates too many queues, 13 on a quadcore sandybridge, 7 on a hexacore nehalem
