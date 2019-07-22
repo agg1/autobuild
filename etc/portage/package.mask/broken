@@ -141,7 +141,7 @@ sys-libs/argp-standalone
 >=x11-libs/gdk-pixbuf-2.38.0
 
 # makefile/build error, strange Makefile.in:253 but it seems sdlmm isn't required by anything
-media-libs/sdlmm
+#media-libs/sdlmm
 
 # ERROR: System library libtasn1 of version 3.8 not found, and bundling disabled
 >=net-fs/samba-4.10.0
@@ -160,3 +160,10 @@ lxde-base/lxterminal
 
 # sshguard crashes when launched with init.d
 >=app-admin/sshguard-2.4.0
+
+#
+>dev-python/spyder-3.9.9
+=dev-python/spyder-4.0.0_beta1-r1
+=dev-python/spyder-4.0.0_beta1
+# broken button visuals
+<dev-python/PyQt5-5.12.2

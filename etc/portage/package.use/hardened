@@ -66,12 +66,14 @@ net-print/cups -X
 # linking against fdk is broken with ffmpeg-3.x
 media-video/ffmpeg -openssl -samba -fdk
 
+#
 www-apps/ikiwiki extras test
 media-gfx/imagemagick perl
 dev-vcs/cvs server
 
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
-media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium vulkan opencl -vaapi -wayland -d3d9 -gallium-nine
+media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium -vulkan -opencl -vaapi -wayland -d3d9 -gallium-nine vaapi
+#dev-libs/libclc video_cards_radeonsi
 
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet nls
@@ -99,7 +101,8 @@ net-analyzer/wireshark -ssl -gtk qt5 libssh tfshark tshark
 # required by media-video/vlc
 sys-libs/zlib minizip
 
-# required by app-text/stardict
+# python required by app-text/stardict
+# icu required by dev-qt/qtwebengine
 dev-libs/libxml2 python
 
 # required by app-office/libreoffice
@@ -125,10 +128,12 @@ dev-python/spyder -webengine -webkit
 net-libs/zeromq drafts
 #
 dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
+# -webengine
+dev-python/PyQt5 svg gui -webkit widgets printsupport opengl gles2 webchannel network ssl
 #
-dev-python/PyQt5 svg gui widgets printsupport opengl gles2 -webchannel network
+dev-python/QtPy svg -webkit -webengine opengl gles2
 #
-dev-python/QtPy svg -webkit
+#dev-qt/qtwebkit printsupport
 #
 #dev-qt/qtwebengine widgets
 #
@@ -138,9 +143,13 @@ media-libs/libvpx svc
 #
 dev-python/numpy lapack
 
+dev-qt/qtdeclarative gles2
 # libinput demands udev
 dev-qt/qtgui -dbus -libinput gles2 egl
-dev-qt/qtwidgets -gtk
+#gles2 egl
+dev-qt/qtwidgets -gtk gles2
+dev-qt/qtprintsupport gles
+dev-qt/qtmultimedia gles2
 
 # otherwise liconv is not linked properly
 dev-qt/qtcore -icu
@@ -174,10 +183,14 @@ net-proxy/squid -nis
 www-servers/lighttpd -minimal -kerberos
 
 # egl_system.c:150:82: error: 'nativewindow' undeclared (first use in this function)
-dev-libs/DirectFB -egl
+dev-libs/DirectFB -egl gles2 opengl
+
+media-libs/libsdl opengl
+media-libs/libsdl2 opengl gles
+x11-libs/cairo gles2 -opengl
 
 # geolocation demands introspection, opengl or gles2 choice required
-net-libs/webkit-gtk -geolocation -gles2 opengl
+net-libs/webkit-gtk -geolocation gles2 -opengl egl webgl
 
 # pulled in by geany/geany-plugins, crypt requires gnutls
 x11-libs/vte -crypt
@@ -205,7 +218,7 @@ media-gfx/blender -opencl -cycles -openimageio
 app-dicts/myspell-en l10n_en
 
 # undefined reference to `PKCS12_SAFEBAG_get0_p8inf'
-app-text/mupdf -openssl
+#app-text/mupdf -openssl
 
 #
 www-client/netsurf duktape javascript gtk2 -gtk
@@ -221,11 +234,21 @@ media-libs/avidemux-plugins -opengl -qt5
 media-libs/libwebp -tiff
 
 # otherwise broken dev-libs/icu-layoutex will be pulled in
-#games-simulation/openttd -icu -timidity aplaymidi
+games-simulation/openttd -icu
+#
+games-fps/darkplaces cdsound lights sdl -textures -demo -cdinstall
+#
+games-fps/xonotic ode
+#
+dev-games/ode double-precision
+#
+#games-fps/quake3 voice mumble
+#
+games-fps/yamagi-quake2 client dedicated openal opengl softrender
 
 # ocl-icd, -lOpenCl not found
-app-text/tesseract -opencl
-media-video/ffmpeg -opencl
+#app-text/tesseract -opencl
+#media-video/ffmpeg -opencl
 
 # undefined reference to `bindresvport'
 net-irc/irssi -socks5 perl python otr
