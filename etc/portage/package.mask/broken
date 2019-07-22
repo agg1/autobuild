@@ -167,3 +167,6 @@ lxde-base/lxterminal
 =dev-python/spyder-4.0.0_beta1
 # broken button visuals
 <dev-python/PyQt5-5.12.2
+
+# requires cairo[opengl]
+media-gfx/fbida
