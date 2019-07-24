@@ -4,11 +4,10 @@
 - SWITCH_CTARGET requires build_boostrap_seed_stage
   but fails with build_seed_stage if a gcc-config shall
   switch CTARGET and no valid profile will be set for stage4
-- >mesa-18.2.2 requires ruby/ocl-icd etc.
 - sdlmm broken build
 - timidity++ broken build
 - ipsec connection loss with irc every 24 hours
-- mumble build broke
+- mumble build broken
 - irssi otr broken with fish in parallel, trigger.pl
 - atop service loaded during startup
 - netsurf broken with assertion to be fixed
