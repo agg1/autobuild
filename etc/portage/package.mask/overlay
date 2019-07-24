@@ -82,18 +82,18 @@ x11-drivers/nvidia-drivers
 dev-libs/ocl-icd
 
 # otherwise v7 and v8 are pulled in together for no obvious reason
->=sys-devel/clang-8.0.0
->=sys-devel/clang-common-8.0.0
->=sys-devel/llvm-8.0.0
->=sys-devel/llvm-common-8.0.0
->=sys-libs/compiler-rt-8.0.0
->=sys-libs/compiler-rt-sanitizers-8.0.0
-#sys-devel/clang
-#sys-devel/clang-common
-#sys-devel/llvm
-#sys-devel/llvm-common
-#sys-libs/compiler-rt
-#sys-libs/compiler-rt-sanitizers
+#>=sys-devel/clang-8.0.0
+#>=sys-devel/clang-common-8.0.0
+#>=sys-devel/llvm-8.0.0
+#>=sys-devel/llvm-common-8.0.0
+#>=sys-libs/compiler-rt-8.0.0
+#>=sys-libs/compiler-rt-sanitizers-8.0.0
+sys-devel/clang
+sys-devel/clang-common
+sys-devel/llvm
+sys-devel/llvm-common
+sys-libs/compiler-rt
+sys-libs/compiler-rt-sanitizers
 
 #
 >net-voip/yate-6.0.0
