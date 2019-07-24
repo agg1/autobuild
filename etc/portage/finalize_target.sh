@@ -10,8 +10,10 @@ chmod 700 /var/log/audit
 chmod 700 /var/log/archive
 rm -rf /etc/portage/rootfs
 rm -rf /etc/portage/patches
-rm -f "/usr/share/applications/links_-g_%u-links-2.desktop"
+rm -f '/usr/share/applications/links_-g_%u-links-2.desktop'
 rm -f /usr/share/applications/org.octave.Octave.desktop
+rm -f /usr/share/applications/spyder-spyder.desktop
+rm -f /usr/share/applications/spyder.desktop
 # left-over from ipsvd
 rm -rf /html
 
