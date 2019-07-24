@@ -45,7 +45,7 @@ app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl -spice vnc -vte
 sys-apps/hwids udev
 sys-apps/pcsc-lite udev
 
-#
+# python threads
 app-editors/vim -X
 
 # otherwise dconf,dbus etc. are pulled in
@@ -72,7 +72,8 @@ media-gfx/imagemagick perl
 dev-vcs/cvs server
 
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
-media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 llvm classic gallium -vulkan -opencl -vaapi -wayland -d3d9 -gallium-nine -vaapi
+media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 -llvm classic gallium -vulkan -opencl -vaapi -wayland -d3d9 -gallium-nine -vaapi
+x11-libs/libdrm video_cards_radeon
 #dev-libs/libclc video_cards_radeonsi
 
 #
@@ -120,8 +121,8 @@ net-analyzer/nmap ncat nping
 # otherwise dbus is required with gtk or qt
 net-p2p/transmission -gtk -ayatana -qt5
 
-# hdf5
-dev-python/spyder -webengine -webkit
+# 
+dev-python/spyder -webengine -webkit hdf5
 #
 #sci-libs/hdf5 cxx fortran hl -threads zlib -debug examples -mpi -static-libs -szip
 #
@@ -234,7 +235,7 @@ media-libs/avidemux-plugins -opengl -qt5
 media-libs/libwebp -tiff
 
 # otherwise broken dev-libs/icu-layoutex will be pulled in
-games-simulation/openttd -icu
+games-simulation/openttd -icu -timidity
 #
 games-fps/darkplaces cdsound lights sdl -textures -demo -cdinstall
 #
@@ -252,3 +253,6 @@ games-fps/yamagi-quake2 client dedicated openal opengl softrender
 
 # undefined reference to `bindresvport'
 net-irc/irssi -socks5 perl python otr
+
+#
+sci-mathematics/octave gui
