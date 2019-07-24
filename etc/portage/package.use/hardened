@@ -124,7 +124,7 @@ net-p2p/transmission -gtk -ayatana -qt5
 # 
 dev-python/spyder -webengine -webkit hdf5
 #
-#sci-libs/hdf5 cxx fortran hl -threads zlib -debug examples -mpi -static-libs -szip
+sci-libs/hdf5 cxx fortran hl -threads zlib -debug examples -mpi -static-libs -szip
 #
 net-libs/zeromq drafts
 #
@@ -218,9 +218,6 @@ media-gfx/blender -opencl -cycles -openimageio
 # any-of ( l10n_en l10n_en-AU l10n_en-CA l10n_en-GB l10n_en-US l10n_en-ZA ) 
 app-dicts/myspell-en l10n_en
 
-# undefined reference to `PKCS12_SAFEBAG_get0_p8inf'
-#app-text/mupdf -openssl
-
 #
 www-client/netsurf duktape javascript gtk2 -gtk
 #
@@ -246,10 +243,6 @@ dev-games/ode double-precision
 #games-fps/quake3 voice mumble
 #
 games-fps/yamagi-quake2 client dedicated openal opengl softrender
-
-# ocl-icd, -lOpenCl not found
-#app-text/tesseract -opencl
-#media-video/ffmpeg -opencl
 
 # undefined reference to `bindresvport'
 net-irc/irssi -socks5 perl python otr
