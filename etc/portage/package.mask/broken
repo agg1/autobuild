@@ -107,7 +107,7 @@ x11-misc/i3status
 #net-wireless/cpyrit-opencl
 
 # not fixed  yet to compile with latest freetype2: ft2build.h no such file or directory
-app-text/ttf2pk2
+#app-text/ttf2pk2
 
 # deblob script fails with latest bash >4.x
 >=app-shells/bash-5.0

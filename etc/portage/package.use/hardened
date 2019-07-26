@@ -244,8 +244,24 @@ dev-games/ode double-precision
 #
 games-fps/yamagi-quake2 client dedicated openal opengl softrender
 
+# nvtt breaks
+games-strategy/0ad editor lobby pch
+
 # undefined reference to `bindresvport'
 net-irc/irssi -socks5 perl python otr
 
 #
 sci-mathematics/octave gui
+
+#
+dev-python/matplotlib -gtk3 -gtk2 -qt5 -cairo
+
+# required by matplotlib
+app-text/texlive xetex -luajittex
+app-text/texlive-core xetex -luajittex
+dev-texlive/texlive-basic xetex -luajittex
+# C99 complex arithmetics required, cpow
+# truetype requires app-text/ttf2pk2 which is broken with latest freetype: ft2build.h: No such file or directory
+#app-text/texlive -xetex -truetype
+#app-text/texlive-core -luajittex -xetex
+#dev-texlive/texlive-basic -luajittex -xetex
