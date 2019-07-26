@@ -4,7 +4,6 @@ app-admin/qtpass noparallel.conf
 app-arch/arj noparallel.conf
 app-text/xdvik noparallel.conf
 dev-lang/ocaml noparallel.conf
-#=dev-lang/python-3.6.8 noparallel.conf
 dev-python/cython noparallel.conf
 media-libs/gegl noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
@@ -27,12 +26,11 @@ media-gfx/inkscape noparallel.conf
 net-analyzer/net-snmp noparallel.conf
 media-sound/linuxsampler noparallel.conf
 media-sound/qtractor noparallel.conf
-#sci-libs/scipy noparallel.conf -> still breaks with indefinite block
 dev-perl/Pango noparallel.conf
 x11-wm/i3 noparallel.conf
 x11-libs/libX11 noparallel.conf
 sys-power/iasl noparallel.conf
-sci-libs/scipy noparallel.conf
+app-doc/doxygen noparallel.conf
 
 # python waf stuck otherwise
 app-text/lcdf-typetools noparallel.conf
@@ -52,3 +50,4 @@ sys-libs/tdb noparallel.conf
 sys-libs/tevent noparallel.conf
 net-libs/serf noparallel.conf
 dev-python/lxml noparallel.conf
+sci-libs/scipy noparallel.conf
