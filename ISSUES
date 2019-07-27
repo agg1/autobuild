@@ -1,5 +1,4 @@
 - bash 5.x defective breaking deblob script
-- bpfilter module?
 - freespace >3.6.18 broken mods and stuttering in nebula
 - SWITCH_CTARGET requires build_boostrap_seed_stage
   but fails with build_seed_stage if a gcc-config shall
@@ -7,8 +6,6 @@
 - sdlmm broken build
 - timidity++ broken build
 - ipsec connection loss with irc every 24 hours
-- mumble build broken
 - irssi otr broken with fish in parallel, trigger.pl
 - atop service loaded during startup
-- netsurf broken with assertion to be fixed
 - MuQSS creates too many queues, 13 on a quadcore sandybridge, 7 on a hexacore nehalem
