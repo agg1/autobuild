@@ -48,23 +48,17 @@ sys-apps/pcsc-lite udev
 # python threads
 app-editors/vim -X
 
-# otherwise dconf,dbus etc. are pulled in
-app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde -pdfimport -google -eds
+# gtk2 otherwise dconf,dbus etc. are pulled in
+app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde  -pdfimport -google -eds
 # required by app-office/libreoffice
 dev-libs/xmlsec nss
-#app-crypt/gpgme cxx
-
-# gtk requires libnotify,dbus-glib, patched
-media-video/handbrake -gtk
 
 #
 app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 
-# changes introduced with ffmpeg-4.0.0 though, but linking against it is broken due to incompatible API currently
-# ERROR: smbclient not found
-# linking against fdk is broken with ffmpeg-3.x
-media-video/ffmpeg -openssl -samba -fdk
+#
+media-video/ffmpeg -openssl -samba fdk
 
 #
 www-apps/ikiwiki extras test
@@ -74,7 +68,6 @@ dev-vcs/cvs server
 # vaapi causes cyclic dependency, libva->opengl->mesa->libva
 media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 -llvm classic gallium -vulkan -opencl -vaapi -wayland -d3d9 -gallium-nine -vaapi
 x11-libs/libdrm video_cards_radeon
-#dev-libs/libclc video_cards_radeonsi
 
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet nls
@@ -150,13 +143,11 @@ dev-qt/qtgui -dbus -libinput gles2 egl
 #gles2 egl
 dev-qt/qtwidgets -gtk gles2
 dev-qt/qtprintsupport gles
-dev-qt/qtmultimedia gles2
+# widgets required my kvirc[dcc_video]
+dev-qt/qtmultimedia gles2 widgets
 
 # otherwise liconv is not linked properly
 dev-qt/qtcore -icu
-
-# otherwise openssl is requried, patch necessary
-#dev-qt/qtnetwork -ssl
 
 # required by media-gfx/gimp-2.10.8::extra
 media-libs/gegl cairo
@@ -172,10 +163,10 @@ net-vpn/tor tor-hardening transparent-proxy seccomp
 net-fs/samba client winbind -gpg
 
 #
-media-video/vlc -libav -fdk ffmpeg
+media-video/vlc -libav fdk ffmpeg
 
-#
-media-video/handbrake -fdk libav-aac gtk
+# -libav-aac, -libav
+media-video/handbrake fdk gtk
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
 net-proxy/squid -nis
@@ -265,3 +256,6 @@ dev-texlive/texlive-basic xetex -luajittex
 #app-text/texlive -xetex -truetype
 #app-text/texlive-core -luajittex -xetex
 #dev-texlive/texlive-basic -luajittex -xetex
+
+# phonon -> dbus
+net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit

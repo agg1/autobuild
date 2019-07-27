@@ -103,11 +103,7 @@ sys-devel/distcc
 x11-misc/i3status
 
 # requires opencl/mesa
-#app-eselect/eselect-opencl
 #net-wireless/cpyrit-opencl
-
-# not fixed  yet to compile with latest freetype2: ft2build.h no such file or directory
-#app-text/ttf2pk2
 
 # deblob script fails with latest bash >4.x
 >=app-shells/bash-5.0

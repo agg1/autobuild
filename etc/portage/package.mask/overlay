@@ -74,9 +74,6 @@ x11-drivers/nvidia-drivers
 # qtnetwork[ssl]
 >=media-video/smplayer-19.2.0
 
-# ffmpeg-4.x
->=media-video/handbrake-1.1.3
-
 # rquires ocl-icd magics with ruby
 #>=media-libs/mesa-18.2.3
 dev-libs/ocl-icd
@@ -133,20 +130,9 @@ sys-libs/compiler-rt-sanitizers
 # versions later than 1.6.8 pull in gnutls
 >mail-mta/msmtp-1.7.0
 
-# content/handlers/css/utils.h:90:15: error: 'CSS_DISPLAY_FLEX' undeclared (first use in this function);
-#>www-client/netsurf-3.7
-
-# media-libs/gegl complained first, this will take a while until fixed
-# error: 'CODEC_CAP_TRUNCATED' undeclared (first use in this function); did you mean 'AV_CODEC_CAP_TRUNCATED' 
->=media-video/ffmpeg-4.0
-
 #
 >app-office/libreoffice-6.1.5.2
 >app-office/libreoffice-l10n-6.1.5.2
-# libreoffice-6.1.5.2/sfx2/source/appl/shutdownicon.cxx:144:12: error: cannot convert boost::logic::tribool to bool in return
-#>app-office/libreoffice-6.1.4.2
-#>app-office/libreoffice-l10n-6.1.4.2
-#app-office/lyx: FileName.cpp:77:64: error: wrong number of template arguments (3, should be 4)
 >=dev-libs/boost-1.70.0
 >=dev-util/mdds-1.4.0
 
@@ -175,5 +161,3 @@ dev-lang/vala
 dev-lang/tcl
 dev-lang/tk
 dev-lang/orc
-#dev-lang/perl
-#<dev-lang/python-3.0
