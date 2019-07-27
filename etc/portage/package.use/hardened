@@ -49,7 +49,7 @@ sys-apps/pcsc-lite udev
 app-editors/vim -X
 
 # gtk2 otherwise dconf,dbus etc. are pulled in
-app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde  -pdfimport -google -eds
+app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde pdfimport -google -eds
 # required by app-office/libreoffice
 dev-libs/xmlsec nss
 
