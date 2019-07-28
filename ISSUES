@@ -7,5 +7,5 @@
 - timidity++ broken build
 - ipsec connection loss with irc every 24 hours
 - irssi otr broken with fish in parallel, trigger.pl
-- atop service loaded during startup
+- scipy gfortran compilation crashes leaving gfortran zombie process
 - MuQSS creates too many queues, 13 on a quadcore sandybridge, 7 on a hexacore nehalem

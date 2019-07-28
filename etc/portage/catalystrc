@@ -15,11 +15,11 @@ export ACCEPT_LICENSE="-* @FREE"
 export PROFILE_IS_HARDENED=1
 export PAX_MARKINGS="PT"
 
-export CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
-export CXXFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
-export COMMON_FLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
-export BOOT_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
-export STAGE1_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -falign-functions=1 -falign-jumps=1 -falign-labels=1 -falign-loops=1 -fomit-frame-pointer"
+export CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -fomit-frame-pointer"
+export CXXFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -fomit-frame-pointer"
+export COMMON_FLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -fomit-frame-pointer"
+export BOOT_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -fomit-frame-pointer"
+export STAGE1_CFLAGS="-Os -pipe -mmmx -msse -msse2 -msse3 -fomit-frame-pointer"
 
 export EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=64 --accept-properties=-interactive"
 
