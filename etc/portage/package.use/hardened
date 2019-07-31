@@ -259,6 +259,3 @@ dev-texlive/texlive-basic xetex -luajittex
 
 # phonon -> dbus
 net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit
-
-# openal crashes with custom extended .asoundrc
-games-fps/openarena -openal
