@@ -164,6 +164,7 @@ media-video/mpv -lua iconv -archive
 
 # with gstreamer vlc doesn't find required video codecs
 media-video/vlc -libav -gstreamer ffmpeg
+# -x264 -x265 probably not required since ffmpeg should do it
 #media-video/libav ssl openssl libressl
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
