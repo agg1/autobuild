@@ -170,6 +170,9 @@ lxde-base/lxterminal
 # requires cairo[opengl]
 media-gfx/fbida
 
+# gnutls
+net-ftp/filezilla
+
 # later distfiles not available yet
 >=games-simulation/flightgear-2018.3.2
 >=games-simulation/flightgear-data-2018.3.2
