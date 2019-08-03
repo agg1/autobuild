@@ -43,6 +43,8 @@ dev-qt/qtgui liconv.conf
 dev-python/PyQt5 liconv.conf
 media-video/handbrake liconv.conf
 dev-lang/python liconv.conf
+app-text/stardict liconv.conf
+media-video/mpv liconv.conf
 
 x11-wm/i3 liconv-noparallel.conf
 

@@ -160,7 +160,7 @@ net-vpn/tor tor-hardening transparent-proxy seccomp
 net-fs/samba client winbind -gpg
 
 # mplayer2 with hardware acceleration
-media-video/mpv -lua iconv
+media-video/mpv -lua iconv -archive
 
 # with gstreamer vlc doesn't find required video codecs
 media-video/vlc -libav -gstreamer ffmpeg
