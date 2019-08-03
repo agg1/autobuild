@@ -157,6 +157,9 @@ lxde-base/lxterminal
 # sshguard crashes when launched with init.d
 >=app-admin/sshguard-2.4.0
 
+# later are broken with seamonkey 2.49.9.1
+>=x11-plugins/enigmail-2.0.9
+
 #
 >dev-python/spyder-3.9.9
 =dev-python/spyder-4.0.0_beta1-r1
@@ -170,4 +173,3 @@ media-gfx/fbida
 # later distfiles not available yet
 >=games-simulation/flightgear-2018.3.2
 >=games-simulation/flightgear-data-2018.3.2
-
