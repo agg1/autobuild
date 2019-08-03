@@ -79,7 +79,7 @@ net-analyzer/monitoring-plugins
 net-analyzer/nagios-plugins-snmp
 
 # broken due to race condition, review
-net-irc/irssi-otr
+#net-irc/irssi-otr
 
 # getrpcent.c:63:16: error: field 'rpc' has incomplete type
 net-libs/ntirpc

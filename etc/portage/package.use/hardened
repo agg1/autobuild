@@ -38,7 +38,7 @@ dev-libs/libpcre2 pcre16
 #
 sys-libs/libapparmor python perl
 
-# attention: firmware pinning locks qemu to latest unstable if latest firmware is available only in ports tree
+#
 app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl -spice vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde smartcard -pin-upstream-blobs
 
 # required by hwdb,eudev
@@ -256,6 +256,9 @@ dev-texlive/texlive-basic xetex -luajittex
 #app-text/texlive -xetex -truetype
 #app-text/texlive-core -luajittex -xetex
 #dev-texlive/texlive-basic -luajittex -xetex
+
+#
+www-client/seamonkey -force-gtk3 -jemalloc
 
 # phonon -> dbus
 net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit
