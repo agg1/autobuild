@@ -18,6 +18,7 @@ rm -f /usr/share/applications/spyder.desktop
 #rm -rf /html
 rm -f /etc/portage/catalyst*
 rm -f /etc/portage/kconfig*
+rm -f /etc/portage/lzx.conf
 
 echo /usr/lib/samba >> /etc/ld.so.conf
 echo /usr/lib/libreoffice/program >> /etc/ld.so.conf
