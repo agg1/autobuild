@@ -15,7 +15,9 @@ rm -f /usr/share/applications/org.octave.Octave.desktop
 rm -f /usr/share/applications/spyder-spyder.desktop
 rm -f /usr/share/applications/spyder.desktop
 # left-over from ipsvd
-rm -rf /html
+#rm -rf /html
+rm -f /etc/portage/catalyst*
+rm -f /etc/portage/kconfig*
 
 echo /usr/lib/samba >> /etc/ld.so.conf
 echo /usr/lib/libreoffice/program >> /etc/ld.so.conf
