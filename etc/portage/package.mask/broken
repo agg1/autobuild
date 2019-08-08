@@ -173,6 +173,9 @@ media-gfx/fbida
 # gnutls
 net-ftp/filezilla
 
+# outdated, media-sound/mpv instead
+media-video/mplayer
+
 # later distfiles not available yet
 >=games-simulation/flightgear-2018.3.2
 >=games-simulation/flightgear-data-2018.3.2

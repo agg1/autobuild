@@ -2,6 +2,7 @@ catalyst* filter=git-crypt diff=git-crypt
 genkernel* filter=git-crypt diff=git-crypt
 kconfig* filter=git-crypt diff=git-crypt
 package* filter=git-crypt diff=git-crypt
+patches* filter=git-crypt diff=git-crypt
 lzx.conf filter=git-crypt diff=git-crypt
 make.conf filter=git-crypt diff=git-crypt
 .gitattributes !filter !diff
