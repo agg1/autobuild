@@ -255,8 +255,8 @@ app-text/texlive-core xetex -luajittex
 dev-texlive/texlive-basic xetex -luajittex
 # C99 complex arithmetics required, cpow
 
-#
-media-libs/freetype harfbuzz
+# circular dependency
+#media-libs/freetype harfbuzz
 
 # tcl
 dev-db/sqlite -tools
