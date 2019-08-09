@@ -11,6 +11,7 @@ sys-apps/dbus
 dev-qt/qtdbus
 sys-fs/udev
 dev-libs/openssl
+net-libs/mbedtls
 dev-libs/nettle
 net-libs/gnutls
 app-crypt/gpa
