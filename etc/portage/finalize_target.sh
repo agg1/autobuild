@@ -8,7 +8,9 @@ mkdir -p /var/log/audit
 mkdir -p /var/log/archive
 chmod 700 /var/log/audit
 chmod 700 /var/log/archive
+rm -f /etc/portage/finalize_target.sh
 rm -rf /etc/portage/rootfs
+rm -rf /etc/portage/package*
 rm -rf /etc/portage/patches
 rm -rf /etc/portage/profile
 rm -f '/usr/share/applications/links_-g_%u-links-2.desktop'
