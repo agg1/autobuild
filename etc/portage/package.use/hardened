@@ -69,6 +69,9 @@ dev-vcs/cvs server
 media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 -llvm classic gallium -vulkan -opencl vaapi -wayland -d3d9 -gallium-nine
 x11-libs/libdrm video_cards_radeon
 
+# opengl circular dependency libva -> opengl -> mesa -> libva
+#x11-libs/libva -opengl
+
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet nls
 net-mail/notmuch mutt -crypt
@@ -165,8 +168,12 @@ net-fs/samba client winbind -gpg
 # mplayer2 with hardware acceleration
 media-video/mpv -lua iconv -archive
 
+#
+media-video/dvdrip -mplayer
+
 # with gstreamer vlc doesn't find required video codecs
-media-video/vlc -libav -gstreamer ffmpeg
+# bidi requires freetype[harfbuzz]
+media-video/vlc -libav -gstreamer ffmpeg bidi
 # -x264 -x265 probably not required since ffmpeg should do it
 #media-video/libav ssl openssl libressl
 
