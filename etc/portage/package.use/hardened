@@ -24,7 +24,7 @@ net-vpn/ipsec-tools rc5 idea nat hybrid
 sys-fs/cryptsetup -python -gcrypt -openssl -nettle libressl -nls
 
 # 
-sys-fs/squashfs-tools -xattr lzx
+sys-fs/squashfs-tools xattr lzx
 
 # required by genkernel
 sys-apps/util-linux static-libs
