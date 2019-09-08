@@ -61,8 +61,8 @@ app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 
 #
-www-apps/ikiwiki extras test
-media-gfx/imagemagick perl
+#www-apps/ikiwiki extras test
+media-gfx/imagemagick perl hdri q32 jpeg svg tiff png
 dev-vcs/cvs server
 
 #
@@ -115,7 +115,7 @@ sys-apps/flashrom ch341a_spi
 net-analyzer/nmap ncat nping
 
 # otherwise dbus is required with gtk or qt
-net-p2p/transmission -gtk -ayatana -qt5
+net-p2p/transmission gtk -ayatana -qt5
 
 # 
 dev-python/spyder -webengine -webkit hdf5
