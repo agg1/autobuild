@@ -8,7 +8,7 @@ mkdir -p /var/log/audit
 mkdir -p /var/log/archive
 chmod 700 /var/log/audit
 chmod 700 /var/log/archive
-chmod 600 /etc/doas.conf
+chmod 640 /etc/doas.conf
 rm -f /etc/portage/finalize_target.sh
 rm -rf /etc/portage/rootfs
 rm -rf /etc/portage/package*
