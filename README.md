@@ -1,11 +1,10 @@
 0) create or update gpg signing key
 	- check autobuild.conf
-	- autobuild-genkey.sh
+	- check autobuild-genkey.sh
 1) create directories and manually prepare catalyst if required with initial build
+	- check autobuild.conf
 	- adapt MAKEFLAGS -jN --load-average N and genkernel.conf for parallel jobs according to nCPU present
 	  +50% with N=6 for 4 cores or N=16 for 12 cores
-	- adapt SWITCH_CTARGET according to target compiler
-	- adapt paths in autobuild.conf and spec files
 	- emerge -vb catalyst shc lzop
 2) ./autobuild-all.sh
 	- builds everything from scratch from an INITSTAGE stage3 tarball to be supplied
@@ -17,4 +16,3 @@
 	- build all virtual machine livecd ISOs
 4) ./autobuild-update.sh <LATEST-RELDA>
 	- updates all livecd flavors without building a fresh seed stage
-	- kernel build is updated with every flavor individually if new sources are available or kernel config changed
