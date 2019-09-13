@@ -25,3 +25,6 @@ dev-libs/elfutils
 
 # boost[nls]
 games-strategy/wesnoth
+
+#
+<www-client/firefox-4.0.0

@@ -277,6 +277,8 @@ dev-db/sqlite -tools
 
 #
 www-client/seamonkey -force-gtk3 -jemalloc
+#
+www-client/firefox -jemalloc -ipc alsa
 
 # phonon -> dbus
 net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit

@@ -136,6 +136,12 @@ sys-libs/compiler-rt-sanitizers
 >=dev-libs/boost-1.70.0
 >=dev-util/mdds-1.4.0
 
+# later are broken with seamonkey 2.49.9.1
+>=x11-plugins/enigmail-2.0.9
+
+#
+>=www-client/firefox-4.0.0
+
 # requires ocaml which is broken -> /bin/sh: shared-libs-not-available: command not found
 dev-tex/hevea
 
