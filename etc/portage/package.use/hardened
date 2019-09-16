@@ -51,6 +51,10 @@ sys-libs/libapparmor python perl
 #
 app-emulation/qemu -usb -usbredir -sdl -sdl2 -alsa -opengl -curl -spice vnc -vte ncurses usb fdt arm i386 x86_64 qemu_softmmu_targets_arm qemu_softmmu_targets_i386 qemu_softmmu_targets_x86_64 qemu_user_targets_arm qemu_user_targets_i386 qemu_user_targets_x86_64 vde smartcard -pin-upstream-blobs
 
+# tinfo use flag breaks python build which tries to dlopen() with tinfo use flag applied
+# dlopen fails with dvdrip/transcode too which tries to dlopen() encoder modules
+sys-libs/ncurses -tinfo
+
 # required by hwdb,eudev
 sys-apps/hwids udev
 sys-apps/pcsc-lite udev
