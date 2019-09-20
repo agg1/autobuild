@@ -88,6 +88,10 @@ mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic s
 net-mail/notmuch mutt -crypt
 dev-libs/gmime -smime
 
+# gnutls, required packges for uml minimal virtual machines, check possible ebuild patches to use libressl instead
+mail-mta/nullmailer -ssl
+net-mail/mailutils -ssl
+
 # dmx
 x11-base/xorg-server xorg -suid glamor xcsecurity
 
