@@ -12,8 +12,6 @@ app-accessibility/at-spi2-atk
 gnome-base/gvfs
 app-crypt/gcr
 # -> dev-lang/vala
-gnome-base/dconf
-#>=gnome-base/dconf-0.30.0
 app-editors/latexila
 
 # any version greater pulls in dbus
@@ -117,6 +115,9 @@ sys-libs/compiler-rt-sanitizers
 # required by anjuta, libressl
 >gnome-extra/libgda-5.2.4-r2
 >dev-util/anjuta-3.22.0
+
+# dbus
+>gnome-base/dconf-0.26.1
 
 # ssl linking error with subversion depending on serf and libressl, strange
 >net-libs/serf-1.3.8-r1

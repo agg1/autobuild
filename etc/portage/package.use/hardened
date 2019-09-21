@@ -68,6 +68,9 @@ app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde pdfimport -google -eds
 dev-libs/xmlsec nss
 
 #
+#app-text/calibre -udisks
+
+#
 app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X
 
@@ -189,8 +192,6 @@ media-video/dvdrip -mplayer
 # with gstreamer vlc doesn't find required video codecs
 # bidi requires freetype[harfbuzz]
 media-video/vlc -libav -gstreamer ffmpeg bidi
-# -x264 -x265 probably not required since ffmpeg should do it
-#media-video/libav ssl openssl libressl
 
 # configure: error: Basic auth helper NIS ... found but cannot be built
 #net-proxy/squid -nis
