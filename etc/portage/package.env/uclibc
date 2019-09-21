@@ -15,6 +15,7 @@ mail-client/mutt lintl.conf
 #net-analyzer/nagios-plugins-snmp lintl.conf
 games-strategy/widelands lintl.conf
 media-libs/libextractor liconv-lintl.conf
+media-video/mpv liconv-lintl.conf
 
 # use internal iconv of uclibc with locale support included
 # prefer external libiconv, comment otherwise those which require liconv
@@ -44,7 +45,7 @@ dev-python/PyQt5 liconv.conf
 media-video/handbrake liconv.conf
 dev-lang/python liconv.conf
 app-text/stardict liconv.conf
-media-video/mpv liconv-lintl.conf
+media-libs/libgphoto2 liconv.conf
 
 x11-wm/i3 liconv-noparallel.conf
 
