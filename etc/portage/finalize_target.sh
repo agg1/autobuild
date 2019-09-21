@@ -29,8 +29,7 @@ rm -f '/usr/share/applications/links_-g_%u-links-2.desktop'
 rm -f /usr/share/applications/org.octave.Octave.desktop
 rm -f /usr/share/applications/spyder-spyder.desktop
 rm -f /usr/share/applications/spyder.desktop
-# left-over from ipsvd
-#rm -rf /html
+rm -rf /html
 rm -f /var/db/pkg/dev-libs/lzx-*/environment.bz2
 rm -f /var/db/pkg/dev-libs/lzxp-*/environment.bz2
 
