@@ -2,7 +2,7 @@
 
 uname -a > /etc/BUILDHOST
 
-:>/etc/cron.d/sysstat
+echo "" >/etc/cron.d/sysstat || true
 
 find /usr/lib/ -name '*.pyc' -delete
 find /usr/lib/ -name '*.pyo' -delete
