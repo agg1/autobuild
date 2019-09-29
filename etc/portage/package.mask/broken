@@ -1,3 +1,7 @@
+>=sys-kernel/genkernel-3.6.0.0
+
+>=sys-fs/squashfs-tools-4.4
+
 # missing/compat.h:9:8: error: conflicting types for 'strlcpy'
 app-admin/entr
 
@@ -155,7 +159,7 @@ lxde-base/lxterminal
 >x11-apps/xinit-1.4.0
 
 # sshguard crashes when launched with init.d
->=app-admin/sshguard-2.4.0
+#>=app-admin/sshguard-2.4.0
 
 # later are broken with seamonkey 2.49.9.1
 >=x11-plugins/enigmail-2.0.9

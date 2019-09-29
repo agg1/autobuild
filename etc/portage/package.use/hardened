@@ -19,9 +19,7 @@ net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools nat hybrid
-#sys-fs/cryptsetup -python -openssl gcrypt -nls
-#-urandom -udev
-sys-fs/cryptsetup -python -gcrypt -openssl -nettle libressl -nls
+sys-fs/cryptsetup -python -gcrypt -nettle openssl libressl -nls
 
 #
 sys-power/suspend threads crypt lzo
