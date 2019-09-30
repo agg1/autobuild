@@ -2,6 +2,9 @@
 #-abi_x86_32
 #-multilib
 
+# applying tinfo use flag to ncurses breaks python build
+#tinfo
+
 # unmask nls for uclibc profile
 -nls
 

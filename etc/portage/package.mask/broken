@@ -2,6 +2,12 @@
 
 >=sys-fs/squashfs-tools-4.4
 
+# copy_stdin: O_TMPFILE undeclared (first use in this function)
+>=sys-apps/debianutils-4.9
+
+# python: symbol 'LINES': can't resolve symbol; renaming "_curses" since importing it failed: unknown dlopen() error
+#>=dev-lang/python-3.6.9
+
 # missing/compat.h:9:8: error: conflicting types for 'strlcpy'
 app-admin/entr
 
