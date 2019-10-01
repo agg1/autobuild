@@ -1,5 +1,6 @@
 #sporadically broken parallel build
 sys-fs/xfsprogs noparallel.conf
+sys-fs/xfsdump noparallel.conf
 app-admin/qtpass noparallel.conf
 app-arch/arj noparallel.conf
 app-text/xdvik noparallel.conf
