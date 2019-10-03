@@ -62,11 +62,10 @@ app-editors/vim -X -sound
 
 # gtk2 otherwise dconf,dbus etc. are pulled in
 app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde pdfimport -google -eds
-# required by app-office/libreoffice
-dev-libs/xmlsec nss
 
-#
-#app-text/calibre -udisks
+# required by app-office/libreoffice
+app-text/xmlto text
+dev-libs/xmlsec nss
 
 #
 app-text/ghostscript-gpl cups -gtk -X
@@ -81,9 +80,6 @@ dev-vcs/cvs server
 media-libs/mesa gles1 gles2 egl gbm vdpau xa dri3 -llvm classic gallium -vulkan -opencl vaapi -wayland -d3d9 -gallium-nine
 x11-libs/libdrm video_cards_radeon
 
-# opengl circular dependency libva -> opengl -> mesa -> libva
-#x11-libs/libva -opengl
-
 #
 mail-client/mutt -crypt -gpg -gpgme ssl smtp imap pop mbox sidebar pgp_classic smime smime_classic idn nntp hcache -berkdb gdbm -lmdb -qdbm -tokyocabinet nls
 net-mail/notmuch mutt -crypt
@@ -93,7 +89,7 @@ dev-libs/gmime -smime
 mail-mta/nullmailer -ssl
 net-mail/mailutils -ssl
 
-# dmx
+#
 x11-base/xorg-server xorg -suid glamor xcsecurity
 
 # automount requires dbus
@@ -108,18 +104,12 @@ net-wireless/aircrack-ng -airdrop-ng
 #
 net-analyzer/wireshark -ssl -gtk qt5 libssh tfshark tshark
 
-# required by net-analyzer/argus-clients
-#net-analyzer/rrdtool perl
-
 # required by media-video/vlc
 sys-libs/zlib minizip
 
 # python required by app-text/stardict
 # icu required by dev-qt/qtwebengine
 dev-libs/libxml2 python
-
-# required by app-office/libreoffice
-app-text/xmlto text
 
 # required by media-gfx/inkscape
 media-gfx/pstoedit plotutils
@@ -141,16 +131,10 @@ sci-libs/hdf5 cxx fortran hl -threads zlib -debug examples -mpi -static-libs -sz
 net-libs/zeromq drafts
 #
 dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
-# -webengine
+#
 dev-python/PyQt5 svg gui -webkit widgets printsupport opengl gles2 webchannel network ssl
 #
 dev-python/QtPy svg -webkit -webengine opengl gles2
-#
-#dev-qt/qtwebkit printsupport
-#
-#dev-qt/qtwebengine widgets
-#
-#dev-qt/qtwebchannel qml
 #
 media-libs/libvpx svc
 #
@@ -173,7 +157,6 @@ media-libs/gegl cairo
 # required by gimp, -ssl otherwise gnutls/nettle
 net-libs/glib-networking -ssl -smartcard
 net-libs/libsoup -ssl gssapi
-#x11-libs/gdk-pixbuf -introspection X -debug jpeg jpeg2k -test tiff
 
 #
 net-vpn/tor tor-hardening transparent-proxy seccomp
@@ -190,9 +173,6 @@ media-video/dvdrip -mplayer
 # with gstreamer vlc doesn't find required video codecs
 # bidi requires freetype[harfbuzz]
 media-video/vlc -libav -gstreamer ffmpeg bidi
-
-# configure: error: Basic auth helper NIS ... found but cannot be built
-#net-proxy/squid -nis
 
 # kerberos conflicts with ssl/libressl
 www-servers/lighttpd -minimal -kerberos
@@ -275,9 +255,6 @@ app-text/texlive xetex -luajittex
 app-text/texlive-core xetex -luajittex
 dev-texlive/texlive-basic xetex -luajittex
 # C99 complex arithmetics required, cpow
-
-# circular dependency
-#media-libs/freetype harfbuzz
 
 # tcl
 dev-db/sqlite -tools

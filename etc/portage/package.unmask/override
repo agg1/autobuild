@@ -28,3 +28,6 @@ games-strategy/wesnoth
 
 #
 <www-client/firefox-4.0.0
+
+# weird
+=www-client/seamonkey-2.49.9.1_p0
