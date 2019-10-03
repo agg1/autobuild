@@ -1,3 +1,6 @@
+# rosegarden build broken, suspected cmake caused it
+>=dev-util/cmake-3.15.0
+
 >=sys-kernel/genkernel-3.6.0.0
 
 >=sys-fs/squashfs-tools-4.4
