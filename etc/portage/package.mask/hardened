@@ -15,7 +15,7 @@ net-libs/mbedtls
 dev-libs/nettle
 net-libs/gnutls
 app-crypt/gpa
->app-crypt/gnupg-1.4.21
+>app-crypt/gnupg-1.4.23
 >app-crypt/gpgme-1.12.0
 # broken, missing -T option
 >=dev-util/shc-3.9.0

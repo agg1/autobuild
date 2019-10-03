@@ -24,8 +24,6 @@ x11-drivers/nvidia-drivers
 >net-libs/glib-networking-2.50.0
 # strangely pulls in openssl, probably bug in EAPI7 ebuild
 >=net-libs/libvncserver-0.9.12
-# undefined reference to `X509_OBJECT_new'
-#>=x11-misc/x11vnc-0.9.16
 
 #
 >net-irc/ircd-hybrid-7.3.1
@@ -121,11 +119,18 @@ sys-libs/compiler-rt-sanitizers
 #
 >app-office/libreoffice-6.1.5.2
 >app-office/libreoffice-l10n-6.1.5.2
->=dev-libs/boost-1.70.0
 >=dev-util/mdds-1.4.0
+>=dev-libs/libixion-0.14.0
+>=dev-libs/liborcus-0.14.0
+#>app-office/libreoffice-6.2.7.1
+#>app-office/libreoffice-l10n-6.2.7.1
+>=dev-libs/boost-1.70.0
 
 # later are broken with seamonkey 2.49.9.1
 >=x11-plugins/enigmail-2.0.9
+
+#
+<=www-client/seamonkey-2.49.5
 
 #
 >=www-client/firefox-4.0.0

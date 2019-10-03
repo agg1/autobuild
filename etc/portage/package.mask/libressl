@@ -5,5 +5,5 @@
 >=net-libs/serf-1.4.0
 
 >=net-mail/fetchmail-6.3.27
->=dev-qt/qtnetwork-5.12.5
+>dev-qt/qtnetwork-5.12.5
 >=sys-apps/kmod-27

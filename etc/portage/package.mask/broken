@@ -2,11 +2,17 @@
 
 >=sys-fs/squashfs-tools-4.4
 
+# since 5.1.0 xfsdump is broken otherwise
+>=sys-fs/xfsprogs-5.0.0
+
 # copy_stdin: O_TMPFILE undeclared (first use in this function)
 >=sys-apps/debianutils-4.9
 
-# python: symbol 'LINES': can't resolve symbol; renaming "_curses" since importing it failed: unknown dlopen() error
-#>=dev-lang/python-3.6.9
+#
+>=net-libs/zeromq-4.3.2
+
+# file collision /usr/include/X11/extensions/vldXvMC.h from xorg-proto
+>=x11-libs/libXvMC-1.0.12
 
 # missing/compat.h:9:8: error: conflicting types for 'strlcpy'
 app-admin/entr
@@ -88,9 +94,6 @@ net-analyzer/monitoring-plugins
 # -> lintl patch required
 net-analyzer/nagios-plugins-snmp
 
-# broken due to race condition, review
-#net-irc/irssi-otr
-
 # getrpcent.c:63:16: error: field 'rpc' has incomplete type
 net-libs/ntirpc
 
@@ -130,7 +133,7 @@ x11-misc/i3status
 # ../src/crypto/random.c GRND_NONBLOCK undefined
 >=net-wireless/wpa_supplicant-2.8
 
-# broken
+# NS_MAXMSG undeclared
 >=net-fs/nfs-utils-2.4.0
 
 # circular x11-libs/libfm-1.3.1:0 -> lxde-base/menu-cache-1.1.0 -> x11-libs/libfm-1.3.1
@@ -146,36 +149,24 @@ sys-libs/argp-standalone
 # error: tests/resources.c: No such file or directory
 >=x11-libs/gdk-pixbuf-2.38.0
 
-# makefile/build error, strange Makefile.in:253 but it seems sdlmm isn't required by anything
-#media-libs/sdlmm
-
 # ERROR: System library libtasn1 of version 3.8 not found, and bundling disabled
 >=net-fs/samba-4.10.0
 
 #/var/tmp/portage/app-doc/doxygen-1.8.15/temp/environment: line 3891: */*/*.pro.in: No such file or directory
 >=app-doc/doxygen-1.8.14-r2
-#>=app-doc/doxygen-1.8.15
 
 #broken icons
 >=lxde-base/lxpanel-0.10.0
-#
 lxde-base/lxterminal
 
 #
 >x11-apps/xinit-1.4.0
 
-# sshguard crashes when launched with init.d
-#>=app-admin/sshguard-2.4.0
-
-# later are broken with seamonkey 2.49.9.1
->=x11-plugins/enigmail-2.0.9
-
 #
 >dev-python/spyder-3.9.9
-=dev-python/spyder-4.0.0_beta1-r1
-=dev-python/spyder-4.0.0_beta1
-# broken button visuals
-<dev-python/PyQt5-5.12.2
+
+#
+#sci-mathematics/octave-5.0.0
 
 # requires cairo[opengl]
 media-gfx/fbida
@@ -185,6 +176,8 @@ net-ftp/filezilla
 
 # outdated, media-sound/mpv instead
 media-video/mplayer
+
+>games-strategy/warzone2100-3.2.3
 
 # later distfiles not available yet
 >=games-simulation/flightgear-2018.3.2
