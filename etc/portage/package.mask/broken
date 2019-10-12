@@ -1,6 +1,5 @@
 # musl coredumps
 >=sys-fs/lvm2-2.02.185
-#>sys-fs/lvm2-2.02.183
 
 # broken build
 >=net-irc/hexchat-2.13.0
@@ -24,21 +23,11 @@ net-analyzer/netperf
 >media-libs/mesa-19.1.4
 >=media-libs/openal-1.19.0
 >media-libs/libepoxy-1.5.0
->=media-libs/alsa-lib-1.1.7
->=media-sound/alsa-utils-1.1.7
->=media-plugins/alsa-plugins-1.1.7
 
 # system library libtasn1 of version 3.8 not found, and bundling disabled
-# musl
-#>net-fs/samba-4.9.6
 >net-fs/samba-4.10.0
 >=sys-libs/tevent-0.10.0
 >sys-libs/ldb-1.4.7
-## musl
-#>net-fs/samba-4.5.16
-#>=sys-libs/ldb-1.1.30
-## otherwise talloc conflict
-#>=sys-libs/tevent-0.9.32
 
 # copy_stdin: O_TMPFILE undeclared (first use in this function)
 >=sys-apps/debianutils-4.9

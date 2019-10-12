@@ -178,11 +178,6 @@ net-proxy/squid -nis
 
 # required by media-video/vlc
 net-fs/samba client winbind -gpg
-# introduced with blacklisting later samba compatible with musl overlay
-#sys-libs/ldb python
-#sys-libs/talloc python
-#sys-libs/tdb python
-#sys-libs/tevent python
 
 # mplayer2 with hardware acceleration
 media-video/mpv -lua -archive uchardet iconv
@@ -195,9 +190,6 @@ media-video/transcode -v4l
 media-video/vlc -libav -gstreamer ffmpeg bidi -zvbi -linsys
 media-video/ffmpeg -v4l -zvbi
 media-video/zvbi -v4l
-
-# alsa-plugins-1.16 broken with ffmpeg-4.x it seems
-media-plugins/alsa-plugins -ffmpeg
 
 # required by media-video/vlc
 sys-libs/zlib minizip
