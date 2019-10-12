@@ -2,8 +2,6 @@
 
 uname -a > /etc/BUILDHOST
 
-echo "" >/etc/cron.d/sysstat || true
-
 find /usr/lib/ -name '*.pyc' -delete
 find /usr/lib/ -name '*.pyo' -delete
 mkdir -p /var/log/audit
@@ -34,6 +32,11 @@ rm -f /usr/share/applications/spyder.desktop
 rm -rf /html
 rm -f /var/db/pkg/dev-libs/lzx-*/environment.bz2
 rm -f /var/db/pkg/dev-libs/lzxp-*/environment.bz2
+
+#[ -d /usr/lib64 ] && mv /usr/lib64 /usr/lib64.fix
+#[ ! -e /usr/lib64 ] && ln -sf /usr/lib /usr/lib64
+#[ ! -e /lib64 ] && ln -sf /lib /lib64
+[ -e /etc/cron.d/sysstat ] && echo "" >/etc/cron.d/sysstat || true
 
 echo /usr/lib/samba >> /etc/ld.so.conf
 echo /usr/lib/libreoffice/program >> /etc/ld.so.conf
