@@ -1,3 +1,5 @@
+>sys-apps/iproute2-5.2.0
+
 # specific xapian version required for ikiwiki to provide search functionality
 >dev-libs/xapian-1.2.24
 >dev-libs/xapian-bindings-1.2.24
@@ -27,6 +29,9 @@ x11-drivers/nvidia-drivers
 
 #
 >net-irc/ircd-hybrid-7.3.1
+
+# musl linking error
+>=net-irc/anope-2.0.0
 
 # removed lxsession which relies on dbus
 >lxde-base/lxde-meta-0.5.5-r6
@@ -117,13 +122,13 @@ sys-libs/compiler-rt-sanitizers
 >mail-mta/msmtp-1.7.0
 
 #
->app-office/libreoffice-6.1.5.2
->app-office/libreoffice-l10n-6.1.5.2
->=dev-util/mdds-1.4.0
->=dev-libs/libixion-0.14.0
->=dev-libs/liborcus-0.14.0
-#>app-office/libreoffice-6.2.7.1
-#>app-office/libreoffice-l10n-6.2.7.1
+#>app-office/libreoffice-6.1.5.2
+#>app-office/libreoffice-l10n-6.1.5.2
+#>=dev-util/mdds-1.4.0
+#>=dev-libs/libixion-0.14.0
+#>=dev-libs/liborcus-0.14.0
+>app-office/libreoffice-6.2.7.1
+>app-office/libreoffice-l10n-6.2.7.1
 >=dev-libs/boost-1.70.0
 
 # later are broken with seamonkey 2.49.9.1
@@ -143,6 +148,31 @@ app-editors/gvim
 
 # gtk-3.24 -> at-spi2-atk -> at-spi2-core -> dbus
 >=dev-cpp/gtkmm-3.0.0
+
+# libressl overlay
+>=net-wireless/aircrack-ng-1.3
+# ssl linking error with subversion depending on serf and libressl, strange
+>=net-libs/serf-1.4.0
+# libressl
+>=net-mail/fetchmail-6.3.27
+>dev-qt/qtnetwork-5.12.5
+>=sys-apps/kmod-27
+
+# musl
+>=sys-apps/tcp-wrappers-7.6.23
+
+# gnutls
+games-strategy/megaglest
+# mono
+games-strategy/openra
+# lua
+games-strategy/asc
+games-strategy/widelands
+games-fps/freespace-scp
+#games-util/wxLauncher
+
+# tk
+net-analyzer/netwag
 
 # masked script interpreters
 dev-lang/lua

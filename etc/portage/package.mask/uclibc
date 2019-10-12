@@ -1,9 +1,0 @@
-#
-sys-libs/glibc
-
-# memfrob patch, not required anymore once git[cvs] pulls in cvsps-3.x
->=dev-vcs/cvsps-2.2
-
-# undefined reference to `fcvt'
-# undefined reference to `ecvt'
-sys-apps/xinet

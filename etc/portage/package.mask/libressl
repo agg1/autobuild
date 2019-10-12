@@ -1,9 +1,0 @@
-# libressl overlay
->=net-wireless/aircrack-ng-1.3
-
-# ssl linking error with subversion depending on serf and libressl, strange
->=net-libs/serf-1.4.0
-
->=net-mail/fetchmail-6.3.27
->dev-qt/qtnetwork-5.12.5
->=sys-apps/kmod-27

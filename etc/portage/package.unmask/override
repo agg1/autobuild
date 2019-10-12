@@ -31,3 +31,6 @@ games-strategy/wesnoth
 
 # weird
 =www-client/seamonkey-2.49.9.1_p0
+=x11-wm/i3-4.13-r1
+
+#media-libs/sdlmm
