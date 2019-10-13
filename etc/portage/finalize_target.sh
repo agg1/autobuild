@@ -46,4 +46,7 @@ chgrp input /usr/bin/Xorg 2>/dev/null
 chmod u-s /usr/bin/Xorg 2>/dev/null
 chmod g+s /usr/bin/Xorg 2>/dev/null
 
+# remove weird agetty init scripts
+rm -f /etc/init.d/agetty.tty*
+
 true
