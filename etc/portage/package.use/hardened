@@ -1,5 +1,5 @@
 #
-#sys-apps/openrc prefix sysv-utils
+sys-apps/openrc -prefix -sysv-utils
 
 sys-fs/lvm2 -thin
 
