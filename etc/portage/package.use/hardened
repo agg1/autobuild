@@ -1,11 +1,7 @@
-# blocked rebuild
-dev-libs/elfutils -nls
-dev-libs/libelf -nls
-# error: 'locale_t' was not declared in this scope, required by libressl
-dev-libs/boost nls
-lxde-base/lxdm nls
-x11-wm/openbox nls
-dev-db/postgresql nls
+#
+#sys-apps/openrc prefix sysv-utils
+
+sys-fs/lvm2 -thin
 
 #
 sys-apps/shadow -cracklib
@@ -25,6 +21,15 @@ net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools nat hybrid
 sys-fs/cryptsetup -python -gcrypt -nettle openssl libressl -nls
+
+# blocked rebuild
+dev-libs/elfutils -nls
+dev-libs/libelf -nls
+# error: 'locale_t' was not declared in this scope, required by libressl
+dev-libs/boost nls
+lxde-base/lxdm nls
+x11-wm/openbox nls
+dev-db/postgresql nls
 
 #
 sys-power/suspend threads crypt lzo
