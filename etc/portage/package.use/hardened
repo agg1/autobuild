@@ -227,9 +227,6 @@ sys-block/gparted btffs cryptsetup dmraid f2fs fat jfs mdadm ntfs udf xfs -kde
 # ntfsdecrypt requires gnutls
 sys-fs/ntfs3g -ntfsdecrypt ntfsprogs -external-fuse
 
-# circular dependency qtcore -> cmake -> qt
-dev-util/cmake -qt5
-
 # openimageio build is broken with QT5/egl/gles
 media-gfx/blender -opencl -cycles -openimageio bullet dds elbeem elibc_uclibc ffmpeg game-engine jack jpeg2k openal openexr openmp sdl sndfile tiff
 # any-of ( l10n_en l10n_en-AU l10n_en-CA l10n_en-GB l10n_en-US l10n_en-ZA ) 
