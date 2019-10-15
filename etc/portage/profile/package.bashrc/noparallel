@@ -30,3 +30,4 @@ x11-libs/libX11 noparallel.conf
 sys-power/iasl noparallel.conf
 media-sound/ardour noparallel.conf
 net-fs/samba noparallel.conf
+www-apps/ikiwiki noparallel.conf
