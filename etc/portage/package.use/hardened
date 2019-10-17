@@ -10,8 +10,8 @@ sys-apps/shadow -cracklib
 sys-kernel/genkernel -firmware cryptsetup
 #
 sys-kernel/gentoo-sources -linux-firmware
-# gnupg2,gnutls etc.
-sys-apps/portage -rsync-verify
+#
+sys-apps/portage rsync-verify
 
 # required by sys-devel/gettext (argument)
 dev-lang/python xml
