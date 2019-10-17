@@ -1,6 +1,6 @@
 >=sys-devel/gcc-9.0.0
->=sys-kernel/linux-headers-5.1
->=sys-kernel/gentoo-sources-5.1
+>=sys-kernel/linux-headers-5.3
+>=sys-kernel/gentoo-sources-5.3
 sys-kernel/linux-firmware
 sys-apps/systemd
 sys-auth/consolekit
@@ -20,6 +20,6 @@ app-crypt/gpa
 # broken, missing -T option
 >=dev-util/shc-3.9.0
 # multiple definition of `minus_zero'; lib/libcoreutils.a
->=sys-apps/coreutils-8.31
+#>=sys-apps/coreutils-8.31
 # requires dev-libs/boost
 sys-block/thin-provisioning-tools
