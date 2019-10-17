@@ -41,11 +41,11 @@ net-analyzer/netperf
 # gcc: error: unrecognized command line option '-nopie'
 app-benchmarks/ramspeed
 #
-net-mail/notmuchfs
-#
 sys-fs/reiserfsprogs
 #
 app-admin/tmpwatch
+#
+net-mail/notmuchfs
 
 # wvstreams libressl/openssl issue
 net-dialup/wvdial
