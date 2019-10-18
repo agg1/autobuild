@@ -66,9 +66,8 @@ sys-apps/pcsc-lite udev
 # python threads
 app-editors/vim -X -sound
 
-# gtk2 otherwise dconf,dbus etc. are pulled in
-app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc kde pdfimport -google -eds
-
+# gtk2 otherwise dconf,dbus etc. are pulled in, kde dependency chain against dbus
+app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde pdfimport -google -eds
 # required by app-office/libreoffice
 app-text/xmlto text
 dev-libs/xmlsec nss
@@ -283,6 +282,9 @@ dev-db/sqlite -tools
 www-client/seamonkey -force-gtk3 -jemalloc
 #
 www-client/firefox -jemalloc -ipc -alsa -jack
+
+# conflicts with static-libs
+app-text/mupdf -opengl
 
 # phonon -> dbus
 net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit

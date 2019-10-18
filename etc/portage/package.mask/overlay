@@ -124,7 +124,6 @@ sys-libs/compiler-rt-sanitizers
 #
 >app-office/libreoffice-6.2.7.1
 >app-office/libreoffice-l10n-6.2.7.1
->=dev-libs/boost-1.70.0
 
 # later are broken with seamonkey 2.49.9.1
 >=x11-plugins/enigmail-2.0.9

@@ -19,7 +19,5 @@ app-crypt/gpa
 >app-crypt/gpgme-1.12.0
 # broken, missing -T option
 >=dev-util/shc-3.9.0
-# multiple definition of `minus_zero'; lib/libcoreutils.a
-#>=sys-apps/coreutils-8.31
 # requires dev-libs/boost
 sys-block/thin-provisioning-tools
