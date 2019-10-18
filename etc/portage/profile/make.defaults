@@ -11,7 +11,7 @@ ACCEPT_LICENSE="-* @FREE"
 #BOOT_CFLAGS="-Os -pipe -D_FORTIFY_SOURCE=1"
 #STAGE1_CFLAGS="-Os -pipe -D_FORTIFY_SOURCE=1"
 
-CFLAGS="-Os -pipe -fomit-frame-pointer -fstack-protector-strong -mmmx -mmmxext -msse -msse2 -msse3 "
+CFLAGS="-Os -pipe -fomit-frame-pointer -fstack-protector-strong -mmmx -msse -msse2 -msse3 "
 CXXFLAGS="${CFLAGS}"
 COMMON_CFLAGS="${CFLAGS}"
 BOOT_CFLAGS="${CFLAGS}"
@@ -23,7 +23,7 @@ STAGE1_CFLAGS="${CFLAGS}"
 #CHOST="x86_64-unknown-linux-uclibc"
 #CTARGET is prepended to /usr/bin/<>-lzxp if set
 #CTARGET="x86_64-unknown-linux-uclibc"
-CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 -3dnow"
+CPU_FLAGS_X86="mmx sse sse2 sse3 -3dnow"
 
 ABI="amd64"
 DEFAULT_ABI="amd64"
