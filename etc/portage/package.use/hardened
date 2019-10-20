@@ -22,6 +22,17 @@ dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools nat hybrid
 sys-fs/cryptsetup -python -gcrypt -nettle openssl libressl -nls
 
+# somehow magically set X use flag
+app-misc/mc -X -xdg
+sys-process/psmisc -X
+sys-apps/groff -X
+app-portage/cfg-update -X
+app-misc/cmatrix -X
+sys-fs/mtools -X
+
+# pulls in X dependencies with fax use flag
+#net-dialup/mgetty
+
 # blocked rebuild
 dev-libs/elfutils -nls
 dev-libs/libelf -nls
