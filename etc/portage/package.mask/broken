@@ -1,9 +1,6 @@
 # musl coredumps
 >=sys-fs/lvm2-2.02.185
 
-# broken build
->=net-irc/hexchat-2.13.0
-
 # rosegarden build broken, suspected cmake caused it
 >=dev-util/cmake-3.15.0
 
