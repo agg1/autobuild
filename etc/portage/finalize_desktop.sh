@@ -1,6 +1,8 @@
 #!/bin/sh
 
 source /etc/portage/finalize.sh
-# set make.conf USE flags
+
+echo								>>/etc/portage/make.conf
+echo "USE=\"${SPEC_USE_desktop}\""	>>/etc/portage/make.conf
 
 true
