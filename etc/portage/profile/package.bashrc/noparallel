@@ -18,6 +18,7 @@ net-dialup/diald noparallel.conf
 net-ftp/vsftpd noparallel.conf
 net-libs/h323plus noparallel.conf
 net-libs/libnet noparallel.conf
+net-libs/serf noparallel.conf
 sys-apps/pcmciautils noparallel.conf
 sys-devel/autogen noparallel.conf
 net-misc/ipsvd noparallel.conf
