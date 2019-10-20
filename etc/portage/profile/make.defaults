@@ -42,5 +42,8 @@ USE_ORDER="pkg:env:conf:defaults:pkginternal:repo:env.d"
 
 EMERGE_DEFAULT_OPTS="--verbose y --verbose-conflicts --verbose-slot-rebuilds y --binpkg-respect-use y --deep --complete-graph y --load-average 8.0 --jobs=64 --accept-properties=-interactive"
 
+BINPKG_COMPRESS="lzop"
+BINPKG_COMPRESS_FLAGS="-1"
+
 CONFIG_PROTECT="-*"
-COLLISION_IGNORE="/usr/share/vim/* /usr/libexec/cups/driver /usr/libexec/cups/driver/* /usr/bin/smfsh"
+#COLLISION_IGNORE="/usr/share/vim/*"
