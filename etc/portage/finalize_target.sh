@@ -20,7 +20,7 @@ rm -rf /etc/portage/initramfs
 rm -rf /etc/portage/rootfs
 rm -rf /etc/portage/package*
 rm -rf /etc/portage/patches
-rm -rf /etc/portage/profile
+#rm -rf /etc/portage/profile
 rm -f /etc/portage/genkernel.conf
 rm -f /etc/portage/catalyst*
 rm -f /etc/portage/kconfig*
