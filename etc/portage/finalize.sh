@@ -33,15 +33,6 @@ rm -rf /html
 rm -f /var/db/pkg/dev-libs/lzx-*/environment.bz2
 rm -f /var/db/pkg/dev-libs/lzxp-*/environment.bz2
 
-#[ -d /usr/lib64 ] && mv /usr/lib64 /usr/lib64.fix
-#[ ! -e /usr/lib64 ] && ln -sf /usr/lib /usr/lib64
-#[ ! -e /lib64 ] && ln -sf /lib /lib64
-[ -e /etc/cron.d/sysstat ] && echo "" >/etc/cron.d/sysstat || true
-
-#echo /usr/lib/samba >> /etc/ld.so.conf
-#echo /usr/lib/libreoffice/program >> /etc/ld.so.conf
-#/sbin/ldconfig
-
 chgrp input /usr/bin/Xorg 2>/dev/null
 chmod u-s /usr/bin/Xorg 2>/dev/null
 chmod g+s /usr/bin/Xorg 2>/dev/null
