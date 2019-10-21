@@ -48,4 +48,4 @@ BINPKG_COMPRESS="lzop"
 BINPKG_COMPRESS_FLAGS="-1"
 
 CONFIG_PROTECT="-*"
-COLLISION_IGNORE="/usr/bin/smfsh /usr/share/vim/*"
+COLLISION_IGNORE="/etc/lsb-release /usr/bin/smfsh /usr/share/vim/*"
