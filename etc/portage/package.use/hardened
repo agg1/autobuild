@@ -13,8 +13,8 @@ sys-kernel/gentoo-sources -linux-firmware
 #
 sys-apps/portage rsync-verify
 
-# required by sys-devel/gettext (argument)
-dev-lang/python xml
+# xml required by sys-devel/gettext (argument), sqlite causes unecessary rebuilds otherwise
+dev-lang/python xml sqlite
 
 net-misc/openssh -bindist -X
 net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl

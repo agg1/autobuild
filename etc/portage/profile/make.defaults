@@ -1,3 +1,5 @@
+LC_MESSAGES=C
+
 MAKEOPTS="-j8 -l8"
 
 PROFILE_IS_HARDENED=1
@@ -46,4 +48,4 @@ BINPKG_COMPRESS="lzop"
 BINPKG_COMPRESS_FLAGS="-1"
 
 CONFIG_PROTECT="-*"
-#COLLISION_IGNORE="/usr/share/vim/*"
+COLLISION_IGNORE="/usr/bin/smfsh /usr/share/vim/*"
