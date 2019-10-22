@@ -21,6 +21,7 @@ net-misc/curl -gnutls -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 dev-python/pycurl -curl_ssl_openssl -openssl libressl curl_ssl_libressl
 net-vpn/ipsec-tools nat hybrid
 sys-fs/cryptsetup -python -gcrypt -nettle openssl libressl -nls
+app-crypt/gnupg -usb -smartcard
 
 # somehow magically set X use flag
 app-misc/mc -X -xdg
