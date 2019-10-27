@@ -32,3 +32,7 @@ logstash-*
 electron-*
 rust-*
 rustc-*
+google-cloud-*
+go1.*
+go-linux-*
+go-*
