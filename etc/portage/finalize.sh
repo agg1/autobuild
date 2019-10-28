@@ -12,13 +12,13 @@ rm -f /var/log/emerge.log
 rm -f /var/log/genkernel.log
 rm -f /var/log/emerge-fetch.log
 chmod 640 /etc/doas.conf
-rm -f /etc/portage/finalize_target.sh
+rm -f /etc/portage/finalize.sh
 rm -rf /etc/portage/cscriptoverlay
 rm -rf /etc/portage/cdtar
-rm -rf /etc/portage/env
+#rm -rf /etc/portage/env
 rm -rf /etc/portage/initramfs
 rm -rf /etc/portage/rootfs
-rm -rf /etc/portage/package*
+#rm -rf /etc/portage/package*
 rm -rf /etc/portage/patches
 #rm -rf /etc/portage/profile
 rm -f /etc/portage/genkernel.conf
