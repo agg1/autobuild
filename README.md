@@ -12,7 +12,5 @@
 	- and all the livecd flavors
 	- recommended with toolchain updates (gcc, glibc, binutils etc.)
 	- a kernel stage build is recommended with kernel updates
-3) ./autobuild-all_vm.sh
-	- build all virtual machine livecd ISOs
-4) ./autobuild-update.sh <LATEST-RELDA>
-	- updates all livecd flavors without building a fresh seed stage
+3) ./autobuild-vm.sh or ./autobuild-uml.sh
+	- build all virtual machine livecd ISOs / UML virtual machines
