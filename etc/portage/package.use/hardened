@@ -212,6 +212,9 @@ media-video/zvbi -v4l
 # required by media-video/vlc
 sys-libs/zlib minizip
 
+# required by media-video/shotcut
+media-libs/mlt frei0r
+
 # kerberos conflicts with ssl/libressl
 www-servers/lighttpd -minimal -kerberos
 
