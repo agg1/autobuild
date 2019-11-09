@@ -1,6 +1,15 @@
 # musl coredumps
 >=sys-fs/lvm2-2.02.185
 
+# _SWORD_TYPE
+>=sys-fs/ecryptfs-utils-109
+
+# error: unknown type name 'pid_t'
+>=net-fs/autofs-5.1.6
+
+# libressl not found
+>=dev-db/mysql-connector-c-8.0.18
+
 # rosegarden build broken, suspected cmake caused it
 >=dev-util/cmake-3.15.0
 
@@ -17,12 +26,12 @@ net-analyzer/netperf
 >net-fs/nfs-utils-2.3.3
 >x11-misc/i3status-2.12
 >=x11-wm/i3-1.14
->media-libs/mesa-19.1.4
+>media-libs/mesa-19.2.2
 >=media-libs/openal-1.19.0
 >media-libs/libepoxy-1.5.0
 
 # system library libtasn1 of version 3.8 not found, and bundling disabled
->net-fs/samba-4.10.0
+>net-fs/samba-4.9.13
 >=sys-libs/tevent-0.10.0
 >sys-libs/ldb-1.4.7
 
@@ -32,8 +41,8 @@ net-analyzer/netperf
 #
 >=net-libs/zeromq-4.3.2
 
-# file collision /usr/include/X11/extensions/vldXvMC.h from xorg-proto
->=x11-libs/libXvMC-1.0.12
+# src/engine.c:244:17: error: storage size of 'status' isn't known
+>x11-misc/xautolock-2.2_p5_p1-r1
 
 # gcc: error: unrecognized command line option '-nopie'
 app-benchmarks/ramspeed

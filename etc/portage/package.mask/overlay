@@ -27,9 +27,6 @@ app-editors/latexila
 >gnome-extra/libgda-5.2.4-r2
 >dev-util/anjuta-3.22.0
 
-# any version greater pulls in dbus
->x11-misc/xdg-utils-1.1.1-r1
-
 #
 x11-drivers/nvidia-drivers
 
@@ -46,6 +43,9 @@ x11-drivers/nvidia-drivers
 
 # musl linking error
 >=net-irc/anope-2.0.0
+
+# gnutls
+>=net-misc/rdesktop-1.9.0
 
 # removed lxsession which relies on dbus
 >lxde-base/lxde-meta-0.5.5-r6
@@ -129,8 +129,8 @@ sys-libs/compiler-rt-sanitizers
 >mail-mta/msmtp-1.7.0
 
 #
->app-office/libreoffice-6.2.7.1
->app-office/libreoffice-l10n-6.2.7.1
+>app-office/libreoffice-6.2.8.2
+>app-office/libreoffice-l10n-6.2.8.2
 
 # later are broken with seamonkey 2.49.9.1
 >=x11-plugins/enigmail-2.0.9
@@ -156,8 +156,24 @@ app-editors/gvim
 >=net-libs/serf-1.4.0
 # libressl
 >=net-mail/fetchmail-6.3.27
->dev-qt/qtnetwork-5.12.5
 >=sys-apps/kmod-27
+
+# 5.13 is broken
+>=dev-qt/qtcore-5.13.0
+>=dev-qt/qtnetwork-5.13.0
+>=dev-qt/qtgui-5.13.0
+>=dev-qt/qtxml-5.13.0
+>=dev-qt/linguist-tools-5.13.0
+>=dev-qt/qtwidgets-5.13.0
+>=dev-qt/qtsvg-5.13.0
+>=dev-qt/qtprintsupport-5.13.0
+>=dev-qt/qtx11extras-5.13.0
+>=dev-qt/qtsql-5.13.0
+>=dev-qt/qtmultimedia-5.13.0
+>=dev-qt/qtconcurrent-5.13.0
+>=dev-qt/qttest-5.13.0
+>=dev-qt/qtscript-5.13.0
+>=dev-qt/qtxmlpatterns-5.13.0
 
 # musl
 >=sys-apps/tcp-wrappers-7.6.23

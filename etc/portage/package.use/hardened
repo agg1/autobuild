@@ -31,9 +31,6 @@ app-portage/cfg-update -X
 app-misc/cmatrix -X
 sys-fs/mtools -X
 
-# pulls in X dependencies with fax use flag
-#net-dialup/mgetty
-
 # blocked rebuild
 dev-libs/elfutils -nls
 dev-libs/libelf -nls
@@ -42,6 +39,9 @@ dev-libs/boost nls
 lxde-base/lxdm nls
 x11-wm/openbox nls
 dev-db/postgresql nls
+
+# required by elilo
+sys-fs/dosfstools compat
 
 #
 sys-power/suspend threads crypt lzo
@@ -132,7 +132,6 @@ net-wireless/aircrack-ng -airdrop-ng
 net-analyzer/wireshark -ssl -gtk qt5 libssh tfshark tshark
 
 # python required by app-text/stardict
-# icu required by dev-qt/qtwebengine
 dev-libs/libxml2 python
 
 # required by media-gfx/inkscape
@@ -172,6 +171,8 @@ dev-qt/qtwidgets -gtk gles2
 dev-qt/qtprintsupport gles
 # widgets required my kvirc[dcc_video]
 dev-qt/qtmultimedia gles2 widgets
+
+dev-qt/qtgui -libinput
 
 # otherwise liconv is not linked properly
 dev-qt/qtcore -icu
