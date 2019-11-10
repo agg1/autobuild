@@ -20,3 +20,4 @@ net-libs/gnutls
 >=dev-util/shc-3.9.0
 # requires dev-libs/boost
 sys-block/thin-provisioning-tools
+dev-libs/libinput
