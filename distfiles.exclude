@@ -21,6 +21,12 @@ openjdk-*
 jdk-*
 jre-*
 kibana-*
+ideaI*
+icedtea-*
+bootstrap-jdk*
+ant-*
+maven-*
+gradle-*
 mono-*
 monodevelop-*
 icedtea-*
@@ -28,6 +34,7 @@ NVIDIA-*
 elasticsearch-*
 grafana-bin-*
 julia-*
+scala-*
 logstash-*
 electron-*
 rust-*
