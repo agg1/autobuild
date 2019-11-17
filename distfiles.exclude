@@ -32,7 +32,7 @@ monodevelop-*
 icedtea-*
 NVIDIA-*
 elasticsearch-*
-grafana-bin-*
+grafana-*
 julia-*
 scala-*
 logstash-*
