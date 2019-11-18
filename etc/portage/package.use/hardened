@@ -84,6 +84,9 @@ app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde pdfimport -google -eds
 app-text/xmlto text
 dev-libs/xmlsec nss
 
+# wxGTK 2.8 requires outdated gstreamer 0.1
+x11-libs/wxGTK -gstreamer
+
 #
 app-text/ghostscript-gpl cups -gtk -X
 net-print/cups -X

@@ -27,6 +27,9 @@ app-editors/latexila
 >gnome-extra/libgda-5.2.4-r2
 >dev-util/anjuta-3.22.0
 
+# with wx 3.0 codeblocks symbol browser is broken
+>=dev-util/codeblocks-17.00
+
 #
 x11-drivers/nvidia-drivers
 
@@ -147,6 +150,8 @@ dev-tex/hevea
 #
 app-editors/gvim
 
+#
+>=media-gfx/inkscape-1.0_beta1
 # gtk-3.24 -> at-spi2-atk -> at-spi2-core -> dbus
 >=dev-cpp/gtkmm-3.0.0
 
@@ -159,20 +164,25 @@ app-editors/gvim
 >=sys-apps/kmod-27
 
 # 5.13 is broken
->=dev-qt/qtcore-5.13.0
->=dev-qt/qtnetwork-5.13.0
->=dev-qt/qtgui-5.13.0
->=dev-qt/qtxml-5.13.0
+>=dev-qt/designer-5.13.0
 >=dev-qt/linguist-tools-5.13.0
->=dev-qt/qtwidgets-5.13.0
->=dev-qt/qtsvg-5.13.0
->=dev-qt/qtprintsupport-5.13.0
->=dev-qt/qtx11extras-5.13.0
->=dev-qt/qtsql-5.13.0
->=dev-qt/qtmultimedia-5.13.0
 >=dev-qt/qtconcurrent-5.13.0
->=dev-qt/qttest-5.13.0
+>=dev-qt/qtcore-5.13.0
+>=dev-qt/qtdeclarative-5.13.0
+>=dev-qt/qtgui-5.13.0
+>=dev-qt/qthelp-5.13.0
+>=dev-qt/qtmultimedia-5.13.0
+>=dev-qt/qtnetwork-5.13.0
+>=dev-qt/qtopengl-5.13.0
+>=dev-qt/qtprintsupport-5.13.0
 >=dev-qt/qtscript-5.13.0
+>=dev-qt/qtsql-5.13.0
+>=dev-qt/qtsvg-5.13.0
+>=dev-qt/qttest-5.13.0
+>=dev-qt/qtwebchannel-5.13.0
+>=dev-qt/qtwidgets-5.13.0
+>=dev-qt/qtx11extras-5.13.0
+>=dev-qt/qtxml-5.13.0
 >=dev-qt/qtxmlpatterns-5.13.0
 
 # musl
