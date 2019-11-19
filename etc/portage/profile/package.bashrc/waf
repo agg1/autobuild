@@ -1,0 +1,12 @@
+sys-libs/talloc waf.conf
+sys-libs/tdb waf.conf
+sys-libs/tevent waf.conf
+sys-libs/ldb waf.conf
+net-fs/samba waf.conf
+media-video/mpv waf.conf
+dev-libs/serd waf.conf
+dev-libs/sord waf.conf
+media-libs/lv2 waf.conf
+media-libs/sratom waf.conf
+media-libs/lilv waf.conf
+media-libs/suil waf.conf
