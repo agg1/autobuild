@@ -44,7 +44,7 @@ USE="livecd -bindist -branding -debug -test -pam -systemd -sysv-utils -consoleki
 #priority decreases from left to right
 USE_ORDER="pkg:env:conf:defaults:pkginternal:repo:env.d"
 
-BINPKG_COMPRESS="lzop"
+BINPKG_COMPRESS="lzx"
 BINPKG_COMPRESS_FLAGS="-1"
 
 CONFIG_PROTECT="-*"
