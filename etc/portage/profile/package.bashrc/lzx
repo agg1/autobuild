@@ -1,2 +1,2 @@
-dev-libs/lzx lzx.conf
+app-arch/lzx lzx.conf
 sys-kernel/gentoo-sources lzx.conf
