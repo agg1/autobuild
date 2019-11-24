@@ -30,8 +30,9 @@ rm -f /usr/share/applications/org.octave.Octave.desktop
 rm -f /usr/share/applications/spyder-spyder.desktop
 rm -f /usr/share/applications/spyder.desktop
 rm -rf /html
-rm -f /var/db/pkg/dev-libs/lzx-*/environment.bz2
-rm -f /var/db/pkg/dev-libs/lzxp-*/environment.bz2
+#rm -f /var/db/pkg/dev-libs/lzx-*/environment.bz2
+#rm -f /var/db/pkg/dev-libs/lzxp-*/environment.bz2
+rm -f /var/db/pkg/app-arch/lzx-*/environment.bz2
 
 chgrp input /usr/bin/Xorg 2>/dev/null
 chmod u-s /usr/bin/Xorg 2>/dev/null
