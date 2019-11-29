@@ -126,7 +126,8 @@ sys-libs/compiler-rt-sanitizers
 >app-text/evince-3.24.2-r1
 
 # meet dependency slot 2, upgrade is a hazzle
->x11-libs/gtk+-3.22.30
+#>x11-libs/gtk+-3.22.30
+>x11-libs/gtk+-3.24.8
 
 # versions later than 1.6.8 pull in gnutls
 >mail-mta/msmtp-1.7.0
@@ -184,6 +185,8 @@ app-editors/gvim
 >=dev-qt/qtx11extras-5.13.0
 >=dev-qt/qtxml-5.13.0
 >=dev-qt/qtxmlpatterns-5.13.0
+>=dev-qt/qtquickcontrols-5.13.0
+>=dev-qt/qtgraphicaleffects-5.13.2
 
 # musl
 >=sys-apps/tcp-wrappers-7.6.23
@@ -195,8 +198,6 @@ games-strategy/openra
 # lua
 games-strategy/asc
 games-strategy/widelands
-games-fps/freespace-scp
-#games-util/wxLauncher
 
 # tk
 net-analyzer/netwag

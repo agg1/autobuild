@@ -84,6 +84,9 @@ app-office/libreoffice -gtk -gtk3 gtk2 -jemalloc -kde pdfimport -google -eds
 app-text/xmlto text
 dev-libs/xmlsec nss
 
+# required by libreswan
+dev-libs/nss utils
+
 # wxGTK 2.8 requires outdated gstreamer 0.1
 x11-libs/wxGTK -gstreamer
 
@@ -95,6 +98,10 @@ net-print/cups -X
 www-apps/ikiwiki -extras -test
 media-gfx/imagemagick perl hdri q32
 dev-vcs/cvs server
+
+#
+#media-gfx/fbida fbcon
+media-gfx/fim fbcon
 
 #
 x11-apps/xinit minimal
@@ -185,6 +192,9 @@ media-libs/gegl cairo
 # required by gimp, -ssl otherwise gnutls/nettle
 net-libs/glib-networking -ssl -smartcard
 net-libs/libsoup -ssl gssapi
+
+#
+sci-physics/geant raytracerx
 
 #
 net-vpn/tor tor-hardening transparent-proxy seccomp
@@ -282,7 +292,7 @@ games-fps/yamagi-quake2 client dedicated openal opengl softrender
 games-strategy/0ad editor lobby pch
 
 # undefined reference to `bindresvport'
-net-irc/irssi -socks5 perl python otr
+net-irc/irssi socks5 perl python otr
 
 #
 sci-mathematics/octave gui
@@ -299,8 +309,8 @@ dev-texlive/texlive-basic xetex -luajittex
 # tcl
 dev-db/sqlite -tools
 
-#
-www-client/seamonkey -force-gtk3 -jemalloc
+# crypt enigmail is broken
+www-client/seamonkey -force-gtk3 -jemalloc -crypt
 #
 www-client/firefox -jemalloc -ipc -alsa -jack
 
