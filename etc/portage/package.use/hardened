@@ -127,6 +127,15 @@ mail-mta/nullmailer -ssl
 net-mail/mailutils -ssl
 
 #
+mail-mta/msmtp -mta
+mail-mta/ssmtp -mta
+
+#mail-mta/opensmtpd
+
+# atm: undefined reference to `on_exit'
+net-dialup/ppp -atm
+
+#
 x11-base/xorg-server xorg -suid glamor xcsecurity
 
 # automount requires dbus
@@ -251,8 +260,8 @@ x11-libs/gtksourceview -vala -introspection
 # gtk and gtk3 cannot be set at the same time, ebuild quirk
 net-misc/dhcpcd-ui -gtk gtk3
 
-# hfs requires diskdev_cmds with openssl
-sys-block/gparted btffs cryptsetup dmraid f2fs fat jfs mdadm ntfs udf xfs -kde
+# hfs requires diskdev_cmds with openssl, xfs broken xfsdump
+sys-block/gparted btffs cryptsetup dmraid f2fs fat jfs mdadm ntfs udf -xfs -kde
 
 # ntfsdecrypt requires gnutls
 sys-fs/ntfs3g -ntfsdecrypt ntfsprogs -external-fuse

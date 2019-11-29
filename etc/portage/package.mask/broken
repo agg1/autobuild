@@ -151,3 +151,6 @@ media-video/mplayer
 
 #
 >games-strategy/warzone2100-3.2.3
+
+#
+>=net-print/gutenprint-5.3.0
