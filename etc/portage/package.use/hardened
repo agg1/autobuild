@@ -314,6 +314,9 @@ www-client/seamonkey -force-gtk3 -jemalloc -crypt
 #
 www-client/firefox -jemalloc -ipc -alsa -jack
 
+#
+mail-client/sylpheed crypt ipv6 ldap libressl nls oniguruma spell ssl xface
+
 # conflicts with static-libs
 app-text/mupdf -opengl
 
