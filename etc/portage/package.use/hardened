@@ -13,6 +13,9 @@ sys-kernel/gentoo-sources -linux-firmware
 #
 sys-apps/portage rsync-verify
 
+# nettle
+net-dns/dnsmasq -dnssec
+
 # xml required by sys-devel/gettext (argument), sqlite causes unecessary rebuilds otherwise
 dev-lang/python xml sqlite
 
@@ -129,11 +132,10 @@ net-mail/mailutils -ssl
 #
 mail-mta/msmtp -mta
 mail-mta/ssmtp -mta
-
-#mail-mta/opensmtpd
+mail-mta/opensmtpd mta
 
 # atm: undefined reference to `on_exit'
-net-dialup/ppp -atm
+net-dialup/ppp -atm eap-tls
 
 #
 x11-base/xorg-server xorg -suid glamor xcsecurity
