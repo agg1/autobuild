@@ -253,7 +253,7 @@ x11-libs/cairo gles2 -opengl
 net-libs/webkit-gtk -geolocation gles2 -opengl egl webgl
 
 # pulled in by geany/geany-plugins, crypt requires gnutls
-x11-libs/vte -crypt
+x11-libs/vte -crypt -introspection
 
 #
 dev-util/anjuta -introspection -packagekit terminal
