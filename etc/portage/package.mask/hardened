@@ -9,6 +9,7 @@ sys-libs/pam
 sys-auth/pambase
 sys-apps/dbus
 dev-qt/qtdbus
+dev-libs/dbus-tqt
 sys-fs/udev
 dev-libs/openssl
 net-libs/mbedtls

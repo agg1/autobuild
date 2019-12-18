@@ -1,24 +1,10 @@
-# musl coredumps
->=sys-fs/lvm2-2.02.185
-
-# _SWORD_TYPE
->=sys-fs/ecryptfs-utils-109
-
-# error: unknown type name 'pid_t'
->=net-fs/autofs-5.1.6
-
-# libressl not found
+# libressl
 >=dev-db/mysql-connector-c-8.0.18
 
 # rosegarden build broken, suspected cmake caused it
->=dev-util/cmake-3.15.0
-
-#
->=app-emulation/qemu-4.1.0
+#>=dev-util/cmake-3.15.0
 
 >=sys-kernel/genkernel-3.6.0.0
-
->=sys-fs/squashfs-tools-4.4
 
 # musl
 sys-apps/hwsetup
@@ -35,25 +21,19 @@ net-analyzer/netperf
 >=sys-libs/tevent-0.10.0
 >sys-libs/ldb-1.4.7
 
-# copy_stdin: O_TMPFILE undeclared (first use in this function)
->=sys-apps/debianutils-4.9
-
-#
->=net-libs/zeromq-4.3.2
-
 # src/engine.c:244:17: error: storage size of 'status' isn't known
 >x11-misc/xautolock-2.2_p5_p1-r1
 
-# gcc: error: unrecognized command line option '-nopie'
-app-benchmarks/ramspeed
-#
+# error: unknown type name 'comparison_fn_t'
 sys-fs/reiserfsprogs
-#
+
+# -lobstack missing
 app-admin/tmpwatch
-#
+
+# error: 'notmuch_query_search_messages_st' is deprecated: function deprecated as of libnotmuch 5.0
 net-mail/notmuchfs
 
-# wvstreams libressl/openssl issue
+# wvstreams broken
 net-dialup/wvdial
 
 # nonsense
@@ -64,11 +44,8 @@ media-sound/aumix
 # Testing the CC wrapper and instrumentation output... ../afl-clang-fast: No such file or directory
 app-forensics/afl
 
-# undefined reference to `_environ'
-app-forensics/ovaldi
-
 # configure: error: Can't find neither a definition of isinf nor ieeefp.h
-app-office/dia
+#app-office/dia
 
 # plugin error during vim startup
 app-vim/showmarks
@@ -90,9 +67,6 @@ net-libs/ntirpc
 # sed: can't read MCONFIG: No such file or directory
 net-misc/netkit-rsh
 
-# ffmpeg[openssl]
-net-misc/youtube-viewer
-
 # openssl
 sys-apps/ipmiutil
 
@@ -100,39 +74,18 @@ sys-apps/ipmiutil
 net-print/lprng
 
 # requires opencl/mesa
-#net-wireless/cpyrit-opencl
+net-wireless/cpyrit-opencl
 
 # deblob script fails with latest bash >4.x
 >=app-shells/bash-5.0
-
-# libb2-0.98.1 hash mismatch and ebuild downloading wrong tarball too
->app-crypt/libb2-0.98.0
-#
-# checking for blake2b_update in -lb2... no
->app-portage/portage-utils-0.79
-
-#net-dialup/lrzsz-0.12.20-r4 ERROR: Use of AM_GNU_GETTEXT without [external] argument is no longer supported
->sys-devel/gettext-0.19.8.1
-
-# ../src/crypto/random.c GRND_NONBLOCK undefined
->=net-wireless/wpa_supplicant-2.8
 
 # circular x11-libs/libfm-1.3.1:0 -> lxde-base/menu-cache-1.1.0 -> x11-libs/libfm-1.3.1
 >x11-misc/pcmanfm-1.2.5
 >x11-libs/libfm-1.2.5
 
-# error: tests/resources.c: No such file or directory
->=x11-libs/gdk-pixbuf-2.38.0
-
-#/var/tmp/portage/app-doc/doxygen-1.8.15/temp/environment: line 3891: */*/*.pro.in: No such file or directory
->=app-doc/doxygen-1.8.14-r2
-
 #broken icons
 >=lxde-base/lxpanel-0.10.0
 lxde-base/lxterminal
-
-#
->x11-apps/xinit-1.4.0
 
 #
 >dev-python/spyder-3.9.9
@@ -143,14 +96,11 @@ media-gfx/fbida
 # gnutls
 net-ftp/filezilla
 
-# textenums.h no such file
->=net-irc/hexchat-2.13.0
-
 # outdated, media-sound/mpv instead
 media-video/mplayer
 
 #
 >games-strategy/warzone2100-3.2.3
 
-#
+# check_duplicate_printers.c:37:14: error: assignment of read-only variable 'stdout'
 >=net-print/gutenprint-5.3.0
