@@ -1,2 +1,6 @@
 x11-wm/icewm permissive.conf
 dev-util/codeblocks permissive.conf
+dev-qt/qt permissive.conf
+trinity-base/kdelibs permissive.conf
+trinity-base/kwin permissive.conf
+trinity-base/kamera permissive.conf
