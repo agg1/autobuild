@@ -34,3 +34,7 @@ games-strategy/wesnoth
 =x11-wm/i3-4.13-r1
 
 #media-libs/sdlmm
+
+trinity-base/kdegraphics-meta
+trinity-base/kdvi
+trinity-base/kfax
