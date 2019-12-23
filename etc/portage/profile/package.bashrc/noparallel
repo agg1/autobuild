@@ -1,4 +1,3 @@
-#net-irc/hexchat noparallel.conf
 app-admin/qtpass noparallel.conf
 app-arch/arj noparallel.conf
 app-text/texlive-core noparallel.conf
@@ -6,6 +5,7 @@ app-text/xdvik noparallel.conf
 dev-lang/ocaml noparallel.conf
 dev-perl/Pango noparallel.conf
 dev-python/cython noparallel.conf
+dev-python/pandas noparallel.conf
 media-libs/gegl noparallel.conf
 media-libs/libjpeg-turbo noparallel.conf
 media-libs/libsvgtiny noparallel.conf
@@ -27,6 +27,7 @@ net-libs/h323plus noparallel.conf
 net-libs/libnet noparallel.conf
 net-libs/serf noparallel.conf
 net-misc/ipsvd noparallel.conf
+net-misc/rsync noparallel.conf
 sci-libs/scipy noparallel.conf
 sys-apps/pcmciautils noparallel.conf
 sys-devel/autogen noparallel.conf
@@ -36,3 +37,5 @@ sys-power/iasl noparallel.conf
 www-apps/ikiwiki noparallel.conf
 x11-libs/libX11 noparallel.conf
 x11-wm/i3 noparallel.conf
+=dev-qt/qt-3.3.8d-r1 noparallel.conf
+trinity-base/kicker noparallel.conf

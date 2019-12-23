@@ -12,6 +12,9 @@ net-libs/libeXosip
 # All this packages are broken and need major version bumps to fix them. See
 # bug #504114, #486510, #510550, #511096, #517260, #551784, #616490, #
 net-voip/linphone
+# Bugs aren't being fixed: #497412, #509334, #511794, #651010, #654484, #701022
+media-libs/mediastreamer
+media-plugins/mediastreamer-x264
 
 # All this packages are broken and need major version bumps to fix them. See
 # bug #504114, #486510, #510550, #511096, #517260, #551784, #616490, #

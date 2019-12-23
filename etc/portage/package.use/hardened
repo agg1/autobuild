@@ -1,7 +1,11 @@
 #
 sys-apps/openrc -prefix -sysv-utils
 
+#
 sys-fs/lvm2 -thin
+
+#
+sys-block/fio libressl curl
 
 #
 sys-apps/shadow -cracklib
@@ -105,6 +109,9 @@ dev-vcs/cvs server
 #
 #media-gfx/fbida fbcon
 media-gfx/fim fbcon
+
+# undefined reference to `lzma_code' libtiff.a
+media-gfx/povray -tiff
 
 #
 x11-apps/xinit minimal
@@ -333,3 +340,8 @@ app-text/mupdf -opengl
 
 # phonon -> dbus
 net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit
+
+# http/s cups build broken
+trinity-base/kdelibs -cups
+# poppler linking problem
+trinity-base/kdegraphics-kfile-plugins -pdf
