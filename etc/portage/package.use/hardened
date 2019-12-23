@@ -309,8 +309,8 @@ games-fps/yamagi-quake2 client dedicated openal opengl softrender
 # nvtt breaks
 games-strategy/0ad editor lobby pch
 
-# undefined reference to `bindresvport'
-net-irc/irssi socks5 perl python otr
+# 
+net-irc/irssi -socks5 perl python otr
 
 #
 sci-mathematics/octave gui
