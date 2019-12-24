@@ -171,6 +171,9 @@ sys-apps/flashrom ch341a_spi
 #
 net-analyzer/nmap ncat nping
 
+#
+app-admin/testdisk -qt5
+
 # otherwise dbus is required with gtk or qt
 net-p2p/transmission gtk -ayatana -qt5
 
@@ -342,6 +345,6 @@ app-text/mupdf -opengl
 net-irc/kvirc -audiofile -phonon dcc_video gsm -webkit
 
 # http/s cups build broken
-trinity-base/kdelibs -cups
+trinity-base/kdelibs cups alsa jpeg2k libressl lzma spell tiff
 # poppler linking problem
 trinity-base/kdegraphics-kfile-plugins -pdf
