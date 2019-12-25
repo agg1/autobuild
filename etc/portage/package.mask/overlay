@@ -108,7 +108,7 @@ sys-libs/compiler-rt-sanitizers
 >=app-text/qpdf-9.1.0
 
 #
->x11-libs/gtk+-3.24.8
+>x11-libs/gtk+-3.22.30
 
 # versions later than 1.6.8 pull in gnutls
 >mail-mta/msmtp-1.7.0
