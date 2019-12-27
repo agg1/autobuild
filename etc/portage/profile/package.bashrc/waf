@@ -10,3 +10,4 @@ media-libs/lv2 waf.conf
 media-libs/sratom waf.conf
 media-libs/lilv waf.conf
 media-libs/suil waf.conf
+media-sound/ardour waf.conf

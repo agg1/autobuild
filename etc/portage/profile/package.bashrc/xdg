@@ -1,1 +1,3 @@
 x11-libs/gtk+ xdg.conf
+gnome-extra/libgda xdg.conf
+sci-mathematics/octave xdg.conf
